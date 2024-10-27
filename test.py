@@ -16,7 +16,8 @@ logging.basicConfig(filename='path_planning_log.txt', level=logging.DEBUG,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Load the mesh
-scene = trimesh.load('/app/test_cube.obj')
+scene = trimesh.load('/app/stonehenge.obj')
+# scene = trimesh.load('/app/test_cube.obj')
 
 # If the loaded object is a Scene, extract the first mesh
 if isinstance(scene, trimesh.Scene):
@@ -24,12 +25,17 @@ if isinstance(scene, trimesh.Scene):
 else:
     mesh = scene
 
+angle = np.pi / 2  # 90 degrees
+rotation_axis = [1, 0, 0]  # x-axis
+rotation_matrix = trimesh.transformations.rotation_matrix(angle, rotation_axis)
+mesh.apply_transform(rotation_matrix)
+
 # Function to check if a point is in collision with the mesh
 def is_in_collision(state):
     point = np.array([state[0], state[1], state[2]])  # Extract coordinates from state
     inside = mesh.contains(point[None, :])  # Reshape to (1, 3) for contains
     logging.debug(f"Checking collision for point {point}: {'inside' if inside else 'outside'}")
-    return not inside  # Return true if the point is outside the mesh
+    return inside
 
 # Define a state validity checker
 class StateValidityChecker(ob.StateValidityChecker):
@@ -43,8 +49,8 @@ class StateValidityChecker(ob.StateValidityChecker):
 def plan_path(start, goal):
     space = ob.RealVectorStateSpace(3)  # 3D space
     bounds = ob.RealVectorBounds(3)
-    bounds.setLow(-4)  # Set lower bounds to cover the mesh
-    bounds.setHigh(4)  # Set upper bounds to cover the mesh
+    bounds.setLow(-2.0)  # Set lower bounds to cover the mesh
+    bounds.setHigh(2.0)  # Set upper bounds to cover the mesh
     space.setBounds(bounds)
 
     si = ob.SpaceInformation(space)
@@ -63,12 +69,15 @@ def plan_path(start, goal):
     goal_state[2] = float(goal[2])
 
     logging.info(f"Start state: {start_state}, Goal state: {goal_state}")
-    logging.info("Mesh bounding box: %s", mesh.bounds)
+    print("Start state: ", start_state, "Goal state: ", goal_state)
 
     logging.info("Validating start state...")
     if is_in_collision(start_state):
         logging.warning(f"Start state {start_state} is in collision!")
-        return None
+        print("Start state is in collision")
+    
+    if is_in_collision(goal_state):
+        print("Goal state is in collision")
 
     pdef = ob.ProblemDefinition(si)
     pdef.setStartAndGoalStates(start_state, goal_state)
@@ -78,16 +87,19 @@ def plan_path(start, goal):
     planner.setup()
 
     logging.info("Attempting to solve the problem...")
+    print("Attempting to solve the problem...")
     if planner.solve(1.0):  # 1.0 seconds to find a solution
         logging.info("Found a solution!")
+        print("Found a solution!")
         path = pdef.getSolutionPath()
         return path
     else:
         logging.error("No solution found.")
+        print("No solution found.")
         return None
 
 # Visualization function for the path and mesh
-def visualize(mesh, path):
+def visualize_o3d(mesh, path):
     # Convert the trimesh mesh to Open3D mesh
     vertices = np.array(mesh.vertices)
     triangles = np.array(mesh.faces)
@@ -122,19 +134,55 @@ def visualize(mesh, path):
 
     # Set the camera view
     ctr = vis.get_view_control()
-    ctr.set_front([0, 0, -1])
+    ctr.set_front([0, 0, 1])
     ctr.set_lookat([0, 0, 0])
     ctr.set_up([0, 1, 0])
     ctr.set_zoom(0.5)
+
+    vis.get_render_option().mesh_show_back_face = True
 
     # Run the visualizer
     vis.run()
     vis.destroy_window()
 
+def visualize_mpl(mesh, path):
+    # Create a new figure for 3D plotting
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection='3d')
+
+    # Plot the path first to ensure it is clearly visible
+    if path:
+        states = path.getStates()
+        path_points = np.array([[state[0], state[1], state[2]] for state in states])
+        ax.plot(path_points[:, 0], path_points[:, 1], path_points[:, 2], color='red', linewidth=2, label='Path')
+
+    # Plot the mesh using plot_trisurf
+    mesh_faces = mesh.faces
+    mesh_vertices = mesh.vertices
+
+    # Create a 3D surface plot for the mesh
+    ax.plot_trisurf(mesh_vertices[:, 0], mesh_vertices[:, 1], mesh_vertices[:, 2], 
+                    triangles=mesh_faces, color='cyan', alpha=0.3, edgecolor='black')  # Reduced transparency
+
+    # Setting the axes limits based on the mesh bounds
+    ax.set_xlim(mesh.bounds[0][0], mesh.bounds[1][0])
+    ax.set_ylim(mesh.bounds[0][1], mesh.bounds[1][1])
+    ax.set_zlim(mesh.bounds[0][2], mesh.bounds[1][2])
+    
+    ax.set_xlabel('X')
+    ax.set_ylabel('Y')
+    ax.set_zlabel('Z')
+    ax.set_title('Path Planning Visualization')
+    ax.legend()
+
+    # Save the figure instead of showing it
+    plt.savefig('/app/path_visualization.png')
+    plt.close(fig)  # Close the figure to free memory
+
 if __name__ == "__main__":
     # Define start and end coordinates
-    start_coordinates = [0.5, 0.5, 0.0]  # Example start point
-    end_coordinates = [-0.5, -0.5, 2.5]    # Example end point (ensure it's also valid)
+    start_coordinates = [0.28, -1.10, 0.08]  # Example start point
+    end_coordinates = [-1.10, 0.42, 0.08]    # Example end point (ensure it's also valid)
 
     # Perform path planning
     path = plan_path(start_coordinates, end_coordinates)
@@ -145,4 +193,7 @@ if __name__ == "__main__":
         logging.info(path)
 
         # Visualize the mesh and the path
-        visualize(mesh, path)
+        visualize_o3d(mesh, path)
+        visualize_mpl(mesh, path)
+    else:
+        print("no path found")
