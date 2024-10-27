@@ -13,7 +13,7 @@ import open3d as o3d
 
 # Configure logging to write to a .txt file
 logging.basicConfig(filename='path_planning_log.txt', level=logging.DEBUG,
-                    format='%(asctime)s - %(levelname)s - %(message)s')
+                    format='%(asctime)s - %(levelname)s - %(message)s', filemode='w')
 
 # Load the mesh
 scene = trimesh.load('/app/stonehenge.obj')
