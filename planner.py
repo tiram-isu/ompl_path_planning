@@ -17,10 +17,10 @@ class PathPlanner:
         self.si.setStateValidityCheckingResolution(state_validity_resolution)
         self.planner = og.RRT(self.si)
         self.planner.setRange(range)
-        
+
         # Initialize the validity checker
         self.validity_checker = StateValidityChecker(self.si, self.mesh, self.ellipsoid_dimensions)
-        
+
     def setup_bounds(self):
         bounds = ob.RealVectorBounds(3)
 
@@ -35,7 +35,9 @@ class PathPlanner:
         self.space.setBounds(bounds)
         logging.info(f"Bounds set with padding of {self.bounds_padding}: {bounds}")
 
-    def plan_path(self, start, goal):
+    def plan_multiple_paths(self, start, goal, num_paths=5):
+        all_paths = []
+
         # Ensure the validity checker respects bounds
         self.si.setStateValidityChecker(self.validity_checker)
 
@@ -47,23 +49,43 @@ class PathPlanner:
         logging.info(f"Start state: {start}, Goal state: {goal}")
 
         # Check that both start and goal are valid and within bounds
-        if self.is_within_bounds(start) and self.is_within_bounds(goal) and \
-           self.validity_checker.isValid(start_state) and self.validity_checker.isValid(goal_state):
+        if not (self.is_within_bounds(start) and self.is_within_bounds(goal) and
+                self.validity_checker.isValid(start_state) and self.validity_checker.isValid(goal_state)):
+            logging.warning("Start or Goal state is invalid or out of bounds!")
+            return None
+
+        # Loop until we find the desired number of unique paths
+        while len(all_paths) < num_paths:
+            # Clear and reset the planner before each planning attempt
+            self.planner.clear()
+
+            # Set up a new problem definition for each path attempt
             pdef = ob.ProblemDefinition(self.si)
             pdef.setStartAndGoalStates(start_state, goal_state)
-
             self.planner.setProblemDefinition(pdef)
-            self.planner.setup()
+            self.planner.setup()  # Ensures clean setup for each path
 
             logging.info("Attempting to solve the problem...")
-            if self.planner.solve(1.0):  # 1.0 seconds to find a solution
+
+            if self.planner.solve(5.0):  # 5.0 seconds to find a solution
                 logging.info("Found a solution!")
-                return pdef.getSolutionPath()
+                path = pdef.getSolutionPath()
+
+                # Check for uniqueness and bounding box constraint before adding the path
+                if path and path not in all_paths:
+                    all_paths.append(path)
+                    logging.info(f"Path {len(all_paths)} added.")
             else:
-                logging.error("No solution found.")
-                return None
+                logging.error("No solution found for this attempt.")
+
+        return all_paths
+
+    def plan_path(self, pdef):
+        if self.planner.solve(5.0):  # 5.0 seconds to find a solution
+            logging.info("Found a solution!")
+            return pdef.getSolutionPath()
         else:
-            logging.warning("Start or Goal state is invalid or out of bounds!")
+            logging.error("No solution found.")
             return None
 
     def create_state(self, coordinates):

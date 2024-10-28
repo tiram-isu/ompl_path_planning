@@ -32,7 +32,7 @@ class CollisionDetector:
         ellipsoid = fcl.Ellipsoid(*self.ellipsoid_dimensions)
         ellipsoid_collision_object = fcl.CollisionObject(ellipsoid, fcl.Transform())
 
-        return ellipsoid_collision_object, mesh_collision_object
+        return ellipsoid_collision_object,  mesh_collision_object
 
     def is_contained(self, position):
         self.ellipsoid_collision_object.setTranslation(position)
