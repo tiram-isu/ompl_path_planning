@@ -1,5 +1,6 @@
 import trimesh
 import numpy as np
+import open3d as o3d
 
 def load_mesh(file_path):
     scene = trimesh.load(file_path)

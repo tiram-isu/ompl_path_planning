@@ -1,11 +1,13 @@
 import numpy as np
 import logging
+import open3d as o3d  # Import Open3D
 from ompl import base as ob
 from ompl import geometric as og
 from collision_detection import StateValidityChecker
 
 class PathPlanner:
     def __init__(self, mesh, ellipsoid_dimensions, planner_type="RRT", range=0.1, state_validity_resolution=0.001, bounds_padding=0.01):
+        # Load mesh using Open3D
         self.mesh = mesh
         self.ellipsoid_dimensions = ellipsoid_dimensions
         self.space = ob.RealVectorStateSpace(3)  # 3D space
@@ -17,17 +19,21 @@ class PathPlanner:
         self.si.setStateValidityCheckingResolution(state_validity_resolution)
 
         # Initialize the validity checker
+        print("initializing validity checker")
         self.validity_checker = StateValidityChecker(self.si, self.mesh, self.ellipsoid_dimensions)
 
         # Set the planner type dynamically
+        print("initializing planner")
         self.planner = self.initialize_planner(planner_type, range)
 
     def setup_bounds(self):
         bounds = ob.RealVectorBounds(3)
 
-        # Extract mesh bounds from the Trimesh object
-        min_bounds, max_bounds = self.mesh.bounds  # Returns (min point, max point) of bounding box
+        # Extract mesh bounds from the Open3D mesh
+        min_bounds = self.mesh.get_min_bound()  # Returns the minimum point of bounding box
+        max_bounds = self.mesh.get_max_bound()  # Returns the maximum point of bounding box
 
+        print("min_bounds:", min_bounds, "max_bounds:", max_bounds)
         # Add padding to avoid boundary sampling issues
         for i in range(3):  # For x, y, z axes
             bounds.setLow(i, min_bounds[i] - self.bounds_padding)
@@ -59,6 +65,7 @@ class PathPlanner:
         return planner
 
     def plan_multiple_paths(self, start, goal, num_paths=5):
+        print("planning multiple paths")
         all_paths = []
 
         # Ensure the validity checker respects bounds
