@@ -4,19 +4,28 @@ import numpy as np
 from planner import PathPlanner
 from visualization import Visualizer
 import open3d as o3d
+from ompl import geometric as og
 
 
 if __name__ == "__main__":
-    model_name = "stonehenge"
-    # available planners: "RRT", "RRTstar", "PRM", "PRMstar", "LazyPRM", "LazyPRMstar", "SBL", "EST", "KPIECE1", "BKPIECE1"
-    planner = "RRT"
+    # available planners: 
+    # ['ABITstar', 'AITstar', 'BFMT', 'BITstar', 'BKPIECE1', 'BiEST', 'ConnectionFilter', 'ConnectionFilter_t', 'EST', 'FMT', 
+    # 'InformedRRTstar', 'KPIECE1', 'KStarStrategy', 'KStrategy', 'LBKPIECE1', 'LBTRRT', 'LazyLBTRRT', 'LazyPRM', 'LazyPRMstar', 'LazyRRT', 
+    # 'NearestNeighbors', 'NearestNeighborsLinear', 'NumNeighborsFn', 'NumNeighborsFn_t', 'PDST', 'PRM', 'PRMstar', 'PathGeometric', 'PathHybridization', 
+    # 'PathSimplifier', 'ProjEST', 'RRT', 'RRTConnect', 'RRTXstatic', 'RRTsharp', 'RRTstar', 'SBL', 'SORRTstar', 'SPARS', 'SPARStwo', 'SST', 'STRIDE', 
+    # 'SimpleSetup', 'TRRT', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__path__', '__spec__', 
+    # '_geometric', 'base', 'dummyConnectionStrategy', 'dummyFn', 'planners', 'set_less_ompl_scope_geometric_scope_BFMT_scope_BiDirMotion__ptr__greater_', 
+    # 'set_less_unsigned_long_greater_', 'vector_less_ompl_scope_geometric_scope_BFMT_scope_BiDirMotion__ptr__greater_', 
+    # 'vector_less_ompl_scope_geometric_scope_aitstar_scope_Edge_greater_']
 
-    # Configure logging to write to a .txt file
-    # output_path = f"/app/output/{model_name}/{planner}"
-    output_path = "/app/output/test"
+    planner = "RRT"
+    model_name = "stonehenge"
+
+    # Create output directory
+    output_path = f"/app/output/{model_name}/{planner}"
     os.makedirs(output_path, exist_ok=True)
-    # os.chmod(output_path, 0o775)
-    logging.basicConfig(filename=f"/app/output/{model_name}/{planner}/log.txt", level=logging.DEBUG,
+
+    logging.basicConfig(filename=f"{output_path}/log.txt", level=logging.DEBUG,
                     format='%(asctime)s - %(levelname)s - %(message)s', filemode='w')
 
     mesh = o3d.io.read_triangle_mesh(f"/app/meshes/{model_name}.fbx")
@@ -24,7 +33,7 @@ if __name__ == "__main__":
 
     path_planner = PathPlanner(mesh, ellipsoid_dimensions=(0.025, 0.025, 0.04), planner_type=planner, range=0.1, state_validity_resolution=0.01)
     state_validity_checker = path_planner.return_state_validity_checker()
-    visualizer = Visualizer(mesh, f"/app/output/{model_name}/{planner}/")
+    visualizer = Visualizer(mesh, f"{output_path}/")
 
     # Define start and goal
     start = np.array([-1.10, 0.42, 0.08])

@@ -1,5 +1,6 @@
 import numpy as np
 import logging
+import time  # Import time to measure elapsed time
 import open3d as o3d  # Import Open3D
 from ompl import base as ob
 from ompl import geometric as og
@@ -19,11 +20,9 @@ class PathPlanner:
         self.si.setStateValidityCheckingResolution(state_validity_resolution)
 
         # Initialize the validity checker
-        print("initializing validity checker")
         self.validity_checker = StateValidityChecker(self.si, self.mesh, self.ellipsoid_dimensions)
 
         # Set the planner type dynamically
-        print("initializing planner")
         self.planner = self.initialize_planner(planner_type, range)
 
     def setup_bounds(self):
@@ -33,14 +32,13 @@ class PathPlanner:
         min_bounds = self.mesh.get_min_bound()  # Returns the minimum point of bounding box
         max_bounds = self.mesh.get_max_bound()  # Returns the maximum point of bounding box
 
-        print("min_bounds:", min_bounds, "max_bounds:", max_bounds)
         # Add padding to avoid boundary sampling issues
         for i in range(3):  # For x, y, z axes
             bounds.setLow(i, min_bounds[i] - self.bounds_padding)
             bounds.setHigh(i, max_bounds[i] + self.bounds_padding)
 
         self.space.setBounds(bounds)
-        logging.info(f"Bounds set with padding of {self.bounds_padding}: {bounds}")
+        logging.info(f"Bounds set with padding of {self.bounds_padding}")
 
     def initialize_planner(self, planner_type, range):
         """
@@ -65,7 +63,6 @@ class PathPlanner:
         return planner
 
     def plan_multiple_paths(self, start, goal, num_paths=5):
-        print("planning multiple paths")
         all_paths = []
 
         # Ensure the validity checker respects bounds
@@ -80,9 +77,11 @@ class PathPlanner:
 
         # Check that both start and goal are valid and within bounds
         if not (self.is_within_bounds(start) and self.is_within_bounds(goal) and
-                self.validity_checker.isValid(start_state) and self.validity_checker.isValid(goal_state)):
+                self.validity_checker.isValid(start_state, check_containment=True) and self.validity_checker.isValid(goal_state, check_containment=True)):
             logging.warning("Start or Goal state is invalid or out of bounds!")
             return None
+
+        total_start_time = time.time()  # Start timing total planning duration
 
         # Loop until we find the desired number of unique paths
         while len(all_paths) < num_paths:
@@ -95,21 +94,51 @@ class PathPlanner:
             self.planner.setProblemDefinition(pdef)
             self.planner.setup()  # Ensures clean setup for each path
 
-            logging.info("Attempting to solve the problem...")
-
+            path_start_time = time.time()  # Start timing for this path
             if self.planner.solve(5.0):  # 5.0 seconds to find a solution
-                logging.info("Found a solution!")
                 path = pdef.getSolutionPath()
 
                 # Check for uniqueness and bounding box constraint before adding the path
                 if path and path not in all_paths:
                     smoothed_path = self.smooth_path(path)  # Smooth the path
                     all_paths.append(smoothed_path)
-                    logging.info(f"Path {len(all_paths)} added.")
+
+                    path_length = self.calculate_path_length(smoothed_path)
+                    path_duration = time.time() - path_start_time
+
+                    logging.info(f"Path {len(all_paths)} added. Length: {path_length:.2f} units. Duration: {path_duration:.2f} seconds.")
             else:
                 logging.error("No solution found for this attempt.")
 
+        total_duration = time.time() - total_start_time  # Calculate total duration
+        logging.info(f"All paths planning completed. Total duration: {total_duration:.2f} seconds.")
+
+        # Calculate and log average path length, shortest and longest path lengths if paths were found
+        if all_paths:
+            path_lengths = [self.calculate_path_length(path) for path in all_paths]
+            average_length = sum(path_lengths) / len(path_lengths)
+            shortest_length = min(path_lengths)
+            longest_length = max(path_lengths)
+
+            logging.info(f"Average path length of all paths: {average_length:.2f} units.")
+            logging.info(f"Shortest path length: {shortest_length:.2f} units.")
+            logging.info(f"Longest path length: {longest_length:.2f} units.")
+
+            # Log the total number of paths found
+            logging.info(f"Total number of unique paths found: {len(all_paths)}.")
+
         return all_paths
+
+    def calculate_path_length(self, path):
+        """Calculates the length of a given path."""
+        length = 0.0
+        for i in range(path.getStateCount() - 1):
+            state1 = path.getState(i)
+            state2 = path.getState(i + 1)
+            # Calculate Euclidean distance between consecutive states
+            distance = np.linalg.norm(np.array([state1[0], state1[1], state1[2]]) - np.array([state2[0], state2[1], state2[2]]))
+            length += distance
+        return length
 
     def smooth_path(self, path):
         """Smooths the given path using OMPL's PathSimplifier."""
@@ -120,16 +149,7 @@ class PathPlanner:
         max_steps = 3  # Adjust as needed for your application
         path_simplifier.smoothBSpline(path, max_steps)  # Smooth directly on the path
 
-        logging.info("Path smoothed using B-Spline.")
         return path  # Return the smoothed path
-
-    def plan_path(self, pdef):
-        if self.planner.solve(5.0):  # 5.0 seconds to find a solution
-            logging.info("Found a solution!")
-            return self.smooth_path(pdef.getSolutionPath())  # Smooth the path immediately
-        else:
-            logging.error("No solution found.")
-            return None
 
     def create_state(self, coordinates):
         state = ob.State(self.space)

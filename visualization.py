@@ -1,11 +1,13 @@
 import open3d as o3d
 import numpy as np
 import matplotlib.pyplot as plt
+import logging
 
 class Visualizer:
     def __init__(self, mesh, output_path):
         self.mesh = mesh
         self.output_path = output_path  # Output path to save mesh with path
+        logging.getLogger('matplotlib').setLevel(logging.WARNING) # Suppress matplotlib logging
 
     def visualize_o3d(self, path_list, start_point, end_point):
         vis = o3d.visualization.Visualizer()
