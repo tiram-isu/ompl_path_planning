@@ -14,16 +14,18 @@ if __name__ == "__main__":
     mesh = load_mesh('/app/meshes/stonehenge.obj')
     
     # Instantiate the necessary classes
-    path_planner = PathPlanner(mesh, ellipsoid_dimensions=(0.025, 0.025, 0.04), range=0.1, state_validity_resolution=0.01)
+    # available planners: "RRT", "RRTstar", "PRM", "PRMstar", "LazyPRM", "LazyPRMstar", "SBL", "EST", "KPIECE1", "BKPIECE1"
+    planner = "RRT"
+    path_planner = PathPlanner(mesh, ellipsoid_dimensions=(0.025, 0.025, 0.04), planner_type=planner, range=0.1, state_validity_resolution=0.01)
     state_validity_checker = path_planner.return_state_validity_checker()
-    visualizer = Visualizer(mesh)
+    visualizer = Visualizer(mesh, f"/app/output/{planner}_paths.ply")
 
     # Define start and goal
     start = np.array([-1.10, 0.42, 0.08])
     goal = np.array([0.28, -1.10, 0.08])
 
     # Plan multiple paths
-    all_paths = path_planner.plan_multiple_paths(start, goal, num_paths=10)
+    all_paths = path_planner.plan_multiple_paths(start, goal, num_paths=1)
 
     # Visualize all unique paths
     if all_paths:

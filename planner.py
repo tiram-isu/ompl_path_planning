@@ -5,21 +5,22 @@ from ompl import geometric as og
 from collision_detection import StateValidityChecker
 
 class PathPlanner:
-    def __init__(self, mesh, ellipsoid_dimensions, range=0.1, state_validity_resolution=0.001, bounds_padding=0.01):
+    def __init__(self, mesh, ellipsoid_dimensions, planner_type="RRT", range=0.1, state_validity_resolution=0.001, bounds_padding=0.01):
         self.mesh = mesh
         self.ellipsoid_dimensions = ellipsoid_dimensions
         self.space = ob.RealVectorStateSpace(3)  # 3D space
         self.bounds_padding = bounds_padding  # Padding to ensure space around mesh bounds
         self.setup_bounds()
 
-        # Setup Space Information and Planner
+        # Setup Space Information
         self.si = ob.SpaceInformation(self.space)
         self.si.setStateValidityCheckingResolution(state_validity_resolution)
-        self.planner = og.RRT(self.si)
-        self.planner.setRange(range)
 
         # Initialize the validity checker
         self.validity_checker = StateValidityChecker(self.si, self.mesh, self.ellipsoid_dimensions)
+
+        # Set the planner type dynamically
+        self.planner = self.initialize_planner(planner_type, range)
 
     def setup_bounds(self):
         bounds = ob.RealVectorBounds(3)
@@ -34,6 +35,28 @@ class PathPlanner:
 
         self.space.setBounds(bounds)
         logging.info(f"Bounds set with padding of {self.bounds_padding}: {bounds}")
+
+    def initialize_planner(self, planner_type, range):
+        """
+        Initialize the planner based on the provided type.
+        :param planner_type: String name of the planner type.
+        :param range: Range parameter for planners that support it.
+        :return: Planner instance.
+        """
+        planner_class = getattr(og, planner_type, None)
+        if planner_class is None:
+            logging.error(f"Planner type {planner_type} is not available in OMPL.")
+            raise ValueError(f"Planner type {planner_type} is not supported.")
+
+        # Initialize planner with Space Information
+        planner = planner_class(self.si)
+
+        # Set range if the planner supports it
+        if hasattr(planner, 'setRange'):
+            planner.setRange(range)
+
+        logging.info(f"Planner {planner_type} initialized with range {range}.")
+        return planner
 
     def plan_multiple_paths(self, start, goal, num_paths=5):
         all_paths = []
@@ -92,7 +115,6 @@ class PathPlanner:
 
         logging.info("Path smoothed using B-Spline.")
         return path  # Return the smoothed path
-
 
     def plan_path(self, pdef):
         if self.planner.solve(5.0):  # 5.0 seconds to find a solution
