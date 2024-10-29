@@ -73,17 +73,31 @@ class PathPlanner:
 
                 # Check for uniqueness and bounding box constraint before adding the path
                 if path and path not in all_paths:
-                    all_paths.append(path)
+                    smoothed_path = self.smooth_path(path)  # Smooth the path
+                    all_paths.append(smoothed_path)
                     logging.info(f"Path {len(all_paths)} added.")
             else:
                 logging.error("No solution found for this attempt.")
 
         return all_paths
 
+    def smooth_path(self, path):
+        """Smooths the given path using OMPL's PathSimplifier."""
+        # No need to convert, as path is already a PathGeometric object
+        path_simplifier = og.PathSimplifier(self.si)
+
+        # Apply smoothing techniques
+        max_steps = 3  # Adjust as needed for your application
+        path_simplifier.smoothBSpline(path, max_steps)  # Smooth directly on the path
+
+        logging.info("Path smoothed using B-Spline.")
+        return path  # Return the smoothed path
+
+
     def plan_path(self, pdef):
         if self.planner.solve(5.0):  # 5.0 seconds to find a solution
             logging.info("Found a solution!")
-            return pdef.getSolutionPath()
+            return self.smooth_path(pdef.getSolutionPath())  # Smooth the path immediately
         else:
             logging.error("No solution found.")
             return None

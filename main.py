@@ -23,7 +23,7 @@ if __name__ == "__main__":
     goal = np.array([0.28, -1.10, 0.08])
 
     # Plan multiple paths
-    all_paths = path_planner.plan_multiple_paths(start, goal, num_paths=5)
+    all_paths = path_planner.plan_multiple_paths(start, goal, num_paths=10)
 
     # Visualize all unique paths
     if all_paths:
