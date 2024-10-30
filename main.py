@@ -4,8 +4,8 @@ import numpy as np
 from planner import PathPlanner
 from visualization import Visualizer
 import open3d as o3d
+import ompl
 from ompl import geometric as og
-
 
 if __name__ == "__main__":
     # available planners: 
@@ -18,7 +18,7 @@ if __name__ == "__main__":
     # 'set_less_unsigned_long_greater_', 'vector_less_ompl_scope_geometric_scope_BFMT_scope_BiDirMotion__ptr__greater_', 
     # 'vector_less_ompl_scope_geometric_scope_aitstar_scope_Edge_greater_']
 
-    planner = "RRT"
+    planner = "RRTConnect"
     model_name = "stonehenge"
 
     # Create output directory
@@ -36,8 +36,8 @@ if __name__ == "__main__":
     visualizer = Visualizer(mesh, f"{output_path}/")
 
     # Define start and goal
-    start = np.array([-1.10, 0.42, 0.08])
-    goal = np.array([0.28, -1.10, 0.08])
+    start = np.array([-1.24, 0.31, 0.08])
+    goal = np.array([0.46, -0.79, 0.08])
 
     # Plan multiple paths
     all_paths = path_planner.plan_multiple_paths(start, goal, num_paths=10)

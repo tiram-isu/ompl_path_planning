@@ -2,45 +2,64 @@ import open3d as o3d
 import numpy as np
 import matplotlib.pyplot as plt
 import logging
+import time  # Import time module for sleep function
 
 class Visualizer:
     def __init__(self, mesh, output_path):
         self.mesh = mesh
         self.output_path = output_path  # Output path to save mesh with path
-        logging.getLogger('matplotlib').setLevel(logging.WARNING) # Suppress matplotlib logging
+        logging.getLogger('matplotlib').setLevel(logging.WARNING)  # Suppress matplotlib logging
 
     def visualize_o3d(self, path_list, start_point, end_point):
         vis = o3d.visualization.Visualizer()
-        vis.create_window()
-        vis.add_geometry(self.mesh)
+        vis.create_window(width=2560, height=1440)
 
-        # Start and end point markers
-        start_marker = self.create_marker(start_point, color=[0.0, 1.0, 0.0])  # Green for start
-        end_marker = self.create_marker(end_point, color=[0.0, 0.0, 1.0])      # Blue for end
+        vis.add_geometry(self.mesh)
 
         # Path tubes
         path_geometries = [self.create_path_tube(path) for path in path_list]
 
+
         # Add geometries to the visualizer
-        vis.add_geometry(start_marker)
-        vis.add_geometry(end_marker)
 
         for path_geometry in path_geometries:
             vis.add_geometry(path_geometry)
 
+        # Start and end point markers
+        start_marker = self.create_marker(start_point, color=[0.0, 1.0, 0.0])  # Green for start
+        end_marker = self.create_marker(end_point, color=[0.0, 0.0, 1.0])      # Blue for end
+        vis.add_geometry(start_marker)
+        vis.add_geometry(end_marker)
+        # Adjust the camera
+        ctr = vis.get_view_control()
+        ctr.set_zoom(0.5)  # Set zoom level (lower is closer)
+
         # Set render options to show back faces
         vis.get_render_option().mesh_show_back_face = True  # Enable back face rendering
 
-        vis.run()
+        # Render the scene and wait for a moment before taking the screenshot
+        vis.poll_events()  # Process any events like window resize
+        vis.update_renderer()  # Update the visualizer
+        
+        # Wait for a second to ensure the scene is rendered
+        time.sleep(1.0)  # Wait for 1 second to ensure proper rendering
+        
+        # Capture the screenshot
+        vis.capture_screen_image(self.output_path + "visualization.png", do_render=True)  # Save the screenshot
+        print(f"Screenshot saved as {self.output_path}visualization.png")
+
+        # Keep the window open until manually closed
+        vis.run()  # This will keep the window open and responsive
+
+        # Close the visualizer after the window is closed manually
         vis.destroy_window()
 
         # Combine all geometries into one mesh for saving
         combined_paths = self.combine_geometries([start_marker, end_marker] + path_geometries)
 
-        # Save mesh
-        # o3d.io.write_triangle_mesh(self.output_path + "base_mesh.obj", self.mesh, write_triangle_uvs=True, write_vertex_colors=True)
+        # Save combined mesh with paths
         o3d.io.write_triangle_mesh(self.output_path + "paths.obj", combined_paths, write_triangle_uvs=True, write_vertex_colors=True)
-        print(f"Scene saved as {self.output_path}")
+        print(f"Scene saved as {self.output_path}paths.obj")
 
     def combine_geometries(self, geometries):
         """ Combine multiple geometries into a single TriangleMesh. """
@@ -66,7 +85,7 @@ class Visualizer:
                 # Extend vertex colors if present
                 if geom.vertex_colors:
                     all_vertex_colors.extend(np.asarray(geom.vertex_colors))
-                    
+
                 # Extend UVs if present
                 if geom.triangle_uvs:
                     all_uvs.extend(np.asarray(geom.triangle_uvs))
@@ -177,4 +196,4 @@ class Visualizer:
         ax.legend(unique_labels.values(), unique_labels.keys())
 
         plt.savefig(self.output_path + "mpl_visualization.png")
-        plt.close(fig)  # Close the figure to free memory
+        plt.close(fig) 

@@ -1,0 +1,22 @@
+2024-10-29 23:54:16,898 - INFO - Bounds set with padding of 0.01
+2024-10-29 23:54:16,967 - INFO - Planner TRRT initialized with range 0.1.
+2024-10-29 23:54:16,968 - INFO - Start state: [-1.24  0.31  0.08], Goal state: [ 0.46 -0.79  0.08]
+2024-10-29 23:54:17,099 - DEBUG - contains_points executed in 0.1311 seconds.
+2024-10-29 23:54:17,100 - DEBUG - contains_points executed in 0.0011 seconds.
+2024-10-29 23:54:17,100 - INFO - Planning 10 paths in 5.0 seconds...
+2024-10-29 23:54:17,133 - INFO - Path 1 added. Length: 2.67 units. Duration: 0.03 seconds.
+2024-10-29 23:54:17,157 - INFO - Path 2 added. Length: 2.44 units. Duration: 0.02 seconds.
+2024-10-29 23:54:17,179 - INFO - Path 3 added. Length: 2.60 units. Duration: 0.02 seconds.
+2024-10-29 23:54:17,192 - INFO - Path 4 added. Length: 2.50 units. Duration: 0.01 seconds.
+2024-10-29 23:54:17,207 - INFO - Path 5 added. Length: 2.51 units. Duration: 0.01 seconds.
+2024-10-29 23:54:17,225 - INFO - Path 6 added. Length: 2.57 units. Duration: 0.02 seconds.
+2024-10-29 23:54:17,242 - INFO - Path 7 added. Length: 2.70 units. Duration: 0.02 seconds.
+2024-10-29 23:54:17,259 - INFO - Path 8 added. Length: 2.42 units. Duration: 0.02 seconds.
+2024-10-29 23:54:17,272 - INFO - Path 9 added. Length: 2.37 units. Duration: 0.01 seconds.
+2024-10-29 23:54:17,288 - INFO - Path 10 added. Length: 2.54 units. Duration: 0.02 seconds.
+2024-10-29 23:54:17,288 - INFO - All paths planning completed. Total duration: 0.19 seconds.
+2024-10-29 23:54:17,288 - INFO - Average time per path: 0.02 seconds.
+2024-10-29 23:54:17,305 - INFO - Average path length of all paths: 2.53 units.
+2024-10-29 23:54:17,305 - INFO - Shortest path length: 2.37 units.
+2024-10-29 23:54:17,305 - INFO - Longest path length: 2.70 units.
+2024-10-29 23:54:17,305 - INFO - Total number of unique paths found: 10.

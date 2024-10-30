@@ -1,0 +1,22 @@
+2024-10-29 21:19:40,366 - INFO - Bounds set with padding of 0.01
+2024-10-29 21:19:40,431 - INFO - Planner KPIECE1 initialized with range 0.1.
+2024-10-29 21:19:40,432 - INFO - Start state: [-1.24  0.31  0.08], Goal state: [ 0.46 -0.79  0.08]
+2024-10-29 21:19:40,556 - DEBUG - contains_points executed in 0.1240 seconds.
+2024-10-29 21:19:40,557 - DEBUG - contains_points executed in 0.0007 seconds.
+2024-10-29 21:19:40,557 - INFO - Planning 10 paths in 5.0 seconds...
+2024-10-29 21:19:40,603 - INFO - Path 1 added. Length: 5.16 units. Duration: 0.05 seconds.
+2024-10-29 21:19:40,630 - INFO - Path 2 added. Length: 4.31 units. Duration: 0.03 seconds.
+2024-10-29 21:19:40,643 - INFO - Path 3 added. Length: 4.38 units. Duration: 0.01 seconds.
+2024-10-29 21:19:40,659 - INFO - Path 4 added. Length: 3.52 units. Duration: 0.02 seconds.
+2024-10-29 21:19:40,681 - INFO - Path 5 added. Length: 5.45 units. Duration: 0.02 seconds.
+2024-10-29 21:19:40,700 - INFO - Path 6 added. Length: 4.55 units. Duration: 0.02 seconds.
+2024-10-29 21:19:40,727 - INFO - Path 7 added. Length: 5.86 units. Duration: 0.03 seconds.
+2024-10-29 21:19:40,753 - INFO - Path 8 added. Length: 4.71 units. Duration: 0.02 seconds.
+2024-10-29 21:19:40,765 - INFO - Path 9 added. Length: 3.94 units. Duration: 0.01 seconds.
+2024-10-29 21:19:40,801 - INFO - Path 10 added. Length: 5.54 units. Duration: 0.04 seconds.
+2024-10-29 21:19:40,801 - INFO - All paths planning completed. Total duration: 0.24 seconds.
+2024-10-29 21:19:40,801 - INFO - Average time per path: 0.02 seconds.
+2024-10-29 21:19:40,825 - INFO - Average path length of all paths: 4.74 units.
+2024-10-29 21:19:40,825 - INFO - Shortest path length: 3.52 units.
+2024-10-29 21:19:40,825 - INFO - Longest path length: 5.86 units.
+2024-10-29 21:19:40,825 - INFO - Total number of unique paths found: 10.

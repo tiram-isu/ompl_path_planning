@@ -1,0 +1,22 @@
+2024-10-29 21:06:11,113 - INFO - Bounds set with padding of 0.01
+2024-10-29 21:06:11,180 - INFO - Planner ABITstar initialized with range 0.1.
+2024-10-29 21:06:11,181 - INFO - Start state: [-1.24  0.31  0.08], Goal state: [ 0.46 -0.79  0.08]
+2024-10-29 21:06:11,306 - DEBUG - contains_points executed in 0.1251 seconds.
+2024-10-29 21:06:11,307 - DEBUG - contains_points executed in 0.0007 seconds.
+2024-10-29 21:06:11,307 - INFO - Planning 10 paths in 5.0 seconds...
+2024-10-29 21:06:16,339 - INFO - Path 1 added. Length: 2.08 units. Duration: 5.03 seconds.
+2024-10-29 21:06:21,399 - INFO - Path 2 added. Length: 2.09 units. Duration: 5.06 seconds.
+2024-10-29 21:06:26,411 - INFO - Path 3 added. Length: 2.09 units. Duration: 5.01 seconds.
+2024-10-29 21:06:31,459 - INFO - Path 4 added. Length: 2.09 units. Duration: 5.04 seconds.
+2024-10-29 21:06:36,511 - INFO - Path 5 added. Length: 2.08 units. Duration: 5.05 seconds.
+2024-10-29 21:06:41,546 - INFO - Path 6 added. Length: 2.10 units. Duration: 5.03 seconds.
+2024-10-29 21:06:46,570 - INFO - Path 7 added. Length: 2.07 units. Duration: 5.02 seconds.
+2024-10-29 21:06:51,584 - INFO - Path 8 added. Length: 2.09 units. Duration: 5.01 seconds.
+2024-10-29 21:06:56,603 - INFO - Path 9 added. Length: 2.08 units. Duration: 5.02 seconds.
+2024-10-29 21:07:01,659 - INFO - Path 10 added. Length: 2.09 units. Duration: 5.05 seconds.
+2024-10-29 21:07:01,659 - INFO - All paths planning completed. Total duration: 50.35 seconds.
+2024-10-29 21:07:01,659 - INFO - Average time per path: 5.04 seconds.
+2024-10-29 21:07:01,671 - INFO - Average path length of all paths: 2.09 units.
+2024-10-29 21:07:01,671 - INFO - Shortest path length: 2.07 units.
+2024-10-29 21:07:01,671 - INFO - Longest path length: 2.10 units.
+2024-10-29 21:07:01,671 - INFO - Total number of unique paths found: 10.

@@ -12,7 +12,6 @@ class CollisionDetector:
         self.ellipsoid_collision_object, self.mesh_collision_object = self.setup_collision_objects()
 
     def setup_collision_objects(self):
-        print("Setting up collision objects...")
         # Convert the Open3D mesh to FCL-compatible mesh
         mesh_collision_object = self.create_fcl_mesh_collision_object()
 

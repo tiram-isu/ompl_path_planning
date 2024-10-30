@@ -41,12 +41,6 @@ class PathPlanner:
         logging.info(f"Bounds set with padding of {self.bounds_padding}")
 
     def initialize_planner(self, planner_type, range):
-        """
-        Initialize the planner based on the provided type.
-        :param planner_type: String name of the planner type.
-        :param range: Range parameter for planners that support it.
-        :return: Planner instance.
-        """
         planner_class = getattr(og, planner_type, None)
         if planner_class is None:
             logging.error(f"Planner type {planner_type} is not available in OMPL.")
@@ -62,7 +56,7 @@ class PathPlanner:
         logging.info(f"Planner {planner_type} initialized with range {range}.")
         return planner
 
-    def plan_multiple_paths(self, start, goal, num_paths=5):
+    def plan_multiple_paths(self, start, goal, num_paths=5, max_time=5.0):
         all_paths = []
 
         # Ensure the validity checker respects bounds
@@ -82,6 +76,7 @@ class PathPlanner:
             return None
 
         total_start_time = time.time()  # Start timing total planning duration
+        logging.info(f"Planning {num_paths} paths in {max_time} seconds...")
 
         # Loop until we find the desired number of unique paths
         while len(all_paths) < num_paths:
@@ -95,7 +90,7 @@ class PathPlanner:
             self.planner.setup()  # Ensures clean setup for each path
 
             path_start_time = time.time()  # Start timing for this path
-            if self.planner.solve(5.0):  # 5.0 seconds to find a solution
+            if self.planner.solve(max_time):  # 5.0 seconds to find a solution
                 path = pdef.getSolutionPath()
 
                 # Check for uniqueness and bounding box constraint before adding the path
@@ -108,10 +103,12 @@ class PathPlanner:
 
                     logging.info(f"Path {len(all_paths)} added. Length: {path_length:.2f} units. Duration: {path_duration:.2f} seconds.")
             else:
+                print("No solution found for this attempt.")
                 logging.error("No solution found for this attempt.")
 
         total_duration = time.time() - total_start_time  # Calculate total duration
         logging.info(f"All paths planning completed. Total duration: {total_duration:.2f} seconds.")
+        logging.info(f"Average time per path: {total_duration / num_paths:.2f} seconds.")
 
         # Calculate and log average path length, shortest and longest path lengths if paths were found
         if all_paths:

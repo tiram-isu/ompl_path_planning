@@ -1,0 +1,22 @@
+2024-10-29 23:37:24,276 - INFO - Bounds set with padding of 0.01
+2024-10-29 23:37:24,351 - INFO - Planner SBL initialized with range 0.1.
+2024-10-29 23:37:24,351 - INFO - Start state: [-1.24  0.31  0.08], Goal state: [ 0.46 -0.79  0.08]
+2024-10-29 23:37:24,484 - DEBUG - contains_points executed in 0.1326 seconds.
+2024-10-29 23:37:24,485 - DEBUG - contains_points executed in 0.0008 seconds.
+2024-10-29 23:37:24,485 - INFO - Planning 10 paths in 5.0 seconds...
+2024-10-29 23:37:24,550 - INFO - Path 1 added. Length: 4.98 units. Duration: 0.06 seconds.
+2024-10-29 23:37:24,590 - INFO - Path 2 added. Length: 3.81 units. Duration: 0.04 seconds.
+2024-10-29 23:37:24,626 - INFO - Path 3 added. Length: 3.43 units. Duration: 0.04 seconds.
+2024-10-29 23:37:24,708 - INFO - Path 4 added. Length: 3.43 units. Duration: 0.08 seconds.
+2024-10-29 23:37:24,748 - INFO - Path 5 added. Length: 3.75 units. Duration: 0.04 seconds.
+2024-10-29 23:37:24,819 - INFO - Path 6 added. Length: 6.17 units. Duration: 0.07 seconds.
+2024-10-29 23:37:24,862 - INFO - Path 7 added. Length: 3.79 units. Duration: 0.04 seconds.
+2024-10-29 23:37:24,935 - INFO - Path 8 added. Length: 5.75 units. Duration: 0.07 seconds.
+2024-10-29 23:37:24,992 - INFO - Path 9 added. Length: 4.86 units. Duration: 0.06 seconds.
+2024-10-29 23:37:25,058 - INFO - Path 10 added. Length: 3.05 units. Duration: 0.07 seconds.
+2024-10-29 23:37:25,059 - INFO - All paths planning completed. Total duration: 0.57 seconds.
+2024-10-29 23:37:25,059 - INFO - Average time per path: 0.06 seconds.
+2024-10-29 23:37:25,088 - INFO - Average path length of all paths: 4.30 units.
+2024-10-29 23:37:25,088 - INFO - Shortest path length: 3.05 units.
+2024-10-29 23:37:25,088 - INFO - Longest path length: 6.17 units.
+2024-10-29 23:37:25,088 - INFO - Total number of unique paths found: 10.

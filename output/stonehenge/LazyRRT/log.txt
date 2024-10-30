@@ -1,0 +1,22 @@
+2024-10-29 21:28:23,713 - INFO - Bounds set with padding of 0.01
+2024-10-29 21:28:23,785 - INFO - Planner LazyRRT initialized with range 0.1.
+2024-10-29 21:28:23,785 - INFO - Start state: [-1.24  0.31  0.08], Goal state: [ 0.46 -0.79  0.08]
+2024-10-29 21:28:23,922 - DEBUG - contains_points executed in 0.1363 seconds.
+2024-10-29 21:28:23,923 - DEBUG - contains_points executed in 0.0007 seconds.
+2024-10-29 21:28:23,923 - INFO - Planning 10 paths in 5.0 seconds...
+2024-10-29 21:28:24,033 - INFO - Path 1 added. Length: 4.62 units. Duration: 0.11 seconds.
+2024-10-29 21:28:24,106 - INFO - Path 2 added. Length: 3.39 units. Duration: 0.07 seconds.
+2024-10-29 21:28:24,313 - INFO - Path 3 added. Length: 4.46 units. Duration: 0.21 seconds.
+2024-10-29 21:28:24,383 - INFO - Path 4 added. Length: 3.51 units. Duration: 0.07 seconds.
+2024-10-29 21:28:24,512 - INFO - Path 5 added. Length: 4.83 units. Duration: 0.13 seconds.
+2024-10-29 21:28:24,607 - INFO - Path 6 added. Length: 3.59 units. Duration: 0.09 seconds.
+2024-10-29 21:28:24,714 - INFO - Path 7 added. Length: 3.53 units. Duration: 0.11 seconds.
+2024-10-29 21:28:24,774 - INFO - Path 8 added. Length: 3.48 units. Duration: 0.06 seconds.
+2024-10-29 21:28:24,860 - INFO - Path 9 added. Length: 3.16 units. Duration: 0.09 seconds.
+2024-10-29 21:28:24,950 - INFO - Path 10 added. Length: 2.73 units. Duration: 0.09 seconds.
+2024-10-29 21:28:24,950 - INFO - All paths planning completed. Total duration: 1.03 seconds.
+2024-10-29 21:28:24,950 - INFO - Average time per path: 0.10 seconds.
+2024-10-29 21:28:24,976 - INFO - Average path length of all paths: 3.73 units.
+2024-10-29 21:28:24,976 - INFO - Shortest path length: 2.73 units.
+2024-10-29 21:28:24,976 - INFO - Longest path length: 4.83 units.
+2024-10-29 21:28:24,976 - INFO - Total number of unique paths found: 10.

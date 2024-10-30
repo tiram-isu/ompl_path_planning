@@ -1,0 +1,2 @@
+2024-10-29 23:56:50,674 - INFO - Bounds set with padding of 0.01
+2024-10-29 23:56:50,739 - ERROR - Planner type planners is not available in OMPL.
