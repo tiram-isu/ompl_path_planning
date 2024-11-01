@@ -2,27 +2,31 @@ import open3d as o3d
 import numpy as np
 import matplotlib.pyplot as plt
 import logging
-import time  # Import time module for sleep function
+import time
 
 class Visualizer:
-    def __init__(self, mesh, output_path):
+    def __init__(self, mesh, output_path, enable_visualization=True):
         self.mesh = mesh
         self.output_path = output_path  # Output path to save mesh with path
         logging.getLogger('matplotlib').setLevel(logging.WARNING)  # Suppress matplotlib logging
+        self.enable_visualization = enable_visualization
 
     def visualize_o3d(self, path_list, start_point, end_point):
         vis = o3d.visualization.Visualizer()
-        vis.create_window(width=2560, height=1440)
 
+        if self.enable_visualization:
+            vis.create_window(width=2560, height=1440)
+        else:
+            vis.create_window(visible=False, width=2560, height=1440)
+
+        # Add the mesh to the visualizer
         vis.add_geometry(self.mesh)
 
         # Path tubes
         path_geometries = [self.create_path_tube(path) for path in path_list]
 
-
-        # Add geometries to the visualizer
-
-        for path_geometry in path_geometries:
+        # Add path geometries to the visualizer
+        for i, path_geometry in enumerate(path_geometries):
             vis.add_geometry(path_geometry)
 
         # Start and end point markers
@@ -30,29 +34,34 @@ class Visualizer:
         end_marker = self.create_marker(end_point, color=[0.0, 0.0, 1.0])      # Blue for end
         vis.add_geometry(start_marker)
         vis.add_geometry(end_marker)
-        # Adjust the camera
-        ctr = vis.get_view_control()
-        ctr.set_zoom(0.5)  # Set zoom level (lower is closer)
+
+        # Adjust the camera view
+        if self.enable_visualization:
+            camera = vis.get_view_control()
+            camera.set_zoom(0.5)  # Set zoom level (lower is closer)
 
         # Set render options to show back faces
         vis.get_render_option().mesh_show_back_face = True  # Enable back face rendering
 
         # Render the scene and wait for a moment before taking the screenshot
         vis.poll_events()  # Process any events like window resize
-        vis.update_renderer()  # Update the visualizer
-        
-        # Wait for a second to ensure the scene is rendered
-        time.sleep(1.0)  # Wait for 1 second to ensure proper rendering
+        vis.update_geometry(self.mesh)  # Update geometry if any changes
+        vis.update_renderer()  # Update the renderer
         
         # Capture the screenshot
-        vis.capture_screen_image(self.output_path + "visualization.png", do_render=True)  # Save the screenshot
-        print(f"Screenshot saved as {self.output_path}visualization.png")
+        screenshot_path = self.output_path + "visualization.png"
+        # Capture the image
+        image = vis.capture_screen_float_buffer(do_render=True)
+        image = (np.asarray(image) * 255).astype(np.uint8)
 
-        # Keep the window open until manually closed
-        vis.run()  # This will keep the window open and responsive
+        # Save the image
+        o3d.io.write_image(screenshot_path, o3d.geometry.Image(image))
+        print(f"Screenshot saved as {screenshot_path}")
 
-        # Close the visualizer after the window is closed manually
-        vis.destroy_window()
+        if self.enable_visualization:
+            # Keep the window open until manually closed
+            vis.run()  # This will keep the window open and responsive
+            vis.destroy_window()
 
         # Combine all geometries into one mesh for saving
         combined_paths = self.combine_geometries([start_marker, end_marker] + path_geometries)
@@ -71,9 +80,6 @@ class Visualizer:
         all_vertex_colors = []
         all_uvs = []  # New list for storing UVs
 
-        # List to store material names if needed
-        material_names = []
-
         for geom in geometries:
             if isinstance(geom, o3d.geometry.TriangleMesh):
                 start_index = len(all_vertices)
@@ -90,10 +96,6 @@ class Visualizer:
                 if geom.triangle_uvs:
                     all_uvs.extend(np.asarray(geom.triangle_uvs))
 
-                # Collect material names if present
-                if hasattr(geom, 'materials'):
-                    material_names.extend(geom.materials)
-
         # Set combined mesh properties
         combined_mesh.vertices = o3d.utility.Vector3dVector(all_vertices)
         combined_mesh.triangles = o3d.utility.Vector3iVector(all_triangles)
@@ -101,10 +103,6 @@ class Visualizer:
             combined_mesh.vertex_colors = o3d.utility.Vector3dVector(all_vertex_colors)
         if all_uvs:
             combined_mesh.triangle_uvs = o3d.utility.Vector2dVector(all_uvs)
-
-        # Apply material names if any
-        if material_names:
-            combined_mesh.materials = material_names  # Combine material names from all geometries
 
         return combined_mesh
 
@@ -184,7 +182,6 @@ class Visualizer:
         ax.set_xlim(self.mesh.get_axis_aligned_bounding_box().min_bound[0], self.mesh.get_axis_aligned_bounding_box().max_bound[0])
         ax.set_ylim(self.mesh.get_axis_aligned_bounding_box().min_bound[1], self.mesh.get_axis_aligned_bounding_box().max_bound[1])
         ax.set_zlim(self.mesh.get_axis_aligned_bounding_box().min_bound[2], self.mesh.get_axis_aligned_bounding_box().max_bound[2])
-
         ax.set_xlabel('X')
         ax.set_ylabel('Y')
         ax.set_zlabel('Z')
@@ -196,4 +193,4 @@ class Visualizer:
         ax.legend(unique_labels.values(), unique_labels.keys())
 
         plt.savefig(self.output_path + "mpl_visualization.png")
-        plt.close(fig) 
+        plt.close(fig)
