@@ -1,0 +1,3 @@
+2024-11-01 18:40:50,869 - INFO - Bounds set with padding of 0.01
+2024-11-01 18:40:50,942 - ERROR - Planner type VF-RRT is not available in OMPL.
+2024-11-01 18:40:50,942 - ERROR - Error occurred for planner VF-RRT: Planner type VF-RRT is not supported.

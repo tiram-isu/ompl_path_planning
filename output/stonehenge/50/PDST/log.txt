@@ -1,0 +1,64 @@
+2024-11-01 18:42:36,626 - INFO - Bounds set with padding of 0.01
+2024-11-01 18:42:36,697 - INFO - Planner PDST initialized with range 0.1.
+2024-11-01 18:42:36,698 - INFO - Start state: [-1.24  0.31  0.08], Goal state: [ 0.46 -0.79  0.08]
+2024-11-01 18:42:36,836 - DEBUG - contains_points executed in 0.1377 seconds.
+2024-11-01 18:42:36,837 - DEBUG - contains_points executed in 0.0008 seconds.
+2024-11-01 18:42:36,837 - INFO - Planning 50 paths in 5 seconds...
+2024-11-01 18:42:36,853 - INFO - Path 1 added. Length: 3.42 units. Duration: 0.02 seconds.
+2024-11-01 18:42:36,860 - INFO - Path 2 added. Length: 2.48 units. Duration: 0.01 seconds.
+2024-11-01 18:42:36,877 - INFO - Path 3 added. Length: 3.76 units. Duration: 0.02 seconds.
+2024-11-01 18:42:36,893 - INFO - Path 4 added. Length: 2.44 units. Duration: 0.01 seconds.
+2024-11-01 18:42:36,924 - INFO - Path 5 added. Length: 4.41 units. Duration: 0.03 seconds.
+2024-11-01 18:42:36,941 - INFO - Path 6 added. Length: 5.36 units. Duration: 0.02 seconds.
+2024-11-01 18:42:36,947 - INFO - Path 7 added. Length: 3.58 units. Duration: 0.01 seconds.
+2024-11-01 18:42:36,969 - INFO - Path 8 added. Length: 6.89 units. Duration: 0.02 seconds.
+2024-11-01 18:42:36,982 - INFO - Path 9 added. Length: 3.23 units. Duration: 0.01 seconds.
+2024-11-01 18:42:36,996 - INFO - Path 10 added. Length: 2.71 units. Duration: 0.01 seconds.
+2024-11-01 18:42:37,008 - INFO - Path 11 added. Length: 2.32 units. Duration: 0.01 seconds.
+2024-11-01 18:42:37,022 - INFO - Path 12 added. Length: 4.32 units. Duration: 0.01 seconds.
+2024-11-01 18:42:37,037 - INFO - Path 13 added. Length: 5.22 units. Duration: 0.01 seconds.
+2024-11-01 18:42:37,054 - INFO - Path 14 added. Length: 6.04 units. Duration: 0.02 seconds.
+2024-11-01 18:42:37,078 - INFO - Path 15 added. Length: 6.19 units. Duration: 0.02 seconds.
+2024-11-01 18:42:37,088 - INFO - Path 16 added. Length: 2.97 units. Duration: 0.01 seconds.
+2024-11-01 18:42:37,103 - INFO - Path 17 added. Length: 5.43 units. Duration: 0.01 seconds.
+2024-11-01 18:42:37,118 - INFO - Path 18 added. Length: 5.26 units. Duration: 0.01 seconds.
+2024-11-01 18:42:37,153 - INFO - Path 19 added. Length: 3.01 units. Duration: 0.03 seconds.
+2024-11-01 18:42:37,174 - INFO - Path 20 added. Length: 4.35 units. Duration: 0.02 seconds.
+2024-11-01 18:42:37,187 - INFO - Path 21 added. Length: 4.74 units. Duration: 0.01 seconds.
+2024-11-01 18:42:37,203 - INFO - Path 22 added. Length: 3.11 units. Duration: 0.02 seconds.
+2024-11-01 18:42:37,217 - INFO - Path 23 added. Length: 2.92 units. Duration: 0.01 seconds.
+2024-11-01 18:42:37,239 - INFO - Path 24 added. Length: 4.04 units. Duration: 0.02 seconds.
+2024-11-01 18:42:37,257 - INFO - Path 25 added. Length: 3.84 units. Duration: 0.02 seconds.
+2024-11-01 18:42:37,274 - INFO - Path 26 added. Length: 3.57 units. Duration: 0.02 seconds.
+2024-11-01 18:42:37,287 - INFO - Path 27 added. Length: 4.03 units. Duration: 0.01 seconds.
+2024-11-01 18:42:37,295 - INFO - Path 28 added. Length: 2.70 units. Duration: 0.01 seconds.
+2024-11-01 18:42:37,303 - INFO - Path 29 added. Length: 2.85 units. Duration: 0.01 seconds.
+2024-11-01 18:42:37,316 - INFO - Path 30 added. Length: 3.71 units. Duration: 0.01 seconds.
+2024-11-01 18:42:37,326 - INFO - Path 31 added. Length: 4.27 units. Duration: 0.01 seconds.
+2024-11-01 18:42:37,346 - INFO - Path 32 added. Length: 5.25 units. Duration: 0.02 seconds.
+2024-11-01 18:42:37,356 - INFO - Path 33 added. Length: 3.81 units. Duration: 0.01 seconds.
+2024-11-01 18:42:37,364 - INFO - Path 34 added. Length: 3.10 units. Duration: 0.01 seconds.
+2024-11-01 18:42:37,406 - INFO - Path 35 added. Length: 5.19 units. Duration: 0.04 seconds.
+2024-11-01 18:42:37,417 - INFO - Path 36 added. Length: 2.70 units. Duration: 0.01 seconds.
+2024-11-01 18:42:37,427 - INFO - Path 37 added. Length: 2.44 units. Duration: 0.01 seconds.
+2024-11-01 18:42:37,453 - INFO - Path 38 added. Length: 2.81 units. Duration: 0.03 seconds.
+2024-11-01 18:42:37,466 - INFO - Path 39 added. Length: 3.87 units. Duration: 0.01 seconds.
+2024-11-01 18:42:37,475 - INFO - Path 40 added. Length: 2.36 units. Duration: 0.01 seconds.
+2024-11-01 18:42:37,501 - INFO - Path 41 added. Length: 4.07 units. Duration: 0.03 seconds.
+2024-11-01 18:42:37,516 - INFO - Path 42 added. Length: 2.11 units. Duration: 0.01 seconds.
+2024-11-01 18:42:37,522 - INFO - Path 43 added. Length: 2.12 units. Duration: 0.01 seconds.
+2024-11-01 18:42:37,535 - INFO - Path 44 added. Length: 3.03 units. Duration: 0.01 seconds.
+2024-11-01 18:42:37,545 - INFO - Path 45 added. Length: 2.23 units. Duration: 0.01 seconds.
+2024-11-01 18:42:37,573 - INFO - Path 46 added. Length: 2.83 units. Duration: 0.03 seconds.
+2024-11-01 18:42:37,584 - INFO - Path 47 added. Length: 3.38 units. Duration: 0.01 seconds.
+2024-11-01 18:42:37,594 - INFO - Path 48 added. Length: 3.88 units. Duration: 0.01 seconds.
+2024-11-01 18:42:37,598 - INFO - Path 49 added. Length: 2.17 units. Duration: 0.00 seconds.
+2024-11-01 18:42:37,610 - INFO - Path 50 added. Length: 2.75 units. Duration: 0.01 seconds.
+2024-11-01 18:42:37,610 - INFO - All paths planning completed. Total duration: 0.77 seconds.
+2024-11-01 18:42:37,610 - INFO - Average time per path: 0.02 seconds.
+2024-11-01 18:42:37,635 - INFO - Average path length of all paths: 3.67 units.
+2024-11-01 18:42:37,635 - INFO - Shortest path length: 2.11 units.
+2024-11-01 18:42:37,635 - INFO - Longest path length: 6.89 units.
+2024-11-01 18:42:37,635 - INFO - Total number of unique paths found: 50.
+2024-11-01 18:42:37,836 - ERROR - Error occurred for planner PDST: [1;31m[Open3D Error] (static std::shared_ptr<open3d::geometry::TriangleMesh> open3d::geometry::TriangleMesh::CreateCylinder(double, double, int, int, bool)) /root/Open3D/cpp/open3d/geometry/TriangleMeshFactory.cpp:394: height <= 0
+[0;m

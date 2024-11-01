@@ -1,0 +1,286 @@
+Model: stonehenge
+Mesh: TriangleMesh with 10995 points and 18402 triangles, and textures of size (4096, 4096) (2048, 2048) (1024, 1024) (2048, 2048) (1024, 1024) (2048, 2048) (2048, 2048) (2048, 2048) 
+Ellipsoid Dimensions: (0.025, 0.025, 0.04)
+Start Point: [-1.24  0.31  0.08]
+Goal Point: [ 0.46 -0.79  0.08]
+Max Time Per Path: 5
+
+Planner: PRM
+  Status: Successful
+  Total Time Taken: 5.2 seconds
+  Number of Paths: 50
+  Average Path Length: 2.2612
+  Shortest Path Length: 2.07
+  Longest Path Length: 2.76
+  Path Length Std Dev: 0.18061716418989643
+  Average Time Per Path: 0.1002 seconds
+  Time Per Path Std Dev: 0.0013999999999999991 seconds
+
+Planner: LazyPRM
+  Status: Successful
+  Total Time Taken: 9.4 seconds
+  Number of Paths: 50
+  Average Path Length: 4.593799999999999
+  Shortest Path Length: 2.66
+  Longest Path Length: 10.7
+  Path Length Std Dev: 1.40922942064094
+  Average Time Per Path: 0.18599999999999997 seconds
+  Time Per Path Std Dev: 0.049999999999999996 seconds
+
+Planner: PRMstar
+  Status: Successful
+  Total Time Taken: 251.83 seconds
+  Number of Paths: 50
+  Average Path Length: 2.092
+  Shortest Path Length: 2.07
+  Longest Path Length: 2.14
+  Path Length Std Dev: 0.014560219778561064
+  Average Time Per Path: 5.0322000000000005 seconds
+  Time Per Path Std Dev: 0.01082404730218785 seconds
+
+Planner: LazyPRMstar
+  Status: Successful
+  Total Time Taken: 253.0 seconds
+  Number of Paths: 50
+  Average Path Length: 2.0924
+  Shortest Path Length: 2.07
+  Longest Path Length: 2.13
+  Path Length Std Dev: 0.01158619868636817
+  Average Time Per Path: 5.034800000000001 seconds
+  Time Per Path Std Dev: 0.015522886329545836 seconds
+
+Planner: SPARS
+  Status: Successful
+  Total Time Taken: 0 seconds
+  Number of Paths: 0
+  Average Path Length: 0
+  Shortest Path Length: 0
+  Longest Path Length: 0
+  Path Length Std Dev: 0
+  Average Time Per Path: 0 seconds
+  Time Per Path Std Dev: 0 seconds
+
+Planner: SPARS2
+  Status: Failed
+  Error Message: Error occurred for planner SPARS2: Planner type SPARS2 is not supported.
+
+Planner: RRT
+  Status: Successful
+  Total Time Taken: 0.99 seconds
+  Number of Paths: 50
+  Average Path Length: 2.6724
+  Shortest Path Length: 2.29
+  Longest Path Length: 3.93
+  Path Length Std Dev: 0.3535395875994653
+  Average Time Per Path: 0.0192 seconds
+  Time Per Path Std Dev: 0.010361467077590895 seconds
+
+Planner: RRTConnect
+  Status: Successful
+  Total Time Taken: 0.6 seconds
+  Number of Paths: 50
+  Average Path Length: 2.411
+  Shortest Path Length: 2.09
+  Longest Path Length: 3.63
+  Path Length Std Dev: 0.333252156782218
+  Average Time Per Path: 0.0114 seconds
+  Time Per Path Std Dev: 0.004004996878900157 seconds
+
+Planner: RRTstar
+  Status: Successful
+  Total Time Taken: 251.68 seconds
+  Number of Paths: 50
+  Average Path Length: 2.2208
+  Shortest Path Length: 2.14
+  Longest Path Length: 2.35
+  Path Length Std Dev: 0.04844956140152351
+  Average Time Per Path: 5.029 seconds
+  Time Per Path Std Dev: 0.008774964387392266 seconds
+
+Planner: SST
+  Status: Failed
+  Error Message: No solution found for this attempt.
+
+Planner: T-RRT
+  Status: Failed
+  Error Message: Error occurred for planner T-RRT: Planner type T-RRT is not supported.
+
+Planner: VF-RRT
+  Status: Failed
+  Error Message: Error occurred for planner VF-RRT: Planner type VF-RRT is not supported.
+
+Planner: pRRT
+  Status: Failed
+  Error Message: Error occurred for planner pRRT: Planner type pRRT is not supported.
+
+Planner: LazyRRT
+  Status: Successful
+  Total Time Taken: 4.12 seconds
+  Number of Paths: 50
+  Average Path Length: 3.3211999999999993
+  Shortest Path Length: 2.42
+  Longest Path Length: 4.46
+  Path Length Std Dev: 0.48512530340109045
+  Average Time Per Path: 0.08280000000000001 seconds
+  Time Per Path Std Dev: 0.07000114284781356 seconds
+
+Planner: TSRRT
+  Status: Failed
+  Error Message: Error occurred for planner TSRRT: Planner type TSRRT is not supported.
+
+Planner: EST
+  Status: Successful
+  Total Time Taken: 41.73 seconds
+  Number of Paths: 50
+  Average Path Length: 3.0204000000000004
+  Shortest Path Length: 2.41
+  Longest Path Length: 3.96
+  Path Length Std Dev: 0.31203820278933797
+  Average Time Per Path: 0.8328 seconds
+  Time Per Path Std Dev: 0.3849365662027966 seconds
+
+Planner: KPIECE
+  Status: Failed
+  Error Message: Error occurred for planner KPIECE: Planner type KPIECE is not supported.
+
+Planner: BKPIECE
+  Status: Failed
+  Error Message: Error occurred for planner BKPIECE: Planner type BKPIECE is not supported.
+
+Planner: LBKPIECE
+  Status: Failed
+  Error Message: Error occurred for planner LBKPIECE: Planner type LBKPIECE is not supported.
+
+Planner: STRIDE
+  Status: Successful
+  Total Time Taken: 1.48 seconds
+  Number of Paths: 50
+  Average Path Length: 3.2681999999999998
+  Shortest Path Length: 2.15
+  Longest Path Length: 4.3
+  Path Length Std Dev: 0.5281048759479503
+  Average Time Per Path: 0.029200000000000004 seconds
+  Time Per Path Std Dev: 0.016104657711357915 seconds
+
+Planner: PDST
+  Status: Failed
+  Error Message: Error occurred for planner PDST: [1;31m[Open3D Error] (static std::shared_ptr<open3d::geometry::TriangleMesh> open3d::geometry::TriangleMesh::CreateCylinder(double, double, int, int, bool)) /root/Open3D/cpp/open3d/geometry/TriangleMeshFactory.cpp:394: height <= 0
+
+Planner: FMTstar
+  Status: Failed
+  Error Message: Error occurred for planner FMTstar: Planner type FMTstar is not supported.
+
+Planner: BMFTstar
+  Status: Failed
+  Error Message: Error occurred for planner BMFTstar: Planner type BMFTstar is not supported.
+
+Planner: QRRT
+  Status: Failed
+  Error Message: Error occurred for planner QRRT: Planner type QRRT is not supported.
+
+Planner: QRRTstar
+  Status: Failed
+  Error Message: Error occurred for planner QRRTstar: Planner type QRRTstar is not supported.
+
+Planner: QMP
+  Status: Failed
+  Error Message: Error occurred for planner QMP: Planner type QMP is not supported.
+
+Planner: QMPstar
+  Status: Failed
+  Error Message: Error occurred for planner QMPstar: Planner type QMPstar is not supported.
+
+Planner: RRTsharp
+  Status: Successful
+  Total Time Taken: 251.93 seconds
+  Number of Paths: 50
+  Average Path Length: 2.0879999999999996
+  Shortest Path Length: 2.07
+  Longest Path Length: 2.11
+  Path Length Std Dev: 0.011489125293076064
+  Average Time Per Path: 5.0286 seconds
+  Time Per Path Std Dev: 0.013857849761056073 seconds
+
+Planner: RRTX
+  Status: Failed
+  Error Message: Error occurred for planner RRTX: Planner type RRTX is not supported.
+
+Planner: InformedRRTstar
+  Status: Successful
+  Total Time Taken: 252.1 seconds
+  Number of Paths: 50
+  Average Path Length: 2.1274
+  Shortest Path Length: 2.07
+  Longest Path Length: 2.29
+  Path Length Std Dev: 0.05287002931718499
+  Average Time Per Path: 5.0394000000000005 seconds
+  Time Per Path Std Dev: 0.012870120434556947 seconds
+
+Planner: BITstar
+  Status: Successful
+  Total Time Taken: 256.45 seconds
+  Number of Paths: 50
+  Average Path Length: 2.0938
+  Shortest Path Length: 2.07
+  Longest Path Length: 2.13
+  Path Length Std Dev: 0.010749883720301365
+  Average Time Per Path: 5.125800000000001 seconds
+  Time Per Path Std Dev: 0.2599545344863213 seconds
+
+Planner: ABITstar
+  Status: Successful
+  Total Time Taken: 255.87 seconds
+  Number of Paths: 50
+  Average Path Length: 2.0872
+  Shortest Path Length: 2.07
+  Longest Path Length: 2.11
+  Path Length Std Dev: 0.009806120537705
+  Average Time Per Path: 5.1148 seconds
+  Time Per Path Std Dev: 0.22469748552220153 seconds
+
+Planner: AITstar
+  Status: Successful
+  Total Time Taken: 0 seconds
+  Number of Paths: 0
+  Average Path Length: 0
+  Shortest Path Length: 0
+  Longest Path Length: 0
+  Path Length Std Dev: 0
+  Average Time Per Path: 0 seconds
+  Time Per Path Std Dev: 0 seconds
+
+Planner: LBTRRT
+  Status: Successful
+  Total Time Taken: 253.54 seconds
+  Number of Paths: 50
+  Average Path Length: 2.4296
+  Shortest Path Length: 2.24
+  Longest Path Length: 2.64
+  Path Length Std Dev: 0.10974443038259393
+  Average Time Per Path: 5.039 seconds
+  Time Per Path Std Dev: 0.008062257748298461 seconds
+
+Planner: ST-RRTstar
+  Status: Failed
+  Error Message: Error occurred for planner ST-RRTstar: Planner type ST-RRTstar is not supported.
+
+Planner: CForest
+  Status: Failed
+  Error Message: Error occurred for planner CForest: Planner type CForest is not supported.
+
+Planner: APS
+  Status: Failed
+  Error Message: Error occurred for planner APS: Planner type APS is not supported.
+
+Planner: SyCLoP
+  Status: Failed
+  Error Message: Error occurred for planner SyCLoP: Planner type SyCLoP is not supported.
+
+Planner: LTLPlanner
+  Status: Failed
+  Error Message: Error occurred for planner LTLPlanner: Planner type LTLPlanner is not supported.
+
+Planner: SPQRstar
+  Status: Failed
+  Error Message: Error occurred for planner SPQRstar: Planner type SPQRstar is not supported.
+

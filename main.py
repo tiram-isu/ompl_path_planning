@@ -109,7 +109,7 @@ if __name__ == "__main__":
     model_name = "stonehenge"
     enable_visualization = False
     ellipsoid_dimensions = (0.025, 0.025, 0.04)
-    num_paths = 1
+    num_paths = 50
     max_time_per_path = 5  # maximum time in seconds for each planner process
     mesh = o3d.io.read_triangle_mesh(f"/app/meshes/{model_name}.fbx")
 
