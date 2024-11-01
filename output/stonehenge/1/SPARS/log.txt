@@ -1,0 +1,6 @@
+2024-11-01 18:11:03,192 - INFO - Bounds set with padding of 0.01
+2024-11-01 18:11:03,265 - INFO - Planner SPARS initialized with range 0.1.
+2024-11-01 18:11:03,266 - INFO - Start state: [-1.24  0.31  0.08], Goal state: [ 0.46 -0.79  0.08]
+2024-11-01 18:11:03,399 - DEBUG - contains_points executed in 0.1328 seconds.
+2024-11-01 18:11:03,400 - DEBUG - contains_points executed in 0.0008 seconds.
+2024-11-01 18:11:03,400 - INFO - Planning 1 paths in 5 seconds...

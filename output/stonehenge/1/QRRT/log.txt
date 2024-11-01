@@ -1,0 +1,3 @@
+2024-11-01 18:12:04,899 - INFO - Bounds set with padding of 0.01
+2024-11-01 18:12:04,972 - ERROR - Planner type QRRT is not available in OMPL.
+2024-11-01 18:12:04,972 - ERROR - Error occurred for planner QRRT: Planner type QRRT is not supported.

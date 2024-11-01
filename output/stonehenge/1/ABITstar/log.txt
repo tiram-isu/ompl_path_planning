@@ -1,0 +1,13 @@
+2024-11-01 18:12:35,468 - INFO - Bounds set with padding of 0.01
+2024-11-01 18:12:35,541 - INFO - Planner ABITstar initialized with range 0.1.
+2024-11-01 18:12:35,542 - INFO - Start state: [-1.24  0.31  0.08], Goal state: [ 0.46 -0.79  0.08]
+2024-11-01 18:12:35,672 - DEBUG - contains_points executed in 0.1294 seconds.
+2024-11-01 18:12:35,673 - DEBUG - contains_points executed in 0.0008 seconds.
+2024-11-01 18:12:35,673 - INFO - Planning 1 paths in 5 seconds...
+2024-11-01 18:12:40,704 - INFO - Path 1 added. Length: 2.08 units. Duration: 5.03 seconds.
+2024-11-01 18:12:40,704 - INFO - All paths planning completed. Total duration: 5.03 seconds.
+2024-11-01 18:12:40,704 - INFO - Average time per path: 5.03 seconds.
+2024-11-01 18:12:40,705 - INFO - Average path length of all paths: 2.08 units.
+2024-11-01 18:12:40,705 - INFO - Shortest path length: 2.08 units.
+2024-11-01 18:12:40,705 - INFO - Longest path length: 2.08 units.
+2024-11-01 18:12:40,705 - INFO - Total number of unique paths found: 1.

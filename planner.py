@@ -7,7 +7,7 @@ from ompl import geometric as og
 from collision_detection import StateValidityChecker
 
 class PathPlanner:
-    def __init__(self, mesh, ellipsoid_dimensions, planner_type="RRT", range=0.1, state_validity_resolution=0.001, bounds_padding=0.01):
+    def __init__(self, mesh, ellipsoid_dimensions, planner_type, range=0.1, state_validity_resolution=0.001, bounds_padding=0.01):
         # Load mesh using Open3D
         self.mesh = mesh
         self.ellipsoid_dimensions = ellipsoid_dimensions

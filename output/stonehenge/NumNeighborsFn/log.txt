@@ -1,6 +1,0 @@
-2024-10-29 21:29:46,805 - INFO - Bounds set with padding of 0.01
-2024-10-29 21:29:46,871 - INFO - Planner NumNeighborsFn initialized with range 0.1.
-2024-10-29 21:29:46,871 - INFO - Start state: [-1.24  0.31  0.08], Goal state: [ 0.46 -0.79  0.08]
-2024-10-29 21:29:47,013 - DEBUG - contains_points executed in 0.1411 seconds.
-2024-10-29 21:29:47,022 - DEBUG - contains_points executed in 0.0011 seconds.
-2024-10-29 21:29:47,022 - INFO - Planning 10 paths in 5.0 seconds...

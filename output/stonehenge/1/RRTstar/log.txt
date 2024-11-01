@@ -1,0 +1,13 @@
+2024-11-01 18:11:26,926 - INFO - Bounds set with padding of 0.01
+2024-11-01 18:11:27,000 - INFO - Planner RRTstar initialized with range 0.1.
+2024-11-01 18:11:27,001 - INFO - Start state: [-1.24  0.31  0.08], Goal state: [ 0.46 -0.79  0.08]
+2024-11-01 18:11:27,131 - DEBUG - contains_points executed in 0.1299 seconds.
+2024-11-01 18:11:27,132 - DEBUG - contains_points executed in 0.0008 seconds.
+2024-11-01 18:11:27,132 - INFO - Planning 1 paths in 5 seconds...
+2024-11-01 18:11:32,155 - INFO - Path 1 added. Length: 2.33 units. Duration: 5.02 seconds.
+2024-11-01 18:11:32,155 - INFO - All paths planning completed. Total duration: 5.02 seconds.
+2024-11-01 18:11:32,155 - INFO - Average time per path: 5.02 seconds.
+2024-11-01 18:11:32,157 - INFO - Average path length of all paths: 2.33 units.
+2024-11-01 18:11:32,157 - INFO - Shortest path length: 2.33 units.
+2024-11-01 18:11:32,157 - INFO - Longest path length: 2.33 units.
+2024-11-01 18:11:32,157 - INFO - Total number of unique paths found: 1.
