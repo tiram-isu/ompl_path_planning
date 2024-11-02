@@ -1,0 +1,22 @@
+2024-11-02 16:50:48,184 - INFO - Bounds set with padding of 0.01
+2024-11-02 16:50:48,254 - INFO - Planner EST initialized with range 0.1.
+2024-11-02 16:50:48,255 - INFO - Start state: [-1.24  0.31  0.08], Goal state: [ 0.46 -0.79  0.08]
+2024-11-02 16:50:48,400 - DEBUG - contains_points executed in 0.1448 seconds.
+2024-11-02 16:50:48,402 - DEBUG - contains_points executed in 0.0015 seconds.
+2024-11-02 16:50:48,402 - INFO - Planning 10 paths in 5 seconds...
+2024-11-02 16:50:49,036 - INFO - Path 1 added. Length: 2.93 units. Duration: 0.63 seconds.
+2024-11-02 16:50:49,607 - INFO - Path 2 added. Length: 2.69 units. Duration: 0.57 seconds.
+2024-11-02 16:50:50,437 - INFO - Path 3 added. Length: 3.31 units. Duration: 0.83 seconds.
+2024-11-02 16:50:51,278 - INFO - Path 4 added. Length: 2.58 units. Duration: 0.84 seconds.
+2024-11-02 16:50:51,782 - INFO - Path 5 added. Length: 3.09 units. Duration: 0.50 seconds.
+2024-11-02 16:50:52,145 - INFO - Path 6 added. Length: 2.73 units. Duration: 0.36 seconds.
+2024-11-02 16:50:52,872 - INFO - Path 7 added. Length: 2.77 units. Duration: 0.73 seconds.
+2024-11-02 16:50:53,408 - INFO - Path 8 added. Length: 2.75 units. Duration: 0.53 seconds.
+2024-11-02 16:50:53,963 - INFO - Path 9 added. Length: 3.34 units. Duration: 0.55 seconds.
+2024-11-02 16:50:54,253 - INFO - Path 10 added. Length: 2.89 units. Duration: 0.29 seconds.
+2024-11-02 16:50:54,253 - INFO - All paths planning completed. Total duration: 5.85 seconds.
+2024-11-02 16:50:54,253 - INFO - Average time per path: 0.59 seconds.
+2024-11-02 16:50:54,261 - INFO - Average path length of all paths: 2.91 units.
+2024-11-02 16:50:54,262 - INFO - Shortest path length: 2.58 units.
+2024-11-02 16:50:54,262 - INFO - Longest path length: 3.34 units.
+2024-11-02 16:50:54,262 - INFO - Total number of unique paths found: 10.

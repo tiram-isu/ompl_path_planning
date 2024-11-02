@@ -1,0 +1,24 @@
+2024-11-02 16:51:09,528 - INFO - Bounds set with padding of 0.01
+2024-11-02 16:51:09,599 - INFO - Planner PDST initialized with range 0.1.
+2024-11-02 16:51:09,600 - INFO - Start state: [-1.24  0.31  0.08], Goal state: [ 0.46 -0.79  0.08]
+2024-11-02 16:51:09,730 - DEBUG - contains_points executed in 0.1301 seconds.
+2024-11-02 16:51:09,731 - DEBUG - contains_points executed in 0.0010 seconds.
+2024-11-02 16:51:09,731 - INFO - Planning 10 paths in 5 seconds...
+2024-11-02 16:51:09,746 - INFO - Path 1 added. Length: 2.68 units. Duration: 0.01 seconds.
+2024-11-02 16:51:09,772 - INFO - Path 2 added. Length: 4.44 units. Duration: 0.02 seconds.
+2024-11-02 16:51:09,796 - INFO - Path 3 added. Length: 3.41 units. Duration: 0.02 seconds.
+2024-11-02 16:51:09,809 - INFO - Path 4 added. Length: 2.68 units. Duration: 0.01 seconds.
+2024-11-02 16:51:09,831 - INFO - Path 5 added. Length: 4.12 units. Duration: 0.02 seconds.
+2024-11-02 16:51:09,847 - INFO - Path 6 added. Length: 2.70 units. Duration: 0.02 seconds.
+2024-11-02 16:51:09,879 - INFO - Path 7 added. Length: 2.23 units. Duration: 0.03 seconds.
+2024-11-02 16:51:09,885 - INFO - Path 8 added. Length: 2.22 units. Duration: 0.01 seconds.
+2024-11-02 16:51:09,919 - INFO - Path 9 added. Length: 4.02 units. Duration: 0.03 seconds.
+2024-11-02 16:51:09,931 - INFO - Path 10 added. Length: 3.46 units. Duration: 0.01 seconds.
+2024-11-02 16:51:09,931 - INFO - All paths planning completed. Total duration: 0.20 seconds.
+2024-11-02 16:51:09,931 - INFO - Average time per path: 0.02 seconds.
+2024-11-02 16:51:09,936 - INFO - Average path length of all paths: 3.19 units.
+2024-11-02 16:51:09,936 - INFO - Shortest path length: 2.22 units.
+2024-11-02 16:51:09,936 - INFO - Longest path length: 4.44 units.
+2024-11-02 16:51:09,936 - INFO - Total number of unique paths found: 10.
+2024-11-02 16:51:10,149 - ERROR - Error occurred for planner PDST: [1;31m[Open3D Error] (static std::shared_ptr<open3d::geometry::TriangleMesh> open3d::geometry::TriangleMesh::CreateCylinder(double, double, int, int, bool)) /root/Open3D/cpp/open3d/geometry/TriangleMeshFactory.cpp:394: height <= 0
+[0;m

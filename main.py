@@ -36,12 +36,6 @@ def parse_log_file(log_file_path):
                 
     return result
 
-import os
-import numpy as np
-
-import os
-import numpy as np
-
 def write_summary_log(all_results, output_path, model_name, start, goal, mesh, ellipsoid_dimensions, max_time_per_path):
     """Write a summary log file consolidating all planners' results, including details for each path."""
     summary_log_path = os.path.join(output_path, "summary_log.txt")
@@ -87,8 +81,6 @@ def write_summary_log(all_results, output_path, model_name, start, goal, mesh, e
                 f.write(f"  Status: Failed\n")
                 f.write(f"  Error Message: {result['error_message']}\n\n")
 
-
-
 def plan_path(planner, num_paths, start, goal, model_name, ellipsoid_dimensions, enable_visualization, mesh, max_time):
     # Create output directory
     output_path = f"/app/output/{model_name}/{num_paths}/{planner}"
@@ -129,7 +121,7 @@ if __name__ == "__main__":
     model_name = "stonehenge"
     enable_visualization = False
     ellipsoid_dimensions = (0.025, 0.025, 0.04)
-    num_paths = 1
+    num_paths = 100
     max_time_per_path = 5  # maximum time in seconds for each planner process
     mesh = o3d.io.read_triangle_mesh(f"/app/meshes/{model_name}.fbx")
 

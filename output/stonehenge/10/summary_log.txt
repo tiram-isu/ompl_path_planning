@@ -1,0 +1,470 @@
+Model: stonehenge
+Mesh: TriangleMesh with 10995 points and 18402 triangles, and textures of size (4096, 4096) (2048, 2048) (1024, 1024) (2048, 2048) (1024, 1024) (2048, 2048) (2048, 2048) (2048, 2048) 
+Ellipsoid Dimensions: (0.025, 0.025, 0.04)
+Start Point: [-1.24  0.31  0.08]
+Goal Point: [ 0.46 -0.79  0.08]
+Max Time Per Path: 5
+
+Planner: PRM
+  Status: Successful
+  Total Time Taken: 1.05 seconds
+  Number of Paths: 10
+  Average Path Length: 2.309
+  Shortest Path Length: 2.08
+  Longest Path Length: 2.67
+  Path Length Std Dev: 0.21468348795377812
+  Average Time Per Path: 0.101 seconds
+  Time Per Path Std Dev: 0.0029999999999999983 seconds
+
+  Paths:
+    Path 1: Length = 2.3 units, Duration = 0.11 seconds
+    Path 2: Length = 2.12 units, Duration = 0.1 seconds
+    Path 3: Length = 2.67 units, Duration = 0.1 seconds
+    Path 4: Length = 2.46 units, Duration = 0.1 seconds
+    Path 5: Length = 2.67 units, Duration = 0.1 seconds
+    Path 6: Length = 2.11 units, Duration = 0.1 seconds
+    Path 7: Length = 2.32 units, Duration = 0.1 seconds
+    Path 8: Length = 2.08 units, Duration = 0.1 seconds
+    Path 9: Length = 2.09 units, Duration = 0.1 seconds
+    Path 10: Length = 2.27 units, Duration = 0.1 seconds
+
+Planner: LazyPRM
+  Status: Successful
+  Total Time Taken: 1.69 seconds
+  Number of Paths: 10
+  Average Path Length: 4.205
+  Shortest Path Length: 2.86
+  Longest Path Length: 5.1
+  Path Length Std Dev: 0.5976997574033304
+  Average Time Per Path: 0.16799999999999998 seconds
+  Time Per Path Std Dev: 0.0384187454245971 seconds
+
+  Paths:
+    Path 1: Length = 3.76 units, Duration = 0.15 seconds
+    Path 2: Length = 4.88 units, Duration = 0.15 seconds
+    Path 3: Length = 5.1 units, Duration = 0.13 seconds
+    Path 4: Length = 4.0 units, Duration = 0.21 seconds
+    Path 5: Length = 4.48 units, Duration = 0.13 seconds
+    Path 6: Length = 4.37 units, Duration = 0.23 seconds
+    Path 7: Length = 4.17 units, Duration = 0.19 seconds
+    Path 8: Length = 4.5 units, Duration = 0.21 seconds
+    Path 9: Length = 2.86 units, Duration = 0.11 seconds
+    Path 10: Length = 3.93 units, Duration = 0.17 seconds
+
+Planner: PRMstar
+  Status: Successful
+  Total Time Taken: 50.52 seconds
+  Number of Paths: 10
+  Average Path Length: 2.101
+  Shortest Path Length: 2.08
+  Longest Path Length: 2.12
+  Path Length Std Dev: 0.012999999999999968
+  Average Time Per Path: 5.046999999999999 seconds
+  Time Per Path Std Dev: 0.0847407812095216 seconds
+
+  Paths:
+    Path 1: Length = 2.11 units, Duration = 5.02 seconds
+    Path 2: Length = 2.11 units, Duration = 5.01 seconds
+    Path 3: Length = 2.11 units, Duration = 5.04 seconds
+    Path 4: Length = 2.08 units, Duration = 5.02 seconds
+    Path 5: Length = 2.11 units, Duration = 5.02 seconds
+    Path 6: Length = 2.1 units, Duration = 5.01 seconds
+    Path 7: Length = 2.08 units, Duration = 5.01 seconds
+    Path 8: Length = 2.1 units, Duration = 5.02 seconds
+    Path 9: Length = 2.12 units, Duration = 5.3 seconds
+    Path 10: Length = 2.09 units, Duration = 5.02 seconds
+
+Planner: LazyPRMstar
+  Status: Successful
+  Total Time Taken: 50.98 seconds
+  Number of Paths: 10
+  Average Path Length: 2.088
+  Shortest Path Length: 2.08
+  Longest Path Length: 2.12
+  Path Length Std Dev: 0.0124899959967968
+  Average Time Per Path: 5.076999999999999 seconds
+  Time Per Path Std Dev: 0.0978825827203186 seconds
+
+  Paths:
+    Path 1: Length = 2.08 units, Duration = 5.02 seconds
+    Path 2: Length = 2.08 units, Duration = 5.01 seconds
+    Path 3: Length = 2.08 units, Duration = 5.02 seconds
+    Path 4: Length = 2.09 units, Duration = 5.25 seconds
+    Path 5: Length = 2.12 units, Duration = 5.03 seconds
+    Path 6: Length = 2.08 units, Duration = 5.01 seconds
+    Path 7: Length = 2.08 units, Duration = 5.05 seconds
+    Path 8: Length = 2.1 units, Duration = 5.04 seconds
+    Path 9: Length = 2.08 units, Duration = 5.05 seconds
+    Path 10: Length = 2.09 units, Duration = 5.29 seconds
+
+Planner: SPARS
+  Status: Successful
+  Total Time Taken: 0 seconds
+  Number of Paths: 0
+  Average Path Length: 0
+  Shortest Path Length: 0
+  Longest Path Length: 0
+  Path Length Std Dev: 0
+  Average Time Per Path: 0 seconds
+  Time Per Path Std Dev: 0 seconds
+
+  Paths:
+
+Planner: SPARS2
+  Status: Failed
+  Error Message: Error occurred for planner SPARS2: Planner type SPARS2 is not supported.
+
+Planner: RRT
+  Status: Successful
+  Total Time Taken: 0.16 seconds
+  Number of Paths: 10
+  Average Path Length: 2.566
+  Shortest Path Length: 2.22
+  Longest Path Length: 3.14
+  Path Length Std Dev: 0.3093929540244897
+  Average Time Per Path: 0.015000000000000003 seconds
+  Time Per Path Std Dev: 0.005 seconds
+
+  Paths:
+    Path 1: Length = 2.44 units, Duration = 0.02 seconds
+    Path 2: Length = 2.39 units, Duration = 0.02 seconds
+    Path 3: Length = 2.46 units, Duration = 0.01 seconds
+    Path 4: Length = 2.22 units, Duration = 0.02 seconds
+    Path 5: Length = 3.1 units, Duration = 0.02 seconds
+    Path 6: Length = 3.14 units, Duration = 0.02 seconds
+    Path 7: Length = 2.38 units, Duration = 0.01 seconds
+    Path 8: Length = 2.79 units, Duration = 0.01 seconds
+    Path 9: Length = 2.33 units, Duration = 0.01 seconds
+    Path 10: Length = 2.41 units, Duration = 0.01 seconds
+
+Planner: RRTConnect
+  Status: Successful
+  Total Time Taken: 0.13 seconds
+  Number of Paths: 10
+  Average Path Length: 2.402
+  Shortest Path Length: 2.2
+  Longest Path Length: 2.62
+  Path Length Std Dev: 0.12679116688476372
+  Average Time Per Path: 0.013000000000000001 seconds
+  Time Per Path Std Dev: 0.0045825756949558405 seconds
+
+  Paths:
+    Path 1: Length = 2.43 units, Duration = 0.02 seconds
+    Path 2: Length = 2.2 units, Duration = 0.02 seconds
+    Path 3: Length = 2.34 units, Duration = 0.02 seconds
+    Path 4: Length = 2.21 units, Duration = 0.01 seconds
+    Path 5: Length = 2.62 units, Duration = 0.01 seconds
+    Path 6: Length = 2.54 units, Duration = 0.01 seconds
+    Path 7: Length = 2.49 units, Duration = 0.01 seconds
+    Path 8: Length = 2.35 units, Duration = 0.01 seconds
+    Path 9: Length = 2.4 units, Duration = 0.01 seconds
+    Path 10: Length = 2.44 units, Duration = 0.01 seconds
+
+Planner: RRTstar
+  Status: Successful
+  Total Time Taken: 50.3 seconds
+  Number of Paths: 10
+  Average Path Length: 2.224
+  Shortest Path Length: 2.16
+  Longest Path Length: 2.36
+  Path Length Std Dev: 0.05517245689653485
+  Average Time Per Path: 5.028 seconds
+  Time Per Path Std Dev: 0.01720465053408528 seconds
+
+  Paths:
+    Path 1: Length = 2.16 units, Duration = 5.05 seconds
+    Path 2: Length = 2.23 units, Duration = 5.02 seconds
+    Path 3: Length = 2.24 units, Duration = 5.02 seconds
+    Path 4: Length = 2.17 units, Duration = 5.06 seconds
+    Path 5: Length = 2.21 units, Duration = 5.02 seconds
+    Path 6: Length = 2.25 units, Duration = 5.05 seconds
+    Path 7: Length = 2.36 units, Duration = 5.02 seconds
+    Path 8: Length = 2.25 units, Duration = 5.02 seconds
+    Path 9: Length = 2.18 units, Duration = 5.01 seconds
+    Path 10: Length = 2.19 units, Duration = 5.01 seconds
+
+Planner: SST
+  Status: Failed
+  Error Message: No solution found for this attempt.
+
+Planner: T-RRT
+  Status: Failed
+  Error Message: Error occurred for planner T-RRT: Planner type T-RRT is not supported.
+
+Planner: VF-RRT
+  Status: Failed
+  Error Message: Error occurred for planner VF-RRT: Planner type VF-RRT is not supported.
+
+Planner: pRRT
+  Status: Failed
+  Error Message: Error occurred for planner pRRT: Planner type pRRT is not supported.
+
+Planner: LazyRRT
+  Status: Successful
+  Total Time Taken: 0.71 seconds
+  Number of Paths: 10
+  Average Path Length: 3.618
+  Shortest Path Length: 2.91
+  Longest Path Length: 4.33
+  Path Length Std Dev: 0.477258839624789
+  Average Time Per Path: 0.06999999999999999 seconds
+  Time Per Path Std Dev: 0.03098386676965934 seconds
+
+  Paths:
+    Path 1: Length = 3.67 units, Duration = 0.09 seconds
+    Path 2: Length = 2.96 units, Duration = 0.05 seconds
+    Path 3: Length = 3.42 units, Duration = 0.06 seconds
+    Path 4: Length = 4.07 units, Duration = 0.14 seconds
+    Path 5: Length = 4.03 units, Duration = 0.07 seconds
+    Path 6: Length = 3.07 units, Duration = 0.07 seconds
+    Path 7: Length = 4.33 units, Duration = 0.04 seconds
+    Path 8: Length = 2.91 units, Duration = 0.02 seconds
+    Path 9: Length = 3.82 units, Duration = 0.09 seconds
+    Path 10: Length = 3.9 units, Duration = 0.07 seconds
+
+Planner: TSRRT
+  Status: Failed
+  Error Message: Error occurred for planner TSRRT: Planner type TSRRT is not supported.
+
+Planner: EST
+  Status: Successful
+  Total Time Taken: 5.85 seconds
+  Number of Paths: 10
+  Average Path Length: 2.9080000000000004
+  Shortest Path Length: 2.58
+  Longest Path Length: 3.34
+  Path Length Std Dev: 0.2475802900071005
+  Average Time Per Path: 0.583 seconds
+  Time Per Path Std Dev: 0.1724557914365302 seconds
+
+  Paths:
+    Path 1: Length = 2.93 units, Duration = 0.63 seconds
+    Path 2: Length = 2.69 units, Duration = 0.57 seconds
+    Path 3: Length = 3.31 units, Duration = 0.83 seconds
+    Path 4: Length = 2.58 units, Duration = 0.84 seconds
+    Path 5: Length = 3.09 units, Duration = 0.5 seconds
+    Path 6: Length = 2.73 units, Duration = 0.36 seconds
+    Path 7: Length = 2.77 units, Duration = 0.73 seconds
+    Path 8: Length = 2.75 units, Duration = 0.53 seconds
+    Path 9: Length = 3.34 units, Duration = 0.55 seconds
+    Path 10: Length = 2.89 units, Duration = 0.29 seconds
+
+Planner: KPIECE
+  Status: Failed
+  Error Message: Error occurred for planner KPIECE: Planner type KPIECE is not supported.
+
+Planner: BKPIECE
+  Status: Failed
+  Error Message: Error occurred for planner BKPIECE: Planner type BKPIECE is not supported.
+
+Planner: LBKPIECE
+  Status: Failed
+  Error Message: Error occurred for planner LBKPIECE: Planner type LBKPIECE is not supported.
+
+Planner: STRIDE
+  Status: Successful
+  Total Time Taken: 0.29 seconds
+  Number of Paths: 10
+  Average Path Length: 3.211
+  Shortest Path Length: 2.57
+  Longest Path Length: 4.61
+  Path Length Std Dev: 0.589414115881186
+  Average Time Per Path: 0.028000000000000004 seconds
+  Time Per Path Std Dev: 0.028213471959331767 seconds
+
+  Paths:
+    Path 1: Length = 3.28 units, Duration = 0.03 seconds
+    Path 2: Length = 2.62 units, Duration = 0.02 seconds
+    Path 3: Length = 2.72 units, Duration = 0.03 seconds
+    Path 4: Length = 3.38 units, Duration = 0.02 seconds
+    Path 5: Length = 3.49 units, Duration = 0.01 seconds
+    Path 6: Length = 2.65 units, Duration = 0.01 seconds
+    Path 7: Length = 3.5 units, Duration = 0.02 seconds
+    Path 8: Length = 3.29 units, Duration = 0.02 seconds
+    Path 9: Length = 4.61 units, Duration = 0.11 seconds
+    Path 10: Length = 2.57 units, Duration = 0.01 seconds
+
+Planner: PDST
+  Status: Failed
+  Error Message: Error occurred for planner PDST: [1;31m[Open3D Error] (static std::shared_ptr<open3d::geometry::TriangleMesh> open3d::geometry::TriangleMesh::CreateCylinder(double, double, int, int, bool)) /root/Open3D/cpp/open3d/geometry/TriangleMeshFactory.cpp:394: height <= 0
+
+Planner: FMTstar
+  Status: Failed
+  Error Message: Error occurred for planner FMTstar: Planner type FMTstar is not supported.
+
+Planner: BMFTstar
+  Status: Failed
+  Error Message: Error occurred for planner BMFTstar: Planner type BMFTstar is not supported.
+
+Planner: QRRT
+  Status: Failed
+  Error Message: Error occurred for planner QRRT: Planner type QRRT is not supported.
+
+Planner: QRRTstar
+  Status: Failed
+  Error Message: Error occurred for planner QRRTstar: Planner type QRRTstar is not supported.
+
+Planner: QMP
+  Status: Failed
+  Error Message: Error occurred for planner QMP: Planner type QMP is not supported.
+
+Planner: QMPstar
+  Status: Failed
+  Error Message: Error occurred for planner QMPstar: Planner type QMPstar is not supported.
+
+Planner: RRTsharp
+  Status: Successful
+  Total Time Taken: 51.2 seconds
+  Number of Paths: 10
+  Average Path Length: 2.084
+  Shortest Path Length: 2.07
+  Longest Path Length: 2.1
+  Path Length Std Dev: 0.009165151389911698
+  Average Time Per Path: 5.109 seconds
+  Time Per Path Std Dev: 0.25073691391576164 seconds
+
+  Paths:
+    Path 1: Length = 2.09 units, Duration = 5.03 seconds
+    Path 2: Length = 2.1 units, Duration = 5.04 seconds
+    Path 3: Length = 2.08 units, Duration = 5.01 seconds
+    Path 4: Length = 2.07 units, Duration = 5.01 seconds
+    Path 5: Length = 2.08 units, Duration = 5.01 seconds
+    Path 6: Length = 2.09 units, Duration = 5.04 seconds
+    Path 7: Length = 2.07 units, Duration = 5.03 seconds
+    Path 8: Length = 2.08 units, Duration = 5.01 seconds
+    Path 9: Length = 2.09 units, Duration = 5.05 seconds
+    Path 10: Length = 2.09 units, Duration = 5.86 seconds
+
+Planner: RRTX
+  Status: Failed
+  Error Message: Error occurred for planner RRTX: Planner type RRTX is not supported.
+
+Planner: InformedRRTstar
+  Status: Successful
+  Total Time Taken: 50.68 seconds
+  Number of Paths: 10
+  Average Path Length: 2.1189999999999998
+  Shortest Path Length: 2.09
+  Longest Path Length: 2.19
+  Path Length Std Dev: 0.03207802986469088
+  Average Time Per Path: 5.067 seconds
+  Time Per Path Std Dev: 0.11437219941926445 seconds
+
+  Paths:
+    Path 1: Length = 2.1 units, Duration = 5.03 seconds
+    Path 2: Length = 2.19 units, Duration = 5.03 seconds
+    Path 3: Length = 2.09 units, Duration = 5.03 seconds
+    Path 4: Length = 2.1 units, Duration = 5.03 seconds
+    Path 5: Length = 2.12 units, Duration = 5.41 seconds
+    Path 6: Length = 2.11 units, Duration = 5.03 seconds
+    Path 7: Length = 2.09 units, Duration = 5.03 seconds
+    Path 8: Length = 2.11 units, Duration = 5.03 seconds
+    Path 9: Length = 2.17 units, Duration = 5.02 seconds
+    Path 10: Length = 2.11 units, Duration = 5.03 seconds
+
+Planner: BITstar
+  Status: Successful
+  Total Time Taken: 50.2 seconds
+  Number of Paths: 10
+  Average Path Length: 2.091
+  Shortest Path Length: 2.08
+  Longest Path Length: 2.12
+  Path Length Std Dev: 0.011357816691600566
+  Average Time Per Path: 5.0169999999999995 seconds
+  Time Per Path Std Dev: 0.0045825756949557424 seconds
+
+  Paths:
+    Path 1: Length = 2.09 units, Duration = 5.02 seconds
+    Path 2: Length = 2.09 units, Duration = 5.02 seconds
+    Path 3: Length = 2.08 units, Duration = 5.02 seconds
+    Path 4: Length = 2.09 units, Duration = 5.02 seconds
+    Path 5: Length = 2.09 units, Duration = 5.01 seconds
+    Path 6: Length = 2.08 units, Duration = 5.02 seconds
+    Path 7: Length = 2.08 units, Duration = 5.02 seconds
+    Path 8: Length = 2.09 units, Duration = 5.02 seconds
+    Path 9: Length = 2.12 units, Duration = 5.01 seconds
+    Path 10: Length = 2.1 units, Duration = 5.01 seconds
+
+Planner: ABITstar
+  Status: Successful
+  Total Time Taken: 51.55 seconds
+  Number of Paths: 10
+  Average Path Length: 2.082
+  Shortest Path Length: 2.06
+  Longest Path Length: 2.11
+  Path Length Std Dev: 0.01469693845669901
+  Average Time Per Path: 5.1530000000000005 seconds
+  Time Per Path Std Dev: 0.3598624737312855 seconds
+
+  Paths:
+    Path 1: Length = 2.08 units, Duration = 5.01 seconds
+    Path 2: Length = 2.06 units, Duration = 5.03 seconds
+    Path 3: Length = 2.09 units, Duration = 5.05 seconds
+    Path 4: Length = 2.07 units, Duration = 5.03 seconds
+    Path 5: Length = 2.08 units, Duration = 5.02 seconds
+    Path 6: Length = 2.09 units, Duration = 5.01 seconds
+    Path 7: Length = 2.11 units, Duration = 5.1 seconds
+    Path 8: Length = 2.09 units, Duration = 5.03 seconds
+    Path 9: Length = 2.09 units, Duration = 5.02 seconds
+    Path 10: Length = 2.06 units, Duration = 6.23 seconds
+
+Planner: AITstar
+  Status: Successful
+  Total Time Taken: 0 seconds
+  Number of Paths: 0
+  Average Path Length: 0
+  Shortest Path Length: 0
+  Longest Path Length: 0
+  Path Length Std Dev: 0
+  Average Time Per Path: 0 seconds
+  Time Per Path Std Dev: 0 seconds
+
+  Paths:
+
+Planner: LBTRRT
+  Status: Successful
+  Total Time Taken: 50.52 seconds
+  Number of Paths: 10
+  Average Path Length: 2.4170000000000003
+  Shortest Path Length: 2.28
+  Longest Path Length: 2.53
+  Path Length Std Dev: 0.07576938695805845
+  Average Time Per Path: 5.026 seconds
+  Time Per Path Std Dev: 0.016248076809271934 seconds
+
+  Paths:
+    Path 1: Length = 2.51 units, Duration = 5.03 seconds
+    Path 2: Length = 2.41 units, Duration = 5.01 seconds
+    Path 3: Length = 2.43 units, Duration = 5.01 seconds
+    Path 4: Length = 2.43 units, Duration = 5.02 seconds
+    Path 5: Length = 2.37 units, Duration = 5.03 seconds
+    Path 6: Length = 2.28 units, Duration = 5.02 seconds
+    Path 7: Length = 2.53 units, Duration = 5.02 seconds
+    Path 8: Length = 2.36 units, Duration = 5.01 seconds
+    Path 9: Length = 2.5 units, Duration = 5.06 seconds
+    Path 10: Length = 2.35 units, Duration = 5.05 seconds
+
+Planner: ST-RRTstar
+  Status: Failed
+  Error Message: Error occurred for planner ST-RRTstar: Planner type ST-RRTstar is not supported.
+
+Planner: CForest
+  Status: Failed
+  Error Message: Error occurred for planner CForest: Planner type CForest is not supported.
+
+Planner: APS
+  Status: Failed
+  Error Message: Error occurred for planner APS: Planner type APS is not supported.
+
+Planner: SyCLoP
+  Status: Failed
+  Error Message: Error occurred for planner SyCLoP: Planner type SyCLoP is not supported.
+
+Planner: LTLPlanner
+  Status: Failed
+  Error Message: Error occurred for planner LTLPlanner: Planner type LTLPlanner is not supported.
+
+Planner: SPQRstar
+  Status: Failed
+  Error Message: Error occurred for planner SPQRstar: Planner type SPQRstar is not supported.
+
