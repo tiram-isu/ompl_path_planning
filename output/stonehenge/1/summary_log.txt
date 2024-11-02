@@ -16,6 +16,9 @@ Planner: PRM
   Average Time Per Path: 0.11 seconds
   Time Per Path Std Dev: 0.0 seconds
 
+  Paths:
+    Path 1: Length = 2.26 units, Duration = 0.11 seconds
+
 Planner: LazyPRM
   Status: Successful
   Total Time Taken: 0.36 seconds
@@ -26,6 +29,9 @@ Planner: LazyPRM
   Path Length Std Dev: 0.0
   Average Time Per Path: 0.36 seconds
   Time Per Path Std Dev: 0.0 seconds
+
+  Paths:
+    Path 1: Length = 8.33 units, Duration = 0.36 seconds
 
 Planner: PRMstar
   Status: Successful
@@ -38,6 +44,9 @@ Planner: PRMstar
   Average Time Per Path: 5.01 seconds
   Time Per Path Std Dev: 0.0 seconds
 
+  Paths:
+    Path 1: Length = 2.09 units, Duration = 5.01 seconds
+
 Planner: LazyPRMstar
   Status: Successful
   Total Time Taken: 5.01 seconds
@@ -49,6 +58,9 @@ Planner: LazyPRMstar
   Average Time Per Path: 5.01 seconds
   Time Per Path Std Dev: 0.0 seconds
 
+  Paths:
+    Path 1: Length = 2.11 units, Duration = 5.01 seconds
+
 Planner: SPARS
   Status: Successful
   Total Time Taken: 0 seconds
@@ -59,6 +71,8 @@ Planner: SPARS
   Path Length Std Dev: 0
   Average Time Per Path: 0 seconds
   Time Per Path Std Dev: 0 seconds
+
+  Paths:
 
 Planner: SPARS2
   Status: Failed
@@ -75,6 +89,9 @@ Planner: RRT
   Average Time Per Path: 0.03 seconds
   Time Per Path Std Dev: 0.0 seconds
 
+  Paths:
+    Path 1: Length = 2.91 units, Duration = 0.03 seconds
+
 Planner: RRTConnect
   Status: Successful
   Total Time Taken: 0.02 seconds
@@ -86,6 +103,9 @@ Planner: RRTConnect
   Average Time Per Path: 0.01 seconds
   Time Per Path Std Dev: 0.0 seconds
 
+  Paths:
+    Path 1: Length = 2.18 units, Duration = 0.01 seconds
+
 Planner: RRTstar
   Status: Successful
   Total Time Taken: 5.02 seconds
@@ -96,6 +116,9 @@ Planner: RRTstar
   Path Length Std Dev: 0.0
   Average Time Per Path: 5.02 seconds
   Time Per Path Std Dev: 0.0 seconds
+
+  Paths:
+    Path 1: Length = 2.33 units, Duration = 5.02 seconds
 
 Planner: SST
   Status: Failed
@@ -124,6 +147,9 @@ Planner: LazyRRT
   Average Time Per Path: 0.05 seconds
   Time Per Path Std Dev: 0.0 seconds
 
+  Paths:
+    Path 1: Length = 3.17 units, Duration = 0.05 seconds
+
 Planner: TSRRT
   Status: Failed
   Error Message: Error occurred for planner TSRRT: Planner type TSRRT is not supported.
@@ -138,6 +164,9 @@ Planner: EST
   Path Length Std Dev: 0.0
   Average Time Per Path: 0.3 seconds
   Time Per Path Std Dev: 0.0 seconds
+
+  Paths:
+    Path 1: Length = 2.67 units, Duration = 0.3 seconds
 
 Planner: KPIECE
   Status: Failed
@@ -161,6 +190,9 @@ Planner: STRIDE
   Path Length Std Dev: 0.0
   Average Time Per Path: 0.03 seconds
   Time Per Path Std Dev: 0.0 seconds
+
+  Paths:
+    Path 1: Length = 3.41 units, Duration = 0.03 seconds
 
 Planner: PDST
   Status: Failed
@@ -201,6 +233,9 @@ Planner: RRTsharp
   Average Time Per Path: 5.01 seconds
   Time Per Path Std Dev: 0.0 seconds
 
+  Paths:
+    Path 1: Length = 2.08 units, Duration = 5.01 seconds
+
 Planner: RRTX
   Status: Failed
   Error Message: Error occurred for planner RRTX: Planner type RRTX is not supported.
@@ -216,6 +251,9 @@ Planner: InformedRRTstar
   Average Time Per Path: 5.06 seconds
   Time Per Path Std Dev: 0.0 seconds
 
+  Paths:
+    Path 1: Length = 2.1 units, Duration = 5.06 seconds
+
 Planner: BITstar
   Status: Successful
   Total Time Taken: 5.06 seconds
@@ -226,6 +264,9 @@ Planner: BITstar
   Path Length Std Dev: 0.0
   Average Time Per Path: 5.05 seconds
   Time Per Path Std Dev: 0.0 seconds
+
+  Paths:
+    Path 1: Length = 2.08 units, Duration = 5.05 seconds
 
 Planner: ABITstar
   Status: Successful
@@ -238,6 +279,9 @@ Planner: ABITstar
   Average Time Per Path: 5.03 seconds
   Time Per Path Std Dev: 0.0 seconds
 
+  Paths:
+    Path 1: Length = 2.08 units, Duration = 5.03 seconds
+
 Planner: AITstar
   Status: Successful
   Total Time Taken: 0 seconds
@@ -249,6 +293,8 @@ Planner: AITstar
   Average Time Per Path: 0 seconds
   Time Per Path Std Dev: 0 seconds
 
+  Paths:
+
 Planner: LBTRRT
   Status: Successful
   Total Time Taken: 5.05 seconds
@@ -259,6 +305,9 @@ Planner: LBTRRT
   Path Length Std Dev: 0.0
   Average Time Per Path: 5.05 seconds
   Time Per Path Std Dev: 0.0 seconds
+
+  Paths:
+    Path 1: Length = 2.39 units, Duration = 5.05 seconds
 
 Planner: ST-RRTstar
   Status: Failed

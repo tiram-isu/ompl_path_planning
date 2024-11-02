@@ -16,6 +16,58 @@ Planner: PRM
   Average Time Per Path: 0.1002 seconds
   Time Per Path Std Dev: 0.0013999999999999991 seconds
 
+  Paths:
+    Path 1: Length = 2.76 units, Duration = 0.11 seconds
+    Path 2: Length = 2.21 units, Duration = 0.1 seconds
+    Path 3: Length = 2.14 units, Duration = 0.1 seconds
+    Path 4: Length = 2.14 units, Duration = 0.1 seconds
+    Path 5: Length = 2.3 units, Duration = 0.1 seconds
+    Path 6: Length = 2.07 units, Duration = 0.1 seconds
+    Path 7: Length = 2.64 units, Duration = 0.1 seconds
+    Path 8: Length = 2.09 units, Duration = 0.1 seconds
+    Path 9: Length = 2.22 units, Duration = 0.1 seconds
+    Path 10: Length = 2.08 units, Duration = 0.1 seconds
+    Path 11: Length = 2.13 units, Duration = 0.1 seconds
+    Path 12: Length = 2.3 units, Duration = 0.1 seconds
+    Path 13: Length = 2.47 units, Duration = 0.1 seconds
+    Path 14: Length = 2.28 units, Duration = 0.1 seconds
+    Path 15: Length = 2.13 units, Duration = 0.1 seconds
+    Path 16: Length = 2.2 units, Duration = 0.1 seconds
+    Path 17: Length = 2.18 units, Duration = 0.1 seconds
+    Path 18: Length = 2.48 units, Duration = 0.1 seconds
+    Path 19: Length = 2.13 units, Duration = 0.1 seconds
+    Path 20: Length = 2.17 units, Duration = 0.1 seconds
+    Path 21: Length = 2.16 units, Duration = 0.1 seconds
+    Path 22: Length = 2.1 units, Duration = 0.1 seconds
+    Path 23: Length = 2.12 units, Duration = 0.1 seconds
+    Path 24: Length = 2.12 units, Duration = 0.1 seconds
+    Path 25: Length = 2.07 units, Duration = 0.1 seconds
+    Path 26: Length = 2.31 units, Duration = 0.1 seconds
+    Path 27: Length = 2.43 units, Duration = 0.1 seconds
+    Path 28: Length = 2.18 units, Duration = 0.1 seconds
+    Path 29: Length = 2.19 units, Duration = 0.1 seconds
+    Path 30: Length = 2.08 units, Duration = 0.1 seconds
+    Path 31: Length = 2.35 units, Duration = 0.1 seconds
+    Path 32: Length = 2.11 units, Duration = 0.1 seconds
+    Path 33: Length = 2.14 units, Duration = 0.1 seconds
+    Path 34: Length = 2.13 units, Duration = 0.1 seconds
+    Path 35: Length = 2.63 units, Duration = 0.1 seconds
+    Path 36: Length = 2.35 units, Duration = 0.1 seconds
+    Path 37: Length = 2.4 units, Duration = 0.1 seconds
+    Path 38: Length = 2.73 units, Duration = 0.1 seconds
+    Path 39: Length = 2.13 units, Duration = 0.1 seconds
+    Path 40: Length = 2.22 units, Duration = 0.1 seconds
+    Path 41: Length = 2.09 units, Duration = 0.1 seconds
+    Path 42: Length = 2.25 units, Duration = 0.1 seconds
+    Path 43: Length = 2.16 units, Duration = 0.1 seconds
+    Path 44: Length = 2.26 units, Duration = 0.1 seconds
+    Path 45: Length = 2.64 units, Duration = 0.1 seconds
+    Path 46: Length = 2.3 units, Duration = 0.1 seconds
+    Path 47: Length = 2.57 units, Duration = 0.1 seconds
+    Path 48: Length = 2.31 units, Duration = 0.1 seconds
+    Path 49: Length = 2.2 units, Duration = 0.1 seconds
+    Path 50: Length = 2.21 units, Duration = 0.1 seconds
+
 Planner: LazyPRM
   Status: Successful
   Total Time Taken: 9.4 seconds
@@ -26,6 +78,58 @@ Planner: LazyPRM
   Path Length Std Dev: 1.40922942064094
   Average Time Per Path: 0.18599999999999997 seconds
   Time Per Path Std Dev: 0.049999999999999996 seconds
+
+  Paths:
+    Path 1: Length = 6.21 units, Duration = 0.2 seconds
+    Path 2: Length = 4.72 units, Duration = 0.19 seconds
+    Path 3: Length = 4.63 units, Duration = 0.22 seconds
+    Path 4: Length = 4.72 units, Duration = 0.09 seconds
+    Path 5: Length = 3.64 units, Duration = 0.14 seconds
+    Path 6: Length = 5.04 units, Duration = 0.15 seconds
+    Path 7: Length = 6.68 units, Duration = 0.14 seconds
+    Path 8: Length = 3.55 units, Duration = 0.24 seconds
+    Path 9: Length = 3.32 units, Duration = 0.2 seconds
+    Path 10: Length = 2.86 units, Duration = 0.16 seconds
+    Path 11: Length = 5.6 units, Duration = 0.12 seconds
+    Path 12: Length = 3.5 units, Duration = 0.24 seconds
+    Path 13: Length = 8.45 units, Duration = 0.18 seconds
+    Path 14: Length = 5.69 units, Duration = 0.18 seconds
+    Path 15: Length = 5.3 units, Duration = 0.19 seconds
+    Path 16: Length = 4.51 units, Duration = 0.15 seconds
+    Path 17: Length = 3.39 units, Duration = 0.1 seconds
+    Path 18: Length = 4.82 units, Duration = 0.25 seconds
+    Path 19: Length = 4.58 units, Duration = 0.16 seconds
+    Path 20: Length = 4.17 units, Duration = 0.2 seconds
+    Path 21: Length = 3.49 units, Duration = 0.31 seconds
+    Path 22: Length = 3.87 units, Duration = 0.17 seconds
+    Path 23: Length = 4.4 units, Duration = 0.13 seconds
+    Path 24: Length = 3.36 units, Duration = 0.16 seconds
+    Path 25: Length = 4.07 units, Duration = 0.18 seconds
+    Path 26: Length = 3.55 units, Duration = 0.18 seconds
+    Path 27: Length = 3.49 units, Duration = 0.21 seconds
+    Path 28: Length = 3.07 units, Duration = 0.21 seconds
+    Path 29: Length = 5.28 units, Duration = 0.17 seconds
+    Path 30: Length = 3.98 units, Duration = 0.21 seconds
+    Path 31: Length = 4.33 units, Duration = 0.15 seconds
+    Path 32: Length = 4.83 units, Duration = 0.15 seconds
+    Path 33: Length = 2.66 units, Duration = 0.3 seconds
+    Path 34: Length = 3.72 units, Duration = 0.22 seconds
+    Path 35: Length = 4.09 units, Duration = 0.24 seconds
+    Path 36: Length = 4.78 units, Duration = 0.11 seconds
+    Path 37: Length = 6.12 units, Duration = 0.18 seconds
+    Path 38: Length = 4.89 units, Duration = 0.15 seconds
+    Path 39: Length = 5.1 units, Duration = 0.18 seconds
+    Path 40: Length = 3.91 units, Duration = 0.15 seconds
+    Path 41: Length = 3.01 units, Duration = 0.18 seconds
+    Path 42: Length = 3.98 units, Duration = 0.19 seconds
+    Path 43: Length = 4.15 units, Duration = 0.3 seconds
+    Path 44: Length = 3.21 units, Duration = 0.29 seconds
+    Path 45: Length = 3.84 units, Duration = 0.21 seconds
+    Path 46: Length = 6.13 units, Duration = 0.14 seconds
+    Path 47: Length = 5.04 units, Duration = 0.19 seconds
+    Path 48: Length = 6.04 units, Duration = 0.16 seconds
+    Path 49: Length = 5.22 units, Duration = 0.13 seconds
+    Path 50: Length = 10.7 units, Duration = 0.25 seconds
 
 Planner: PRMstar
   Status: Successful
@@ -38,6 +142,58 @@ Planner: PRMstar
   Average Time Per Path: 5.0322000000000005 seconds
   Time Per Path Std Dev: 0.01082404730218785 seconds
 
+  Paths:
+    Path 1: Length = 2.09 units, Duration = 5.04 seconds
+    Path 2: Length = 2.09 units, Duration = 5.02 seconds
+    Path 3: Length = 2.09 units, Duration = 5.03 seconds
+    Path 4: Length = 2.09 units, Duration = 5.03 seconds
+    Path 5: Length = 2.08 units, Duration = 5.03 seconds
+    Path 6: Length = 2.13 units, Duration = 5.03 seconds
+    Path 7: Length = 2.08 units, Duration = 5.03 seconds
+    Path 8: Length = 2.08 units, Duration = 5.02 seconds
+    Path 9: Length = 2.08 units, Duration = 5.03 seconds
+    Path 10: Length = 2.09 units, Duration = 5.03 seconds
+    Path 11: Length = 2.07 units, Duration = 5.03 seconds
+    Path 12: Length = 2.1 units, Duration = 5.03 seconds
+    Path 13: Length = 2.1 units, Duration = 5.03 seconds
+    Path 14: Length = 2.09 units, Duration = 5.02 seconds
+    Path 15: Length = 2.08 units, Duration = 5.02 seconds
+    Path 16: Length = 2.09 units, Duration = 5.03 seconds
+    Path 17: Length = 2.09 units, Duration = 5.03 seconds
+    Path 18: Length = 2.09 units, Duration = 5.03 seconds
+    Path 19: Length = 2.08 units, Duration = 5.03 seconds
+    Path 20: Length = 2.1 units, Duration = 5.01 seconds
+    Path 21: Length = 2.09 units, Duration = 5.03 seconds
+    Path 22: Length = 2.09 units, Duration = 5.03 seconds
+    Path 23: Length = 2.08 units, Duration = 5.03 seconds
+    Path 24: Length = 2.1 units, Duration = 5.02 seconds
+    Path 25: Length = 2.12 units, Duration = 5.03 seconds
+    Path 26: Length = 2.14 units, Duration = 5.02 seconds
+    Path 27: Length = 2.1 units, Duration = 5.02 seconds
+    Path 28: Length = 2.12 units, Duration = 5.03 seconds
+    Path 29: Length = 2.08 units, Duration = 5.03 seconds
+    Path 30: Length = 2.08 units, Duration = 5.03 seconds
+    Path 31: Length = 2.09 units, Duration = 5.02 seconds
+    Path 32: Length = 2.09 units, Duration = 5.01 seconds
+    Path 33: Length = 2.09 units, Duration = 5.03 seconds
+    Path 34: Length = 2.1 units, Duration = 5.03 seconds
+    Path 35: Length = 2.08 units, Duration = 5.03 seconds
+    Path 36: Length = 2.09 units, Duration = 5.04 seconds
+    Path 37: Length = 2.1 units, Duration = 5.04 seconds
+    Path 38: Length = 2.09 units, Duration = 5.04 seconds
+    Path 39: Length = 2.1 units, Duration = 5.05 seconds
+    Path 40: Length = 2.08 units, Duration = 5.05 seconds
+    Path 41: Length = 2.08 units, Duration = 5.05 seconds
+    Path 42: Length = 2.09 units, Duration = 5.06 seconds
+    Path 43: Length = 2.11 units, Duration = 5.03 seconds
+    Path 44: Length = 2.1 units, Duration = 5.04 seconds
+    Path 45: Length = 2.08 units, Duration = 5.05 seconds
+    Path 46: Length = 2.12 units, Duration = 5.04 seconds
+    Path 47: Length = 2.07 units, Duration = 5.05 seconds
+    Path 48: Length = 2.08 units, Duration = 5.06 seconds
+    Path 49: Length = 2.1 units, Duration = 5.04 seconds
+    Path 50: Length = 2.07 units, Duration = 5.03 seconds
+
 Planner: LazyPRMstar
   Status: Successful
   Total Time Taken: 253.0 seconds
@@ -49,6 +205,58 @@ Planner: LazyPRMstar
   Average Time Per Path: 5.034800000000001 seconds
   Time Per Path Std Dev: 0.015522886329545836 seconds
 
+  Paths:
+    Path 1: Length = 2.1 units, Duration = 5.05 seconds
+    Path 2: Length = 2.1 units, Duration = 5.06 seconds
+    Path 3: Length = 2.09 units, Duration = 5.07 seconds
+    Path 4: Length = 2.11 units, Duration = 5.06 seconds
+    Path 5: Length = 2.09 units, Duration = 5.08 seconds
+    Path 6: Length = 2.09 units, Duration = 5.05 seconds
+    Path 7: Length = 2.1 units, Duration = 5.05 seconds
+    Path 8: Length = 2.08 units, Duration = 5.05 seconds
+    Path 9: Length = 2.09 units, Duration = 5.03 seconds
+    Path 10: Length = 2.1 units, Duration = 5.04 seconds
+    Path 11: Length = 2.09 units, Duration = 5.02 seconds
+    Path 12: Length = 2.09 units, Duration = 5.07 seconds
+    Path 13: Length = 2.08 units, Duration = 5.03 seconds
+    Path 14: Length = 2.08 units, Duration = 5.03 seconds
+    Path 15: Length = 2.1 units, Duration = 5.01 seconds
+    Path 16: Length = 2.08 units, Duration = 5.03 seconds
+    Path 17: Length = 2.07 units, Duration = 5.03 seconds
+    Path 18: Length = 2.09 units, Duration = 5.04 seconds
+    Path 19: Length = 2.08 units, Duration = 5.03 seconds
+    Path 20: Length = 2.08 units, Duration = 5.04 seconds
+    Path 21: Length = 2.08 units, Duration = 5.02 seconds
+    Path 22: Length = 2.08 units, Duration = 5.05 seconds
+    Path 23: Length = 2.11 units, Duration = 5.03 seconds
+    Path 24: Length = 2.08 units, Duration = 5.03 seconds
+    Path 25: Length = 2.1 units, Duration = 5.03 seconds
+    Path 26: Length = 2.09 units, Duration = 5.03 seconds
+    Path 27: Length = 2.13 units, Duration = 5.01 seconds
+    Path 28: Length = 2.1 units, Duration = 5.02 seconds
+    Path 29: Length = 2.1 units, Duration = 5.03 seconds
+    Path 30: Length = 2.08 units, Duration = 5.03 seconds
+    Path 31: Length = 2.11 units, Duration = 5.03 seconds
+    Path 32: Length = 2.11 units, Duration = 5.04 seconds
+    Path 33: Length = 2.08 units, Duration = 5.01 seconds
+    Path 34: Length = 2.1 units, Duration = 5.03 seconds
+    Path 35: Length = 2.11 units, Duration = 5.03 seconds
+    Path 36: Length = 2.1 units, Duration = 5.03 seconds
+    Path 37: Length = 2.09 units, Duration = 5.03 seconds
+    Path 38: Length = 2.09 units, Duration = 5.05 seconds
+    Path 39: Length = 2.09 units, Duration = 5.02 seconds
+    Path 40: Length = 2.09 units, Duration = 5.02 seconds
+    Path 41: Length = 2.08 units, Duration = 5.03 seconds
+    Path 42: Length = 2.08 units, Duration = 5.03 seconds
+    Path 43: Length = 2.11 units, Duration = 5.03 seconds
+    Path 44: Length = 2.09 units, Duration = 5.03 seconds
+    Path 45: Length = 2.1 units, Duration = 5.02 seconds
+    Path 46: Length = 2.08 units, Duration = 5.02 seconds
+    Path 47: Length = 2.09 units, Duration = 5.04 seconds
+    Path 48: Length = 2.09 units, Duration = 5.04 seconds
+    Path 49: Length = 2.09 units, Duration = 5.05 seconds
+    Path 50: Length = 2.1 units, Duration = 5.01 seconds
+
 Planner: SPARS
   Status: Successful
   Total Time Taken: 0 seconds
@@ -59,6 +267,8 @@ Planner: SPARS
   Path Length Std Dev: 0
   Average Time Per Path: 0 seconds
   Time Per Path Std Dev: 0 seconds
+
+  Paths:
 
 Planner: SPARS2
   Status: Failed
@@ -75,6 +285,58 @@ Planner: RRT
   Average Time Per Path: 0.0192 seconds
   Time Per Path Std Dev: 0.010361467077590895 seconds
 
+  Paths:
+    Path 1: Length = 2.75 units, Duration = 0.03 seconds
+    Path 2: Length = 2.48 units, Duration = 0.03 seconds
+    Path 3: Length = 2.36 units, Duration = 0.02 seconds
+    Path 4: Length = 3.04 units, Duration = 0.02 seconds
+    Path 5: Length = 2.29 units, Duration = 0.01 seconds
+    Path 6: Length = 3.0 units, Duration = 0.02 seconds
+    Path 7: Length = 2.97 units, Duration = 0.02 seconds
+    Path 8: Length = 2.63 units, Duration = 0.01 seconds
+    Path 9: Length = 3.09 units, Duration = 0.02 seconds
+    Path 10: Length = 3.3 units, Duration = 0.03 seconds
+    Path 11: Length = 2.72 units, Duration = 0.05 seconds
+    Path 12: Length = 2.56 units, Duration = 0.04 seconds
+    Path 13: Length = 2.41 units, Duration = 0.04 seconds
+    Path 14: Length = 3.38 units, Duration = 0.02 seconds
+    Path 15: Length = 2.61 units, Duration = 0.02 seconds
+    Path 16: Length = 2.56 units, Duration = 0.03 seconds
+    Path 17: Length = 2.55 units, Duration = 0.02 seconds
+    Path 18: Length = 2.89 units, Duration = 0.02 seconds
+    Path 19: Length = 3.0 units, Duration = 0.02 seconds
+    Path 20: Length = 3.93 units, Duration = 0.03 seconds
+    Path 21: Length = 2.61 units, Duration = 0.02 seconds
+    Path 22: Length = 2.29 units, Duration = 0.01 seconds
+    Path 23: Length = 2.42 units, Duration = 0.01 seconds
+    Path 24: Length = 2.68 units, Duration = 0.01 seconds
+    Path 25: Length = 2.29 units, Duration = 0.01 seconds
+    Path 26: Length = 2.38 units, Duration = 0.01 seconds
+    Path 27: Length = 2.31 units, Duration = 0.01 seconds
+    Path 28: Length = 2.75 units, Duration = 0.01 seconds
+    Path 29: Length = 2.64 units, Duration = 0.03 seconds
+    Path 30: Length = 2.46 units, Duration = 0.05 seconds
+    Path 31: Length = 2.46 units, Duration = 0.01 seconds
+    Path 32: Length = 2.47 units, Duration = 0.01 seconds
+    Path 33: Length = 2.49 units, Duration = 0.03 seconds
+    Path 34: Length = 2.57 units, Duration = 0.02 seconds
+    Path 35: Length = 2.34 units, Duration = 0.02 seconds
+    Path 36: Length = 3.36 units, Duration = 0.02 seconds
+    Path 37: Length = 2.3 units, Duration = 0.01 seconds
+    Path 38: Length = 2.3 units, Duration = 0.01 seconds
+    Path 39: Length = 2.85 units, Duration = 0.02 seconds
+    Path 40: Length = 2.35 units, Duration = 0.01 seconds
+    Path 41: Length = 2.77 units, Duration = 0.02 seconds
+    Path 42: Length = 2.69 units, Duration = 0.01 seconds
+    Path 43: Length = 2.45 units, Duration = 0.01 seconds
+    Path 44: Length = 3.35 units, Duration = 0.02 seconds
+    Path 45: Length = 2.51 units, Duration = 0.01 seconds
+    Path 46: Length = 2.63 units, Duration = 0.01 seconds
+    Path 47: Length = 2.43 units, Duration = 0.01 seconds
+    Path 48: Length = 2.44 units, Duration = 0.01 seconds
+    Path 49: Length = 2.38 units, Duration = 0.01 seconds
+    Path 50: Length = 3.13 units, Duration = 0.02 seconds
+
 Planner: RRTConnect
   Status: Successful
   Total Time Taken: 0.6 seconds
@@ -86,6 +348,58 @@ Planner: RRTConnect
   Average Time Per Path: 0.0114 seconds
   Time Per Path Std Dev: 0.004004996878900157 seconds
 
+  Paths:
+    Path 1: Length = 2.36 units, Duration = 0.02 seconds
+    Path 2: Length = 2.41 units, Duration = 0.01 seconds
+    Path 3: Length = 3.04 units, Duration = 0.03 seconds
+    Path 4: Length = 2.3 units, Duration = 0.01 seconds
+    Path 5: Length = 2.28 units, Duration = 0.01 seconds
+    Path 6: Length = 2.25 units, Duration = 0.01 seconds
+    Path 7: Length = 2.54 units, Duration = 0.01 seconds
+    Path 8: Length = 2.14 units, Duration = 0.01 seconds
+    Path 9: Length = 2.32 units, Duration = 0.01 seconds
+    Path 10: Length = 2.96 units, Duration = 0.02 seconds
+    Path 11: Length = 2.23 units, Duration = 0.01 seconds
+    Path 12: Length = 2.25 units, Duration = 0.01 seconds
+    Path 13: Length = 2.43 units, Duration = 0.01 seconds
+    Path 14: Length = 2.48 units, Duration = 0.01 seconds
+    Path 15: Length = 2.32 units, Duration = 0.01 seconds
+    Path 16: Length = 2.38 units, Duration = 0.01 seconds
+    Path 17: Length = 3.58 units, Duration = 0.02 seconds
+    Path 18: Length = 2.16 units, Duration = 0.01 seconds
+    Path 19: Length = 2.27 units, Duration = 0.01 seconds
+    Path 20: Length = 2.21 units, Duration = 0.01 seconds
+    Path 21: Length = 3.27 units, Duration = 0.02 seconds
+    Path 22: Length = 2.37 units, Duration = 0.01 seconds
+    Path 23: Length = 2.28 units, Duration = 0.01 seconds
+    Path 24: Length = 2.49 units, Duration = 0.01 seconds
+    Path 25: Length = 2.18 units, Duration = 0.01 seconds
+    Path 26: Length = 2.34 units, Duration = 0.01 seconds
+    Path 27: Length = 2.31 units, Duration = 0.01 seconds
+    Path 28: Length = 2.27 units, Duration = 0.01 seconds
+    Path 29: Length = 2.14 units, Duration = 0.01 seconds
+    Path 30: Length = 2.21 units, Duration = 0.01 seconds
+    Path 31: Length = 2.16 units, Duration = 0.01 seconds
+    Path 32: Length = 2.57 units, Duration = 0.01 seconds
+    Path 33: Length = 2.21 units, Duration = 0.01 seconds
+    Path 34: Length = 2.11 units, Duration = 0.01 seconds
+    Path 35: Length = 2.42 units, Duration = 0.01 seconds
+    Path 36: Length = 2.31 units, Duration = 0.01 seconds
+    Path 37: Length = 2.28 units, Duration = 0.01 seconds
+    Path 38: Length = 2.27 units, Duration = 0.01 seconds
+    Path 39: Length = 2.37 units, Duration = 0.01 seconds
+    Path 40: Length = 2.22 units, Duration = 0.01 seconds
+    Path 41: Length = 3.63 units, Duration = 0.02 seconds
+    Path 42: Length = 2.09 units, Duration = 0.01 seconds
+    Path 43: Length = 2.3 units, Duration = 0.01 seconds
+    Path 44: Length = 2.38 units, Duration = 0.01 seconds
+    Path 45: Length = 2.22 units, Duration = 0.01 seconds
+    Path 46: Length = 2.79 units, Duration = 0.01 seconds
+    Path 47: Length = 2.47 units, Duration = 0.01 seconds
+    Path 48: Length = 2.19 units, Duration = 0.01 seconds
+    Path 49: Length = 2.27 units, Duration = 0.01 seconds
+    Path 50: Length = 2.52 units, Duration = 0.01 seconds
+
 Planner: RRTstar
   Status: Successful
   Total Time Taken: 251.68 seconds
@@ -96,6 +410,58 @@ Planner: RRTstar
   Path Length Std Dev: 0.04844956140152351
   Average Time Per Path: 5.029 seconds
   Time Per Path Std Dev: 0.008774964387392266 seconds
+
+  Paths:
+    Path 1: Length = 2.28 units, Duration = 5.03 seconds
+    Path 2: Length = 2.25 units, Duration = 5.03 seconds
+    Path 3: Length = 2.19 units, Duration = 5.03 seconds
+    Path 4: Length = 2.23 units, Duration = 5.04 seconds
+    Path 5: Length = 2.19 units, Duration = 5.02 seconds
+    Path 6: Length = 2.18 units, Duration = 5.02 seconds
+    Path 7: Length = 2.27 units, Duration = 5.02 seconds
+    Path 8: Length = 2.14 units, Duration = 5.04 seconds
+    Path 9: Length = 2.18 units, Duration = 5.03 seconds
+    Path 10: Length = 2.22 units, Duration = 5.05 seconds
+    Path 11: Length = 2.23 units, Duration = 5.02 seconds
+    Path 12: Length = 2.32 units, Duration = 5.02 seconds
+    Path 13: Length = 2.18 units, Duration = 5.02 seconds
+    Path 14: Length = 2.26 units, Duration = 5.03 seconds
+    Path 15: Length = 2.21 units, Duration = 5.03 seconds
+    Path 16: Length = 2.23 units, Duration = 5.04 seconds
+    Path 17: Length = 2.31 units, Duration = 5.02 seconds
+    Path 18: Length = 2.17 units, Duration = 5.02 seconds
+    Path 19: Length = 2.22 units, Duration = 5.03 seconds
+    Path 20: Length = 2.2 units, Duration = 5.03 seconds
+    Path 21: Length = 2.29 units, Duration = 5.03 seconds
+    Path 22: Length = 2.25 units, Duration = 5.04 seconds
+    Path 23: Length = 2.21 units, Duration = 5.02 seconds
+    Path 24: Length = 2.21 units, Duration = 5.02 seconds
+    Path 25: Length = 2.14 units, Duration = 5.03 seconds
+    Path 26: Length = 2.18 units, Duration = 5.03 seconds
+    Path 27: Length = 2.18 units, Duration = 5.03 seconds
+    Path 28: Length = 2.22 units, Duration = 5.04 seconds
+    Path 29: Length = 2.21 units, Duration = 5.01 seconds
+    Path 30: Length = 2.2 units, Duration = 5.02 seconds
+    Path 31: Length = 2.21 units, Duration = 5.03 seconds
+    Path 32: Length = 2.21 units, Duration = 5.03 seconds
+    Path 33: Length = 2.19 units, Duration = 5.03 seconds
+    Path 34: Length = 2.25 units, Duration = 5.05 seconds
+    Path 35: Length = 2.21 units, Duration = 5.02 seconds
+    Path 36: Length = 2.17 units, Duration = 5.04 seconds
+    Path 37: Length = 2.25 units, Duration = 5.03 seconds
+    Path 38: Length = 2.17 units, Duration = 5.03 seconds
+    Path 39: Length = 2.2 units, Duration = 5.02 seconds
+    Path 40: Length = 2.19 units, Duration = 5.04 seconds
+    Path 41: Length = 2.14 units, Duration = 5.02 seconds
+    Path 42: Length = 2.26 units, Duration = 5.03 seconds
+    Path 43: Length = 2.25 units, Duration = 5.03 seconds
+    Path 44: Length = 2.28 units, Duration = 5.03 seconds
+    Path 45: Length = 2.15 units, Duration = 5.03 seconds
+    Path 46: Length = 2.23 units, Duration = 5.05 seconds
+    Path 47: Length = 2.33 units, Duration = 5.02 seconds
+    Path 48: Length = 2.19 units, Duration = 5.02 seconds
+    Path 49: Length = 2.26 units, Duration = 5.03 seconds
+    Path 50: Length = 2.35 units, Duration = 5.03 seconds
 
 Planner: SST
   Status: Failed
@@ -124,6 +490,58 @@ Planner: LazyRRT
   Average Time Per Path: 0.08280000000000001 seconds
   Time Per Path Std Dev: 0.07000114284781356 seconds
 
+  Paths:
+    Path 1: Length = 4.28 units, Duration = 0.08 seconds
+    Path 2: Length = 2.96 units, Duration = 0.02 seconds
+    Path 3: Length = 3.58 units, Duration = 0.07 seconds
+    Path 4: Length = 3.51 units, Duration = 0.21 seconds
+    Path 5: Length = 3.36 units, Duration = 0.02 seconds
+    Path 6: Length = 3.73 units, Duration = 0.08 seconds
+    Path 7: Length = 3.53 units, Duration = 0.07 seconds
+    Path 8: Length = 3.02 units, Duration = 0.12 seconds
+    Path 9: Length = 2.42 units, Duration = 0.01 seconds
+    Path 10: Length = 3.41 units, Duration = 0.05 seconds
+    Path 11: Length = 3.94 units, Duration = 0.12 seconds
+    Path 12: Length = 3.65 units, Duration = 0.1 seconds
+    Path 13: Length = 2.94 units, Duration = 0.07 seconds
+    Path 14: Length = 3.81 units, Duration = 0.07 seconds
+    Path 15: Length = 3.41 units, Duration = 0.09 seconds
+    Path 16: Length = 3.41 units, Duration = 0.47 seconds
+    Path 17: Length = 2.56 units, Duration = 0.02 seconds
+    Path 18: Length = 3.11 units, Duration = 0.08 seconds
+    Path 19: Length = 4.46 units, Duration = 0.04 seconds
+    Path 20: Length = 3.64 units, Duration = 0.11 seconds
+    Path 21: Length = 2.61 units, Duration = 0.03 seconds
+    Path 22: Length = 2.82 units, Duration = 0.08 seconds
+    Path 23: Length = 4.23 units, Duration = 0.12 seconds
+    Path 24: Length = 3.49 units, Duration = 0.08 seconds
+    Path 25: Length = 3.25 units, Duration = 0.07 seconds
+    Path 26: Length = 3.05 units, Duration = 0.05 seconds
+    Path 27: Length = 3.16 units, Duration = 0.14 seconds
+    Path 28: Length = 3.08 units, Duration = 0.06 seconds
+    Path 29: Length = 3.47 units, Duration = 0.05 seconds
+    Path 30: Length = 3.22 units, Duration = 0.05 seconds
+    Path 31: Length = 4.02 units, Duration = 0.1 seconds
+    Path 32: Length = 4.07 units, Duration = 0.06 seconds
+    Path 33: Length = 2.81 units, Duration = 0.03 seconds
+    Path 34: Length = 3.32 units, Duration = 0.08 seconds
+    Path 35: Length = 3.34 units, Duration = 0.04 seconds
+    Path 36: Length = 2.44 units, Duration = 0.03 seconds
+    Path 37: Length = 3.26 units, Duration = 0.06 seconds
+    Path 38: Length = 3.16 units, Duration = 0.06 seconds
+    Path 39: Length = 2.56 units, Duration = 0.02 seconds
+    Path 40: Length = 3.17 units, Duration = 0.09 seconds
+    Path 41: Length = 3.4 units, Duration = 0.18 seconds
+    Path 42: Length = 3.7 units, Duration = 0.14 seconds
+    Path 43: Length = 3.96 units, Duration = 0.15 seconds
+    Path 44: Length = 2.45 units, Duration = 0.01 seconds
+    Path 45: Length = 3.39 units, Duration = 0.14 seconds
+    Path 46: Length = 3.39 units, Duration = 0.06 seconds
+    Path 47: Length = 3.68 units, Duration = 0.07 seconds
+    Path 48: Length = 2.97 units, Duration = 0.1 seconds
+    Path 49: Length = 3.22 units, Duration = 0.05 seconds
+    Path 50: Length = 2.64 units, Duration = 0.04 seconds
+
 Planner: TSRRT
   Status: Failed
   Error Message: Error occurred for planner TSRRT: Planner type TSRRT is not supported.
@@ -138,6 +556,58 @@ Planner: EST
   Path Length Std Dev: 0.31203820278933797
   Average Time Per Path: 0.8328 seconds
   Time Per Path Std Dev: 0.3849365662027966 seconds
+
+  Paths:
+    Path 1: Length = 3.12 units, Duration = 1.05 seconds
+    Path 2: Length = 3.43 units, Duration = 0.59 seconds
+    Path 3: Length = 2.41 units, Duration = 1.53 seconds
+    Path 4: Length = 2.64 units, Duration = 0.54 seconds
+    Path 5: Length = 2.77 units, Duration = 0.83 seconds
+    Path 6: Length = 3.49 units, Duration = 0.9 seconds
+    Path 7: Length = 2.63 units, Duration = 0.45 seconds
+    Path 8: Length = 2.7 units, Duration = 1.0 seconds
+    Path 9: Length = 2.69 units, Duration = 0.39 seconds
+    Path 10: Length = 2.97 units, Duration = 1.2 seconds
+    Path 11: Length = 3.8 units, Duration = 0.82 seconds
+    Path 12: Length = 2.93 units, Duration = 0.25 seconds
+    Path 13: Length = 3.34 units, Duration = 0.64 seconds
+    Path 14: Length = 2.82 units, Duration = 1.33 seconds
+    Path 15: Length = 3.26 units, Duration = 1.21 seconds
+    Path 16: Length = 3.18 units, Duration = 0.84 seconds
+    Path 17: Length = 2.93 units, Duration = 1.3 seconds
+    Path 18: Length = 2.63 units, Duration = 0.24 seconds
+    Path 19: Length = 3.02 units, Duration = 1.14 seconds
+    Path 20: Length = 2.82 units, Duration = 0.36 seconds
+    Path 21: Length = 3.16 units, Duration = 0.79 seconds
+    Path 22: Length = 2.96 units, Duration = 0.42 seconds
+    Path 23: Length = 2.92 units, Duration = 0.29 seconds
+    Path 24: Length = 3.21 units, Duration = 1.55 seconds
+    Path 25: Length = 2.86 units, Duration = 1.38 seconds
+    Path 26: Length = 2.67 units, Duration = 0.56 seconds
+    Path 27: Length = 3.15 units, Duration = 1.61 seconds
+    Path 28: Length = 3.12 units, Duration = 1.07 seconds
+    Path 29: Length = 2.66 units, Duration = 0.88 seconds
+    Path 30: Length = 3.49 units, Duration = 1.28 seconds
+    Path 31: Length = 3.29 units, Duration = 0.66 seconds
+    Path 32: Length = 2.62 units, Duration = 0.65 seconds
+    Path 33: Length = 2.76 units, Duration = 0.26 seconds
+    Path 34: Length = 3.1 units, Duration = 0.25 seconds
+    Path 35: Length = 2.79 units, Duration = 0.22 seconds
+    Path 36: Length = 3.01 units, Duration = 0.82 seconds
+    Path 37: Length = 3.39 units, Duration = 1.18 seconds
+    Path 38: Length = 2.95 units, Duration = 1.25 seconds
+    Path 39: Length = 3.16 units, Duration = 0.59 seconds
+    Path 40: Length = 3.06 units, Duration = 0.6 seconds
+    Path 41: Length = 2.7 units, Duration = 0.77 seconds
+    Path 42: Length = 3.26 units, Duration = 0.47 seconds
+    Path 43: Length = 3.25 units, Duration = 1.38 seconds
+    Path 44: Length = 2.97 units, Duration = 0.33 seconds
+    Path 45: Length = 2.64 units, Duration = 1.03 seconds
+    Path 46: Length = 2.98 units, Duration = 1.07 seconds
+    Path 47: Length = 3.07 units, Duration = 0.82 seconds
+    Path 48: Length = 3.35 units, Duration = 0.89 seconds
+    Path 49: Length = 3.96 units, Duration = 0.93 seconds
+    Path 50: Length = 2.93 units, Duration = 1.03 seconds
 
 Planner: KPIECE
   Status: Failed
@@ -161,6 +631,58 @@ Planner: STRIDE
   Path Length Std Dev: 0.5281048759479503
   Average Time Per Path: 0.029200000000000004 seconds
   Time Per Path Std Dev: 0.016104657711357915 seconds
+
+  Paths:
+    Path 1: Length = 4.3 units, Duration = 0.05 seconds
+    Path 2: Length = 3.52 units, Duration = 0.04 seconds
+    Path 3: Length = 3.15 units, Duration = 0.04 seconds
+    Path 4: Length = 3.09 units, Duration = 0.02 seconds
+    Path 5: Length = 4.16 units, Duration = 0.08 seconds
+    Path 6: Length = 3.65 units, Duration = 0.03 seconds
+    Path 7: Length = 3.69 units, Duration = 0.02 seconds
+    Path 8: Length = 2.71 units, Duration = 0.06 seconds
+    Path 9: Length = 2.93 units, Duration = 0.02 seconds
+    Path 10: Length = 3.6 units, Duration = 0.04 seconds
+    Path 11: Length = 4.22 units, Duration = 0.03 seconds
+    Path 12: Length = 3.11 units, Duration = 0.01 seconds
+    Path 13: Length = 2.93 units, Duration = 0.03 seconds
+    Path 14: Length = 2.75 units, Duration = 0.01 seconds
+    Path 15: Length = 3.49 units, Duration = 0.03 seconds
+    Path 16: Length = 3.69 units, Duration = 0.05 seconds
+    Path 17: Length = 2.63 units, Duration = 0.02 seconds
+    Path 18: Length = 2.63 units, Duration = 0.01 seconds
+    Path 19: Length = 3.04 units, Duration = 0.02 seconds
+    Path 20: Length = 2.97 units, Duration = 0.02 seconds
+    Path 21: Length = 3.2 units, Duration = 0.02 seconds
+    Path 22: Length = 2.58 units, Duration = 0.02 seconds
+    Path 23: Length = 3.24 units, Duration = 0.01 seconds
+    Path 24: Length = 3.77 units, Duration = 0.02 seconds
+    Path 25: Length = 4.02 units, Duration = 0.04 seconds
+    Path 26: Length = 2.36 units, Duration = 0.01 seconds
+    Path 27: Length = 2.94 units, Duration = 0.02 seconds
+    Path 28: Length = 2.85 units, Duration = 0.01 seconds
+    Path 29: Length = 3.38 units, Duration = 0.04 seconds
+    Path 30: Length = 3.37 units, Duration = 0.05 seconds
+    Path 31: Length = 3.18 units, Duration = 0.02 seconds
+    Path 32: Length = 3.63 units, Duration = 0.03 seconds
+    Path 33: Length = 4.17 units, Duration = 0.02 seconds
+    Path 34: Length = 3.53 units, Duration = 0.03 seconds
+    Path 35: Length = 3.35 units, Duration = 0.02 seconds
+    Path 36: Length = 3.78 units, Duration = 0.02 seconds
+    Path 37: Length = 2.6 units, Duration = 0.01 seconds
+    Path 38: Length = 2.6 units, Duration = 0.01 seconds
+    Path 39: Length = 3.79 units, Duration = 0.03 seconds
+    Path 40: Length = 3.93 units, Duration = 0.07 seconds
+    Path 41: Length = 3.49 units, Duration = 0.04 seconds
+    Path 42: Length = 2.15 units, Duration = 0.02 seconds
+    Path 43: Length = 2.5 units, Duration = 0.02 seconds
+    Path 44: Length = 3.32 units, Duration = 0.02 seconds
+    Path 45: Length = 2.96 units, Duration = 0.04 seconds
+    Path 46: Length = 3.71 units, Duration = 0.02 seconds
+    Path 47: Length = 2.99 units, Duration = 0.06 seconds
+    Path 48: Length = 2.51 units, Duration = 0.04 seconds
+    Path 49: Length = 3.95 units, Duration = 0.04 seconds
+    Path 50: Length = 3.3 units, Duration = 0.03 seconds
 
 Planner: PDST
   Status: Failed
@@ -201,6 +723,58 @@ Planner: RRTsharp
   Average Time Per Path: 5.0286 seconds
   Time Per Path Std Dev: 0.013857849761056073 seconds
 
+  Paths:
+    Path 1: Length = 2.08 units, Duration = 5.03 seconds
+    Path 2: Length = 2.09 units, Duration = 5.06 seconds
+    Path 3: Length = 2.08 units, Duration = 5.02 seconds
+    Path 4: Length = 2.1 units, Duration = 5.02 seconds
+    Path 5: Length = 2.11 units, Duration = 5.02 seconds
+    Path 6: Length = 2.08 units, Duration = 5.02 seconds
+    Path 7: Length = 2.1 units, Duration = 5.02 seconds
+    Path 8: Length = 2.09 units, Duration = 5.04 seconds
+    Path 9: Length = 2.09 units, Duration = 5.02 seconds
+    Path 10: Length = 2.1 units, Duration = 5.02 seconds
+    Path 11: Length = 2.1 units, Duration = 5.02 seconds
+    Path 12: Length = 2.08 units, Duration = 5.03 seconds
+    Path 13: Length = 2.08 units, Duration = 5.02 seconds
+    Path 14: Length = 2.1 units, Duration = 5.04 seconds
+    Path 15: Length = 2.1 units, Duration = 5.01 seconds
+    Path 16: Length = 2.11 units, Duration = 5.02 seconds
+    Path 17: Length = 2.09 units, Duration = 5.02 seconds
+    Path 18: Length = 2.1 units, Duration = 5.02 seconds
+    Path 19: Length = 2.09 units, Duration = 5.03 seconds
+    Path 20: Length = 2.07 units, Duration = 5.04 seconds
+    Path 21: Length = 2.09 units, Duration = 5.01 seconds
+    Path 22: Length = 2.11 units, Duration = 5.02 seconds
+    Path 23: Length = 2.11 units, Duration = 5.03 seconds
+    Path 24: Length = 2.08 units, Duration = 5.02 seconds
+    Path 25: Length = 2.07 units, Duration = 5.03 seconds
+    Path 26: Length = 2.08 units, Duration = 5.04 seconds
+    Path 27: Length = 2.09 units, Duration = 5.01 seconds
+    Path 28: Length = 2.08 units, Duration = 5.02 seconds
+    Path 29: Length = 2.08 units, Duration = 5.02 seconds
+    Path 30: Length = 2.08 units, Duration = 5.02 seconds
+    Path 31: Length = 2.1 units, Duration = 5.03 seconds
+    Path 32: Length = 2.1 units, Duration = 5.05 seconds
+    Path 33: Length = 2.1 units, Duration = 5.02 seconds
+    Path 34: Length = 2.09 units, Duration = 5.02 seconds
+    Path 35: Length = 2.07 units, Duration = 5.02 seconds
+    Path 36: Length = 2.08 units, Duration = 5.02 seconds
+    Path 37: Length = 2.09 units, Duration = 5.02 seconds
+    Path 38: Length = 2.09 units, Duration = 5.05 seconds
+    Path 39: Length = 2.08 units, Duration = 5.02 seconds
+    Path 40: Length = 2.08 units, Duration = 5.03 seconds
+    Path 41: Length = 2.07 units, Duration = 5.03 seconds
+    Path 42: Length = 2.09 units, Duration = 5.02 seconds
+    Path 43: Length = 2.09 units, Duration = 5.06 seconds
+    Path 44: Length = 2.08 units, Duration = 5.01 seconds
+    Path 45: Length = 2.07 units, Duration = 5.03 seconds
+    Path 46: Length = 2.07 units, Duration = 5.05 seconds
+    Path 47: Length = 2.1 units, Duration = 5.06 seconds
+    Path 48: Length = 2.08 units, Duration = 5.05 seconds
+    Path 49: Length = 2.08 units, Duration = 5.04 seconds
+    Path 50: Length = 2.08 units, Duration = 5.06 seconds
+
 Planner: RRTX
   Status: Failed
   Error Message: Error occurred for planner RRTX: Planner type RRTX is not supported.
@@ -216,6 +790,58 @@ Planner: InformedRRTstar
   Average Time Per Path: 5.0394000000000005 seconds
   Time Per Path Std Dev: 0.012870120434556947 seconds
 
+  Paths:
+    Path 1: Length = 2.13 units, Duration = 5.01 seconds
+    Path 2: Length = 2.15 units, Duration = 5.04 seconds
+    Path 3: Length = 2.1 units, Duration = 5.02 seconds
+    Path 4: Length = 2.2 units, Duration = 5.04 seconds
+    Path 5: Length = 2.1 units, Duration = 5.04 seconds
+    Path 6: Length = 2.2 units, Duration = 5.05 seconds
+    Path 7: Length = 2.29 units, Duration = 5.05 seconds
+    Path 8: Length = 2.1 units, Duration = 5.06 seconds
+    Path 9: Length = 2.19 units, Duration = 5.01 seconds
+    Path 10: Length = 2.19 units, Duration = 5.04 seconds
+    Path 11: Length = 2.11 units, Duration = 5.03 seconds
+    Path 12: Length = 2.09 units, Duration = 5.04 seconds
+    Path 13: Length = 2.1 units, Duration = 5.06 seconds
+    Path 14: Length = 2.1 units, Duration = 5.02 seconds
+    Path 15: Length = 2.1 units, Duration = 5.03 seconds
+    Path 16: Length = 2.13 units, Duration = 5.02 seconds
+    Path 17: Length = 2.09 units, Duration = 5.03 seconds
+    Path 18: Length = 2.15 units, Duration = 5.04 seconds
+    Path 19: Length = 2.23 units, Duration = 5.07 seconds
+    Path 20: Length = 2.14 units, Duration = 5.03 seconds
+    Path 21: Length = 2.08 units, Duration = 5.04 seconds
+    Path 22: Length = 2.09 units, Duration = 5.05 seconds
+    Path 23: Length = 2.09 units, Duration = 5.05 seconds
+    Path 24: Length = 2.09 units, Duration = 5.04 seconds
+    Path 25: Length = 2.1 units, Duration = 5.04 seconds
+    Path 26: Length = 2.09 units, Duration = 5.05 seconds
+    Path 27: Length = 2.1 units, Duration = 5.02 seconds
+    Path 28: Length = 2.12 units, Duration = 5.04 seconds
+    Path 29: Length = 2.19 units, Duration = 5.04 seconds
+    Path 30: Length = 2.14 units, Duration = 5.04 seconds
+    Path 31: Length = 2.07 units, Duration = 5.04 seconds
+    Path 32: Length = 2.1 units, Duration = 5.04 seconds
+    Path 33: Length = 2.1 units, Duration = 5.02 seconds
+    Path 34: Length = 2.08 units, Duration = 5.03 seconds
+    Path 35: Length = 2.11 units, Duration = 5.04 seconds
+    Path 36: Length = 2.09 units, Duration = 5.05 seconds
+    Path 37: Length = 2.12 units, Duration = 5.04 seconds
+    Path 38: Length = 2.08 units, Duration = 5.04 seconds
+    Path 39: Length = 2.08 units, Duration = 5.03 seconds
+    Path 40: Length = 2.22 units, Duration = 5.06 seconds
+    Path 41: Length = 2.07 units, Duration = 5.04 seconds
+    Path 42: Length = 2.09 units, Duration = 5.04 seconds
+    Path 43: Length = 2.08 units, Duration = 5.06 seconds
+    Path 44: Length = 2.08 units, Duration = 5.04 seconds
+    Path 45: Length = 2.21 units, Duration = 5.02 seconds
+    Path 46: Length = 2.15 units, Duration = 5.05 seconds
+    Path 47: Length = 2.11 units, Duration = 5.04 seconds
+    Path 48: Length = 2.14 units, Duration = 5.05 seconds
+    Path 49: Length = 2.13 units, Duration = 5.05 seconds
+    Path 50: Length = 2.28 units, Duration = 5.05 seconds
+
 Planner: BITstar
   Status: Successful
   Total Time Taken: 256.45 seconds
@@ -226,6 +852,58 @@ Planner: BITstar
   Path Length Std Dev: 0.010749883720301365
   Average Time Per Path: 5.125800000000001 seconds
   Time Per Path Std Dev: 0.2599545344863213 seconds
+
+  Paths:
+    Path 1: Length = 2.09 units, Duration = 5.01 seconds
+    Path 2: Length = 2.09 units, Duration = 5.04 seconds
+    Path 3: Length = 2.1 units, Duration = 5.01 seconds
+    Path 4: Length = 2.09 units, Duration = 5.04 seconds
+    Path 5: Length = 2.08 units, Duration = 5.05 seconds
+    Path 6: Length = 2.09 units, Duration = 5.04 seconds
+    Path 7: Length = 2.11 units, Duration = 5.05 seconds
+    Path 8: Length = 2.08 units, Duration = 5.65 seconds
+    Path 9: Length = 2.1 units, Duration = 5.04 seconds
+    Path 10: Length = 2.1 units, Duration = 5.04 seconds
+    Path 11: Length = 2.08 units, Duration = 5.04 seconds
+    Path 12: Length = 2.1 units, Duration = 5.06 seconds
+    Path 13: Length = 2.09 units, Duration = 5.04 seconds
+    Path 14: Length = 2.11 units, Duration = 5.02 seconds
+    Path 15: Length = 2.1 units, Duration = 5.03 seconds
+    Path 16: Length = 2.09 units, Duration = 5.05 seconds
+    Path 17: Length = 2.08 units, Duration = 5.71 seconds
+    Path 18: Length = 2.1 units, Duration = 5.04 seconds
+    Path 19: Length = 2.09 units, Duration = 5.04 seconds
+    Path 20: Length = 2.1 units, Duration = 5.02 seconds
+    Path 21: Length = 2.08 units, Duration = 5.03 seconds
+    Path 22: Length = 2.07 units, Duration = 5.03 seconds
+    Path 23: Length = 2.09 units, Duration = 5.04 seconds
+    Path 24: Length = 2.1 units, Duration = 5.03 seconds
+    Path 25: Length = 2.09 units, Duration = 5.03 seconds
+    Path 26: Length = 2.09 units, Duration = 5.02 seconds
+    Path 27: Length = 2.1 units, Duration = 5.03 seconds
+    Path 28: Length = 2.12 units, Duration = 5.49 seconds
+    Path 29: Length = 2.09 units, Duration = 5.04 seconds
+    Path 30: Length = 2.13 units, Duration = 6.34 seconds
+    Path 31: Length = 2.1 units, Duration = 5.04 seconds
+    Path 32: Length = 2.09 units, Duration = 5.24 seconds
+    Path 33: Length = 2.09 units, Duration = 5.04 seconds
+    Path 34: Length = 2.1 units, Duration = 5.04 seconds
+    Path 35: Length = 2.1 units, Duration = 5.05 seconds
+    Path 36: Length = 2.08 units, Duration = 5.97 seconds
+    Path 37: Length = 2.1 units, Duration = 5.02 seconds
+    Path 38: Length = 2.1 units, Duration = 5.04 seconds
+    Path 39: Length = 2.09 units, Duration = 5.04 seconds
+    Path 40: Length = 2.09 units, Duration = 5.03 seconds
+    Path 41: Length = 2.09 units, Duration = 5.03 seconds
+    Path 42: Length = 2.1 units, Duration = 5.04 seconds
+    Path 43: Length = 2.09 units, Duration = 5.02 seconds
+    Path 44: Length = 2.08 units, Duration = 5.03 seconds
+    Path 45: Length = 2.09 units, Duration = 5.04 seconds
+    Path 46: Length = 2.08 units, Duration = 5.39 seconds
+    Path 47: Length = 2.09 units, Duration = 5.04 seconds
+    Path 48: Length = 2.09 units, Duration = 5.03 seconds
+    Path 49: Length = 2.11 units, Duration = 5.02 seconds
+    Path 50: Length = 2.1 units, Duration = 5.04 seconds
 
 Planner: ABITstar
   Status: Successful
@@ -238,6 +916,58 @@ Planner: ABITstar
   Average Time Per Path: 5.1148 seconds
   Time Per Path Std Dev: 0.22469748552220153 seconds
 
+  Paths:
+    Path 1: Length = 2.1 units, Duration = 5.03 seconds
+    Path 2: Length = 2.1 units, Duration = 5.03 seconds
+    Path 3: Length = 2.08 units, Duration = 5.04 seconds
+    Path 4: Length = 2.09 units, Duration = 6.14 seconds
+    Path 5: Length = 2.1 units, Duration = 5.05 seconds
+    Path 6: Length = 2.09 units, Duration = 5.04 seconds
+    Path 7: Length = 2.08 units, Duration = 5.32 seconds
+    Path 8: Length = 2.07 units, Duration = 5.04 seconds
+    Path 9: Length = 2.09 units, Duration = 5.05 seconds
+    Path 10: Length = 2.1 units, Duration = 5.34 seconds
+    Path 11: Length = 2.09 units, Duration = 5.04 seconds
+    Path 12: Length = 2.09 units, Duration = 5.04 seconds
+    Path 13: Length = 2.08 units, Duration = 5.03 seconds
+    Path 14: Length = 2.09 units, Duration = 5.04 seconds
+    Path 15: Length = 2.08 units, Duration = 5.05 seconds
+    Path 16: Length = 2.09 units, Duration = 5.05 seconds
+    Path 17: Length = 2.07 units, Duration = 5.05 seconds
+    Path 18: Length = 2.08 units, Duration = 5.05 seconds
+    Path 19: Length = 2.08 units, Duration = 5.02 seconds
+    Path 20: Length = 2.07 units, Duration = 5.06 seconds
+    Path 21: Length = 2.08 units, Duration = 5.05 seconds
+    Path 22: Length = 2.09 units, Duration = 5.05 seconds
+    Path 23: Length = 2.09 units, Duration = 5.05 seconds
+    Path 24: Length = 2.09 units, Duration = 5.03 seconds
+    Path 25: Length = 2.08 units, Duration = 5.03 seconds
+    Path 26: Length = 2.09 units, Duration = 5.03 seconds
+    Path 27: Length = 2.09 units, Duration = 5.04 seconds
+    Path 28: Length = 2.11 units, Duration = 5.04 seconds
+    Path 29: Length = 2.07 units, Duration = 5.05 seconds
+    Path 30: Length = 2.11 units, Duration = 5.27 seconds
+    Path 31: Length = 2.08 units, Duration = 5.02 seconds
+    Path 32: Length = 2.09 units, Duration = 5.03 seconds
+    Path 33: Length = 2.08 units, Duration = 5.04 seconds
+    Path 34: Length = 2.1 units, Duration = 5.93 seconds
+    Path 35: Length = 2.08 units, Duration = 5.04 seconds
+    Path 36: Length = 2.08 units, Duration = 5.04 seconds
+    Path 37: Length = 2.09 units, Duration = 5.02 seconds
+    Path 38: Length = 2.09 units, Duration = 5.03 seconds
+    Path 39: Length = 2.09 units, Duration = 5.04 seconds
+    Path 40: Length = 2.11 units, Duration = 5.04 seconds
+    Path 41: Length = 2.09 units, Duration = 5.04 seconds
+    Path 42: Length = 2.08 units, Duration = 5.31 seconds
+    Path 43: Length = 2.07 units, Duration = 5.03 seconds
+    Path 44: Length = 2.09 units, Duration = 5.03 seconds
+    Path 45: Length = 2.08 units, Duration = 5.04 seconds
+    Path 46: Length = 2.08 units, Duration = 5.75 seconds
+    Path 47: Length = 2.09 units, Duration = 5.05 seconds
+    Path 48: Length = 2.09 units, Duration = 5.04 seconds
+    Path 49: Length = 2.09 units, Duration = 5.03 seconds
+    Path 50: Length = 2.09 units, Duration = 5.04 seconds
+
 Planner: AITstar
   Status: Successful
   Total Time Taken: 0 seconds
@@ -249,6 +979,8 @@ Planner: AITstar
   Average Time Per Path: 0 seconds
   Time Per Path Std Dev: 0 seconds
 
+  Paths:
+
 Planner: LBTRRT
   Status: Successful
   Total Time Taken: 253.54 seconds
@@ -259,6 +991,58 @@ Planner: LBTRRT
   Path Length Std Dev: 0.10974443038259393
   Average Time Per Path: 5.039 seconds
   Time Per Path Std Dev: 0.008062257748298461 seconds
+
+  Paths:
+    Path 1: Length = 2.62 units, Duration = 5.04 seconds
+    Path 2: Length = 2.49 units, Duration = 5.04 seconds
+    Path 3: Length = 2.39 units, Duration = 5.04 seconds
+    Path 4: Length = 2.45 units, Duration = 5.04 seconds
+    Path 5: Length = 2.47 units, Duration = 5.03 seconds
+    Path 6: Length = 2.35 units, Duration = 5.05 seconds
+    Path 7: Length = 2.55 units, Duration = 5.06 seconds
+    Path 8: Length = 2.29 units, Duration = 5.05 seconds
+    Path 9: Length = 2.48 units, Duration = 5.04 seconds
+    Path 10: Length = 2.38 units, Duration = 5.04 seconds
+    Path 11: Length = 2.38 units, Duration = 5.02 seconds
+    Path 12: Length = 2.24 units, Duration = 5.03 seconds
+    Path 13: Length = 2.34 units, Duration = 5.03 seconds
+    Path 14: Length = 2.6 units, Duration = 5.04 seconds
+    Path 15: Length = 2.54 units, Duration = 5.04 seconds
+    Path 16: Length = 2.5 units, Duration = 5.04 seconds
+    Path 17: Length = 2.51 units, Duration = 5.03 seconds
+    Path 18: Length = 2.38 units, Duration = 5.05 seconds
+    Path 19: Length = 2.32 units, Duration = 5.04 seconds
+    Path 20: Length = 2.41 units, Duration = 5.05 seconds
+    Path 21: Length = 2.46 units, Duration = 5.04 seconds
+    Path 22: Length = 2.61 units, Duration = 5.03 seconds
+    Path 23: Length = 2.49 units, Duration = 5.03 seconds
+    Path 24: Length = 2.3 units, Duration = 5.03 seconds
+    Path 25: Length = 2.46 units, Duration = 5.04 seconds
+    Path 26: Length = 2.47 units, Duration = 5.04 seconds
+    Path 27: Length = 2.31 units, Duration = 5.03 seconds
+    Path 28: Length = 2.33 units, Duration = 5.03 seconds
+    Path 29: Length = 2.48 units, Duration = 5.04 seconds
+    Path 30: Length = 2.57 units, Duration = 5.04 seconds
+    Path 31: Length = 2.33 units, Duration = 5.04 seconds
+    Path 32: Length = 2.3 units, Duration = 5.04 seconds
+    Path 33: Length = 2.26 units, Duration = 5.03 seconds
+    Path 34: Length = 2.35 units, Duration = 5.03 seconds
+    Path 35: Length = 2.28 units, Duration = 5.04 seconds
+    Path 36: Length = 2.52 units, Duration = 5.05 seconds
+    Path 37: Length = 2.64 units, Duration = 5.05 seconds
+    Path 38: Length = 2.61 units, Duration = 5.05 seconds
+    Path 39: Length = 2.5 units, Duration = 5.04 seconds
+    Path 40: Length = 2.46 units, Duration = 5.03 seconds
+    Path 41: Length = 2.57 units, Duration = 5.04 seconds
+    Path 42: Length = 2.38 units, Duration = 5.04 seconds
+    Path 43: Length = 2.52 units, Duration = 5.04 seconds
+    Path 44: Length = 2.54 units, Duration = 5.04 seconds
+    Path 45: Length = 2.37 units, Duration = 5.04 seconds
+    Path 46: Length = 2.48 units, Duration = 5.02 seconds
+    Path 47: Length = 2.28 units, Duration = 5.04 seconds
+    Path 48: Length = 2.3 units, Duration = 5.05 seconds
+    Path 49: Length = 2.26 units, Duration = 5.04 seconds
+    Path 50: Length = 2.36 units, Duration = 5.05 seconds
 
 Planner: ST-RRTstar
   Status: Failed

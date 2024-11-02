@@ -35,10 +35,18 @@ def parse_log_file(log_file_path):
                 
     return result
 
+import os
+import numpy as np
+
+import os
+import numpy as np
+
 def write_summary_log(all_results, output_path, model_name, start, goal, mesh, ellipsoid_dimensions, max_time_per_path):
-    """Write a summary log file consolidating all planners' results."""
+    """Write a summary log file consolidating all planners' results, including details for each path."""
     summary_log_path = os.path.join(output_path, "summary_log.txt")
+
     with open(summary_log_path, 'w') as f:
+        # Write general model and configuration details
         f.write(f"Model: {model_name}\n")
         f.write(f"Mesh: {mesh}\n")
         f.write(f"Ellipsoid Dimensions: {ellipsoid_dimensions}\n")
@@ -46,9 +54,12 @@ def write_summary_log(all_results, output_path, model_name, start, goal, mesh, e
         f.write(f"Goal Point: {goal}\n")
         f.write(f"Max Time Per Path: {max_time_per_path}\n\n")
         
+        # Write details for each planner
         for planner, result in all_results.items():
             f.write(f"Planner: {planner}\n")
+            
             if result['success']:
+                # Summary statistics
                 avg_length = np.mean(result['path_lengths']) if result['path_lengths'] else 0
                 min_length = np.min(result['path_lengths']) if result['path_lengths'] else 0
                 max_length = np.max(result['path_lengths']) if result['path_lengths'] else 0
@@ -65,9 +76,17 @@ def write_summary_log(all_results, output_path, model_name, start, goal, mesh, e
                 f.write(f"  Path Length Std Dev: {std_length}\n")
                 f.write(f"  Average Time Per Path: {avg_time} seconds\n")
                 f.write(f"  Time Per Path Std Dev: {std_time} seconds\n\n")
+                
+                # Detailed information for each path
+                f.write("  Paths:\n")
+                for i, (length, duration) in enumerate(zip(result['path_lengths'], result['path_durations']), start=1):
+                    f.write(f"    Path {i}: Length = {length} units, Duration = {duration} seconds\n")
+                f.write("\n")
             else:
                 f.write(f"  Status: Failed\n")
                 f.write(f"  Error Message: {result['error_message']}\n\n")
+
+
 
 def plan_path(planner, num_paths, start, goal, model_name, ellipsoid_dimensions, enable_visualization, mesh, max_time):
     # Create output directory
@@ -121,22 +140,22 @@ if __name__ == "__main__":
     all_results = {}
 
     # Loop through all planners and start a process for each
-    for planner in all_planners:
-        # Create a new process for each planner
-        p = Process(target=plan_path, args=(planner, num_paths, start, goal, model_name, ellipsoid_dimensions, enable_visualization, mesh, max_time_per_path))
-        processes.append((p, planner))
-        p.start()
+    # for planner in all_planners:
+    #     # Create a new process for each planner
+    #     p = Process(target=plan_path, args=(planner, num_paths, start, goal, model_name, ellipsoid_dimensions, enable_visualization, mesh, max_time_per_path))
+    #     processes.append((p, planner))
+    #     p.start()
 
-        # Wait for the process to complete within the max time limit
-        p.join((max_time_per_path * 2) * num_paths) # 2x the max time for each path
-        if p.is_alive():
-            print(f"Terminating planner {planner} due to timeout.")
-            p.terminate()  # Forcefully terminate the process
-            p.join()       # Ensure it has completed termination
+    #     # Wait for the process to complete within the max time limit
+    #     p.join((max_time_per_path * 2) * num_paths) # 2x the max time for each path
+    #     if p.is_alive():
+    #         print(f"Terminating planner {planner} due to timeout.")
+    #         p.terminate()  # Forcefully terminate the process
+    #         p.join()       # Ensure it has completed termination
 
     # Collect results from each planner's log file
     output_root = f"/app/output/{model_name}/{num_paths}"
-    for _, planner in processes:
+    for planner in all_planners:
         log_file_path = os.path.join(output_root, planner, "log.txt")
         if os.path.exists(log_file_path):
             all_results[planner] = parse_log_file(log_file_path)
