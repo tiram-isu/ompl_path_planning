@@ -5,6 +5,7 @@ import open3d as o3d
 from multiprocessing import Process
 from planner import PathPlanner
 from visualization import Visualizer
+from log_visualization import process_log_files
 import time
 import re
 
@@ -128,7 +129,7 @@ if __name__ == "__main__":
     model_name = "stonehenge"
     enable_visualization = False
     ellipsoid_dimensions = (0.025, 0.025, 0.04)
-    num_paths = 50
+    num_paths = 1
     max_time_per_path = 5  # maximum time in seconds for each planner process
     mesh = o3d.io.read_triangle_mesh(f"/app/meshes/{model_name}.fbx")
 
@@ -140,18 +141,18 @@ if __name__ == "__main__":
     all_results = {}
 
     # Loop through all planners and start a process for each
-    # for planner in all_planners:
-    #     # Create a new process for each planner
-    #     p = Process(target=plan_path, args=(planner, num_paths, start, goal, model_name, ellipsoid_dimensions, enable_visualization, mesh, max_time_per_path))
-    #     processes.append((p, planner))
-    #     p.start()
+    for planner in all_planners:
+        # Create a new process for each planner
+        p = Process(target=plan_path, args=(planner, num_paths, start, goal, model_name, ellipsoid_dimensions, enable_visualization, mesh, max_time_per_path))
+        processes.append((p, planner))
+        p.start()
 
-    #     # Wait for the process to complete within the max time limit
-    #     p.join((max_time_per_path * 2) * num_paths) # 2x the max time for each path
-    #     if p.is_alive():
-    #         print(f"Terminating planner {planner} due to timeout.")
-    #         p.terminate()  # Forcefully terminate the process
-    #         p.join()       # Ensure it has completed termination
+        # Wait for the process to complete within the max time limit
+        p.join((max_time_per_path * 2) * num_paths) # 2x the max time for each path
+        if p.is_alive():
+            print(f"Terminating planner {planner} due to timeout.")
+            p.terminate()  # Forcefully terminate the process
+            p.join()       # Ensure it has completed termination
 
     # Collect results from each planner's log file
     output_root = f"/app/output/{model_name}/{num_paths}"
@@ -162,6 +163,19 @@ if __name__ == "__main__":
     
     # Write the consolidated summary log file
     write_summary_log(all_results, output_root, model_name, start, goal, mesh, ellipsoid_dimensions, max_time_per_path)
+
+    plot_output_dir = f"/app/output/{model_name}/plots"
+
+    # get log file paths
+    summary_log_paths = []
+
+    # Traverse the base directory
+    for root, dirs, files in os.walk('/app/output/stonehenge'):
+        for file in files:
+            if file == 'summary_log.txt':
+                summary_log_paths.append(os.path.join(root, file))
+
+    process_log_files(summary_log_paths, plot_output_dir)
 
     # Wait for any remaining processes to complete
     for p, planner in processes:

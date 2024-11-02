@@ -151,6 +151,8 @@ def create_plots(data_dict, log_file_name, output_dir, colors):
 
 # Main function to process multiple log files
 def process_log_files(log_file_paths, output_dir):
+    os.makedirs(output_dir, exist_ok=True)
+    
     all_data = []
     unique_planners = set()
 
@@ -228,15 +230,14 @@ def process_log_files(log_file_paths, output_dir):
     plt.savefig(f'{output_dir}/combined_number_of_paths_vs_average_duration.png')
     plt.close()
 
-# Specify paths to your log files
-log_file_paths = [
-    "/app/output/stonehenge/50/summary_log.txt",
-    "/app/output/stonehenge/1/summary_log.txt",
-]
+# # Specify paths to your log files
+# log_file_paths = [
+#     "/app/output/stonehenge/50/summary_log.txt",
+#     "/app/output/stonehenge/1/summary_log.txt",
+# ]
 
-# Create output directory for plots
-output_dir = '/app/plots'
-os.makedirs(output_dir, exist_ok=True)
+# # Create output directory for plots
+# output_dir = '/app/plots'
 
-# Run the processing
-process_log_files(log_file_paths, output_dir)
+# # Run the processing
+# process_log_files(log_file_paths, output_dir)
