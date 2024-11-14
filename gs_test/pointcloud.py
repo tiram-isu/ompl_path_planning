@@ -29,7 +29,7 @@ def load_gaussians_from_nerfstudio_ckpt(ckpt_path, device="cuda"):
         gaussian_data[key.split(".")[-1]] = gauss_params[key].to(device)
 
     # Print for verification
-    for key, value in gaussian_data.items():
+    # for key, value in gaussian_data.items():
         # print(f"{key}: shape={value.shape}, dtype={value.dtype}")
         # print(key, ": ", value[0])
     
@@ -67,7 +67,7 @@ def display_point_cloud(gaussian_data):
     o3d.visualization.draw_geometries([point_cloud])
 
 # Usage example
-ckpt_path = "/app/models/lego.ckpt"
+ckpt_path = "/app/models/stonehenge_aligned.ckpt"
 device = "cuda"  # "cuda" (GPU) or "cpu" (CPU)
 gaussian_data = load_gaussians_from_nerfstudio_ckpt(ckpt_path, device=device)
 display_point_cloud(gaussian_data)

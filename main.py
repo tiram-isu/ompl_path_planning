@@ -118,12 +118,14 @@ if __name__ == "__main__":
         'CForest', 'APS', 'SyCLoP', 'LTLPlanner', 'SPQRstar'
     ]
 
-    model_name = "stonehenge"
+    all_planners = ['RRTConnect']
+
+    model_name = "stonehenge_boxes"
     enable_visualization = False
     ellipsoid_dimensions = (0.025, 0.025, 0.04)
-    num_paths = 100
+    num_paths = 1
     max_time_per_path = 5  # maximum time in seconds for each planner process
-    mesh = o3d.io.read_triangle_mesh(f"/app/models/{model_name}.fbx")
+    mesh = o3d.io.read_triangle_mesh(f"/app/models/{model_name}.obj")
 
     start = np.array([-1.24, 0.31, 0.08])
     goal = np.array([0.46, -0.79, 0.08])

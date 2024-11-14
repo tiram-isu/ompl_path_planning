@@ -22,7 +22,8 @@ RUN pip3 install --no-cache-dir "numpy<2.0.0" \
     python-fcl \
     pyopengl \
     pyopengl-accelerate \
-    glfw 
+    glfw \
+    opencv-python \
 
 # Install PyTorch (CUDA-enabled version)
 RUN pip3 install torch==2.1.2+cu118 torchvision==0.16.2+cu118 --extra-index-url https://download.pytorch.org/whl/cu118 \
