@@ -81,7 +81,7 @@ def write_summary_log(all_results, output_path, model_name, start, goal, mesh, e
                 f.write(f"  Status: Failed\n")
                 f.write(f"  Error Message: {result['error_message']}\n\n")
 
-def plan_path(planner, num_paths, start, goal, model_name, ellipsoid_dimensions, enable_visualization, mesh, max_time):
+def plan_path(planner, num_paths, start, goal, model_name, ellipsoid_dimensions, enable_visualization, mesh, max_time, planner_range, state_validity_resolution):
     # Create output directory
     output_path = f"/app/output/{model_name}/{num_paths}/{planner}"
     os.makedirs(output_path, exist_ok=True)
@@ -90,9 +90,8 @@ def plan_path(planner, num_paths, start, goal, model_name, ellipsoid_dimensions,
                         format='%(asctime)s - %(levelname)s - %(message)s', filemode='w')
 
     try:
-        path_planner = PathPlanner(mesh, ellipsoid_dimensions, planner_type=planner, range=0.1, state_validity_resolution=0.01)
-        state_validity_checker = path_planner.return_state_validity_checker()
-        visualizer = Visualizer(mesh, f"{output_path}/", enable_visualization)
+        path_planner = PathPlanner(mesh, ellipsoid_dimensions, planner_type=planner, range=planner_range, state_validity_resolution=state_validity_resolution)
+        visualizer = Visualizer(mesh, f"{output_path}/", enable_visualization, ellipsoid_dimensions[0], ellipsoid_dimensions[2])
 
         # Plan multiple paths
         all_paths = path_planner.plan_multiple_paths(start, goal, num_paths, max_time=max_time)
@@ -103,7 +102,7 @@ def plan_path(planner, num_paths, start, goal, model_name, ellipsoid_dimensions,
             print(f"No paths found for planner {planner}.")
         else:
             visualizer.visualize_o3d(all_paths, start, goal)
-            visualizer.visualize_mpl(all_paths, start, goal)
+            # visualizer.visualize_mpl(all_paths, start, goal)
 
     except Exception as e:
         logging.error(f"Error occurred for planner {planner}: {e}")
@@ -120,15 +119,20 @@ if __name__ == "__main__":
 
     all_planners = ['RRTConnect']
 
-    model_name = "stonehenge_boxes"
-    enable_visualization = False
-    ellipsoid_dimensions = (0.025, 0.025, 0.04)
-    num_paths = 1
-    max_time_per_path = 5  # maximum time in seconds for each planner process
-    mesh = o3d.io.read_triangle_mesh(f"/app/models/{model_name}.obj")
+    scale = 1.0
+    model_name = "stonehenge"
+    mesh = o3d.io.read_triangle_mesh(f"/app/models/{model_name}.fbx")
+    mesh.scale(scale, center=(0, 0, 0))
 
-    start = np.array([-1.24, 0.31, 0.08])
-    goal = np.array([0.46, -0.79, 0.08])
+    start = np.array([-1.24, 0.31, 0.08]) * scale
+    goal = np.array([0.46, -0.79, 0.08]) * scale
+    planner_range = 0.1 * scale
+    state_validity_resolution = 0.01 * scale
+    ellipsoid_dimensions = tuple(dim * scale for dim in (0.025, 0.025, 0.04))
+
+    enable_visualization = True
+    num_paths = 1
+    max_time_per_path = 50  # maximum time in seconds for each planner process
 
     # List to keep track of processes and results
     processes = []
@@ -137,16 +141,17 @@ if __name__ == "__main__":
     # Loop through all planners and start a process for each
     for planner in all_planners:
         # Create a new process for each planner
-        p = Process(target=plan_path, args=(planner, num_paths, start, goal, model_name, ellipsoid_dimensions, enable_visualization, mesh, max_time_per_path))
+        p = Process(target=plan_path, args=(planner, num_paths, start, goal, model_name, ellipsoid_dimensions, enable_visualization, mesh, max_time_per_path, planner_range, state_validity_resolution))
         processes.append((p, planner))
         p.start()
 
-        # Wait for the process to complete within the max time limit
-        p.join((max_time_per_path * 2) * num_paths) # 2x the max time for each path
-        if p.is_alive():
-            print(f"Terminating planner {planner} due to timeout.")
-            p.terminate()  # Forcefully terminate the process
-            p.join()       # Ensure it has completed termination
+        if not enable_visualization:
+            # Wait for the process to complete within the max time limit
+            p.join((max_time_per_path * 2) * num_paths) # 2x the max time for each path
+            if p.is_alive():
+                print(f"Terminating planner {planner} due to timeout.")
+                p.terminate()  # Forcefully terminate the process
+                p.join()       # Ensure it has completed termination
 
     # Collect results from each planner's log file
     output_root = f"/app/output/{model_name}/{num_paths}"

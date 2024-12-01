@@ -172,7 +172,10 @@ def process_log_files(log_file_paths, output_dir):
     for file_path in log_file_paths:
         log_file_name = '_'.join(file_path.split('/')[-3:-1])
         data = parse_log_file(file_path)
-        create_plots(data, log_file_name, output_dir, [planner_color_map[planner] for planner in data.keys()])
+        try:
+            create_plots(data, log_file_name, output_dir, [planner_color_map[planner] for planner in data.keys()])
+        except Exception as e:
+            print(f"Error occurred while creating plots for {log_file_name}: {e}")
 
     # Additional combined plots
     plt.figure(figsize=(19.20, 10.80))

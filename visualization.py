@@ -5,8 +5,10 @@ import logging
 import time
 
 class Visualizer:
-    def __init__(self, mesh, output_path, enable_visualization=True):
+    def __init__(self, mesh, output_path, enable_visualization, tube_width, tube_height):
         self.mesh = mesh
+        self.tube_width = tube_width  # Width of the path tube
+        self.tube_height = tube_height # Height of the path tube
         self.output_path = output_path  # Output path to save mesh with path
         logging.getLogger('matplotlib').setLevel(logging.WARNING)  # Suppress matplotlib logging
         self.enable_visualization = enable_visualization
@@ -22,12 +24,13 @@ class Visualizer:
         # Add the mesh to the visualizer
         vis.add_geometry(self.mesh)
 
-        # Path tubes
-        path_geometries = [self.create_path_tube(path) for path in path_list]
+        if path_list:
+            # Path tubes
+            path_geometries = [self.create_path_tube(path) for path in path_list]
 
-        # Add path geometries to the visualizer
-        for i, path_geometry in enumerate(path_geometries):
-            vis.add_geometry(path_geometry)
+            # Add path geometries to the visualizer
+            for i, path_geometry in enumerate(path_geometries):
+                vis.add_geometry(path_geometry)
 
         # Start and end point markers
         start_marker = self.create_marker(start_point, color=[0.0, 1.0, 0.0])  # Green for start
@@ -42,7 +45,7 @@ class Visualizer:
 
         # Set render options to show back faces
         vis.get_render_option().mesh_show_back_face = True  # Enable back face rendering
-
+    
         # Render the scene and wait for a moment before taking the screenshot
         vis.poll_events()  # Process any events like window resize
         vis.update_geometry(self.mesh)  # Update geometry if any changes
@@ -106,15 +109,18 @@ class Visualizer:
 
         return combined_mesh
 
-    def create_marker(self, position, color=[1.0, 0.0, 0.0], radius=0.02):
+    def create_marker(self, position, color=[1.0, 0.0, 0.0]):
         """Creates a sphere marker at the given position with the specified color."""
+        radius = self.tube_width
         marker = o3d.geometry.TriangleMesh.create_sphere(radius=radius)
         marker.paint_uniform_color(color)
         marker.translate(position)
         return marker
 
-    def create_path_tube(self, path, radius=0.005):
+    def create_path_tube(self, path):
         """Creates a tube for the path by connecting consecutive path points with cylinders."""
+        radius = self.tube_width
+        
         tube_mesh = o3d.geometry.TriangleMesh()
         tube_mesh.paint_uniform_color([1.0, 0.0, 0.0])  # Color the path red
 
@@ -138,11 +144,17 @@ class Visualizer:
         length = np.linalg.norm(vector)
 
         # Create cylinder and scale it to the computed length
-        cylinder = o3d.geometry.TriangleMesh.create_cylinder(radius=radius, height=length)
+        cylinder = o3d.geometry.TriangleMesh.create_cylinder(radius=1.0, height=1.0)
+        # Scale cylinder
+        cylinder.vertices = o3d.utility.Vector3dVector(np.asarray(cylinder.vertices) * np.array([self.tube_height, self.tube_width, length]) )
         cylinder.paint_uniform_color([1.0, 0.0, 0.0])  # Color the cylinder red
 
+        # Rotate cylinder aroung x-axis by 90 degrees
+        R = o3d.geometry.get_rotation_matrix_from_xyz((0, np.pi / 2, 0))
+        cylinder.rotate(R, center=(0, 0, 0))
+
         # Rotate the cylinder to align with the vector direction
-        axis = np.array([0, 0, 1])  # Default cylinder direction
+        axis = np.array([1, 0, 0])  # Default cylinder direction
         if length > 1e-6:  # Check if length is not negligible
             rotation_vector = np.cross(axis, vector)
             if np.linalg.norm(rotation_vector) > 1e-6:
@@ -156,6 +168,7 @@ class Visualizer:
         cylinder.translate(midpoint)
 
         return cylinder
+
     
     def visualize_mpl(self, path_list, start_point, end_point):
         fig = plt.figure()
