@@ -91,7 +91,7 @@ def save_gaussians_as_ellipsoids(gaussian_data, output_file="ellipsoids.obj"):
     print(f"Ellipsoids saved to {output_file}")
 
 # Usage example
-ckpt_path = "/app/models/stonehenge_aligned.ckpt"
+ckpt_path = "/app/models/stonehenge_colmap_aligned.ckpt"
 device = "cuda"  # "cuda" (GPU) or "cpu" (CPU)
 gaussian_data = load_gaussians_from_nerfstudio_ckpt(ckpt_path, device=device)
-save_gaussians_as_ellipsoids(gaussian_data, output_file="/app/models/stonehenge_aligned_boxes.obj")
+save_gaussians_as_ellipsoids(gaussian_data, output_file="/app/models/stonehenge_colmap_aligned_boxes.obj")

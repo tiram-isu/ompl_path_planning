@@ -12,7 +12,7 @@ import re
 def parse_log_file(log_file_path):
     """Parse a single planner's log file to extract information for the summary."""
     result = {
-        'success': True,
+        'success': False,
         'error_message': None,
         'num_paths': 0,
         'total_time': 0,
@@ -33,6 +33,7 @@ def parse_log_file(log_file_path):
                 result['path_lengths'].append(length)
                 result['path_durations'].append(duration)
                 result['num_paths'] += 1
+                result['success'] = True
                 
     return result
 
@@ -100,9 +101,8 @@ def plan_path(planner, num_paths, start, goal, model_name, ellipsoid_dimensions,
         if not all_paths:
             all_paths = []
             print(f"No paths found for planner {planner}.")
-        else:
-            visualizer.visualize_o3d(all_paths, start, goal)
-            # visualizer.visualize_mpl(all_paths, start, goal)
+        visualizer.visualize_o3d(all_paths, start, goal)
+        # visualizer.visualize_mpl(all_paths, start, goal)
 
     except Exception as e:
         logging.error(f"Error occurred for planner {planner}: {e}")
@@ -120,63 +120,64 @@ if __name__ == "__main__":
     all_planners = ['RRTConnect']
 
     scale = 1.0
-    model_name = "stonehenge"
+    model_name = "boxes_aligned"
     mesh = o3d.io.read_triangle_mesh(f"/app/models/{model_name}.fbx")
-    mesh.scale(scale, center=(0, 0, 0))
+    # mesh.scale(scale, center=(0, 0, 0))
 
-    start = np.array([-1.24, 0.31, 0.08]) * scale
-    goal = np.array([0.46, -0.79, 0.08]) * scale
+    start = np.array([-0.89, 0.36, 0]) * scale
+    goal = np.array([0.59, -0.57, 0]) * scale
     planner_range = 0.1 * scale
     state_validity_resolution = 0.01 * scale
     ellipsoid_dimensions = tuple(dim * scale for dim in (0.025, 0.025, 0.04))
 
-    enable_visualization = True
-    num_paths = 1
-    max_time_per_path = 50  # maximum time in seconds for each planner process
+    enable_visualization = False
+    num_paths = [1, 10, 50, 100]
+    max_time_per_path = 5  # maximum time in seconds for each planner process
 
     # List to keep track of processes and results
     processes = []
     all_results = {}
 
-    # Loop through all planners and start a process for each
-    for planner in all_planners:
-        # Create a new process for each planner
-        p = Process(target=plan_path, args=(planner, num_paths, start, goal, model_name, ellipsoid_dimensions, enable_visualization, mesh, max_time_per_path, planner_range, state_validity_resolution))
-        processes.append((p, planner))
-        p.start()
+    for num_paths in num_paths:
+        # Loop through all planners and start a process for each
+        for planner in all_planners:
+            # Create a new process for each planner
+            p = Process(target=plan_path, args=(planner, num_paths, start, goal, model_name, ellipsoid_dimensions, enable_visualization, mesh, max_time_per_path, planner_range, state_validity_resolution))
+            processes.append((p, planner))
+            p.start()
 
-        if not enable_visualization:
-            # Wait for the process to complete within the max time limit
-            p.join((max_time_per_path * 2) * num_paths) # 2x the max time for each path
+            if not enable_visualization:
+                # Wait for the process to complete within the max time limit
+                p.join((max_time_per_path * 2) * num_paths) # 2x the max time for each path
+                if p.is_alive():
+                    print(f"Terminating planner {planner} due to timeout.")
+                    p.terminate()  # Forcefully terminate the process
+                    p.join()       # Ensure it has completed termination
+
+        # Collect results from each planner's log file
+        output_root = f"/app/output/{model_name}/{num_paths}"
+        for planner in all_planners:
+            log_file_path = os.path.join(output_root, planner, "log.txt")
+            if os.path.exists(log_file_path):
+                all_results[planner] = parse_log_file(log_file_path)
+        
+        # Write the consolidated summary log file
+        write_summary_log(all_results, output_root, model_name, start, goal, mesh, ellipsoid_dimensions, max_time_per_path)
+
+        plot_output_dir = f"/app/output/{model_name}/plots"
+
+        # get log file paths
+        summary_log_paths = []
+
+        # Traverse the base directory
+        for root, dirs, files in os.walk('/app/output/stonehenge'):
+            for file in files:
+                if file == 'summary_log.txt':
+                    summary_log_paths.append(os.path.join(root, file))
+
+        process_log_files(summary_log_paths, plot_output_dir)
+
+        # Wait for any remaining processes to complete
+        for p, planner in processes:
             if p.is_alive():
-                print(f"Terminating planner {planner} due to timeout.")
-                p.terminate()  # Forcefully terminate the process
-                p.join()       # Ensure it has completed termination
-
-    # Collect results from each planner's log file
-    output_root = f"/app/output/{model_name}/{num_paths}"
-    for planner in all_planners:
-        log_file_path = os.path.join(output_root, planner, "log.txt")
-        if os.path.exists(log_file_path):
-            all_results[planner] = parse_log_file(log_file_path)
-    
-    # Write the consolidated summary log file
-    write_summary_log(all_results, output_root, model_name, start, goal, mesh, ellipsoid_dimensions, max_time_per_path)
-
-    plot_output_dir = f"/app/output/{model_name}/plots"
-
-    # get log file paths
-    summary_log_paths = []
-
-    # Traverse the base directory
-    for root, dirs, files in os.walk('/app/output/stonehenge'):
-        for file in files:
-            if file == 'summary_log.txt':
-                summary_log_paths.append(os.path.join(root, file))
-
-    process_log_files(summary_log_paths, plot_output_dir)
-
-    # Wait for any remaining processes to complete
-    for p, planner in processes:
-        if p.is_alive():
-            p.join()
+                p.join()

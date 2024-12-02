@@ -24,7 +24,7 @@ class Visualizer:
         # Add the mesh to the visualizer
         vis.add_geometry(self.mesh)
 
-        if path_list:
+        if len(path_list) > 0:
             # Path tubes
             path_geometries = [self.create_path_tube(path) for path in path_list]
 
