@@ -1,0 +1,22 @@
+2024-12-02 03:34:01,213 - INFO - Bounds set with padding of 0.01
+2024-12-02 03:34:04,347 - INFO - Planner STRIDE initialized with range 0.1.
+2024-12-02 03:34:04,348 - INFO - Start state: [-0.89  0.36  0.  ], Goal state: [ 0.59 -0.57  0.  ]
+2024-12-02 03:34:08,879 - DEBUG - contains_points executed in 4.5308 seconds.
+2024-12-02 03:34:08,900 - DEBUG - contains_points executed in 0.0208 seconds.
+2024-12-02 03:34:08,900 - INFO - Planning 10 paths in 5 seconds...
+2024-12-02 03:34:08,966 - INFO - Path 1 added. Length: 2.89 units. Duration: 0.06 seconds.
+2024-12-02 03:34:09,021 - INFO - Path 2 added. Length: 2.83 units. Duration: 0.05 seconds.
+2024-12-02 03:34:09,077 - INFO - Path 3 added. Length: 2.49 units. Duration: 0.06 seconds.
+2024-12-02 03:34:09,146 - INFO - Path 4 added. Length: 3.43 units. Duration: 0.07 seconds.
+2024-12-02 03:34:09,209 - INFO - Path 5 added. Length: 2.76 units. Duration: 0.06 seconds.
+2024-12-02 03:34:09,231 - INFO - Path 6 added. Length: 2.54 units. Duration: 0.02 seconds.
+2024-12-02 03:34:09,326 - INFO - Path 7 added. Length: 3.80 units. Duration: 0.09 seconds.
+2024-12-02 03:34:09,350 - INFO - Path 8 added. Length: 2.48 units. Duration: 0.02 seconds.
+2024-12-02 03:34:09,954 - INFO - Path 9 added. Length: 2.33 units. Duration: 0.60 seconds.
+2024-12-02 03:34:10,095 - INFO - Path 10 added. Length: 2.79 units. Duration: 0.14 seconds.
+2024-12-02 03:34:10,095 - INFO - All paths planning completed. Total duration: 1.19 seconds.
+2024-12-02 03:34:10,095 - INFO - Average time per path: 0.12 seconds.
+2024-12-02 03:34:10,108 - INFO - Average path length of all paths: 2.83 units.
+2024-12-02 03:34:10,108 - INFO - Shortest path length: 2.33 units.
+2024-12-02 03:34:10,108 - INFO - Longest path length: 3.80 units.
+2024-12-02 03:34:10,108 - INFO - Total number of unique paths found: 10.

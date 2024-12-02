@@ -1,0 +1,24 @@
+2024-12-02 03:31:19,067 - INFO - Bounds set with padding of 0.01
+2024-12-02 03:31:22,116 - INFO - Planner SST initialized with range 0.1.
+2024-12-02 03:31:22,117 - INFO - Start state: [-0.89  0.36  0.  ], Goal state: [ 0.59 -0.57  0.  ]
+2024-12-02 03:31:26,533 - DEBUG - contains_points executed in 4.4156 seconds.
+2024-12-02 03:31:26,544 - DEBUG - contains_points executed in 0.0099 seconds.
+2024-12-02 03:31:26,544 - INFO - Planning 10 paths in 5 seconds...
+2024-12-02 03:31:31,556 - ERROR - No solution found for this attempt.
+2024-12-02 03:31:36,572 - ERROR - No solution found for this attempt.
+2024-12-02 03:31:41,626 - ERROR - No solution found for this attempt.
+2024-12-02 03:31:46,649 - ERROR - No solution found for this attempt.
+2024-12-02 03:31:51,699 - ERROR - No solution found for this attempt.
+2024-12-02 03:31:56,725 - ERROR - No solution found for this attempt.
+2024-12-02 03:32:01,734 - ERROR - No solution found for this attempt.
+2024-12-02 03:32:06,784 - ERROR - No solution found for this attempt.
+2024-12-02 03:32:11,837 - ERROR - No solution found for this attempt.
+2024-12-02 03:32:16,876 - ERROR - No solution found for this attempt.
+2024-12-02 03:32:21,925 - ERROR - No solution found for this attempt.
+2024-12-02 03:32:26,945 - ERROR - No solution found for this attempt.
+2024-12-02 03:32:31,955 - ERROR - No solution found for this attempt.
+2024-12-02 03:32:37,005 - ERROR - No solution found for this attempt.
+2024-12-02 03:32:42,018 - ERROR - No solution found for this attempt.
+2024-12-02 03:32:47,054 - ERROR - No solution found for this attempt.
+2024-12-02 03:32:52,102 - ERROR - No solution found for this attempt.
+2024-12-02 03:32:57,135 - ERROR - No solution found for this attempt.

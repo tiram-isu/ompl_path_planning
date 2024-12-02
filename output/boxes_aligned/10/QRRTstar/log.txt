@@ -1,0 +1,3 @@
+2024-12-02 03:34:34,102 - INFO - Bounds set with padding of 0.01
+2024-12-02 03:34:37,347 - ERROR - Planner type QRRTstar is not available in OMPL.
+2024-12-02 03:34:37,347 - ERROR - Error occurred for planner QRRTstar: Planner type QRRTstar is not supported.

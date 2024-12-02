@@ -1,0 +1,25 @@
+2024-12-02 04:26:54,809 - INFO - Bounds set with padding of 0.01
+2024-12-02 04:26:57,767 - INFO - Planner LBTRRT initialized with range 0.1.
+2024-12-02 04:26:57,768 - INFO - Start state: [-0.89  0.36  0.  ], Goal state: [ 0.59 -0.57  0.  ]
+2024-12-02 04:27:02,098 - DEBUG - contains_points executed in 4.3295 seconds.
+2024-12-02 04:27:02,106 - DEBUG - contains_points executed in 0.0079 seconds.
+2024-12-02 04:27:02,106 - INFO - Planning 50 paths in 5 seconds...
+2024-12-02 04:27:07,120 - INFO - Path 1 added. Length: 2.14 units. Duration: 5.01 seconds.
+2024-12-02 04:27:12,161 - INFO - Path 2 added. Length: 2.07 units. Duration: 5.01 seconds.
+2024-12-02 04:27:17,206 - INFO - Path 3 added. Length: 2.03 units. Duration: 5.02 seconds.
+2024-12-02 04:27:22,250 - INFO - Path 4 added. Length: 2.09 units. Duration: 5.01 seconds.
+2024-12-02 04:27:27,340 - INFO - Path 5 added. Length: 2.34 units. Duration: 5.06 seconds.
+2024-12-02 04:27:32,382 - INFO - Path 6 added. Length: 2.20 units. Duration: 5.01 seconds.
+2024-12-02 04:27:37,420 - INFO - Path 7 added. Length: 2.17 units. Duration: 5.01 seconds.
+2024-12-02 04:27:42,466 - INFO - Path 8 added. Length: 2.06 units. Duration: 5.02 seconds.
+2024-12-02 04:27:47,517 - INFO - Path 9 added. Length: 2.09 units. Duration: 5.02 seconds.
+2024-12-02 04:27:52,589 - INFO - Path 10 added. Length: 2.16 units. Duration: 5.04 seconds.
+2024-12-02 04:27:57,667 - INFO - Path 11 added. Length: 1.98 units. Duration: 5.05 seconds.
+2024-12-02 04:28:02,731 - INFO - Path 12 added. Length: 2.17 units. Duration: 5.04 seconds.
+2024-12-02 04:28:07,784 - INFO - Path 13 added. Length: 2.03 units. Duration: 5.02 seconds.
+2024-12-02 04:28:12,829 - INFO - Path 14 added. Length: 2.03 units. Duration: 5.02 seconds.
+2024-12-02 04:28:17,895 - INFO - Path 15 added. Length: 2.04 units. Duration: 5.04 seconds.
+2024-12-02 04:28:22,963 - INFO - Path 16 added. Length: 2.10 units. Duration: 5.04 seconds.
+2024-12-02 04:28:28,024 - INFO - Path 17 added. Length: 2.06 units. Duration: 5.03 seconds.
+2024-12-02 04:28:33,083 - INFO - Path 18 added. Length: 2.01 units. Duration: 5.03 seconds.
+2024-12-02 04:28:38,171 - INFO - Path 19 added. Length: 2.05 units. Duration: 5.06 seconds.

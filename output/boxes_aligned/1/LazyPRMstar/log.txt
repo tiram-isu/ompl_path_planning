@@ -1,0 +1,6 @@
+2024-12-02 03:22:47,515 - INFO - Bounds set with padding of 0.01
+2024-12-02 03:22:50,575 - INFO - Planner LazyPRMstar initialized with range 0.1.
+2024-12-02 03:22:50,576 - INFO - Start state: [-0.89  0.36  0.  ], Goal state: [ 0.59 -0.57  0.  ]
+2024-12-02 03:22:55,174 - DEBUG - contains_points executed in 4.5975 seconds.
+2024-12-02 03:22:55,182 - DEBUG - contains_points executed in 0.0079 seconds.
+2024-12-02 03:22:55,182 - INFO - Planning 1 paths in 5 seconds...

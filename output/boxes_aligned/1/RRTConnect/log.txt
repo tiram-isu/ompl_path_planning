@@ -1,0 +1,13 @@
+2024-12-02 03:23:30,494 - INFO - Bounds set with padding of 0.01
+2024-12-02 03:23:33,737 - INFO - Planner RRTConnect initialized with range 0.1.
+2024-12-02 03:23:33,737 - INFO - Start state: [-0.89  0.36  0.  ], Goal state: [ 0.59 -0.57  0.  ]
+2024-12-02 03:23:38,260 - DEBUG - contains_points executed in 4.5217 seconds.
+2024-12-02 03:23:38,268 - DEBUG - contains_points executed in 0.0085 seconds.
+2024-12-02 03:23:38,269 - INFO - Planning 1 paths in 5 seconds...
+2024-12-02 03:23:38,322 - INFO - Path 1 added. Length: 2.55 units. Duration: 0.05 seconds.
+2024-12-02 03:23:38,322 - INFO - All paths planning completed. Total duration: 0.05 seconds.
+2024-12-02 03:23:38,322 - INFO - Average time per path: 0.05 seconds.
+2024-12-02 03:23:38,333 - INFO - Average path length of all paths: 2.55 units.
+2024-12-02 03:23:38,333 - INFO - Shortest path length: 2.55 units.
+2024-12-02 03:23:38,333 - INFO - Longest path length: 2.55 units.
+2024-12-02 03:23:38,333 - INFO - Total number of unique paths found: 1.

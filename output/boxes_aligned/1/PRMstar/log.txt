@@ -1,0 +1,6 @@
+2024-12-02 03:22:37,477 - INFO - Bounds set with padding of 0.01
+2024-12-02 03:22:40,673 - INFO - Planner PRMstar initialized with range 0.1.
+2024-12-02 03:22:40,674 - INFO - Start state: [-0.89  0.36  0.  ], Goal state: [ 0.59 -0.57  0.  ]
+2024-12-02 03:22:45,158 - DEBUG - contains_points executed in 4.4835 seconds.
+2024-12-02 03:22:45,168 - DEBUG - contains_points executed in 0.0094 seconds.
+2024-12-02 03:22:45,169 - INFO - Planning 1 paths in 5 seconds...

@@ -1,0 +1,6 @@
+2024-12-02 03:26:23,402 - INFO - Bounds set with padding of 0.01
+2024-12-02 03:26:26,513 - INFO - Planner LBTRRT initialized with range 0.1.
+2024-12-02 03:26:26,514 - INFO - Start state: [-0.89  0.36  0.  ], Goal state: [ 0.59 -0.57  0.  ]
+2024-12-02 03:26:30,884 - DEBUG - contains_points executed in 4.3699 seconds.
+2024-12-02 03:26:30,894 - DEBUG - contains_points executed in 0.0092 seconds.
+2024-12-02 03:26:30,894 - INFO - Planning 1 paths in 5 seconds...

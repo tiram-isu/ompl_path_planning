@@ -1,0 +1,13 @@
+2024-12-02 03:24:41,487 - INFO - Bounds set with padding of 0.01
+2024-12-02 03:24:44,675 - INFO - Planner STRIDE initialized with range 0.1.
+2024-12-02 03:24:44,676 - INFO - Start state: [-0.89  0.36  0.  ], Goal state: [ 0.59 -0.57  0.  ]
+2024-12-02 03:24:49,028 - DEBUG - contains_points executed in 4.3516 seconds.
+2024-12-02 03:24:49,038 - DEBUG - contains_points executed in 0.0097 seconds.
+2024-12-02 03:24:49,039 - INFO - Planning 1 paths in 5 seconds...
+2024-12-02 03:24:49,132 - INFO - Path 1 added. Length: 3.15 units. Duration: 0.09 seconds.
+2024-12-02 03:24:49,132 - INFO - All paths planning completed. Total duration: 0.09 seconds.
+2024-12-02 03:24:49,132 - INFO - Average time per path: 0.09 seconds.
+2024-12-02 03:24:49,133 - INFO - Average path length of all paths: 3.15 units.
+2024-12-02 03:24:49,133 - INFO - Shortest path length: 3.15 units.
+2024-12-02 03:24:49,133 - INFO - Longest path length: 3.15 units.
+2024-12-02 03:24:49,133 - INFO - Total number of unique paths found: 1.
