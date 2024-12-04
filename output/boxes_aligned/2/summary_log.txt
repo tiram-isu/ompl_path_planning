@@ -1,0 +1,22 @@
+Model: boxes_aligned
+Mesh: TriangleMesh with 392648 points and 588972 triangles.
+Ellipsoid Dimensions: (0.025, 0.025, 0.04)
+Start Point: [-0.89  0.36  0.  ]
+Goal Point: [ 0.59 -0.57  0.  ]
+Max Time Per Path: 5
+
+Planner: RRTConnect
+  Status: Successful
+  Total Time Taken: 0.11 seconds
+  Number of Paths: 2
+  Average Path Length: 3.13
+  Shortest Path Length: 2.7
+  Longest Path Length: 3.56
+  Path Length Std Dev: 0.42999999999999994
+  Average Time Per Path: 0.055 seconds
+  Time Per Path Std Dev: 0.0049999999999999975 seconds
+
+  Paths:
+    Path 1: Length = 2.7 units, Duration = 0.05 seconds
+    Path 2: Length = 3.56 units, Duration = 0.06 seconds
+

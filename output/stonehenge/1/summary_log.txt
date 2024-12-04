@@ -1,21 +1,11 @@
 Model: stonehenge
 Mesh: TriangleMesh with 10995 points and 18402 triangles, and textures of size (4096, 4096) (2048, 2048) (1024, 1024) (2048, 2048) (1024, 1024) (2048, 2048) (2048, 2048) (2048, 2048) 
-Ellipsoid Dimensions: (0.25, 0.25, 0.4)
-Start Point: [-12.4   3.1   0.8]
-Goal Point: [ 4.6 -7.9  0.8]
-Max Time Per Path: 50
+Ellipsoid Dimensions: (0.025, 0.025, 0.04)
+Start Point: [-0.89  0.36  0.  ]
+Goal Point: [ 0.59 -0.57  0.  ]
+Max Time Per Path: 5
 
 Planner: RRTConnect
-  Status: Successful
-  Total Time Taken: 0.02 seconds
-  Number of Paths: 1
-  Average Path Length: 2.19
-  Shortest Path Length: 2.19
-  Longest Path Length: 2.19
-  Path Length Std Dev: 0.0
-  Average Time Per Path: 0.02 seconds
-  Time Per Path Std Dev: 0.0 seconds
-
-  Paths:
-    Path 1: Length = 2.19 units, Duration = 0.02 seconds
+  Status: Failed
+  Error Message: Error occurred for planner RRTConnect: local variable 'path_geometries' referenced before assignment
 
