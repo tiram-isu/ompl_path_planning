@@ -52,40 +52,42 @@ def save_gaussians_as_ellipsoids(gaussian_data, output_file="ellipsoids.obj"):
 
     for i in range(len(means)):  # Adjust for the desired number of ellipsoids
         # Create a box as a base shape for the ellipsoid
-        ellipsoid = o3d.geometry.TriangleMesh.create_box(width=0.001, height=0.001, depth=0.001)
+        cuboid = o3d.geometry.TriangleMesh.create_box(width=0.001, height=0.001, depth=0.001)
         # ellipsoid = o3d.geometry.TriangleMesh.create_sphere(radius=0.001, resolution=5)
         
         # Apply scaling transformation on CPU after moving the parameters to numpy
         scaling_matrix = np.diag([scales[i][0], scales[i][1], scales[i][2], 1.0])
-        ellipsoid.transform(scaling_matrix)
+        cuboid.transform(scaling_matrix)
 
         # Reverse the order of vertices in each triangle to flip the faces
-        ellipsoid.triangles = o3d.utility.Vector3iVector(
-            np.asarray(ellipsoid.triangles)[:, ::-1]
+        cuboid.triangles = o3d.utility.Vector3iVector(
+            np.asarray(cuboid.triangles)[:, ::-1]
         )
-        ellipsoid.compute_vertex_normals()  # Ensure normals are corrected
+        cuboid.compute_vertex_normals()  # Ensure normals are corrected
 
         # Rotate the ellipsoid based on quaternion rotation (on CPU)
         rotation = R.from_quat(quats[i]).as_matrix()
-        ellipsoid.rotate(rotation, center=(0, 0, 0))
+        cuboid.rotate(rotation, center=(0, 0, 0))
 
         # Translate the ellipsoid to its position in space
-        ellipsoid.translate(means[i])
+        cuboid.translate(means[i])
 
         # Apply color from normalized feature colors
         color = normalized_colors[i]
-        ellipsoid.paint_uniform_color(color.tolist())
+        cuboid.paint_uniform_color(color.tolist())
 
         # Append the mesh for later saving
-        mesh_list.append(ellipsoid)
+        mesh_list.append(cuboid)
 
     # Combine all meshes into one and save as .obj
     combined_mesh = mesh_list[0]
     for mesh in mesh_list[1:]:
         combined_mesh += mesh  # Append meshes to combine
+    
+    # Dotate mesh by -90 degrees around x-axis (to match the orientation of original mesh in Blender)
+    rotation = R.from_euler("x", -90, degrees=True).as_matrix()
+    combined_mesh.rotate(rotation, center=(0, 0, 0))
 
-    combined_mesh.scale(1 / 10, center=(0, 0, 0))
-   
     # Save the final mesh as an OBJ file
     o3d.io.write_triangle_mesh(output_file, combined_mesh)
     print(f"Ellipsoids saved to {output_file}")
@@ -94,4 +96,4 @@ def save_gaussians_as_ellipsoids(gaussian_data, output_file="ellipsoids.obj"):
 ckpt_path = "/app/models/stonehenge_colmap_aligned.ckpt"
 device = "cuda"  # "cuda" (GPU) or "cpu" (CPU)
 gaussian_data = load_gaussians_from_nerfstudio_ckpt(ckpt_path, device=device)
-save_gaussians_as_ellipsoids(gaussian_data, output_file="/app/models/stonehenge_colmap_aligned_boxes.obj")
+save_gaussians_as_ellipsoids(gaussian_data, output_file="/app/models/test.obj")
