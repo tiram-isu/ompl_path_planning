@@ -8,6 +8,7 @@ from visualization import Visualizer
 from log_visualization import process_log_files
 import time
 import re
+import json
 
 def parse_log_file(log_file_path):
     """Parse a single planner's log file to extract information for the summary."""
@@ -101,6 +102,26 @@ def plan_path(planner, num_paths, start, goal, model_name, ellipsoid_dimensions,
         if not all_paths:
             all_paths = []
             print(f"No paths found for planner {planner}.")
+        else:
+            all_serializable_paths = []
+
+            for path in all_paths:
+                path_list = []
+                path_data = path.printAsMatrix()
+
+                for line in path_data.strip().split("\n"):
+                    x, y, z = map(float, line.split())
+                    path_list.append([x, y, z])
+
+                # Append the parsed path to the main list
+                all_serializable_paths.append(path_list)
+
+            # Write all paths to a single JSON file
+            output_file = f"{output_path}/paths.json"
+            with open(output_file, 'w') as f:
+                json.dump(all_serializable_paths, f, indent=4)
+
+            print(f"Paths saved to {output_file}")
         visualizer.visualize_o3d(all_paths, start, goal)
         # visualizer.visualize_mpl(all_paths, start, goal)
 
@@ -130,8 +151,9 @@ if __name__ == "__main__":
     state_validity_resolution = 0.01 * scale
     ellipsoid_dimensions = tuple(dim * scale for dim in (0.025, 0.025, 0.04))
 
-    enable_visualization = False
-    num_paths = [1, 10, 50, 100]
+    enable_visualization = True
+    # num_paths = [1, 10, 50, 100]
+    num_paths = [1]
     max_time_per_path = 5  # maximum time in seconds for each planner process
 
     # List to keep track of processes and results
@@ -148,6 +170,7 @@ if __name__ == "__main__":
 
             if not enable_visualization:
                 # Wait for the process to complete within the max time limit
+                # Some planners never terminate, so enforce timeout
                 p.join((max_time_per_path * 2) * num_paths) # 2x the max time for each path
                 if p.is_alive():
                     print(f"Terminating planner {planner} due to timeout.")
