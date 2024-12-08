@@ -111,16 +111,14 @@ class Visualizer:
 
     def create_marker(self, position, color=[1.0, 0.0, 0.0]):
         """Creates a sphere marker at the given position with the specified color."""
-        radius = self.tube_width
-        marker = o3d.geometry.TriangleMesh.create_sphere(radius=radius)
+        marker = o3d.geometry.TriangleMesh.create_sphere(radius=1)
+        marker.vertices = o3d.utility.Vector3dVector(np.asarray(marker.vertices) * np.array([self.tube_width, self.tube_width, self.tube_height]) )
         marker.paint_uniform_color(color)
         marker.translate(position)
         return marker
 
     def create_path_tube(self, path):
         """Creates a tube for the path by connecting consecutive path points with cylinders."""
-        radius = self.tube_width
-        
         tube_mesh = o3d.geometry.TriangleMesh()
         tube_mesh.paint_uniform_color([1.0, 0.0, 0.0])  # Color the path red
 
@@ -132,12 +130,12 @@ class Visualizer:
         for i in range(len(path_points) - 1):
             start = path_points[i]
             end = path_points[i + 1]
-            cylinder = self.create_cylinder_between_points(start, end, radius)
+            cylinder = self.create_cylinder_between_points(start, end)
             tube_mesh += cylinder
 
         return tube_mesh
 
-    def create_cylinder_between_points(self, start, end, radius):
+    def create_cylinder_between_points(self, start, end):
         """Creates a cylinder connecting two points to represent a tube segment in the path."""
         # Compute vector and length between points
         vector = end - start

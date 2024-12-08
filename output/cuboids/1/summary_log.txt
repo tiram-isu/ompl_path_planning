@@ -1,0 +1,21 @@
+Model: cuboids
+Mesh: TriangleMesh with 174112 points and 261168 triangles.
+Ellipsoid Dimensions: (0.01, 0.01, 0.02)
+Start Point: [-0.33  0.1  -0.44]
+Goal Point: [ 0.22 -0.16 -0.44]
+Max Time Per Path: 5
+
+Planner: RRTConnect
+  Status: Successful
+  Total Time Taken: 0.01 seconds
+  Number of Paths: 1
+  Average Path Length: 0.71
+  Shortest Path Length: 0.71
+  Longest Path Length: 0.71
+  Path Length Std Dev: 0.0
+  Average Time Per Path: 0.01 seconds
+  Time Per Path Std Dev: 0.0 seconds
+
+  Paths:
+    Path 1: Length = 0.71 units, Duration = 0.01 seconds
+

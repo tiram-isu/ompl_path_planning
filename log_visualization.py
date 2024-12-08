@@ -202,6 +202,7 @@ def process_log_files(log_file_paths, output_dir):
     plt.xlim(left=0)
     plt.ylim(bottom=min(path_length_values), top=max(path_length_values))
     plt.grid()
+    print(output_dir)
     plt.savefig(f'{output_dir}/combined_number_of_paths_vs_average_length.png')
     plt.close()
 

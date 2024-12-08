@@ -71,7 +71,6 @@ def save_gaussians_as_ellipsoids(gaussian_data, output_path, opacity_threshold=0
 
         # Create a box as a base shape for the ellipsoid
         cuboid = o3d.geometry.TriangleMesh.create_box(width=0.001, height=0.001, depth=0.001)
-        # ellipsoid = o3d.geometry.TriangleMesh.create_sphere(radius=0.001, resolution=5)
         
         # Apply scaling transformation on CPU after moving the parameters to numpy
         scaling_matrix = np.diag([scales[i][0], scales[i][1], scales[i][2], 1.0])
@@ -82,10 +81,6 @@ def save_gaussians_as_ellipsoids(gaussian_data, output_path, opacity_threshold=0
             np.asarray(cuboid.triangles)[:, ::-1]
         )
         cuboid.compute_vertex_normals()  # Ensure normals are corrected
-
-        # Rotate the ellipsoid based on quaternion rotation (on CPU)
-        rotation = R.from_quat(quats[i]).as_matrix()
-        cuboid.rotate(rotation, center=(0, 0, 0))
 
         # Translate the ellipsoid to its position in space
         cuboid.translate(means[i])
@@ -105,10 +100,6 @@ def save_gaussians_as_ellipsoids(gaussian_data, output_path, opacity_threshold=0
     print(len(mesh_list), "cuboids created.")
     print(opacity_skipped_count, "cuboids skipped due to opacity threshold.")
     print(scale_skipped_count, "cuboids skipped due to scale threshold.")
-    
-    # Dotate mesh by -90 degrees around x-axis (to match the orientation of original mesh in Blender)
-    rotation = R.from_euler("x", -90, degrees=True).as_matrix()
-    combined_mesh.rotate(rotation, center=(0, 0, 0))
 
     # Save the final mesh as an OBJ file
     o3d.io.write_triangle_mesh(output_file, combined_mesh)
@@ -136,11 +127,9 @@ def save_screenshot(mesh, output_path):
     vis = o3d.visualization.Visualizer()
     vis.create_window(visible=False, width=2560, height=1440)
 
-    rotation = R.from_euler("x", 90, degrees=True).as_matrix()
-    mesh.rotate(rotation, center=(0, 0, 0))
-
     vis.add_geometry(mesh)
     vis.get_render_option().mesh_show_back_face = True
+    vis.get_render_option().light_on = False  # Disable default lighting
 
     camera = vis.get_view_control()
     camera.set_zoom(0.5)  # Set zoom level (lower is closer)
