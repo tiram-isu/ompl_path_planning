@@ -38,9 +38,15 @@ def save_gaussians_as_ellipsoids(gaussian_data, output_path, opacity_threshold=0
     output_file = output_path + "cuboids.obj"
     means = gaussian_data["means"].cpu().numpy()
     scales = gaussian_data["scales"].cpu().numpy()
-    quats = gaussian_data["quats"].cpu().numpy()
+    quats = gaussian_data["quats"].cpu().numpy() # TODO: add rotation
     features_dc = gaussian_data["features_dc"]
     opacities = sigmoid(gaussian_data["opacities"].data.cpu().numpy())
+
+    print("means: ", means[0], means[0].shape)
+    print("scales: ", scales[0], scales[0].shape)
+    print("quats: ", quats[0], quats[0].shape)
+    print("features_dc: ", features_dc[0], features_dc[0].shape)
+    print("opacities: ", opacities[0], opacities[0].shape)
 
     create_histogram(opacities, output_path + "opacities_histogram.png", x_label="Opacity Value", title="Histogram of Opacity Values")
 
@@ -81,6 +87,11 @@ def save_gaussians_as_ellipsoids(gaussian_data, output_path, opacity_threshold=0
             np.asarray(cuboid.triangles)[:, ::-1]
         )
         cuboid.compute_vertex_normals()  # Ensure normals are corrected
+
+         # Rotate the ellipsoid based on quaternion rotation (on CPU)
+        rotation = R.from_quat(quats[i]).as_matrix()
+        cuboid.rotate(rotation, center=(0, 0, 0))
+
 
         # Translate the ellipsoid to its position in space
         cuboid.translate(means[i])
@@ -166,7 +177,7 @@ def sigmoid(x):
     return 1 / (1 + np.exp(-x))
 
 # Usage example
-ckpt_path = "/app/models/stonehenge_colmap_aligned.ckpt"
+ckpt_path = "/app/models/lego2.ckpt"
 device = "cuda"  # "cuda" (GPU) or "cpu" (CPU)
 gaussian_data = load_gaussians_from_nerfstudio_ckpt(ckpt_path, device=device)
 
