@@ -1,3 +1,0 @@
-2024-12-02 03:24:58,900 - INFO - Bounds set with padding of 0.01
-2024-12-02 03:25:01,966 - ERROR - Planner type FMTstar is not available in OMPL.
-2024-12-02 03:25:01,966 - ERROR - Error occurred for planner FMTstar: Planner type FMTstar is not supported.

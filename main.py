@@ -70,7 +70,7 @@ if __name__ == "__main__":
     ]
 
     scale = 1.0
-    model_name = "cuboids"
+    model_name = "cuboids_0_0"
     mesh = o3d.io.read_triangle_mesh(f"/app/models/{model_name}.obj")
 
     start = np.array([-0.33, 0.10, -0.44]) * scale

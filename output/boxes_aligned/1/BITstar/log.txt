@@ -1,6 +1,0 @@
-2024-12-02 03:25:41,403 - INFO - Bounds set with padding of 0.01
-2024-12-02 03:25:44,609 - INFO - Planner BITstar initialized with range 0.1.
-2024-12-02 03:25:44,610 - INFO - Start state: [-0.89  0.36  0.  ], Goal state: [ 0.59 -0.57  0.  ]
-2024-12-02 03:25:49,070 - DEBUG - contains_points executed in 4.4606 seconds.
-2024-12-02 03:25:49,080 - DEBUG - contains_points executed in 0.0095 seconds.
-2024-12-02 03:25:49,081 - INFO - Planning 1 paths in 5 seconds...

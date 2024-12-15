@@ -1,3 +1,0 @@
-2024-12-02 03:33:51,674 - INFO - Bounds set with padding of 0.01
-2024-12-02 03:33:54,712 - ERROR - Planner type KPIECE is not available in OMPL.
-2024-12-02 03:33:54,712 - ERROR - Error occurred for planner KPIECE: Planner type KPIECE is not supported.

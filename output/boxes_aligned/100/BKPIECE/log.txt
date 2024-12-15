@@ -1,3 +1,0 @@
-2024-12-02 05:20:35,528 - INFO - Bounds set with padding of 0.01
-2024-12-02 05:20:38,489 - ERROR - Planner type BKPIECE is not available in OMPL.
-2024-12-02 05:20:38,489 - ERROR - Error occurred for planner BKPIECE: Planner type BKPIECE is not supported.
