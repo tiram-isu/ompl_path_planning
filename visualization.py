@@ -5,15 +5,14 @@ import logging
 import time
 
 class Visualizer:
-    def __init__(self, mesh, output_path, enable_visualization, tube_width, tube_height):
+    def __init__(self, mesh, enable_visualization, tube_width, tube_height):
         self.mesh = mesh
         self.tube_width = tube_width  # Width of the path tube
         self.tube_height = tube_height # Height of the path tube
-        self.output_path = output_path  # Output path to save mesh with path
         logging.getLogger('matplotlib').setLevel(logging.WARNING)  # Suppress matplotlib logging
         self.enable_visualization = enable_visualization
 
-    def visualize_o3d(self, path_list, start_point, end_point):
+    def visualize_o3d(self, output_path, path_list, start_point, end_point):
         vis = o3d.visualization.Visualizer()
 
         if self.enable_visualization:
@@ -52,7 +51,7 @@ class Visualizer:
         vis.update_renderer()  # Update the renderer
         
         # Capture the screenshot
-        screenshot_path = self.output_path + "visualization.png"
+        screenshot_path = output_path + "/visualization.png"
         # Capture the image
         image = vis.capture_screen_float_buffer(do_render=True)
         image = (np.asarray(image) * 255).astype(np.uint8)
@@ -70,8 +69,8 @@ class Visualizer:
         combined_paths = self.combine_geometries([start_marker, end_marker] + path_geometries)
 
         # Save combined mesh with paths
-        o3d.io.write_triangle_mesh(self.output_path + "paths.obj", combined_paths, write_triangle_uvs=True, write_vertex_colors=True)
-        print(f"Scene saved as {self.output_path}paths.obj")
+        # o3d.io.write_triangle_mesh(output_path + "paths.obj", combined_paths, write_triangle_uvs=True, write_vertex_colors=True)
+        # print(f"Scene saved as {output_path}paths.obj")
 
     def combine_geometries(self, geometries):
         """ Combine multiple geometries into a single TriangleMesh. """
@@ -167,41 +166,3 @@ class Visualizer:
 
         return cylinder
 
-    
-    def visualize_mpl(self, path_list, start_point, end_point):
-        fig = plt.figure()
-        ax = fig.add_subplot(111, projection='3d')
-
-        # Plot the specified start and end points
-        ax.scatter(start_point[0], start_point[1], start_point[2], color='green', s=50, label='Start')
-        ax.scatter(end_point[0], end_point[1], end_point[2], color='blue', s=50, label='End')
-
-        # Plot each path
-        if path_list:
-            for path in path_list:
-                states = path.getStates()
-                path_points = np.array([[state[0], state[1], state[2]] for state in states])
-                ax.plot(path_points[:, 0], path_points[:, 1], path_points[:, 2], color='red', linewidth=2, label='Path')
-
-        # Get mesh vertices and faces from the Open3D mesh
-        mesh_vertices = np.asarray(self.mesh.vertices)
-        mesh_faces = np.asarray(self.mesh.triangles)
-
-        ax.plot_trisurf(mesh_vertices[:, 0], mesh_vertices[:, 1], mesh_vertices[:, 2],
-                        triangles=mesh_faces, color='cyan', alpha=0.3, edgecolor='black')
-
-        ax.set_xlim(self.mesh.get_axis_aligned_bounding_box().min_bound[0], self.mesh.get_axis_aligned_bounding_box().max_bound[0])
-        ax.set_ylim(self.mesh.get_axis_aligned_bounding_box().min_bound[1], self.mesh.get_axis_aligned_bounding_box().max_bound[1])
-        ax.set_zlim(self.mesh.get_axis_aligned_bounding_box().min_bound[2], self.mesh.get_axis_aligned_bounding_box().max_bound[2])
-        ax.set_xlabel('X')
-        ax.set_ylabel('Y')
-        ax.set_zlabel('Z')
-        ax.set_title('Path Planning Visualization')
-
-        # Avoid duplicate labels in the legend
-        handles, labels = ax.get_legend_handles_labels()
-        unique_labels = dict(zip(labels, handles))
-        ax.legend(unique_labels.values(), unique_labels.keys())
-
-        plt.savefig(self.output_path + "mpl_visualization.png")
-        plt.close(fig)

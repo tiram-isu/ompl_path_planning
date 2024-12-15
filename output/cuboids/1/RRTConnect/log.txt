@@ -1,13 +1,11 @@
-2024-12-08 14:41:53,832 - INFO - Bounds set with padding of 0.01
-2024-12-08 14:41:54,993 - INFO - Planner RRTConnect initialized with range 0.1.
-2024-12-08 14:41:54,994 - INFO - Start state: [-0.33  0.1  -0.44], Goal state: [ 0.22 -0.16 -0.44]
-2024-12-08 14:41:56,914 - DEBUG - contains_points executed in 1.9195 seconds.
-2024-12-08 14:41:56,918 - DEBUG - contains_points executed in 0.0042 seconds.
-2024-12-08 14:41:56,919 - INFO - Planning 1 paths in 5 seconds...
-2024-12-08 14:41:56,951 - INFO - Path 1 added. Length: 1.16 units. Duration: 0.03 seconds.
-2024-12-08 14:41:56,952 - INFO - All paths planning completed. Total duration: 0.03 seconds.
-2024-12-08 14:41:56,952 - INFO - Average time per path: 0.03 seconds.
-2024-12-08 14:41:56,953 - INFO - Average path length of all paths: 1.16 units.
-2024-12-08 14:41:56,953 - INFO - Shortest path length: 1.16 units.
-2024-12-08 14:41:56,953 - INFO - Longest path length: 1.16 units.
-2024-12-08 14:41:56,953 - INFO - Total number of unique paths found: 1.
+2024-12-15 21:01:54,031 - INFO - Bounds set with padding of 0.01
+2024-12-15 21:01:54,990 - INFO - Planner RRTConnect initialized with range 0.1.
+2024-12-15 21:01:54,991 - INFO - Start state: [-0.33  0.1  -0.44], Goal state: [ 0.22 -0.16 -0.44]
+2024-12-15 21:01:54,991 - INFO - Planning 1 paths in 5 seconds...
+2024-12-15 21:01:55,004 - INFO - Path 1 added. Length: 1.05 units. Duration: 0.01 seconds.
+2024-12-15 21:01:55,004 - INFO - All paths planning completed. Total duration: 0.01 seconds.
+2024-12-15 21:01:55,005 - INFO - Average time per path: 0.01 seconds.
+2024-12-15 21:01:55,005 - INFO - Average path length of all paths: 1.05 units.
+2024-12-15 21:01:55,005 - INFO - Shortest path length: 1.05 units.
+2024-12-15 21:01:55,005 - INFO - Longest path length: 1.05 units.
+2024-12-15 21:01:55,005 - INFO - Total number of unique paths found: 1.
