@@ -1,0 +1,2 @@
+2024-12-15 21:16:40,669 - INFO - Bounds set with padding of 0.01
+2024-12-15 21:16:43,296 - ERROR - Error occurred for planner LBKPIECE: 'NoneType' object is not callable

@@ -1,0 +1,20 @@
+2024-12-15 21:12:37,682 - INFO - Bounds set with padding of 0.01
+2024-12-15 21:12:40,368 - INFO - Planner PRM initialized with range 0.1.
+2024-12-15 21:12:40,369 - INFO - Start state: [-0.33  0.1  -0.44], Goal state: [ 0.22 -0.16 -0.44]
+2024-12-15 21:12:40,369 - INFO - Planning 10 paths in 5 seconds...
+2024-12-15 21:12:40,475 - INFO - Path 1 added. Length: 0.72 units. Duration: 0.11 seconds.
+2024-12-15 21:12:40,579 - INFO - Path 2 added. Length: 0.76 units. Duration: 0.10 seconds.
+2024-12-15 21:12:40,683 - INFO - Path 3 added. Length: 0.70 units. Duration: 0.10 seconds.
+2024-12-15 21:12:40,787 - INFO - Path 4 added. Length: 0.75 units. Duration: 0.10 seconds.
+2024-12-15 21:12:40,891 - INFO - Path 5 added. Length: 0.73 units. Duration: 0.10 seconds.
+2024-12-15 21:12:40,996 - INFO - Path 6 added. Length: 0.73 units. Duration: 0.10 seconds.
+2024-12-15 21:12:41,100 - INFO - Path 7 added. Length: 0.69 units. Duration: 0.10 seconds.
+2024-12-15 21:12:41,204 - INFO - Path 8 added. Length: 0.71 units. Duration: 0.10 seconds.
+2024-12-15 21:12:41,309 - INFO - Path 9 added. Length: 0.71 units. Duration: 0.10 seconds.
+2024-12-15 21:12:41,413 - INFO - Path 10 added. Length: 0.70 units. Duration: 0.10 seconds.
+2024-12-15 21:12:41,413 - INFO - All paths planning completed. Total duration: 1.04 seconds.
+2024-12-15 21:12:41,417 - INFO - Average time per path: 0.10 seconds.
+2024-12-15 21:12:41,417 - INFO - Average path length of all paths: 0.72 units.
+2024-12-15 21:12:41,417 - INFO - Shortest path length: 0.69 units.
+2024-12-15 21:12:41,417 - INFO - Longest path length: 0.76 units.
+2024-12-15 21:12:41,417 - INFO - Total number of unique paths found: 10.
