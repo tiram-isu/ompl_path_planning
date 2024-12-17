@@ -1,0 +1,471 @@
+Model: cuboids_0_0
+Mesh: TriangleMesh with 392648 points and 588972 triangles.
+Camera Bounds: (0.005, 0.005, 0.02)
+Start Point: [-0.33  0.1  -0.44]
+Goal Point: [ 0.22 -0.16 -0.44]
+Max Time Per Path: 5
+
+Planner: PRM
+  Status: Successful
+  Total Time Taken: 1.04 seconds
+  Number of Paths: 10
+  Average Path Length: 0.72
+  Shortest Path Length: 0.69
+  Longest Path Length: 0.76
+  Path Length Std Dev: 0.02144761058952724
+  Average Time Per Path: 0.101 seconds
+  Time Per Path Std Dev: 0.0029999999999999983 seconds
+
+  Paths:
+    Path 1: Length = 0.72 units, Duration = 0.11 seconds
+    Path 2: Length = 0.76 units, Duration = 0.1 seconds
+    Path 3: Length = 0.7 units, Duration = 0.1 seconds
+    Path 4: Length = 0.75 units, Duration = 0.1 seconds
+    Path 5: Length = 0.73 units, Duration = 0.1 seconds
+    Path 6: Length = 0.73 units, Duration = 0.1 seconds
+    Path 7: Length = 0.69 units, Duration = 0.1 seconds
+    Path 8: Length = 0.71 units, Duration = 0.1 seconds
+    Path 9: Length = 0.71 units, Duration = 0.1 seconds
+    Path 10: Length = 0.7 units, Duration = 0.1 seconds
+
+Planner: LazyPRM
+  Status: Successful
+  Total Time Taken: 0.14 seconds
+  Number of Paths: 10
+  Average Path Length: 1.0830000000000002
+  Shortest Path Length: 0.84
+  Longest Path Length: 1.48
+  Path Length Std Dev: 0.1747026044453831
+  Average Time Per Path: 0.013999999999999999 seconds
+  Time Per Path Std Dev: 0.004898979485566356 seconds
+
+  Paths:
+    Path 1: Length = 0.89 units, Duration = 0.01 seconds
+    Path 2: Length = 1.48 units, Duration = 0.01 seconds
+    Path 3: Length = 1.07 units, Duration = 0.02 seconds
+    Path 4: Length = 1.18 units, Duration = 0.01 seconds
+    Path 5: Length = 1.16 units, Duration = 0.02 seconds
+    Path 6: Length = 1.1 units, Duration = 0.02 seconds
+    Path 7: Length = 1.15 units, Duration = 0.01 seconds
+    Path 8: Length = 0.91 units, Duration = 0.01 seconds
+    Path 9: Length = 0.84 units, Duration = 0.01 seconds
+    Path 10: Length = 1.05 units, Duration = 0.02 seconds
+
+Planner: PRMstar
+  Status: Successful
+  Total Time Taken: 50.66 seconds
+  Number of Paths: 10
+  Average Path Length: 0.674
+  Shortest Path Length: 0.66
+  Longest Path Length: 0.69
+  Path Length Std Dev: 0.007999999999999985
+  Average Time Per Path: 5.067 seconds
+  Time Per Path Std Dev: 0.07349149610669262 seconds
+
+  Paths:
+    Path 1: Length = 0.69 units, Duration = 5.01 seconds
+    Path 2: Length = 0.67 units, Duration = 5.05 seconds
+    Path 3: Length = 0.66 units, Duration = 5.06 seconds
+    Path 4: Length = 0.68 units, Duration = 5.06 seconds
+    Path 5: Length = 0.67 units, Duration = 5.05 seconds
+    Path 6: Length = 0.68 units, Duration = 5.01 seconds
+    Path 7: Length = 0.67 units, Duration = 5.06 seconds
+    Path 8: Length = 0.67 units, Duration = 5.03 seconds
+    Path 9: Length = 0.68 units, Duration = 5.28 seconds
+    Path 10: Length = 0.67 units, Duration = 5.06 seconds
+
+Planner: LazyPRMstar
+  Status: Successful
+  Total Time Taken: 50.68 seconds
+  Number of Paths: 10
+  Average Path Length: 0.664
+  Shortest Path Length: 0.66
+  Longest Path Length: 0.68
+  Path Length Std Dev: 0.006633249580710805
+  Average Time Per Path: 5.068 seconds
+  Time Per Path Std Dev: 0.018330302779823355 seconds
+
+  Paths:
+    Path 1: Length = 0.68 units, Duration = 5.05 seconds
+    Path 2: Length = 0.66 units, Duration = 5.09 seconds
+    Path 3: Length = 0.67 units, Duration = 5.07 seconds
+    Path 4: Length = 0.66 units, Duration = 5.06 seconds
+    Path 5: Length = 0.66 units, Duration = 5.07 seconds
+    Path 6: Length = 0.66 units, Duration = 5.09 seconds
+    Path 7: Length = 0.67 units, Duration = 5.05 seconds
+    Path 8: Length = 0.66 units, Duration = 5.05 seconds
+    Path 9: Length = 0.66 units, Duration = 5.05 seconds
+    Path 10: Length = 0.66 units, Duration = 5.1 seconds
+
+Planner: SPARS
+  Status: Failed
+  Error Message: None
+
+Planner: SPARS2
+  Status: Failed
+  Error Message: Error occurred for planner SPARS2: 'NoneType' object is not callable
+
+Planner: RRT
+  Status: Successful
+  Total Time Taken: 0.1 seconds
+  Number of Paths: 10
+  Average Path Length: 0.967
+  Shortest Path Length: 0.84
+  Longest Path Length: 1.17
+  Path Length Std Dev: 0.09623408959407263
+  Average Time Per Path: 0.009999999999999998 seconds
+  Time Per Path Std Dev: 1.734723475976807e-18 seconds
+
+  Paths:
+    Path 1: Length = 1.05 units, Duration = 0.01 seconds
+    Path 2: Length = 1.17 units, Duration = 0.01 seconds
+    Path 3: Length = 0.96 units, Duration = 0.01 seconds
+    Path 4: Length = 0.92 units, Duration = 0.01 seconds
+    Path 5: Length = 0.9 units, Duration = 0.01 seconds
+    Path 6: Length = 0.84 units, Duration = 0.01 seconds
+    Path 7: Length = 0.92 units, Duration = 0.01 seconds
+    Path 8: Length = 1.0 units, Duration = 0.01 seconds
+    Path 9: Length = 0.86 units, Duration = 0.01 seconds
+    Path 10: Length = 1.05 units, Duration = 0.01 seconds
+
+Planner: RRTConnect
+  Status: Successful
+  Total Time Taken: 0.11 seconds
+  Number of Paths: 10
+  Average Path Length: 1.0399999999999998
+  Shortest Path Length: 0.83
+  Longest Path Length: 1.2
+  Path Length Std Dev: 0.11497825881443846
+  Average Time Per Path: 0.009999999999999998 seconds
+  Time Per Path Std Dev: 1.734723475976807e-18 seconds
+
+  Paths:
+    Path 1: Length = 1.04 units, Duration = 0.01 seconds
+    Path 2: Length = 1.05 units, Duration = 0.01 seconds
+    Path 3: Length = 1.14 units, Duration = 0.01 seconds
+    Path 4: Length = 1.19 units, Duration = 0.01 seconds
+    Path 5: Length = 0.97 units, Duration = 0.01 seconds
+    Path 6: Length = 1.08 units, Duration = 0.01 seconds
+    Path 7: Length = 0.83 units, Duration = 0.01 seconds
+    Path 8: Length = 1.01 units, Duration = 0.01 seconds
+    Path 9: Length = 1.2 units, Duration = 0.01 seconds
+    Path 10: Length = 0.89 units, Duration = 0.01 seconds
+
+Planner: RRTstar
+  Status: Successful
+  Total Time Taken: 50.49 seconds
+  Number of Paths: 10
+  Average Path Length: 0.6540000000000001
+  Shortest Path Length: 0.65
+  Longest Path Length: 0.66
+  Path Length Std Dev: 0.004898979485566361
+  Average Time Per Path: 5.048 seconds
+  Time Per Path Std Dev: 0.003999999999999915 seconds
+
+  Paths:
+    Path 1: Length = 0.66 units, Duration = 5.05 seconds
+    Path 2: Length = 0.66 units, Duration = 5.05 seconds
+    Path 3: Length = 0.65 units, Duration = 5.05 seconds
+    Path 4: Length = 0.65 units, Duration = 5.05 seconds
+    Path 5: Length = 0.65 units, Duration = 5.04 seconds
+    Path 6: Length = 0.66 units, Duration = 5.05 seconds
+    Path 7: Length = 0.65 units, Duration = 5.05 seconds
+    Path 8: Length = 0.66 units, Duration = 5.05 seconds
+    Path 9: Length = 0.65 units, Duration = 5.04 seconds
+    Path 10: Length = 0.65 units, Duration = 5.05 seconds
+
+Planner: SST
+  Status: Failed
+  Error Message: Error occurred for planner SST: local variable 'path' referenced before assignment
+
+Planner: T-RRT
+  Status: Failed
+  Error Message: Error occurred for planner T-RRT: 'NoneType' object is not callable
+
+Planner: VF-RRT
+  Status: Failed
+  Error Message: Error occurred for planner VF-RRT: 'NoneType' object is not callable
+
+Planner: pRRT
+  Status: Failed
+  Error Message: Error occurred for planner pRRT: 'NoneType' object is not callable
+
+Planner: LazyRRT
+  Status: Successful
+  Total Time Taken: 0.21 seconds
+  Number of Paths: 10
+  Average Path Length: 0.9790000000000001
+  Shortest Path Length: 0.81
+  Longest Path Length: 1.14
+  Path Length Std Dev: 0.099040395798886
+  Average Time Per Path: 0.02 seconds
+  Time Per Path Std Dev: 0.014142135623730947 seconds
+
+  Paths:
+    Path 1: Length = 1.06 units, Duration = 0.02 seconds
+    Path 2: Length = 0.81 units, Duration = 0.01 seconds
+    Path 3: Length = 1.07 units, Duration = 0.02 seconds
+    Path 4: Length = 1.05 units, Duration = 0.02 seconds
+    Path 5: Length = 1.0 units, Duration = 0.02 seconds
+    Path 6: Length = 0.91 units, Duration = 0.01 seconds
+    Path 7: Length = 0.96 units, Duration = 0.01 seconds
+    Path 8: Length = 0.85 units, Duration = 0.02 seconds
+    Path 9: Length = 1.14 units, Duration = 0.06 seconds
+    Path 10: Length = 0.94 units, Duration = 0.01 seconds
+
+Planner: TSRRT
+  Status: Failed
+  Error Message: Error occurred for planner TSRRT: 'NoneType' object is not callable
+
+Planner: EST
+  Status: Successful
+  Total Time Taken: 0.38 seconds
+  Number of Paths: 10
+  Average Path Length: 0.9350000000000002
+  Shortest Path Length: 0.78
+  Longest Path Length: 1.11
+  Path Length Std Dev: 0.12192210628101864
+  Average Time Per Path: 0.038 seconds
+  Time Per Path Std Dev: 0.02039607805437114 seconds
+
+  Paths:
+    Path 1: Length = 0.99 units, Duration = 0.04 seconds
+    Path 2: Length = 1.05 units, Duration = 0.04 seconds
+    Path 3: Length = 0.78 units, Duration = 0.03 seconds
+    Path 4: Length = 0.92 units, Duration = 0.07 seconds
+    Path 5: Length = 1.09 units, Duration = 0.07 seconds
+    Path 6: Length = 0.78 units, Duration = 0.02 seconds
+    Path 7: Length = 1.11 units, Duration = 0.05 seconds
+    Path 8: Length = 0.99 units, Duration = 0.04 seconds
+    Path 9: Length = 0.82 units, Duration = 0.01 seconds
+    Path 10: Length = 0.82 units, Duration = 0.01 seconds
+
+Planner: KPIECE
+  Status: Failed
+  Error Message: Error occurred for planner KPIECE: 'NoneType' object is not callable
+
+Planner: BKPIECE
+  Status: Failed
+  Error Message: Error occurred for planner BKPIECE: 'NoneType' object is not callable
+
+Planner: LBKPIECE
+  Status: Failed
+  Error Message: Error occurred for planner LBKPIECE: 'NoneType' object is not callable
+
+Planner: STRIDE
+  Status: Successful
+  Total Time Taken: 0.23 seconds
+  Number of Paths: 10
+  Average Path Length: 1.159
+  Shortest Path Length: 0.83
+  Longest Path Length: 1.68
+  Path Length Std Dev: 0.2415553766737557
+  Average Time Per Path: 0.024 seconds
+  Time Per Path Std Dev: 0.012 seconds
+
+  Paths:
+    Path 1: Length = 1.12 units, Duration = 0.02 seconds
+    Path 2: Length = 1.05 units, Duration = 0.01 seconds
+    Path 3: Length = 0.87 units, Duration = 0.02 seconds
+    Path 4: Length = 1.27 units, Duration = 0.05 seconds
+    Path 5: Length = 1.33 units, Duration = 0.02 seconds
+    Path 6: Length = 0.83 units, Duration = 0.01 seconds
+    Path 7: Length = 1.14 units, Duration = 0.02 seconds
+    Path 8: Length = 0.97 units, Duration = 0.03 seconds
+    Path 9: Length = 1.33 units, Duration = 0.02 seconds
+    Path 10: Length = 1.68 units, Duration = 0.04 seconds
+
+Planner: PDST
+  Status: Successful
+  Total Time Taken: 0.14 seconds
+  Number of Paths: 10
+  Average Path Length: 1.124
+  Shortest Path Length: 0.77
+  Longest Path Length: 1.48
+  Path Length Std Dev: 0.2307899477880265
+  Average Time Per Path: 0.014000000000000002 seconds
+  Time Per Path Std Dev: 0.006633249580710799 seconds
+
+  Paths:
+    Path 1: Length = 1.12 units, Duration = 0.02 seconds
+    Path 2: Length = 0.77 units, Duration = 0.01 seconds
+    Path 3: Length = 1.26 units, Duration = 0.01 seconds
+    Path 4: Length = 1.21 units, Duration = 0.01 seconds
+    Path 5: Length = 1.38 units, Duration = 0.01 seconds
+    Path 6: Length = 1.22 units, Duration = 0.01 seconds
+    Path 7: Length = 0.84 units, Duration = 0.02 seconds
+    Path 8: Length = 1.48 units, Duration = 0.03 seconds
+    Path 9: Length = 1.15 units, Duration = 0.01 seconds
+    Path 10: Length = 0.81 units, Duration = 0.01 seconds
+
+Planner: FMTstar
+  Status: Failed
+  Error Message: Error occurred for planner FMTstar: 'NoneType' object is not callable
+
+Planner: BMFTstar
+  Status: Failed
+  Error Message: Error occurred for planner BMFTstar: 'NoneType' object is not callable
+
+Planner: QRRT
+  Status: Failed
+  Error Message: Error occurred for planner QRRT: 'NoneType' object is not callable
+
+Planner: QRRTstar
+  Status: Failed
+  Error Message: Error occurred for planner QRRTstar: 'NoneType' object is not callable
+
+Planner: QMP
+  Status: Failed
+  Error Message: Error occurred for planner QMP: 'NoneType' object is not callable
+
+Planner: QMPstar
+  Status: Failed
+  Error Message: Error occurred for planner QMPstar: 'NoneType' object is not callable
+
+Planner: RRTsharp
+  Status: Successful
+  Total Time Taken: 50.93 seconds
+  Number of Paths: 10
+  Average Path Length: 0.656
+  Shortest Path Length: 0.65
+  Longest Path Length: 0.66
+  Path Length Std Dev: 0.00489897948556636
+  Average Time Per Path: 5.092999999999999 seconds
+  Time Per Path Std Dev: 0.12247856955402445 seconds
+
+  Paths:
+    Path 1: Length = 0.65 units, Duration = 5.05 seconds
+    Path 2: Length = 0.66 units, Duration = 5.07 seconds
+    Path 3: Length = 0.66 units, Duration = 5.05 seconds
+    Path 4: Length = 0.66 units, Duration = 5.05 seconds
+    Path 5: Length = 0.66 units, Duration = 5.05 seconds
+    Path 6: Length = 0.65 units, Duration = 5.46 seconds
+    Path 7: Length = 0.66 units, Duration = 5.05 seconds
+    Path 8: Length = 0.66 units, Duration = 5.05 seconds
+    Path 9: Length = 0.65 units, Duration = 5.05 seconds
+    Path 10: Length = 0.65 units, Duration = 5.05 seconds
+
+Planner: RRTX
+  Status: Failed
+  Error Message: Error occurred for planner RRTX: 'NoneType' object is not callable
+
+Planner: InformedRRTstar
+  Status: Successful
+  Total Time Taken: 50.4 seconds
+  Number of Paths: 10
+  Average Path Length: 0.6500000000000001
+  Shortest Path Length: 0.65
+  Longest Path Length: 0.65
+  Path Length Std Dev: 1.1102230246251565e-16
+  Average Time Per Path: 5.040999999999999 seconds
+  Time Per Path Std Dev: 0.015779733838059515 seconds
+
+  Paths:
+    Path 1: Length = 0.65 units, Duration = 5.01 seconds
+    Path 2: Length = 0.65 units, Duration = 5.05 seconds
+    Path 3: Length = 0.65 units, Duration = 5.05 seconds
+    Path 4: Length = 0.65 units, Duration = 5.05 seconds
+    Path 5: Length = 0.65 units, Duration = 5.05 seconds
+    Path 6: Length = 0.65 units, Duration = 5.05 seconds
+    Path 7: Length = 0.65 units, Duration = 5.01 seconds
+    Path 8: Length = 0.65 units, Duration = 5.05 seconds
+    Path 9: Length = 0.65 units, Duration = 5.05 seconds
+    Path 10: Length = 0.65 units, Duration = 5.04 seconds
+
+Planner: BITstar
+  Status: Successful
+  Total Time Taken: 51.03 seconds
+  Number of Paths: 10
+  Average Path Length: 0.6610000000000001
+  Shortest Path Length: 0.65
+  Longest Path Length: 0.67
+  Path Length Std Dev: 0.005385164807134509
+  Average Time Per Path: 5.1019999999999985 seconds
+  Time Per Path Std Dev: 0.12647529403009902 seconds
+
+  Paths:
+    Path 1: Length = 0.66 units, Duration = 5.05 seconds
+    Path 2: Length = 0.66 units, Duration = 5.05 seconds
+    Path 3: Length = 0.66 units, Duration = 5.03 seconds
+    Path 4: Length = 0.66 units, Duration = 5.06 seconds
+    Path 5: Length = 0.67 units, Duration = 5.06 seconds
+    Path 6: Length = 0.66 units, Duration = 5.05 seconds
+    Path 7: Length = 0.67 units, Duration = 5.05 seconds
+    Path 8: Length = 0.66 units, Duration = 5.47 seconds
+    Path 9: Length = 0.65 units, Duration = 5.05 seconds
+    Path 10: Length = 0.66 units, Duration = 5.15 seconds
+
+Planner: ABITstar
+  Status: Successful
+  Total Time Taken: 54.57 seconds
+  Number of Paths: 10
+  Average Path Length: 0.659
+  Shortest Path Length: 0.65
+  Longest Path Length: 0.66
+  Path Length Std Dev: 0.0030000000000000022
+  Average Time Per Path: 5.455999999999999 seconds
+  Time Per Path Std Dev: 0.878113887830047 seconds
+
+  Paths:
+    Path 1: Length = 0.66 units, Duration = 6.43 seconds
+    Path 2: Length = 0.66 units, Duration = 5.05 seconds
+    Path 3: Length = 0.66 units, Duration = 5.06 seconds
+    Path 4: Length = 0.66 units, Duration = 5.02 seconds
+    Path 5: Length = 0.65 units, Duration = 5.05 seconds
+    Path 6: Length = 0.66 units, Duration = 7.78 seconds
+    Path 7: Length = 0.66 units, Duration = 5.05 seconds
+    Path 8: Length = 0.66 units, Duration = 5.05 seconds
+    Path 9: Length = 0.66 units, Duration = 5.02 seconds
+    Path 10: Length = 0.66 units, Duration = 5.05 seconds
+
+Planner: AITstar
+  Status: Failed
+  Error Message: None
+
+Planner: LBTRRT
+  Status: Successful
+  Total Time Taken: 51.76 seconds
+  Number of Paths: 10
+  Average Path Length: 0.729
+  Shortest Path Length: 0.68
+  Longest Path Length: 0.83
+  Path Length Std Dev: 0.0406078810084939
+  Average Time Per Path: 5.175 seconds
+  Time Per Path Std Dev: 0.19392008663364407 seconds
+
+  Paths:
+    Path 1: Length = 0.71 units, Duration = 5.66 seconds
+    Path 2: Length = 0.7 units, Duration = 5.09 seconds
+    Path 3: Length = 0.68 units, Duration = 5.08 seconds
+    Path 4: Length = 0.7 units, Duration = 5.08 seconds
+    Path 5: Length = 0.71 units, Duration = 5.08 seconds
+    Path 6: Length = 0.83 units, Duration = 5.07 seconds
+    Path 7: Length = 0.72 units, Duration = 5.44 seconds
+    Path 8: Length = 0.73 units, Duration = 5.09 seconds
+    Path 9: Length = 0.76 units, Duration = 5.08 seconds
+    Path 10: Length = 0.75 units, Duration = 5.08 seconds
+
+Planner: ST-RRTstar
+  Status: Failed
+  Error Message: Error occurred for planner ST-RRTstar: 'NoneType' object is not callable
+
+Planner: CForest
+  Status: Failed
+  Error Message: Error occurred for planner CForest: 'NoneType' object is not callable
+
+Planner: APS
+  Status: Failed
+  Error Message: Error occurred for planner APS: 'NoneType' object is not callable
+
+Planner: SyCLoP
+  Status: Failed
+  Error Message: Error occurred for planner SyCLoP: 'NoneType' object is not callable
+
+Planner: LTLPlanner
+  Status: Failed
+  Error Message: Error occurred for planner LTLPlanner: 'NoneType' object is not callable
+
+Planner: SPQRstar
+  Status: Failed
+  Error Message: Error occurred for planner SPQRstar: 'NoneType' object is not callable
+

@@ -1,0 +1,2 @@
+2024-12-15 21:36:13,278 - INFO - Bounds set with padding of 0.01
+2024-12-15 21:36:15,918 - ERROR - Error occurred for planner T-RRT: 'NoneType' object is not callable

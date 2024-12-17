@@ -1,0 +1,21 @@
+Model: cuboids_0_0
+Mesh: TriangleMesh with 392648 points and 588972 triangles.
+Camera Bounds: (0.005, 0.005, 0.02)
+Start Point: [-0.33  0.1  -0.44]
+Goal Point: [ 0.22 -0.16 -0.44]
+Max Time Per Path: 5
+
+Planner: PRM
+  Status: Successful
+  Total Time Taken: 0.11 seconds
+  Number of Paths: 1
+  Average Path Length: 0.76
+  Shortest Path Length: 0.76
+  Longest Path Length: 0.76
+  Path Length Std Dev: 0.0
+  Average Time Per Path: 0.11 seconds
+  Time Per Path Std Dev: 0.0 seconds
+
+  Paths:
+    Path 1: Length = 0.76 units, Duration = 0.11 seconds
+

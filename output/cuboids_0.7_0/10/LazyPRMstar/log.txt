@@ -1,0 +1,21 @@
+2024-12-16 01:22:03,727 - INFO - Bounds set with padding of 0.01
+2024-12-16 01:22:03,727 - INFO - Bounds: -0.36, -0.34, -0.53 to 0.36, 0.34, -0.34
+2024-12-16 01:22:05,172 - INFO - Planner LazyPRMstar initialized with range 0.1.
+2024-12-16 01:22:05,173 - INFO - Start state: [-0.33  0.1  -0.44], Goal state: [ 0.22 -0.16 -0.44]
+2024-12-16 01:22:05,173 - INFO - Planning 10 paths in 5 seconds...
+2024-12-16 01:22:10,209 - INFO - Path 1 added. Length: 0.66 units. Duration: 5.04 seconds.
+2024-12-16 01:22:15,233 - INFO - Path 2 added. Length: 0.66 units. Duration: 5.02 seconds.
+2024-12-16 01:22:20,311 - INFO - Path 3 added. Length: 0.66 units. Duration: 5.08 seconds.
+2024-12-16 01:22:25,367 - INFO - Path 4 added. Length: 0.68 units. Duration: 5.06 seconds.
+2024-12-16 01:22:30,404 - INFO - Path 5 added. Length: 0.66 units. Duration: 5.04 seconds.
+2024-12-16 01:22:35,475 - INFO - Path 6 added. Length: 0.65 units. Duration: 5.07 seconds.
+2024-12-16 01:22:40,513 - INFO - Path 7 added. Length: 0.67 units. Duration: 5.04 seconds.
+2024-12-16 01:22:45,583 - INFO - Path 8 added. Length: 0.65 units. Duration: 5.07 seconds.
+2024-12-16 01:22:50,645 - INFO - Path 9 added. Length: 0.67 units. Duration: 5.06 seconds.
+2024-12-16 01:22:55,704 - INFO - Path 10 added. Length: 0.66 units. Duration: 5.06 seconds.
+2024-12-16 01:22:55,704 - INFO - All paths planning completed. Total duration: 50.53 seconds.
+2024-12-16 01:22:55,710 - INFO - Average time per path: 5.05 seconds.
+2024-12-16 01:22:55,710 - INFO - Average path length of all paths: 0.66 units.
+2024-12-16 01:22:55,710 - INFO - Shortest path length: 0.65 units.
+2024-12-16 01:22:55,710 - INFO - Longest path length: 0.68 units.
+2024-12-16 01:22:55,710 - INFO - Total number of unique paths found: 10.

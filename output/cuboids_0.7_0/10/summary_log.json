@@ -1,0 +1,1127 @@
+{
+    "model": {
+        "name": "cuboids_0.7_0",
+        "camera_bounds": [
+            0.005,
+            0.005,
+            0.02
+        ],
+        "start_point": [
+            -0.33,
+            0.1,
+            -0.44
+        ],
+        "goal_point": [
+            0.22,
+            -0.16,
+            -0.44
+        ],
+        "max_time_per_path": 5
+    },
+    "planners": {
+        "PRM": {
+            "status": "Successful",
+            "total_time_taken": 1.04,
+            "num_paths": 10,
+            "average_path_length": 0.711,
+            "shortest_path_length": 0.68,
+            "longest_path_length": 0.78,
+            "path_length_std_dev": 0.027730849247724107,
+            "average_time_per_path": 0.1,
+            "time_per_path_std_dev": 0.0,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.69,
+                    "duration": 0.1
+                },
+                {
+                    "id": 1,
+                    "length": 0.73,
+                    "duration": 0.1
+                },
+                {
+                    "id": 2,
+                    "length": 0.68,
+                    "duration": 0.1
+                },
+                {
+                    "id": 3,
+                    "length": 0.72,
+                    "duration": 0.1
+                },
+                {
+                    "id": 4,
+                    "length": 0.69,
+                    "duration": 0.1
+                },
+                {
+                    "id": 5,
+                    "length": 0.71,
+                    "duration": 0.1
+                },
+                {
+                    "id": 6,
+                    "length": 0.78,
+                    "duration": 0.1
+                },
+                {
+                    "id": 7,
+                    "length": 0.69,
+                    "duration": 0.1
+                },
+                {
+                    "id": 8,
+                    "length": 0.72,
+                    "duration": 0.1
+                },
+                {
+                    "id": 9,
+                    "length": 0.7,
+                    "duration": 0.1
+                }
+            ]
+        },
+        "LazyPRM": {
+            "status": "Successful",
+            "total_time_taken": 0.15,
+            "num_paths": 10,
+            "average_path_length": 1.155,
+            "shortest_path_length": 0.76,
+            "longest_path_length": 1.74,
+            "path_length_std_dev": 0.2769927796892908,
+            "average_time_per_path": 0.012,
+            "time_per_path_std_dev": 0.004,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 1.16,
+                    "duration": 0.02
+                },
+                {
+                    "id": 1,
+                    "length": 1.29,
+                    "duration": 0.01
+                },
+                {
+                    "id": 2,
+                    "length": 1.13,
+                    "duration": 0.01
+                },
+                {
+                    "id": 3,
+                    "length": 1.44,
+                    "duration": 0.01
+                },
+                {
+                    "id": 4,
+                    "length": 1.0,
+                    "duration": 0.01
+                },
+                {
+                    "id": 5,
+                    "length": 1.16,
+                    "duration": 0.01
+                },
+                {
+                    "id": 6,
+                    "length": 0.78,
+                    "duration": 0.02
+                },
+                {
+                    "id": 7,
+                    "length": 1.09,
+                    "duration": 0.01
+                },
+                {
+                    "id": 8,
+                    "length": 1.74,
+                    "duration": 0.01
+                },
+                {
+                    "id": 9,
+                    "length": 0.76,
+                    "duration": 0.01
+                }
+            ]
+        },
+        "PRMstar": {
+            "status": "Successful",
+            "total_time_taken": 50.43,
+            "num_paths": 10,
+            "average_path_length": 0.659,
+            "shortest_path_length": 0.63,
+            "longest_path_length": 0.68,
+            "path_length_std_dev": 0.018138357147217073,
+            "average_time_per_path": 5.042999999999999,
+            "time_per_path_std_dev": 0.016155494421403422,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.63,
+                    "duration": 5.06
+                },
+                {
+                    "id": 1,
+                    "length": 0.63,
+                    "duration": 5.06
+                },
+                {
+                    "id": 2,
+                    "length": 0.68,
+                    "duration": 5.03
+                },
+                {
+                    "id": 3,
+                    "length": 0.67,
+                    "duration": 5.06
+                },
+                {
+                    "id": 4,
+                    "length": 0.67,
+                    "duration": 5.03
+                },
+                {
+                    "id": 5,
+                    "length": 0.68,
+                    "duration": 5.06
+                },
+                {
+                    "id": 6,
+                    "length": 0.67,
+                    "duration": 5.05
+                },
+                {
+                    "id": 7,
+                    "length": 0.66,
+                    "duration": 5.04
+                },
+                {
+                    "id": 8,
+                    "length": 0.64,
+                    "duration": 5.02
+                },
+                {
+                    "id": 9,
+                    "length": 0.66,
+                    "duration": 5.02
+                }
+            ]
+        },
+        "LazyPRMstar": {
+            "status": "Successful",
+            "total_time_taken": 50.53,
+            "num_paths": 10,
+            "average_path_length": 0.662,
+            "shortest_path_length": 0.65,
+            "longest_path_length": 0.68,
+            "path_length_std_dev": 0.008717797887081356,
+            "average_time_per_path": 5.054,
+            "time_per_path_std_dev": 0.01743559577416279,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.66,
+                    "duration": 5.04
+                },
+                {
+                    "id": 1,
+                    "length": 0.66,
+                    "duration": 5.02
+                },
+                {
+                    "id": 2,
+                    "length": 0.66,
+                    "duration": 5.08
+                },
+                {
+                    "id": 3,
+                    "length": 0.68,
+                    "duration": 5.06
+                },
+                {
+                    "id": 4,
+                    "length": 0.66,
+                    "duration": 5.04
+                },
+                {
+                    "id": 5,
+                    "length": 0.65,
+                    "duration": 5.07
+                },
+                {
+                    "id": 6,
+                    "length": 0.67,
+                    "duration": 5.04
+                },
+                {
+                    "id": 7,
+                    "length": 0.65,
+                    "duration": 5.07
+                },
+                {
+                    "id": 8,
+                    "length": 0.67,
+                    "duration": 5.06
+                },
+                {
+                    "id": 9,
+                    "length": 0.66,
+                    "duration": 5.06
+                }
+            ]
+        },
+        "SPARS": {
+            "status": "Failed",
+            "error_message": null
+        },
+        "SPARS2": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner SPARS2: 'NoneType' object is not callable"
+        },
+        "RRT": {
+            "status": "Successful",
+            "total_time_taken": 0.1,
+            "num_paths": 10,
+            "average_path_length": 0.9690000000000001,
+            "shortest_path_length": 0.76,
+            "longest_path_length": 1.23,
+            "path_length_std_dev": 0.1474075981759421,
+            "average_time_per_path": 0.009999999999999998,
+            "time_per_path_std_dev": 1.734723475976807e-18,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.97,
+                    "duration": 0.01
+                },
+                {
+                    "id": 1,
+                    "length": 0.84,
+                    "duration": 0.01
+                },
+                {
+                    "id": 2,
+                    "length": 0.82,
+                    "duration": 0.01
+                },
+                {
+                    "id": 3,
+                    "length": 1.01,
+                    "duration": 0.01
+                },
+                {
+                    "id": 4,
+                    "length": 1.23,
+                    "duration": 0.01
+                },
+                {
+                    "id": 5,
+                    "length": 0.76,
+                    "duration": 0.01
+                },
+                {
+                    "id": 6,
+                    "length": 1.08,
+                    "duration": 0.01
+                },
+                {
+                    "id": 7,
+                    "length": 1.07,
+                    "duration": 0.01
+                },
+                {
+                    "id": 8,
+                    "length": 0.81,
+                    "duration": 0.01
+                },
+                {
+                    "id": 9,
+                    "length": 1.1,
+                    "duration": 0.01
+                }
+            ]
+        },
+        "RRTConnect": {
+            "status": "Successful",
+            "total_time_taken": 0.1,
+            "num_paths": 10,
+            "average_path_length": 0.924,
+            "shortest_path_length": 0.82,
+            "longest_path_length": 1.14,
+            "path_length_std_dev": 0.0932952303175248,
+            "average_time_per_path": 0.009999999999999998,
+            "time_per_path_std_dev": 1.734723475976807e-18,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.88,
+                    "duration": 0.01
+                },
+                {
+                    "id": 1,
+                    "length": 0.93,
+                    "duration": 0.01
+                },
+                {
+                    "id": 2,
+                    "length": 0.93,
+                    "duration": 0.01
+                },
+                {
+                    "id": 3,
+                    "length": 0.84,
+                    "duration": 0.01
+                },
+                {
+                    "id": 4,
+                    "length": 0.87,
+                    "duration": 0.01
+                },
+                {
+                    "id": 5,
+                    "length": 0.82,
+                    "duration": 0.01
+                },
+                {
+                    "id": 6,
+                    "length": 1.04,
+                    "duration": 0.01
+                },
+                {
+                    "id": 7,
+                    "length": 0.93,
+                    "duration": 0.01
+                },
+                {
+                    "id": 8,
+                    "length": 1.14,
+                    "duration": 0.01
+                },
+                {
+                    "id": 9,
+                    "length": 0.86,
+                    "duration": 0.01
+                }
+            ]
+        },
+        "RRTstar": {
+            "status": "Successful",
+            "total_time_taken": 50.38,
+            "num_paths": 10,
+            "average_path_length": 0.6520000000000001,
+            "shortest_path_length": 0.65,
+            "longest_path_length": 0.66,
+            "path_length_std_dev": 0.0040000000000000036,
+            "average_time_per_path": 5.038,
+            "time_per_path_std_dev": 0.010770329614269008,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.65,
+                    "duration": 5.04
+                },
+                {
+                    "id": 1,
+                    "length": 0.65,
+                    "duration": 5.04
+                },
+                {
+                    "id": 2,
+                    "length": 0.65,
+                    "duration": 5.04
+                },
+                {
+                    "id": 3,
+                    "length": 0.65,
+                    "duration": 5.04
+                },
+                {
+                    "id": 4,
+                    "length": 0.66,
+                    "duration": 5.01
+                },
+                {
+                    "id": 5,
+                    "length": 0.65,
+                    "duration": 5.05
+                },
+                {
+                    "id": 6,
+                    "length": 0.66,
+                    "duration": 5.04
+                },
+                {
+                    "id": 7,
+                    "length": 0.65,
+                    "duration": 5.05
+                },
+                {
+                    "id": 8,
+                    "length": 0.65,
+                    "duration": 5.04
+                },
+                {
+                    "id": 9,
+                    "length": 0.65,
+                    "duration": 5.03
+                }
+            ]
+        },
+        "SST": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner SST: local variable 'path' referenced before assignment"
+        },
+        "T-RRT": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner T-RRT: 'NoneType' object is not callable"
+        },
+        "VF-RRT": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner VF-RRT: 'NoneType' object is not callable"
+        },
+        "pRRT": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner pRRT: 'NoneType' object is not callable"
+        },
+        "LazyRRT": {
+            "status": "Successful",
+            "total_time_taken": 0.23,
+            "num_paths": 10,
+            "average_path_length": 0.9940000000000001,
+            "shortest_path_length": 0.77,
+            "longest_path_length": 1.29,
+            "path_length_std_dev": 0.16255460620972878,
+            "average_time_per_path": 0.023,
+            "time_per_path_std_dev": 0.009,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.97,
+                    "duration": 0.02
+                },
+                {
+                    "id": 1,
+                    "length": 1.29,
+                    "duration": 0.02
+                },
+                {
+                    "id": 2,
+                    "length": 1.29,
+                    "duration": 0.04
+                },
+                {
+                    "id": 3,
+                    "length": 0.94,
+                    "duration": 0.02
+                },
+                {
+                    "id": 4,
+                    "length": 1.01,
+                    "duration": 0.01
+                },
+                {
+                    "id": 5,
+                    "length": 0.88,
+                    "duration": 0.02
+                },
+                {
+                    "id": 6,
+                    "length": 0.77,
+                    "duration": 0.01
+                },
+                {
+                    "id": 7,
+                    "length": 0.9,
+                    "duration": 0.03
+                },
+                {
+                    "id": 8,
+                    "length": 0.88,
+                    "duration": 0.03
+                },
+                {
+                    "id": 9,
+                    "length": 1.01,
+                    "duration": 0.03
+                }
+            ]
+        },
+        "TSRRT": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner TSRRT: 'NoneType' object is not callable"
+        },
+        "EST": {
+            "status": "Successful",
+            "total_time_taken": 0.17,
+            "num_paths": 10,
+            "average_path_length": 0.8920000000000001,
+            "shortest_path_length": 0.75,
+            "longest_path_length": 1.1,
+            "path_length_std_dev": 0.11232096865679178,
+            "average_time_per_path": 0.017000000000000005,
+            "time_per_path_std_dev": 0.011874342087037918,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 1.1,
+                    "duration": 0.04
+                },
+                {
+                    "id": 1,
+                    "length": 0.89,
+                    "duration": 0.01
+                },
+                {
+                    "id": 2,
+                    "length": 1.01,
+                    "duration": 0.04
+                },
+                {
+                    "id": 3,
+                    "length": 0.85,
+                    "duration": 0.01
+                },
+                {
+                    "id": 4,
+                    "length": 0.95,
+                    "duration": 0.02
+                },
+                {
+                    "id": 5,
+                    "length": 1.0,
+                    "duration": 0.01
+                },
+                {
+                    "id": 6,
+                    "length": 0.75,
+                    "duration": 0.01
+                },
+                {
+                    "id": 7,
+                    "length": 0.77,
+                    "duration": 0.01
+                },
+                {
+                    "id": 8,
+                    "length": 0.81,
+                    "duration": 0.01
+                },
+                {
+                    "id": 9,
+                    "length": 0.79,
+                    "duration": 0.01
+                }
+            ]
+        },
+        "KPIECE": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner KPIECE: 'NoneType' object is not callable"
+        },
+        "BKPIECE": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner BKPIECE: 'NoneType' object is not callable"
+        },
+        "LBKPIECE": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner LBKPIECE: 'NoneType' object is not callable"
+        },
+        "STRIDE": {
+            "status": "Successful",
+            "total_time_taken": 0.22,
+            "num_paths": 10,
+            "average_path_length": 1.014,
+            "shortest_path_length": 0.7,
+            "longest_path_length": 1.31,
+            "path_length_std_dev": 0.21453204888780608,
+            "average_time_per_path": 0.022,
+            "time_per_path_std_dev": 0.008717797887081347,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.7,
+                    "duration": 0.01
+                },
+                {
+                    "id": 1,
+                    "length": 0.83,
+                    "duration": 0.03
+                },
+                {
+                    "id": 2,
+                    "length": 0.8,
+                    "duration": 0.01
+                },
+                {
+                    "id": 3,
+                    "length": 1.31,
+                    "duration": 0.03
+                },
+                {
+                    "id": 4,
+                    "length": 1.17,
+                    "duration": 0.03
+                },
+                {
+                    "id": 5,
+                    "length": 0.84,
+                    "duration": 0.03
+                },
+                {
+                    "id": 6,
+                    "length": 1.23,
+                    "duration": 0.01
+                },
+                {
+                    "id": 7,
+                    "length": 1.01,
+                    "duration": 0.02
+                },
+                {
+                    "id": 8,
+                    "length": 1.31,
+                    "duration": 0.02
+                },
+                {
+                    "id": 9,
+                    "length": 0.94,
+                    "duration": 0.03
+                }
+            ]
+        },
+        "PDST": {
+            "status": "Successful",
+            "total_time_taken": 0.22,
+            "num_paths": 10,
+            "average_path_length": 1.0710000000000002,
+            "shortest_path_length": 0.82,
+            "longest_path_length": 1.49,
+            "path_length_std_dev": 0.21988406035909017,
+            "average_time_per_path": 0.020999999999999998,
+            "time_per_path_std_dev": 0.009433981132056603,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.96,
+                    "duration": 0.02
+                },
+                {
+                    "id": 1,
+                    "length": 1.26,
+                    "duration": 0.01
+                },
+                {
+                    "id": 2,
+                    "length": 0.84,
+                    "duration": 0.02
+                },
+                {
+                    "id": 3,
+                    "length": 0.93,
+                    "duration": 0.03
+                },
+                {
+                    "id": 4,
+                    "length": 1.22,
+                    "duration": 0.01
+                },
+                {
+                    "id": 5,
+                    "length": 0.9,
+                    "duration": 0.02
+                },
+                {
+                    "id": 6,
+                    "length": 1.32,
+                    "duration": 0.02
+                },
+                {
+                    "id": 7,
+                    "length": 1.49,
+                    "duration": 0.04
+                },
+                {
+                    "id": 8,
+                    "length": 0.82,
+                    "duration": 0.03
+                },
+                {
+                    "id": 9,
+                    "length": 0.97,
+                    "duration": 0.01
+                }
+            ]
+        },
+        "FMTstar": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner FMTstar: 'NoneType' object is not callable"
+        },
+        "BMFTstar": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner BMFTstar: 'NoneType' object is not callable"
+        },
+        "QRRT": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner QRRT: 'NoneType' object is not callable"
+        },
+        "QRRTstar": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner QRRTstar: 'NoneType' object is not callable"
+        },
+        "QMP": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner QMP: 'NoneType' object is not callable"
+        },
+        "QMPstar": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner QMPstar: 'NoneType' object is not callable"
+        },
+        "RRTsharp": {
+            "status": "Successful",
+            "total_time_taken": 50.41,
+            "num_paths": 10,
+            "average_path_length": 0.635,
+            "shortest_path_length": 0.62,
+            "longest_path_length": 0.65,
+            "path_length_std_dev": 0.011180339887498959,
+            "average_time_per_path": 5.04,
+            "time_per_path_std_dev": 0.012649110640673459,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.65,
+                    "duration": 5.05
+                },
+                {
+                    "id": 1,
+                    "length": 0.63,
+                    "duration": 5.05
+                },
+                {
+                    "id": 2,
+                    "length": 0.63,
+                    "duration": 5.04
+                },
+                {
+                    "id": 3,
+                    "length": 0.65,
+                    "duration": 5.04
+                },
+                {
+                    "id": 4,
+                    "length": 0.62,
+                    "duration": 5.01
+                },
+                {
+                    "id": 5,
+                    "length": 0.63,
+                    "duration": 5.06
+                },
+                {
+                    "id": 6,
+                    "length": 0.62,
+                    "duration": 5.04
+                },
+                {
+                    "id": 7,
+                    "length": 0.64,
+                    "duration": 5.04
+                },
+                {
+                    "id": 8,
+                    "length": 0.65,
+                    "duration": 5.04
+                },
+                {
+                    "id": 9,
+                    "length": 0.63,
+                    "duration": 5.03
+                }
+            ]
+        },
+        "RRTX": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner RRTX: 'NoneType' object is not callable"
+        },
+        "InformedRRTstar": {
+            "status": "Successful",
+            "total_time_taken": 50.39,
+            "num_paths": 10,
+            "average_path_length": 0.625,
+            "shortest_path_length": 0.62,
+            "longest_path_length": 0.65,
+            "path_length_std_dev": 0.010246950765959608,
+            "average_time_per_path": 5.038,
+            "time_per_path_std_dev": 0.014696938456699032,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.62,
+                    "duration": 5.05
+                },
+                {
+                    "id": 1,
+                    "length": 0.62,
+                    "duration": 5.05
+                },
+                {
+                    "id": 2,
+                    "length": 0.62,
+                    "duration": 5.04
+                },
+                {
+                    "id": 3,
+                    "length": 0.62,
+                    "duration": 5.06
+                },
+                {
+                    "id": 4,
+                    "length": 0.62,
+                    "duration": 5.03
+                },
+                {
+                    "id": 5,
+                    "length": 0.62,
+                    "duration": 5.02
+                },
+                {
+                    "id": 6,
+                    "length": 0.65,
+                    "duration": 5.05
+                },
+                {
+                    "id": 7,
+                    "length": 0.62,
+                    "duration": 5.04
+                },
+                {
+                    "id": 8,
+                    "length": 0.64,
+                    "duration": 5.03
+                },
+                {
+                    "id": 9,
+                    "length": 0.62,
+                    "duration": 5.01
+                }
+            ]
+        },
+        "BITstar": {
+            "status": "Successful",
+            "total_time_taken": 51.59,
+            "num_paths": 10,
+            "average_path_length": 0.659,
+            "shortest_path_length": 0.65,
+            "longest_path_length": 0.67,
+            "path_length_std_dev": 0.007000000000000006,
+            "average_time_per_path": 5.1579999999999995,
+            "time_per_path_std_dev": 0.3610207750254826,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.67,
+                    "duration": 5.02
+                },
+                {
+                    "id": 1,
+                    "length": 0.66,
+                    "duration": 5.06
+                },
+                {
+                    "id": 2,
+                    "length": 0.66,
+                    "duration": 5.05
+                },
+                {
+                    "id": 3,
+                    "length": 0.65,
+                    "duration": 5.04
+                },
+                {
+                    "id": 4,
+                    "length": 0.66,
+                    "duration": 5.04
+                },
+                {
+                    "id": 5,
+                    "length": 0.65,
+                    "duration": 5.01
+                },
+                {
+                    "id": 6,
+                    "length": 0.66,
+                    "duration": 5.02
+                },
+                {
+                    "id": 7,
+                    "length": 0.67,
+                    "duration": 5.06
+                },
+                {
+                    "id": 8,
+                    "length": 0.66,
+                    "duration": 5.04
+                },
+                {
+                    "id": 9,
+                    "length": 0.65,
+                    "duration": 6.24
+                }
+            ]
+        },
+        "ABITstar": {
+            "status": "Successful",
+            "total_time_taken": 53.68,
+            "num_paths": 10,
+            "average_path_length": 0.645,
+            "shortest_path_length": 0.63,
+            "longest_path_length": 0.66,
+            "path_length_std_dev": 0.011180339887498959,
+            "average_time_per_path": 5.366999999999999,
+            "time_per_path_std_dev": 0.8145311534864704,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.66,
+                    "duration": 5.01
+                },
+                {
+                    "id": 1,
+                    "length": 0.63,
+                    "duration": 5.03
+                },
+                {
+                    "id": 2,
+                    "length": 0.65,
+                    "duration": 5.06
+                },
+                {
+                    "id": 3,
+                    "length": 0.64,
+                    "duration": 5.05
+                },
+                {
+                    "id": 4,
+                    "length": 0.63,
+                    "duration": 5.59
+                },
+                {
+                    "id": 5,
+                    "length": 0.65,
+                    "duration": 5.05
+                },
+                {
+                    "id": 6,
+                    "length": 0.65,
+                    "duration": 5.06
+                },
+                {
+                    "id": 7,
+                    "length": 0.66,
+                    "duration": 5.05
+                },
+                {
+                    "id": 8,
+                    "length": 0.63,
+                    "duration": 7.76
+                },
+                {
+                    "id": 9,
+                    "length": 0.65,
+                    "duration": 5.01
+                }
+            ]
+        },
+        "AITstar": {
+            "status": "Failed",
+            "error_message": null
+        },
+        "LBTRRT": {
+            "status": "Successful",
+            "total_time_taken": 50.69,
+            "num_paths": 10,
+            "average_path_length": 0.7620000000000001,
+            "shortest_path_length": 0.69,
+            "longest_path_length": 0.82,
+            "path_length_std_dev": 0.046,
+            "average_time_per_path": 5.068,
+            "time_per_path_std_dev": 0.03310589071449389,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.7,
+                    "duration": 5.02
+                },
+                {
+                    "id": 1,
+                    "length": 0.75,
+                    "duration": 5.08
+                },
+                {
+                    "id": 2,
+                    "length": 0.72,
+                    "duration": 5.07
+                },
+                {
+                    "id": 3,
+                    "length": 0.82,
+                    "duration": 5.15
+                },
+                {
+                    "id": 4,
+                    "length": 0.82,
+                    "duration": 5.04
+                },
+                {
+                    "id": 5,
+                    "length": 0.76,
+                    "duration": 5.06
+                },
+                {
+                    "id": 6,
+                    "length": 0.69,
+                    "duration": 5.05
+                },
+                {
+                    "id": 7,
+                    "length": 0.77,
+                    "duration": 5.08
+                },
+                {
+                    "id": 8,
+                    "length": 0.77,
+                    "duration": 5.08
+                },
+                {
+                    "id": 9,
+                    "length": 0.82,
+                    "duration": 5.05
+                }
+            ]
+        },
+        "ST-RRTstar": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner ST-RRTstar: 'NoneType' object is not callable"
+        },
+        "CForest": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner CForest: 'NoneType' object is not callable"
+        },
+        "APS": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner APS: 'NoneType' object is not callable"
+        },
+        "SyCLoP": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner SyCLoP: 'NoneType' object is not callable"
+        },
+        "LTLPlanner": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner LTLPlanner: 'NoneType' object is not callable"
+        },
+        "SPQRstar": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner SPQRstar: 'NoneType' object is not callable"
+        }
+    }
+}

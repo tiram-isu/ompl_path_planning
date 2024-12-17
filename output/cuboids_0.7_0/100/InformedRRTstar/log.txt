@@ -1,0 +1,111 @@
+2024-12-16 02:42:02,029 - INFO - Bounds set with padding of 0.01
+2024-12-16 02:42:02,030 - INFO - Bounds: -0.36, -0.34, -0.53 to 0.36, 0.34, -0.34
+2024-12-16 02:42:03,456 - INFO - Planner InformedRRTstar initialized with range 0.1.
+2024-12-16 02:42:03,457 - INFO - Start state: [-0.33  0.1  -0.44], Goal state: [ 0.22 -0.16 -0.44]
+2024-12-16 02:42:03,457 - INFO - Planning 100 paths in 5 seconds...
+2024-12-16 02:42:08,492 - INFO - Path 1 added. Length: 0.62 units. Duration: 5.03 seconds.
+2024-12-16 02:42:13,551 - INFO - Path 2 added. Length: 0.63 units. Duration: 5.06 seconds.
+2024-12-16 02:42:18,593 - INFO - Path 3 added. Length: 0.62 units. Duration: 5.04 seconds.
+2024-12-16 02:42:23,603 - INFO - Path 4 added. Length: 0.62 units. Duration: 5.01 seconds.
+2024-12-16 02:42:28,646 - INFO - Path 5 added. Length: 0.62 units. Duration: 5.04 seconds.
+2024-12-16 02:42:33,678 - INFO - Path 6 added. Length: 0.63 units. Duration: 5.03 seconds.
+2024-12-16 02:42:38,705 - INFO - Path 7 added. Length: 0.62 units. Duration: 5.03 seconds.
+2024-12-16 02:42:43,724 - INFO - Path 8 added. Length: 0.62 units. Duration: 5.02 seconds.
+2024-12-16 02:42:48,764 - INFO - Path 9 added. Length: 0.62 units. Duration: 5.04 seconds.
+2024-12-16 02:42:53,772 - INFO - Path 10 added. Length: 0.62 units. Duration: 5.01 seconds.
+2024-12-16 02:42:58,814 - INFO - Path 11 added. Length: 0.62 units. Duration: 5.04 seconds.
+2024-12-16 02:43:03,847 - INFO - Path 12 added. Length: 0.62 units. Duration: 5.03 seconds.
+2024-12-16 02:43:08,874 - INFO - Path 13 added. Length: 0.62 units. Duration: 5.03 seconds.
+2024-12-16 02:43:13,887 - INFO - Path 14 added. Length: 0.62 units. Duration: 5.01 seconds.
+2024-12-16 02:43:18,924 - INFO - Path 15 added. Length: 0.64 units. Duration: 5.04 seconds.
+2024-12-16 02:43:23,984 - INFO - Path 16 added. Length: 0.62 units. Duration: 5.06 seconds.
+2024-12-16 02:43:29,024 - INFO - Path 17 added. Length: 0.62 units. Duration: 5.04 seconds.
+2024-12-16 02:43:34,052 - INFO - Path 18 added. Length: 0.65 units. Duration: 5.03 seconds.
+2024-12-16 02:43:39,077 - INFO - Path 19 added. Length: 0.62 units. Duration: 5.03 seconds.
+2024-12-16 02:43:44,097 - INFO - Path 20 added. Length: 0.65 units. Duration: 5.02 seconds.
+2024-12-16 02:43:49,145 - INFO - Path 21 added. Length: 0.62 units. Duration: 5.05 seconds.
+2024-12-16 02:43:54,203 - INFO - Path 22 added. Length: 0.62 units. Duration: 5.06 seconds.
+2024-12-16 02:43:59,242 - INFO - Path 23 added. Length: 0.62 units. Duration: 5.04 seconds.
+2024-12-16 02:44:04,273 - INFO - Path 24 added. Length: 0.62 units. Duration: 5.03 seconds.
+2024-12-16 02:44:09,300 - INFO - Path 25 added. Length: 0.62 units. Duration: 5.03 seconds.
+2024-12-16 02:44:14,322 - INFO - Path 26 added. Length: 0.62 units. Duration: 5.02 seconds.
+2024-12-16 02:44:19,355 - INFO - Path 27 added. Length: 0.63 units. Duration: 5.03 seconds.
+2024-12-16 02:44:24,363 - INFO - Path 28 added. Length: 0.62 units. Duration: 5.01 seconds.
+2024-12-16 02:44:29,400 - INFO - Path 29 added. Length: 0.62 units. Duration: 5.04 seconds.
+2024-12-16 02:44:34,429 - INFO - Path 30 added. Length: 0.63 units. Duration: 5.03 seconds.
+2024-12-16 02:44:39,454 - INFO - Path 31 added. Length: 0.62 units. Duration: 5.02 seconds.
+2024-12-16 02:44:44,464 - INFO - Path 32 added. Length: 0.63 units. Duration: 5.01 seconds.
+2024-12-16 02:44:49,507 - INFO - Path 33 added. Length: 0.62 units. Duration: 5.04 seconds.
+2024-12-16 02:44:54,520 - INFO - Path 34 added. Length: 0.64 units. Duration: 5.01 seconds.
+2024-12-16 02:44:59,565 - INFO - Path 35 added. Length: 0.65 units. Duration: 5.05 seconds.
+2024-12-16 02:45:04,597 - INFO - Path 36 added. Length: 0.65 units. Duration: 5.03 seconds.
+2024-12-16 02:45:09,624 - INFO - Path 37 added. Length: 0.62 units. Duration: 5.03 seconds.
+2024-12-16 02:45:14,637 - INFO - Path 38 added. Length: 0.63 units. Duration: 5.01 seconds.
+2024-12-16 02:45:19,678 - INFO - Path 39 added. Length: 0.62 units. Duration: 5.04 seconds.
+2024-12-16 02:45:24,687 - INFO - Path 40 added. Length: 0.62 units. Duration: 5.01 seconds.
+2024-12-16 02:45:29,728 - INFO - Path 41 added. Length: 0.63 units. Duration: 5.04 seconds.
+2024-12-16 02:45:34,756 - INFO - Path 42 added. Length: 0.62 units. Duration: 5.03 seconds.
+2024-12-16 02:45:39,785 - INFO - Path 43 added. Length: 0.62 units. Duration: 5.03 seconds.
+2024-12-16 02:45:44,796 - INFO - Path 44 added. Length: 0.62 units. Duration: 5.01 seconds.
+2024-12-16 02:45:49,833 - INFO - Path 45 added. Length: 0.62 units. Duration: 5.04 seconds.
+2024-12-16 02:45:54,840 - INFO - Path 46 added. Length: 0.63 units. Duration: 5.01 seconds.
+2024-12-16 02:45:59,885 - INFO - Path 47 added. Length: 0.62 units. Duration: 5.04 seconds.
+2024-12-16 02:46:04,924 - INFO - Path 48 added. Length: 0.62 units. Duration: 5.04 seconds.
+2024-12-16 02:46:09,956 - INFO - Path 49 added. Length: 0.65 units. Duration: 5.03 seconds.
+2024-12-16 02:46:14,977 - INFO - Path 50 added. Length: 0.63 units. Duration: 5.02 seconds.
+2024-12-16 02:46:20,020 - INFO - Path 51 added. Length: 0.62 units. Duration: 5.04 seconds.
+2024-12-16 02:46:25,072 - INFO - Path 52 added. Length: 0.62 units. Duration: 5.05 seconds.
+2024-12-16 02:46:30,108 - INFO - Path 53 added. Length: 0.63 units. Duration: 5.04 seconds.
+2024-12-16 02:46:35,139 - INFO - Path 54 added. Length: 0.65 units. Duration: 5.03 seconds.
+2024-12-16 02:46:40,163 - INFO - Path 55 added. Length: 0.64 units. Duration: 5.02 seconds.
+2024-12-16 02:46:45,200 - INFO - Path 56 added. Length: 0.62 units. Duration: 5.04 seconds.
+2024-12-16 02:46:50,239 - INFO - Path 57 added. Length: 0.62 units. Duration: 5.04 seconds.
+2024-12-16 02:46:55,248 - INFO - Path 58 added. Length: 0.62 units. Duration: 5.01 seconds.
+2024-12-16 02:47:00,293 - INFO - Path 59 added. Length: 0.62 units. Duration: 5.04 seconds.
+2024-12-16 02:47:05,330 - INFO - Path 60 added. Length: 0.63 units. Duration: 5.04 seconds.
+2024-12-16 02:47:10,366 - INFO - Path 61 added. Length: 0.62 units. Duration: 5.04 seconds.
+2024-12-16 02:47:15,389 - INFO - Path 62 added. Length: 0.62 units. Duration: 5.02 seconds.
+2024-12-16 02:47:20,429 - INFO - Path 63 added. Length: 0.63 units. Duration: 5.04 seconds.
+2024-12-16 02:47:25,488 - INFO - Path 64 added. Length: 0.64 units. Duration: 5.06 seconds.
+2024-12-16 02:47:30,530 - INFO - Path 65 added. Length: 0.65 units. Duration: 5.04 seconds.
+2024-12-16 02:47:35,563 - INFO - Path 66 added. Length: 0.62 units. Duration: 5.03 seconds.
+2024-12-16 02:47:40,591 - INFO - Path 67 added. Length: 0.62 units. Duration: 5.03 seconds.
+2024-12-16 02:47:45,622 - INFO - Path 68 added. Length: 0.62 units. Duration: 5.03 seconds.
+2024-12-16 02:47:50,659 - INFO - Path 69 added. Length: 0.62 units. Duration: 5.04 seconds.
+2024-12-16 02:47:55,716 - INFO - Path 70 added. Length: 0.62 units. Duration: 5.06 seconds.
+2024-12-16 02:48:00,758 - INFO - Path 71 added. Length: 0.62 units. Duration: 5.04 seconds.
+2024-12-16 02:48:05,787 - INFO - Path 72 added. Length: 0.62 units. Duration: 5.03 seconds.
+2024-12-16 02:48:10,818 - INFO - Path 73 added. Length: 0.62 units. Duration: 5.03 seconds.
+2024-12-16 02:48:15,850 - INFO - Path 74 added. Length: 0.62 units. Duration: 5.03 seconds.
+2024-12-16 02:48:20,884 - INFO - Path 75 added. Length: 0.62 units. Duration: 5.03 seconds.
+2024-12-16 02:48:25,935 - INFO - Path 76 added. Length: 0.62 units. Duration: 5.05 seconds.
+2024-12-16 02:48:30,970 - INFO - Path 77 added. Length: 0.62 units. Duration: 5.03 seconds.
+2024-12-16 02:48:36,001 - INFO - Path 78 added. Length: 0.62 units. Duration: 5.03 seconds.
+2024-12-16 02:48:41,028 - INFO - Path 79 added. Length: 0.63 units. Duration: 5.03 seconds.
+2024-12-16 02:48:46,068 - INFO - Path 80 added. Length: 0.62 units. Duration: 5.04 seconds.
+2024-12-16 02:48:51,099 - INFO - Path 81 added. Length: 0.62 units. Duration: 5.03 seconds.
+2024-12-16 02:48:56,150 - INFO - Path 82 added. Length: 0.63 units. Duration: 5.05 seconds.
+2024-12-16 02:49:01,190 - INFO - Path 83 added. Length: 0.62 units. Duration: 5.04 seconds.
+2024-12-16 02:49:06,219 - INFO - Path 84 added. Length: 0.63 units. Duration: 5.03 seconds.
+2024-12-16 02:49:11,247 - INFO - Path 85 added. Length: 0.62 units. Duration: 5.03 seconds.
+2024-12-16 02:49:16,283 - INFO - Path 86 added. Length: 0.62 units. Duration: 5.04 seconds.
+2024-12-16 02:49:21,316 - INFO - Path 87 added. Length: 0.62 units. Duration: 5.03 seconds.
+2024-12-16 02:49:26,375 - INFO - Path 88 added. Length: 0.62 units. Duration: 5.06 seconds.
+2024-12-16 02:49:31,406 - INFO - Path 89 added. Length: 0.62 units. Duration: 5.03 seconds.
+2024-12-16 02:49:36,431 - INFO - Path 90 added. Length: 0.62 units. Duration: 5.02 seconds.
+2024-12-16 02:49:41,459 - INFO - Path 91 added. Length: 0.62 units. Duration: 5.03 seconds.
+2024-12-16 02:49:46,517 - INFO - Path 92 added. Length: 0.62 units. Duration: 5.06 seconds.
+2024-12-16 02:49:51,544 - INFO - Path 93 added. Length: 0.62 units. Duration: 5.03 seconds.
+2024-12-16 02:49:56,599 - INFO - Path 94 added. Length: 0.62 units. Duration: 5.05 seconds.
+2024-12-16 02:50:01,637 - INFO - Path 95 added. Length: 0.62 units. Duration: 5.04 seconds.
+2024-12-16 02:50:06,669 - INFO - Path 96 added. Length: 0.64 units. Duration: 5.03 seconds.
+2024-12-16 02:50:11,696 - INFO - Path 97 added. Length: 0.62 units. Duration: 5.03 seconds.
+2024-12-16 02:50:16,727 - INFO - Path 98 added. Length: 0.62 units. Duration: 5.03 seconds.
+2024-12-16 02:50:21,760 - INFO - Path 99 added. Length: 0.65 units. Duration: 5.03 seconds.
+2024-12-16 02:50:26,817 - INFO - Path 100 added. Length: 0.62 units. Duration: 5.06 seconds.
+2024-12-16 02:50:26,817 - INFO - All paths planning completed. Total duration: 503.36 seconds.
+2024-12-16 02:50:26,875 - INFO - Average time per path: 5.03 seconds.
+2024-12-16 02:50:26,875 - INFO - Average path length of all paths: 0.63 units.
+2024-12-16 02:50:26,875 - INFO - Shortest path length: 0.62 units.
+2024-12-16 02:50:26,875 - INFO - Longest path length: 0.65 units.
+2024-12-16 02:50:26,875 - INFO - Total number of unique paths found: 100.
