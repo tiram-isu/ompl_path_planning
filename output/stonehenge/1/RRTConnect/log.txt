@@ -1,13 +1,6 @@
-2024-11-01 18:11:21,400 - INFO - Bounds set with padding of 0.01
-2024-11-01 18:11:21,474 - INFO - Planner RRTConnect initialized with range 0.1.
-2024-11-01 18:11:21,475 - INFO - Start state: [-1.24  0.31  0.08], Goal state: [ 0.46 -0.79  0.08]
-2024-11-01 18:11:21,604 - DEBUG - contains_points executed in 0.1291 seconds.
-2024-11-01 18:11:21,605 - DEBUG - contains_points executed in 0.0008 seconds.
-2024-11-01 18:11:21,605 - INFO - Planning 1 paths in 5 seconds...
-2024-11-01 18:11:21,621 - INFO - Path 1 added. Length: 2.18 units. Duration: 0.01 seconds.
-2024-11-01 18:11:21,621 - INFO - All paths planning completed. Total duration: 0.02 seconds.
-2024-11-01 18:11:21,621 - INFO - Average time per path: 0.02 seconds.
-2024-11-01 18:11:21,622 - INFO - Average path length of all paths: 2.18 units.
-2024-11-01 18:11:21,623 - INFO - Shortest path length: 2.18 units.
-2024-11-01 18:11:21,623 - INFO - Longest path length: 2.18 units.
-2024-11-01 18:11:21,623 - INFO - Total number of unique paths found: 1.
+2024-12-04 15:50:37,164 - INFO - Bounds set with padding of 0.01
+2024-12-04 15:50:37,241 - INFO - Planner RRTConnect initialized with range 0.1.
+2024-12-04 15:50:37,242 - INFO - Start state: [-0.89  0.36  0.  ], Goal state: [ 0.59 -0.57  0.  ]
+2024-12-04 15:50:37,385 - DEBUG - contains_points executed in 0.1427 seconds.
+2024-12-04 15:50:37,386 - WARNING - Start or Goal state is invalid or out of bounds!
+2024-12-04 15:50:54,480 - ERROR - Error occurred for planner RRTConnect: local variable 'path_geometries' referenced before assignment
