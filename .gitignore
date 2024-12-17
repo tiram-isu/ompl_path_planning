@@ -1,3 +1,6 @@
-__pycache__
 *.obj
-test
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
