@@ -1,0 +1,21 @@
+2024-12-16 01:23:10,345 - INFO - Bounds set with padding of 0.01
+2024-12-16 01:23:10,345 - INFO - Bounds: -0.36, -0.34, -0.53 to 0.36, 0.34, -0.34
+2024-12-16 01:23:11,786 - INFO - Planner RRT initialized with range 0.1.
+2024-12-16 01:23:11,787 - INFO - Start state: [-0.33  0.1  -0.44], Goal state: [ 0.22 -0.16 -0.44]
+2024-12-16 01:23:11,787 - INFO - Planning 10 paths in 5 seconds...
+2024-12-16 01:23:11,800 - INFO - Path 1 added. Length: 0.97 units. Duration: 0.01 seconds.
+2024-12-16 01:23:11,807 - INFO - Path 2 added. Length: 0.84 units. Duration: 0.01 seconds.
+2024-12-16 01:23:11,815 - INFO - Path 3 added. Length: 0.82 units. Duration: 0.01 seconds.
+2024-12-16 01:23:11,825 - INFO - Path 4 added. Length: 1.01 units. Duration: 0.01 seconds.
+2024-12-16 01:23:11,836 - INFO - Path 5 added. Length: 1.23 units. Duration: 0.01 seconds.
+2024-12-16 01:23:11,846 - INFO - Path 6 added. Length: 0.76 units. Duration: 0.01 seconds.
+2024-12-16 01:23:11,859 - INFO - Path 7 added. Length: 1.08 units. Duration: 0.01 seconds.
+2024-12-16 01:23:11,870 - INFO - Path 8 added. Length: 1.07 units. Duration: 0.01 seconds.
+2024-12-16 01:23:11,877 - INFO - Path 9 added. Length: 0.81 units. Duration: 0.01 seconds.
+2024-12-16 01:23:11,891 - INFO - Path 10 added. Length: 1.10 units. Duration: 0.01 seconds.
+2024-12-16 01:23:11,891 - INFO - All paths planning completed. Total duration: 0.10 seconds.
+2024-12-16 01:23:11,897 - INFO - Average time per path: 0.01 seconds.
+2024-12-16 01:23:11,898 - INFO - Average path length of all paths: 0.97 units.
+2024-12-16 01:23:11,898 - INFO - Shortest path length: 0.76 units.
+2024-12-16 01:23:11,898 - INFO - Longest path length: 1.23 units.
+2024-12-16 01:23:11,898 - INFO - Total number of unique paths found: 10.

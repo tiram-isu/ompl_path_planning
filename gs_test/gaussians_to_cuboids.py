@@ -176,7 +176,7 @@ if __name__ == '__main__':
     output_path = f"/app/gs_models/"
     device = "cuda"  # "cuda" (GPU) or "cpu" (CPU)
 
-    opacity_threshold = 0
+    opacity_threshold = 0.7
     scale_threshold = 0
 
     gaussian_data = load_gaussians_from_nerfstudio_ckpt(ckpt_path, device=device)

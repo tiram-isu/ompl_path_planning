@@ -1,0 +1,2 @@
+2024-12-15 21:09:59,761 - INFO - Bounds set with padding of 0.01
+2024-12-15 21:10:02,370 - ERROR - Error occurred for planner SPARS2: 'NoneType' object is not callable

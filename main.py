@@ -53,10 +53,10 @@ def run_planners(model, planners, planner_settings, path_settings, enable_visual
             if p.is_alive():
                 p.join()
             
-            # Write consolidated summary log file (comparing all planners for the same number of paths)
-            log_utils.generate_summary_log(planners, log_root, model, path_settings)
+        # Write consolidated summary log file (comparing all planners for the same number of paths)
+        log_utils.generate_summary_log(planners, log_root, model, path_settings)
 
-        summary_log_paths.append(f"{log_root}/summary_log.txt")
+        summary_log_paths.append(f"{log_root}/summary_log.json")
     log_utils.generate_log_reports(summary_log_paths, f"/app/output/{model_name}/plots")
 
 if __name__ == "__main__":
@@ -69,9 +69,11 @@ if __name__ == "__main__":
         'CForest', 'APS', 'SyCLoP', 'LTLPlanner', 'SPQRstar'
     ]
 
+    # planners = ['PRM']
+
     scale = 1.0
-    model_name = "cuboids_0_0"
-    mesh = o3d.io.read_triangle_mesh(f"/app/models/{model_name}.obj")
+    model_name = "stonehenge"
+    mesh = o3d.io.read_triangle_mesh(f"/app/models/{model_name}.fbx")
 
     start = np.array([-0.33, 0.10, -0.44]) * scale
     goal = np.array([0.22, -0.16, -0.44]) * scale
@@ -81,6 +83,7 @@ if __name__ == "__main__":
 
     enable_visualization = False
     num_paths = [1, 10, 50, 100]
+    # num_paths = [1]
     max_time_per_path = 5  # maximum time in seconds for each planner process
 
     model = {"name": model_name, "mesh": mesh}

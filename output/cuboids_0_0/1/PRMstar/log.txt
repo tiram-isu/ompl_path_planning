@@ -1,0 +1,11 @@
+2024-12-15 21:09:28,584 - INFO - Bounds set with padding of 0.01
+2024-12-15 21:09:31,228 - INFO - Planner PRMstar initialized with range 0.1.
+2024-12-15 21:09:31,229 - INFO - Start state: [-0.33  0.1  -0.44], Goal state: [ 0.22 -0.16 -0.44]
+2024-12-15 21:09:31,229 - INFO - Planning 1 paths in 5 seconds...
+2024-12-15 21:09:36,276 - INFO - Path 1 added. Length: 0.66 units. Duration: 5.05 seconds.
+2024-12-15 21:09:36,276 - INFO - All paths planning completed. Total duration: 5.05 seconds.
+2024-12-15 21:09:36,277 - INFO - Average time per path: 5.05 seconds.
+2024-12-15 21:09:36,277 - INFO - Average path length of all paths: 0.66 units.
+2024-12-15 21:09:36,277 - INFO - Shortest path length: 0.66 units.
+2024-12-15 21:09:36,277 - INFO - Longest path length: 0.66 units.
+2024-12-15 21:09:36,277 - INFO - Total number of unique paths found: 1.

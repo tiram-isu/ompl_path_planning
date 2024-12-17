@@ -1,0 +1,3 @@
+2024-12-16 01:19:56,405 - INFO - Bounds set with padding of 0.01
+2024-12-16 01:19:56,406 - INFO - Bounds: -0.36, -0.34, -0.53 to 0.36, 0.34, -0.34
+2024-12-16 01:19:57,934 - ERROR - Error occurred for planner QRRT: 'NoneType' object is not callable

@@ -1,0 +1,6 @@
+2024-12-16 02:32:34,419 - INFO - Bounds set with padding of 0.01
+2024-12-16 02:32:34,419 - INFO - Bounds: -0.36, -0.34, -0.53 to 0.36, 0.34, -0.34
+2024-12-16 02:32:35,846 - INFO - Planner SST initialized with range 0.1.
+2024-12-16 02:32:35,847 - INFO - Start state: [-0.33  0.1  -0.44], Goal state: [ 0.22 -0.16 -0.44]
+2024-12-16 02:32:35,847 - INFO - Planning 100 paths in 5 seconds...
+2024-12-16 02:32:40,864 - ERROR - Error occurred for planner SST: local variable 'path' referenced before assignment

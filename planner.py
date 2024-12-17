@@ -42,6 +42,7 @@ class PathPlanner:
 
         self.space.setBounds(bounds)
         logging.info(f"Bounds set with padding of {self.bounds_padding}")
+        logging.info(f"Bounds: {bounds.low[0]:.2f}, {bounds.low[1]:.2f}, {bounds.low[2]:.2f} to {bounds.high[0]:.2f}, {bounds.high[1]:.2f}, {bounds.high[2]:.2f}")
 
     def initialize_planner(self, planner_type, range):
         """Initialize the planner based on the given planner type."""

@@ -3,6 +3,9 @@ import re
 import os
 import numpy as np
 import json
+import hashlib
+import colorsys
+import random
 import matplotlib.pyplot as plt
 
 def parse_log_file(log_file_path):
@@ -35,53 +38,56 @@ def parse_log_file(log_file_path):
     return result
 
 def generate_summary_log(planners, output_path, model, path_settings):
-    """Write a summary log file consolidating all planners' results, including details for each path."""
-    summary_log_path = os.path.join(output_path, "summary_log.txt")
+    """Save a summary log consolidating all planners' results in JSON format."""
+    summary_json_path = os.path.join(output_path, "summary_log.json")
 
-    all_results = {}
+    # Initialize the summary dictionary
+    summary_data = {
+        "model": {
+            "name": model["name"],
+            "camera_bounds": path_settings["camera_bounds"],
+            "start_point": path_settings["start"].tolist(),
+            "goal_point": path_settings["goal"].tolist(),
+            "max_time_per_path": path_settings["max_time_per_path"],
+        },
+        "planners": {}
+    }
+
+    # Gather data for each planner
     for planner in planners:
-        all_results[planner] = parse_log_file(os.path.join(output_path, f"{planner}/log.txt"))
+        result = parse_log_file(os.path.join(output_path, f"{planner}/log.txt"))
 
-    with open(summary_log_path, 'w') as f:
-        # Write general model and configuration details
-        f.write(f"Model: {model['name']}\n")
-        f.write(f"Mesh: {model['mesh']}\n")
-        f.write(f"Camera Bounds: {path_settings['camera_bounds']}\n")
-        f.write(f"Start Point: {path_settings['start']}\n")
-        f.write(f"Goal Point: {path_settings['goal']}\n")
-        f.write(f"Max Time Per Path: {path_settings['max_time_per_path']}\n\n")
-        
-        # Write details for each planner
-        for planner, result in all_results.items():
-            f.write(f"Planner: {planner}\n")
-            
-            if result['success']:
-                # Summary statistics
-                avg_length = np.mean(result['path_lengths']) if result['path_lengths'] else 0
-                min_length = np.min(result['path_lengths']) if result['path_lengths'] else 0
-                max_length = np.max(result['path_lengths']) if result['path_lengths'] else 0
-                std_length = np.std(result['path_lengths']) if result['path_lengths'] else 0
-                avg_time = np.mean(result['path_durations']) if result['path_durations'] else 0
-                std_time = np.std(result['path_durations']) if result['path_durations'] else 0
-                
-                f.write(f"  Status: Successful\n")
-                f.write(f"  Total Time Taken: {result['total_time']} seconds\n")
-                f.write(f"  Number of Paths: {result['num_paths']}\n")
-                f.write(f"  Average Path Length: {avg_length}\n")
-                f.write(f"  Shortest Path Length: {min_length}\n")
-                f.write(f"  Longest Path Length: {max_length}\n")
-                f.write(f"  Path Length Std Dev: {std_length}\n")
-                f.write(f"  Average Time Per Path: {avg_time} seconds\n")
-                f.write(f"  Time Per Path Std Dev: {std_time} seconds\n\n")
-                
-                # Detailed information for each path
-                f.write("  Paths:\n")
-                for i, (length, duration) in enumerate(zip(result['path_lengths'], result['path_durations']), start=1):
-                    f.write(f"    Path {i}: Length = {length} units, Duration = {duration} seconds\n")
-                f.write("\n")
-            else:
-                f.write(f"  Status: Failed\n")
-                f.write(f"  Error Message: {result['error_message']}\n\n")
+        if result["success"]:
+            # Ensure all NumPy arrays are converted to lists
+            path_lengths = result["path_lengths"]
+            path_durations = result["path_durations"]
+
+            planner_data = {
+                "status": "Successful",
+                "total_time_taken": result["total_time"],
+                "num_paths": result["num_paths"],
+                "average_path_length": float(np.mean(path_lengths)) if path_lengths else 0,
+                "shortest_path_length": float(np.min(path_lengths)) if path_lengths else 0,
+                "longest_path_length": float(np.max(path_lengths)) if path_lengths else 0,
+                "path_length_std_dev": float(np.std(path_lengths)) if path_lengths else 0,
+                "average_time_per_path": float(np.mean(path_durations)) if path_durations else 0,
+                "time_per_path_std_dev": float(np.std(path_durations)) if path_durations else 0,
+                "paths": [
+                    {"id": i, "length": length, "duration": duration}
+                    for i, (length, duration) in enumerate(zip(path_lengths, path_durations))
+                ],
+            }
+        else:
+            planner_data = {
+                "status": "Failed",
+                "error_message": result["error_message"],
+            }
+
+        summary_data["planners"][planner] = planner_data
+
+    # Write the JSON file
+    with open(summary_json_path, "w") as f:
+        json.dump(summary_data, f, indent=4)
 
 def save_paths_to_json(paths, output_path):
     """Save paths to a JSON file."""
@@ -95,176 +101,186 @@ def setup_logging(output_path):
     os.makedirs(output_path, exist_ok=True)
     logging.basicConfig(filename=os.path.join(output_path, "log.txt"), level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s', filemode='w')
 
-def extract_log_data(log_path):
-    """Extract data from a single log file."""
-    planner_section_re = re.compile(r'Planner: (\w+)\n\s+Status: (\w+)\n\s+Total Time Taken: ([\d.]+) seconds\n\s+Number of Paths: (\d+)')
-    average_path_stats_re = re.compile(r'Average Path Length: ([\d.]+)\n\s+Shortest Path Length: ([\d.]+)\n\s+Longest Path Length: ([\d.]+)\n\s+Path Length Std Dev: ([\d.]+)\n\s+Average Time Per Path: ([\d.]+) seconds\n\s+Time Per Path Std Dev: ([\d.]+) seconds')
-    path_re = re.compile(r'Path (\d+): Length = ([\d.]+) units, Duration = ([\d.]+) seconds')
-
+def extract_log_data(json_path):
+    """Extract data from the summary JSON file."""
+    with open(json_path, 'r') as file:
+        summary_data = json.load(file)
+    
     parsed_data = {}
-
-    with open(log_path, 'r') as file:
-        log_content = file.read()
     
-    planners = planner_section_re.split(log_content)
-    
-    for i in range(1, len(planners), 5):
-        planner_name = planners[i].strip()
-        status = planners[i + 1].strip()
-        total_time_taken = float(planners[i + 2])
-        num_paths = int(planners[i + 3])
-        
-        path_stats_match = average_path_stats_re.search(planners[i + 4])
-        if path_stats_match:
-            avg_path_length = float(path_stats_match.group(1))
-            shortest_path_length = float(path_stats_match.group(2))
-            longest_path_length = float(path_stats_match.group(3))
-            path_length_std_dev = float(path_stats_match.group(4))
-            avg_time_per_path = float(path_stats_match.group(5))
-            time_per_path_std_dev = float(path_stats_match.group(6))
+    # Iterate over each planner in the JSON
+    for planner_name, planner_info in summary_data["planners"].items():
+        if planner_info["status"] == "Successful":
+            planner_data = {
+                "status": planner_info["status"],
+                "total_time_taken": planner_info["total_time_taken"],
+                "num_paths": planner_info["num_paths"],
+                "average_path_length": planner_info.get("average_path_length", 0),
+                "shortest_path_length": planner_info.get("shortest_path_length", 0),
+                "longest_path_length": planner_info.get("longest_path_length", 0),
+                "path_length_std_dev": planner_info.get("path_length_std_dev", 0),
+                "average_time_per_path": planner_info.get("average_time_per_path", 0),
+                "time_per_path_std_dev": planner_info.get("time_per_path_std_dev", 0),
+                "path_lengths": np.array([path["length"] for path in planner_info["paths"]], dtype=float),
+                "path_durations": np.array([path["duration"] for path in planner_info["paths"]], dtype=float),
+            }
         else:
-            avg_path_length = shortest_path_length = longest_path_length = path_length_std_dev = avg_time_per_path = time_per_path_std_dev = None
-        
-        planner_data = {
-            "status": status,
-            "total_time_taken": total_time_taken,
-            "num_paths": num_paths,
-            "average_path_length": avg_path_length,
-            "shortest_path_length": shortest_path_length,
-            "longest_path_length": longest_path_length,
-            "path_length_std_dev": path_length_std_dev,
-            "average_time_per_path": avg_time_per_path,
-            "time_per_path_std_dev": time_per_path_std_dev,
-            "path_lengths": [],
-            "path_durations": []
-        }
+            # For failed planners, include only status and error message
+            planner_data = {
+                "status": planner_info["status"],
+                "error_message": planner_info.get("error_message", "Unknown error"),
+            }
 
-        paths = path_re.findall(planners[i + 4])
-
-        for path_id, length, duration in paths:
-            planner_data["path_lengths"].append(length)
-            planner_data["path_durations"].append(duration)
-
-        if len(planner_data["path_lengths"]) > 0: 
-            parsed_data[planner_name] = planner_data
-            planner_data["path_lengths"] = np.array(planner_data["path_lengths"], dtype=float)
-            planner_data["path_durations"] = np.array(planner_data["path_durations"], dtype=float)
-
+        parsed_data[planner_name] = planner_data
     return parsed_data
 
-def generate_plots(data_dict, log_file_name, output_dir, colors):
+def generate_plots(data_dict, log_file_name, output_dir, planner_color_map):
     """Create plots based on the extracted data."""
     planners = list(data_dict.keys())
-    average_path_lengths = [data_dict[planner]["average_path_length"] for planner in planners]
-    average_times_per_path = [data_dict[planner]["average_time_per_path"] for planner in planners]
-    number_of_paths = [data_dict[planner]["num_paths"] for planner in planners]
-    path_lengths = [data_dict[planner]["path_lengths"] for planner in planners]
-    path_durations = [data_dict[planner]["path_durations"] for planner in planners]
+    
+    # Safely access the data for each planner using `.get()` to handle potential missing values
+    average_path_lengths = [data_dict[planner].get("average_path_length", 0) for planner in planners]
+    average_times_per_path = [data_dict[planner].get("average_time_per_path", 0) for planner in planners]
+    number_of_paths = [data_dict[planner].get("num_paths", 0) for planner in planners]
+    path_lengths = [data_dict[planner].get("path_lengths", []) for planner in planners]
+    path_durations = [data_dict[planner].get("path_durations", []) for planner in planners]
+
+    # Filter planners with valid path lengths (greater than zero)
+    valid_planners = [planner for planner, lengths in zip(planners, path_lengths) if len(lengths) > 0 and max(lengths) > 0]
+    
+    # Filter data to include only valid planners
+    valid_average_path_lengths = [average_path_lengths[planners.index(planner)] for planner in valid_planners]
+    valid_average_times_per_path = [average_times_per_path[planners.index(planner)] for planner in valid_planners]
+    valid_number_of_paths = [number_of_paths[planners.index(planner)] for planner in valid_planners]
+    valid_path_lengths = [path_lengths[planners.index(planner)] for planner in valid_planners]
+    valid_path_durations = [path_durations[planners.index(planner)] for planner in valid_planners]
 
     fig_width, fig_height = 19.20, 10.80
-
-    plt.figure(figsize=(fig_width, fig_height))
     scatter_size = 50
 
-    for i, planner in enumerate(planners):
-        plt.scatter(average_times_per_path[i], average_path_lengths[i], 
-                    s=scatter_size, color=colors[i])
-    
+    # Plot: Average Time Per Path vs Average Path Length
+    plt.figure(figsize=(fig_width, fig_height))
+
+    for i, planner in enumerate(valid_planners):
+        # Only plot if there's data for both average_time_per_path and average_path_length
+        if valid_average_times_per_path[i] > 0 and valid_average_path_lengths[i] > 0:
+            plt.scatter(valid_average_times_per_path[i], valid_average_path_lengths[i], 
+                        s=scatter_size, color=planner_color_map[planner])
+
     plt.title(f'Average Time Per Path vs Average Path Length - {log_file_name}', fontsize=12)
     plt.xlabel('Average Time Per Path (seconds)', fontsize=10)
     plt.ylabel('Average Path Length', fontsize=10)
-    
-    plt.xlim(left=0, right=max(average_times_per_path) * 1.1)
-    plt.ylim(bottom=0, top=max(average_path_lengths) * 1.1)
+    plt.xlim(left=0, right=max(valid_average_times_per_path) * 1.1)
+    plt.ylim(bottom=0, top=max(valid_average_path_lengths) * 1.1)
     plt.grid()
 
-    for i, planner in enumerate(planners):
-        plt.annotate(planner, 
-                     (average_times_per_path[i], average_path_lengths[i]), 
-                     textcoords="offset points", 
-                     xytext=(0, 5), 
-                     ha='center', 
-                     fontsize=10)
+    for i, planner in enumerate(valid_planners):
+        if valid_average_times_per_path[i] > 0 and valid_average_path_lengths[i] > 0:
+            plt.annotate(planner, 
+                         (valid_average_times_per_path[i], valid_average_path_lengths[i]), 
+                         textcoords="offset points", 
+                         xytext=(0, 5), 
+                         ha='center', 
+                         fontsize=10)
 
     plt.savefig(f'{output_dir}/average_time_per_path_vs_length_{log_file_name}.png')
     plt.close()
 
-    plt.figure(figsize=(fig_width, fig_height))
-    box = plt.boxplot(path_lengths, notch=False, patch_artist=True,
-                      boxprops=dict(facecolor='lightblue', color='black'),
-                      whiskerprops=dict(color='black'),
-                      capprops=dict(color='black'),
-                      medianprops=dict(color='black'))
+    # Plot: Path Lengths (Boxplot) - Only for planners with valid path lengths > 0
+    if valid_planners:
+        plt.figure(figsize=(fig_width, fig_height))
+        box = plt.boxplot(valid_path_lengths, notch=False, patch_artist=True,
+                          boxprops=dict(facecolor='lightblue', color='black'),
+                          whiskerprops=dict(color='black'),
+                          capprops=dict(color='black'),
+                          medianprops=dict(color='black'))
 
-    for patch, planner in zip(box['boxes'], planners):
-        patch.set_facecolor(colors[planners.index(planner)])
+        for patch, planner in zip(box['boxes'], valid_planners):
+            patch.set_facecolor(planner_color_map[planner])
 
-    plt.title(f'Path Lengths - {log_file_name}', fontsize=12)
-    plt.xticks(range(1, len(planners) + 1), planners, fontsize=10)
-    plt.ylabel('Path Length', fontsize=10)
-    plt.grid(axis='y')
-    plt.savefig(f'{output_dir}/path_lengths_{log_file_name}.png')
-    plt.close()
+        plt.title(f'Path Lengths - {log_file_name}', fontsize=12)
+        plt.xticks(range(1, len(valid_planners) + 1), valid_planners, fontsize=10)
+        plt.ylabel('Path Length', fontsize=10)
+        plt.grid(axis='y')
+        plt.savefig(f'{output_dir}/path_lengths_{log_file_name}.png')
+        plt.close()
 
-    plt.figure(figsize=(fig_width, fig_height))
-    box = plt.boxplot(path_durations, notch=False, patch_artist=True,
-                      boxprops=dict(facecolor='lightblue', color='black'),
-                      whiskerprops=dict(color='black'),
-                      capprops=dict(color='black'),
-                      medianprops=dict(color='black'))
+    # Plot: Path Durations (Boxplot) - Only for planners with valid path lengths > 0
+    if valid_planners:
+        plt.figure(figsize=(fig_width, fig_height))
+        box = plt.boxplot(valid_path_durations, notch=False, patch_artist=True,
+                          boxprops=dict(facecolor='lightblue', color='black'),
+                          whiskerprops=dict(color='black'),
+                          capprops=dict(color='black'),
+                          medianprops=dict(color='black'))
 
-    for patch, planner in zip(box['boxes'], planners):
-        patch.set_facecolor(colors[planners.index(planner)])
+        for patch, planner in zip(box['boxes'], valid_planners):
+            patch.set_facecolor(planner_color_map[planner])
 
-    plt.title(f'Path Durations - {log_file_name}', fontsize=12)
-    plt.xticks(range(1, len(planners) + 1), planners, fontsize=10)
-    plt.ylabel('Path Duration (seconds)', fontsize=10)
-    plt.grid(axis='y')
-    plt.savefig(f'{output_dir}/path_durations_{log_file_name}.png')
-    plt.close()
+        plt.title(f'Path Durations - {log_file_name}', fontsize=12)
+        plt.xticks(range(1, len(valid_planners) + 1), valid_planners, fontsize=10)
+        plt.ylabel('Path Duration (seconds)', fontsize=10)
+        plt.grid(axis='y')
+        plt.savefig(f'{output_dir}/path_durations_{log_file_name}.png')
+        plt.close()
 
-def generate_log_reports(log_file_paths, output_dir):
-    """Process multiple log files and generate plots."""
+def generate_log_reports(json_file_paths, output_dir):
+    """Process multiple JSON log files and generate plots."""
     os.makedirs(output_dir, exist_ok=True)
 
     all_data = []
     unique_planners = set()
 
-    for file_path in log_file_paths:
-        data = extract_log_data(file_path)
+    for file_path in json_file_paths:
+        data = extract_log_data(file_path)  # Now using the updated method that reads from JSON
         unique_planners.update(data.keys())
         all_data.append(data)
 
     num_planners = len(unique_planners)
-    colors = plt.colormaps['Set2']
 
-    planner_color_map = {planner: colors(i / num_planners) for i, planner in enumerate(unique_planners)}
+    def get_unique_color(planner, num_planners):
+        hash_value = int(hashlib.md5(planner.encode()).hexdigest(), 16)
+        random.seed(hash_value)
+        hue = (hash_value % 360) / 360  # Ensure hue is between 0 and 1
+        hue += (hash_value % num_planners) / num_planners
+        hue = hue % 1
+        saturation = random.uniform(0.3, 0.6)  # Random saturation between 0.3 and 0.6
+        lightness = random.uniform(0.4, 0.7)   # Random lightness between 0.4 and 0.7
+        rgb = colorsys.hls_to_rgb(hue, lightness, saturation)
+        return rgb
 
-    for file_path in log_file_paths:
+    # Create the color map
+    planner_color_map = {planner: get_unique_color(planner, num_planners) for planner in unique_planners}
+    
+    for file_path in json_file_paths:
         log_file_name = '_'.join(file_path.split('/')[-3:-1])
         data = extract_log_data(file_path)
         try:
-            generate_plots(data, log_file_name, output_dir, [planner_color_map[planner] for planner in data.keys()])
+            generate_plots(data, log_file_name, output_dir, planner_color_map)
         except Exception as e:
             print(f"Error occurred while creating plots for {log_file_name}: {e}")
 
+    # Plot for Number of Paths vs Average Path Length (All Log Files)
     plt.figure(figsize=(19.20, 10.80))
     path_length_values = []
 
     for log_file_data in all_data:
         for planner_name, planner_data in log_file_data.items():
-            num_paths = planner_data['num_paths']
-            average_path_length = planner_data['average_path_length']
+            if planner_data.get('status') != 'Successful':
+                continue
+            num_paths = planner_data.get('num_paths', 0)
+            average_path_length = planner_data.get('average_path_length', 0)
             path_length_values.append(average_path_length)
 
+            # Ensure that the color from the planner_color_map is used
             plt.scatter(num_paths, average_path_length, 
                         color=planner_color_map[planner_name])
             plt.annotate(planner_name, 
-                         (num_paths, average_path_length), 
-                         textcoords="offset points", 
-                         xytext=(5, 0),  
-                         ha='left',  
-                         fontsize=9)
+                        (num_paths, average_path_length), 
+                        textcoords="offset points", 
+                        xytext=(5, 0),  
+                        ha='left',  
+                        fontsize=9)
 
     plt.title('Number of Paths vs Average Path Length (All Log Files)')
     plt.xlabel('Number of Paths')
@@ -275,23 +291,24 @@ def generate_log_reports(log_file_paths, output_dir):
     plt.savefig(f'{output_dir}/combined_number_of_paths_vs_average_length.png')
     plt.close()
 
+    # Plot for Number of Paths vs Average Path Duration (All Log Files)
     plt.figure(figsize=(19.20, 10.80))
     path_duration_values = []
 
     for log_file_data in all_data:
         for planner_name, planner_data in log_file_data.items():
-            num_paths = planner_data['num_paths']
-            average_time_per_path = planner_data['average_time_per_path']
+            num_paths = planner_data.get('num_paths', 0) 
+            average_time_per_path = planner_data.get('average_time_per_path', 0)
             path_duration_values.append(average_time_per_path)
 
             plt.scatter(num_paths, average_time_per_path, 
                         color=planner_color_map[planner_name])
             plt.annotate(planner_name, 
-                         (num_paths, average_time_per_path), 
-                         textcoords="offset points", 
-                         xytext=(5, 0),  
-                         ha='left',  
-                         fontsize=9)
+                        (num_paths, average_time_per_path), 
+                        textcoords="offset points", 
+                        xytext=(5, 0),  
+                        ha='left',  
+                        fontsize=9)
 
     plt.title('Number of Paths vs Average Path Duration (All Log Files)')
     plt.xlabel('Number of Paths')

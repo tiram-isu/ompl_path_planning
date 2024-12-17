@@ -1,0 +1,12 @@
+2024-12-16 01:20:18,380 - INFO - Bounds set with padding of 0.01
+2024-12-16 01:20:18,380 - INFO - Bounds: -0.36, -0.34, -0.53 to 0.36, 0.34, -0.34
+2024-12-16 01:20:19,826 - INFO - Planner BITstar initialized with range 0.1.
+2024-12-16 01:20:19,827 - INFO - Start state: [-0.33  0.1  -0.44], Goal state: [ 0.22 -0.16 -0.44]
+2024-12-16 01:20:19,827 - INFO - Planning 1 paths in 5 seconds...
+2024-12-16 01:20:25,108 - INFO - Path 1 added. Length: 0.67 units. Duration: 5.28 seconds.
+2024-12-16 01:20:25,108 - INFO - All paths planning completed. Total duration: 5.28 seconds.
+2024-12-16 01:20:25,109 - INFO - Average time per path: 5.28 seconds.
+2024-12-16 01:20:25,110 - INFO - Average path length of all paths: 0.67 units.
+2024-12-16 01:20:25,110 - INFO - Shortest path length: 0.67 units.
+2024-12-16 01:20:25,110 - INFO - Longest path length: 0.67 units.
+2024-12-16 01:20:25,110 - INFO - Total number of unique paths found: 1.
