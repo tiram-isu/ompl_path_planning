@@ -69,11 +69,11 @@ if __name__ == "__main__":
         'CForest', 'APS', 'SyCLoP', 'LTLPlanner', 'SPQRstar'
     ]
 
-    # planners = ['PRM']
+    planners = ['PRM']
 
     scale = 1.0
-    model_name = "stonehenge"
-    mesh = o3d.io.read_triangle_mesh(f"/app/models/{model_name}.fbx")
+    model_name = "cuboids"
+    mesh = o3d.io.read_triangle_mesh(f"/app/models/{model_name}.obj")
 
     start = np.array([-0.33, 0.10, -0.44]) * scale
     goal = np.array([0.22, -0.16, -0.44]) * scale
@@ -81,10 +81,10 @@ if __name__ == "__main__":
     state_validity_resolution = 0.01 * scale
     camera_bounds = tuple(dim * scale for dim in (0.005, 0.005, 0.02))
 
-    enable_visualization = False
+    enable_visualization = True
     num_paths = [1, 10, 50, 100]
-    # num_paths = [1]
-    max_time_per_path = 5  # maximum time in seconds for each planner process
+    num_paths = [1]
+    max_time_per_path = 300  # maximum time in seconds for each planner process
 
     model = {"name": model_name, "mesh": mesh}
     planner_settings = {"planner_range": planner_range, "state_validity_resolution": state_validity_resolution}

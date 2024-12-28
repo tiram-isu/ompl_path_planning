@@ -1,0 +1,10 @@
+2024-12-28 16:58:28,122 - INFO - Planner PRM initialized with range 0.1.
+2024-12-28 16:58:28,123 - INFO - Start state: [-0.33  0.1  -0.44], Goal state: [ 0.22 -0.16 -0.44]
+2024-12-28 16:58:28,123 - INFO - Planning 1 paths in 300 seconds...
+2024-12-28 16:58:28,229 - INFO - Path 1 added. Length: 0.90 units. Duration: 0.11 seconds.
+2024-12-28 16:58:28,230 - INFO - All paths planning completed. Total duration: 0.11 seconds.
+2024-12-28 16:58:28,230 - INFO - Average time per path: 0.11 seconds.
+2024-12-28 16:58:28,230 - INFO - Average path length of all paths: 0.90 units.
+2024-12-28 16:58:28,230 - INFO - Shortest path length: 0.90 units.
+2024-12-28 16:58:28,230 - INFO - Longest path length: 0.90 units.
+2024-12-28 16:58:28,230 - INFO - Total number of unique paths found: 1.

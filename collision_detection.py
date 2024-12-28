@@ -49,16 +49,21 @@ class CollisionDetector:
         return result.is_collision
 
 class StateValidityChecker(ob.StateValidityChecker):
-    def __init__(self, si, mesh, camera_bounds_dimensions):
-        """Initialize the state validity checker with the mesh and camera bounds dimensions."""
-
+    def __init__(self, si, mesh, camera_bounds_dimensions, constraint):
+        """Initialize the state validity checker with the mesh, camera bounds dimensions, and constraint."""
         super(StateValidityChecker, self).__init__(si)
         self.collision_detector = CollisionDetector(mesh, camera_bounds_dimensions)
+        self.constraint = constraint  # Pass in the height constraint
 
     def isValid(self, state):
-        """Check if the state is valid = not colliding with the mesh."""
+        """Check if the state is valid = not colliding with the mesh and satisfies the constraint."""
 
+        # Check height constraint first
+        if not self.constraint(state):
+            return False
+
+        # Now check for collisions
         ellipsoid_center = np.array([state[0], state[1], state[2]])
         is_colliding = self.collision_detector.is_colliding(ellipsoid_center)
-
+        
         return not is_colliding
