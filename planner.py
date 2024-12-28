@@ -4,25 +4,39 @@ import time
 from ompl import base as ob
 from ompl import geometric as og
 from collision_detection import StateValidityChecker
+from scipy.spatial import cKDTree
 
 class HeightConstraint(ob.Constraint):
-    def __init__(self, space, min_height, max_height):
+    def __init__(self, space, vertices, camera_bounds, min_distance, max_distance):
         # The ambient dimension is 3 (since we're in 3D space)
         # The co-dimension is 1 because it's a single constraint (the height constraint)
         super(HeightConstraint, self).__init__(space.getDimension(), 1)
         self.space = space
-        self.min_height = min_height
-        self.max_height = max_height
+        self.vertices = vertices
+        self.tree = cKDTree(vertices[:, :2])  # We use the first two dimensions (x, y)
+        self.camera_bounds = camera_bounds
+        self.query_radius = camera_bounds[0] * 3  # Query radius for KDTree search
+        self.min_distance = min_distance
+        self.max_distance = max_distance
 
     def function(self, state):
-        # We assume the state is a 3D vector, so the height is at index 2
-        return state[2] - self.min_height, self.max_height - state[2]
+        # Query for all points within the radius in the x, y plane (ignoring z for now)
+        point = [state[0], state[1], state[2]]
+        # Query for all vertices within the radius in the x, y plane
+        indices = self.tree.query_ball_point(point[:2], self.query_radius)
+
+        # Find the vertices that are below the query point in the z dimension within the range
+        below_indices = []
+        for i in indices:
+            distance = point[2] - self.vertices[i][2]
+            if distance >= self.min_distance and distance <= self.max_distance:
+                below_indices.append(i)
+
+        return len(below_indices)
 
     def __call__(self, state):
-        # The constraint function should return True if the state is valid
-        # i.e., height should be between min_height and max_height inclusive
-        min_constraint, max_constraint = self.function(state)
-        return min_constraint >= 0 and max_constraint >= 0
+        # The state is valid if at least one vertex is below the query point within the range
+        return self.function(state) > 0
     
     # TODO: override projection method?
 
@@ -40,7 +54,9 @@ class PathPlanner:
         self.setup_bounds()  # Call setup_bounds before creating the constraint
         
         # Step 3: Set up the constraint (if any)
-        self.constraint = HeightConstraint(self.space, -0.5, -0.4)
+        vertices = np.asarray(self.mesh.vertices)
+        # tree = KDTree(vertices)
+        self.constraint = HeightConstraint(self.space, vertices, camera_bounds, 0.03, 0.05)
 
         # Step 4: Combine the ambient space and the constraint into a constrained state space
         css = ob.ProjectedStateSpace(self.space, self.constraint)
