@@ -1,0 +1,6 @@
+2024-12-29 18:05:04,170 - INFO - Bounds set with padding of 0.1
+2024-12-29 18:05:04,171 - INFO - Bounds: -0.45, 0.45, -0.43, 0.43, -0.62, -0.25
+2024-12-29 18:05:12,676 - INFO - Planner PRMstar initialized with range 0.1.
+2024-12-29 18:05:12,677 - INFO - Start state: [-0.33  0.1  -0.44], Goal state: [ 0.22 -0.16 -0.44]
+2024-12-29 18:05:12,678 - INFO - Planning 1 paths in 5 seconds...
+2024-12-29 18:05:17,751 - ERROR - Error occurred for planner PRMstar: local variable 'path' referenced before assignment

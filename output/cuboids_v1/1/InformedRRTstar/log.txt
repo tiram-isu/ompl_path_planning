@@ -1,0 +1,12 @@
+2024-12-29 18:05:04,587 - INFO - Bounds set with padding of 0.1
+2024-12-29 18:05:04,587 - INFO - Bounds: -0.45, 0.45, -0.43, 0.43, -0.62, -0.25
+2024-12-29 18:05:13,236 - INFO - Planner InformedRRTstar initialized with range 0.1.
+2024-12-29 18:05:13,237 - INFO - Start state: [-0.33  0.1  -0.44], Goal state: [ 0.22 -0.16 -0.44]
+2024-12-29 18:05:13,242 - INFO - Planning 1 paths in 5 seconds...
+2024-12-29 18:05:18,495 - INFO - Path 1 added. Length: 0.95 units. Duration: 5.25 seconds.
+2024-12-29 18:05:18,496 - INFO - All paths planning completed. Total duration: 5.25 seconds.
+2024-12-29 18:05:18,497 - INFO - Average time per path: 5.25 seconds.
+2024-12-29 18:05:18,497 - INFO - Average path length of all paths: 0.95 units.
+2024-12-29 18:05:18,497 - INFO - Shortest path length: 0.95 units.
+2024-12-29 18:05:18,497 - INFO - Longest path length: 0.95 units.
+2024-12-29 18:05:18,497 - INFO - Total number of unique paths found: 1.

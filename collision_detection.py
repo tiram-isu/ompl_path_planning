@@ -49,13 +49,13 @@ class CollisionDetector:
         return result.is_collision
 
 class StateValidityChecker(ob.StateValidityChecker):
-    def __init__(self, si, mesh, camera_bounds_dimensions, constraint, max_vertical_jump):
+    def __init__(self, si, mesh, camera_bounds_dimensions, height_constraint, slope_constraint):
         """Initialize the state validity checker with the mesh, camera bounds dimensions, constraint, and max vertical jump."""
         super(StateValidityChecker, self).__init__(si)
         self.collision_detector = CollisionDetector(mesh, camera_bounds_dimensions)
-        self.constraint = constraint  # Pass in the height constraint
-        self.max_vertical_jump = max_vertical_jump  # Maximum allowed vertical jump
-        self.prev_z = None  # To store the previous state
+        self.constraint = height_constraint  # Pass in the height constraint
+        self.slope_constraint = slope_constraint  # Maximum allowed vertical jump
+        self.prev_state = None  # To store the previous state
 
     def isValid(self, state):
         """Check if the state is valid: no collision, satisfies the height constraint, and no excessive vertical jump."""
@@ -64,11 +64,10 @@ class StateValidityChecker(ob.StateValidityChecker):
         if not self.constraint(state):
             return False
 
-        # Check vertical jump (difference in z)
-        if self.prev_z is not None:
-            current_z = state[2]
-            if abs(current_z - self.prev_z) > self.max_vertical_jump:  # Check if the jump exceeds the limit
-                self.prev_z = state[2]
+        if self.prev_state is not None:
+            # Check slope constraint
+            if not self.slope_constraint(state, self.prev_state):
+                self.prev_state = [state[0], state[1], state[2]]
                 return False
 
         # Ccheck for collisions
@@ -76,7 +75,11 @@ class StateValidityChecker(ob.StateValidityChecker):
         is_colliding = self.collision_detector.is_colliding(ellipsoid_center) # TODO: add collision for whole object
         
         # Update the previous state
-        self.prev_z = state[2]
+        self.prev_state = [state[0], state[1], state[2]]
 
         return not is_colliding
+
+    def clearPrevState(self):
+        """Clear the previous state."""
+        self.prev_state = None
 

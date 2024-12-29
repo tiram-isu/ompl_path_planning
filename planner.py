@@ -41,6 +41,34 @@ class HeightConstraint(ob.Constraint):
     
     # TODO: override projection method?
 
+class SlopeConstraint(ob.Constraint):
+    def __init__(self, space, max_slope):
+        # Ambient dimension is 3 (since we're in 3D space)
+        # Co-dimension is 1 because it's a single constraint
+        super(SlopeConstraint, self).__init__(space.getDimension(), 1)
+        self.max_slope = np.tan(np.radians(max_slope)) # Convert degrees to radians
+
+    def function(self, state1, state2):
+        # Calculate the horizontal distance
+        dx = state2[0] - state1[0]
+        dy = state2[1] - state1[1]
+        dz = state2[2] - state1[2]
+        horizontal_distance = (dx**2 + dy**2)**0.5
+
+        # Avoid division by zero for horizontal distance
+        if horizontal_distance == 0 and dz != 0:
+            return False
+        elif horizontal_distance == 0 and dz == 0:
+            return True
+
+        # Check if the slope is within the allowable limit
+        slope = abs(dz) / horizontal_distance
+        return slope <= self.max_slope
+
+    def __call__(self, state1, state2):
+        # Return whether the slope between state1 and state2 is valid
+        return self.function(state1, state2)
+
 class PathPlanner:
     def __init__(self, mesh, camera_bounds, planner_type, range=0.1, state_validity_resolution=0.001, bounds_padding=0.1):
         """Initialize the PathPlanner with the given mesh and planner type."""
@@ -57,10 +85,8 @@ class PathPlanner:
         # Step 3: Set up the constraint (if any)
         vertices = np.asarray(self.mesh.vertices)
         # tree = KDTree(vertices)
-        self.constraint = HeightConstraint(self.space, vertices, camera_bounds, 0.015)
-
-        # Step 4: Combine the ambient space and the constraint into a constrained state space
-        css = ob.ProjectedStateSpace(self.space, self.constraint)
+        self.height_constraint = HeightConstraint(self.space, vertices, camera_bounds, 0.015)
+        self.slope_constraint = SlopeConstraint(self.space, 45)  # 45 degrees maximum slope
 
         # Step 5: Initialize SpaceInformation with the base state space (self.space)
         self.si = ob.SpaceInformation(self.space)  # Note: Using self.space, not the constrained space
@@ -68,7 +94,7 @@ class PathPlanner:
         self.si.setStateValidityCheckingResolution(state_validity_resolution)
 
         # Initialize the validity checker
-        self.validity_checker = StateValidityChecker(self.si, self.mesh, self.camera_bounds, self.constraint, .01)
+        self.validity_checker = StateValidityChecker(self.si, self.mesh, self.camera_bounds, self.height_constraint, self.slope_constraint)
 
         # Set the planner type dynamically
         self.planner = self.initialize_planner(planner_type, range)
@@ -111,6 +137,8 @@ class PathPlanner:
         start_state = self.create_state(start)
         goal_state = self.create_state(goal)
         logging.info(f"Start state: {start}, Goal state: {goal}")
+
+        self.validity_checker.clearPrevState()  # Clear the previous state
 
         # Check that both start and goal are valid and within bounds
         if not (self.validity_checker.isValid(start_state) and self.validity_checker.isValid(goal_state)):
@@ -224,8 +252,8 @@ class PathPlanner:
         
         # Check if the state satisfies the height constraint explicitly
         # You could also log here if the state violates the constraint
-        if coordinates[2] < self.constraint.min_height:  # z-axis or height constraint
-            logging.debug(f"State {coordinates} violates the height constraint (z < {self.constraint.min_height})")
+        if coordinates[2] < self.height_constraint.min_height:  # z-axis or height constraint
+            logging.debug(f"State {coordinates} violates the height constraint (z < {self.height_constraint.min_height})")
             return False
 
         # If both the bounds and the height constraint are satisfied, return True

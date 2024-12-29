@@ -1,0 +1,12 @@
+2024-12-29 18:05:04,626 - INFO - Bounds set with padding of 0.1
+2024-12-29 18:05:04,639 - INFO - Bounds: -0.45, 0.45, -0.43, 0.43, -0.62, -0.25
+2024-12-29 18:05:13,462 - INFO - Planner LBTRRT initialized with range 0.1.
+2024-12-29 18:05:13,463 - INFO - Start state: [-0.33  0.1  -0.44], Goal state: [ 0.22 -0.16 -0.44]
+2024-12-29 18:05:13,465 - INFO - Planning 1 paths in 5 seconds...
+2024-12-29 18:05:18,622 - INFO - Path 1 added. Length: 0.81 units. Duration: 5.16 seconds.
+2024-12-29 18:05:18,623 - INFO - All paths planning completed. Total duration: 5.16 seconds.
+2024-12-29 18:05:18,624 - INFO - Average time per path: 5.16 seconds.
+2024-12-29 18:05:18,624 - INFO - Average path length of all paths: 0.81 units.
+2024-12-29 18:05:18,624 - INFO - Shortest path length: 0.81 units.
+2024-12-29 18:05:18,624 - INFO - Longest path length: 0.81 units.
+2024-12-29 18:05:18,624 - INFO - Total number of unique paths found: 1.

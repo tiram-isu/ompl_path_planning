@@ -1,0 +1,12 @@
+2024-12-29 18:05:04,176 - INFO - Bounds set with padding of 0.1
+2024-12-29 18:05:04,176 - INFO - Bounds: -0.45, 0.45, -0.43, 0.43, -0.62, -0.25
+2024-12-29 18:05:12,089 - INFO - Planner LazyPRMstar initialized with range 0.1.
+2024-12-29 18:05:12,120 - INFO - Start state: [-0.33  0.1  -0.44], Goal state: [ 0.22 -0.16 -0.44]
+2024-12-29 18:05:12,121 - INFO - Planning 1 paths in 5 seconds...
+2024-12-29 18:05:17,265 - INFO - Path 1 added. Length: 0.92 units. Duration: 5.14 seconds.
+2024-12-29 18:05:17,280 - INFO - All paths planning completed. Total duration: 5.16 seconds.
+2024-12-29 18:05:17,281 - INFO - Average time per path: 5.16 seconds.
+2024-12-29 18:05:17,281 - INFO - Average path length of all paths: 0.92 units.
+2024-12-29 18:05:17,281 - INFO - Shortest path length: 0.92 units.
+2024-12-29 18:05:17,281 - INFO - Longest path length: 0.92 units.
+2024-12-29 18:05:17,281 - INFO - Total number of unique paths found: 1.

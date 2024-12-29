@@ -54,10 +54,10 @@ def run_planners(model, planners, planner_settings, path_settings, enable_visual
                 p.join()
             
         # Write consolidated summary log file (comparing all planners for the same number of paths)
-    #     log_utils.generate_summary_log(planners, log_root, model, path_settings)
+        log_utils.generate_summary_log(planners, log_root, model, path_settings)
 
-    #     summary_log_paths.append(f"{log_root}/summary_log.json")
-    # log_utils.generate_log_reports(summary_log_paths, f"/app/output/{model_name}/plots")
+        summary_log_paths.append(f"{log_root}/summary_log.json")
+    log_utils.generate_log_reports(summary_log_paths, f"/app/output/{model_name}/plots")
 
 if __name__ == "__main__":
     planners = [
@@ -83,7 +83,7 @@ if __name__ == "__main__":
 
     enable_visualization = True
     num_paths = [1, 10, 50, 100]
-    num_paths = [10]
+    num_paths = [100]
     max_time_per_path = 5  # maximum time in seconds for each planner process
 
     model = {"name": model_name, "mesh": mesh}
