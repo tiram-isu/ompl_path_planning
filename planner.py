@@ -7,7 +7,7 @@ from collision_detection import StateValidityChecker
 from scipy.spatial import cKDTree
 
 class HeightConstraint(ob.Constraint):
-    def __init__(self, space, vertices, camera_bounds, min_distance, max_distance):
+    def __init__(self, space, vertices, camera_bounds, padding):
         # The ambient dimension is 3 (since we're in 3D space)
         # The co-dimension is 1 because it's a single constraint (the height constraint)
         super(HeightConstraint, self).__init__(space.getDimension(), 1)
@@ -15,9 +15,10 @@ class HeightConstraint(ob.Constraint):
         self.vertices = vertices
         self.tree = cKDTree(vertices[:, :2])  # We use the first two dimensions (x, y)
         self.camera_bounds = camera_bounds
-        self.query_radius = camera_bounds[0] * 3  # Query radius for KDTree search
-        self.min_distance = min_distance
-        self.max_distance = max_distance
+        self.query_radius = camera_bounds[0] * 1.5  # Query radius for KDTree search
+        distance = camera_bounds[2]
+        self.min_distance = distance - padding
+        self.max_distance = distance + padding
 
     def function(self, state):
         # Query for all points within the radius in the x, y plane (ignoring z for now)
@@ -41,11 +42,11 @@ class HeightConstraint(ob.Constraint):
     # TODO: override projection method?
 
 class PathPlanner:
-    def __init__(self, mesh, camera_bounds, planner_type, range=0.1, state_validity_resolution=0.001, bounds_padding=0.01):
+    def __init__(self, mesh, camera_bounds, planner_type, range=0.1, state_validity_resolution=0.001, bounds_padding=0.1):
         """Initialize the PathPlanner with the given mesh and planner type."""
         self.mesh = mesh
         self.camera_bounds = camera_bounds
-        self.bounds_padding = .1  # Padding to ensure space around mesh bounds
+        self.bounds_padding = bounds_padding  # Padding to ensure space around mesh bounds
 
         # Step 1: Set up the state space
         self.space = ob.RealVectorStateSpace(3)  # 3D space / ambient state space
@@ -56,7 +57,7 @@ class PathPlanner:
         # Step 3: Set up the constraint (if any)
         vertices = np.asarray(self.mesh.vertices)
         # tree = KDTree(vertices)
-        self.constraint = HeightConstraint(self.space, vertices, camera_bounds, 0.03, 0.05)
+        self.constraint = HeightConstraint(self.space, vertices, camera_bounds, 0.015)
 
         # Step 4: Combine the ambient space and the constraint into a constrained state space
         css = ob.ProjectedStateSpace(self.space, self.constraint)
@@ -67,7 +68,7 @@ class PathPlanner:
         self.si.setStateValidityCheckingResolution(state_validity_resolution)
 
         # Initialize the validity checker
-        self.validity_checker = StateValidityChecker(self.si, self.mesh, self.camera_bounds, self.constraint)
+        self.validity_checker = StateValidityChecker(self.si, self.mesh, self.camera_bounds, self.constraint, .01)
 
         # Set the planner type dynamically
         self.planner = self.initialize_planner(planner_type, range)
@@ -77,8 +78,6 @@ class PathPlanner:
         # Extract mesh bounds from the Open3D mesh
         min_bounds = self.mesh.get_min_bound()
         max_bounds = self.mesh.get_max_bound()
-
-        print(f"Mesh bounds: Min={min_bounds}, Max={max_bounds}")
 
         # Create bounds for the ambient state space (RealVectorStateSpace)
         bounds = ob.RealVectorBounds(3)  # 3D bounds
@@ -92,9 +91,8 @@ class PathPlanner:
         self.space.setBounds(bounds)
 
         # Ensure ConstrainedSpaceInformation gets the bounds from the ambient space
-        print(f"Bounds set in ambient space: Low={list(bounds.low)}, High={list(bounds.high)}")
-        # logging.info(f"Bounds set with padding of {self.bounds_padding}")
-        # logging.info(f"Bounds: {bounds.low[0]:.2f}, {bounds.low[1]:.2f}, {bounds.low[2]:.2f} to {bounds.high[0]:.2f}, {bounds.high[1]:.2f}, {bounds.high[2]:.2f}") to {bounds.high[0]:.2f}, {bounds.high[1]:.2f}, {bounds.high[2]:.2f}")
+        logging.info(f"Bounds set with padding of {self.bounds_padding}")
+        logging.info(f"Bounds: {bounds.low[0]:.2f}, {bounds.high[0]:.2f}, {bounds.low[1]:.2f}, {bounds.high[1]:.2f}, {bounds.low[2]:.2f}, {bounds.high[2]:.2f}")
     
     def initialize_planner(self, planner_type, range):
         """Initialize the planner based on the given planner type."""
@@ -129,6 +127,7 @@ class PathPlanner:
         pdef.setStartAndGoalStates(start_state, goal_state)
         self.planner.setProblemDefinition(pdef)
 
+        print("max time: ", max_time)
         if self.planner.solve(max_time):
             path = pdef.getSolutionPath()
         return path
@@ -152,10 +151,8 @@ class PathPlanner:
 
         # Loop until desired number of paths is found
         while len(all_paths) < num_paths:
-            print("while")
             path_start_time = time.time()  # Start timing path planning duration
             path = self.plan_path(start_state, goal_state, max_time)
-            print("path: ", path)
             if path and path not in all_paths:
                 smoothed_path = self.smooth_path(path)
                 all_paths.append(smoothed_path)
