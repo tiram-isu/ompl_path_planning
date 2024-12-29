@@ -1,0 +1,10 @@
+2024-12-29 18:55:39,970 - INFO - Bounds set with padding of 0.1
+2024-12-29 18:55:39,970 - INFO - Bounds: -0.45, 0.45, -0.43, 0.43, -0.62, -0.25
+2024-12-29 18:55:41,446 - INFO - Planner LazyRRT initialized with range 0.1.
+2024-12-29 18:55:41,446 - INFO - Start state: [-0.33  0.1  -0.44], Goal state: [ 0.22 -0.16 -0.44]
+2024-12-29 18:55:41,447 - INFO - Planning 10 paths in 5 seconds...
+2024-12-29 18:55:46,315 - INFO - Path 1 added. Length: 0.84 units. Duration: 4.87 seconds.
+2024-12-29 18:55:47,770 - INFO - Path 2 added. Length: 0.85 units. Duration: 1.45 seconds.
+2024-12-29 18:55:48,190 - INFO - Path 3 added. Length: 0.83 units. Duration: 0.42 seconds.
+2024-12-29 18:55:50,109 - INFO - Path 4 added. Length: 0.87 units. Duration: 1.92 seconds.
+2024-12-29 18:55:55,184 - ERROR - Error occurred for planner LazyRRT: local variable 'path' referenced before assignment

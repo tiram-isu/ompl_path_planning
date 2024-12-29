@@ -1,0 +1,12 @@
+2024-12-29 18:51:19,902 - INFO - Bounds set with padding of 0.1
+2024-12-29 18:51:19,903 - INFO - Bounds: -0.45, 0.45, -0.43, 0.43, -0.62, -0.25
+2024-12-29 18:51:22,429 - INFO - Planner EST initialized with range 0.1.
+2024-12-29 18:51:22,430 - INFO - Start state: [-0.33  0.1  -0.44], Goal state: [ 0.22 -0.16 -0.44]
+2024-12-29 18:51:22,430 - INFO - Planning 1 paths in 5 seconds...
+2024-12-29 18:51:22,901 - INFO - Path 1 added. Length: 0.84 units. Duration: 0.47 seconds.
+2024-12-29 18:51:22,902 - INFO - All paths planning completed. Total duration: 0.47 seconds.
+2024-12-29 18:51:22,903 - INFO - Average time per path: 0.47 seconds.
+2024-12-29 18:51:22,903 - INFO - Average path length of all paths: 0.84 units.
+2024-12-29 18:51:22,903 - INFO - Shortest path length: 0.84 units.
+2024-12-29 18:51:22,903 - INFO - Longest path length: 0.84 units.
+2024-12-29 18:51:22,903 - INFO - Total number of unique paths found: 1.

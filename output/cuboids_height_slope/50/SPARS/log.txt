@@ -1,0 +1,5 @@
+2024-12-29 19:10:47,634 - INFO - Bounds set with padding of 0.1
+2024-12-29 19:10:47,634 - INFO - Bounds: -0.45, 0.45, -0.43, 0.43, -0.62, -0.25
+2024-12-29 19:10:49,102 - INFO - Planner SPARS initialized with range 0.1.
+2024-12-29 19:10:49,103 - INFO - Start state: [-0.33  0.1  -0.44], Goal state: [ 0.22 -0.16 -0.44]
+2024-12-29 19:10:49,103 - INFO - Planning 50 paths in 5 seconds...

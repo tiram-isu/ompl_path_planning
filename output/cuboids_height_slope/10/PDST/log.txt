@@ -1,0 +1,21 @@
+2024-12-29 18:56:15,676 - INFO - Bounds set with padding of 0.1
+2024-12-29 18:56:15,677 - INFO - Bounds: -0.45, 0.45, -0.43, 0.43, -0.62, -0.25
+2024-12-29 18:56:17,152 - INFO - Planner PDST initialized with range 0.1.
+2024-12-29 18:56:17,152 - INFO - Start state: [-0.33  0.1  -0.44], Goal state: [ 0.22 -0.16 -0.44]
+2024-12-29 18:56:17,153 - INFO - Planning 10 paths in 5 seconds...
+2024-12-29 18:56:17,421 - INFO - Path 1 added. Length: 1.06 units. Duration: 0.27 seconds.
+2024-12-29 18:56:17,595 - INFO - Path 2 added. Length: 0.85 units. Duration: 0.17 seconds.
+2024-12-29 18:56:17,988 - INFO - Path 3 added. Length: 1.08 units. Duration: 0.39 seconds.
+2024-12-29 18:56:18,442 - INFO - Path 4 added. Length: 0.90 units. Duration: 0.45 seconds.
+2024-12-29 18:56:18,750 - INFO - Path 5 added. Length: 0.82 units. Duration: 0.31 seconds.
+2024-12-29 18:56:19,082 - INFO - Path 6 added. Length: 1.62 units. Duration: 0.33 seconds.
+2024-12-29 18:56:19,213 - INFO - Path 7 added. Length: 0.81 units. Duration: 0.13 seconds.
+2024-12-29 18:56:19,884 - INFO - Path 8 added. Length: 1.50 units. Duration: 0.67 seconds.
+2024-12-29 18:56:20,263 - INFO - Path 9 added. Length: 0.89 units. Duration: 0.38 seconds.
+2024-12-29 18:56:20,772 - INFO - Path 10 added. Length: 1.32 units. Duration: 0.51 seconds.
+2024-12-29 18:56:20,773 - INFO - All paths planning completed. Total duration: 3.62 seconds.
+2024-12-29 18:56:20,787 - INFO - Average time per path: 0.36 seconds.
+2024-12-29 18:56:20,787 - INFO - Average path length of all paths: 1.09 units.
+2024-12-29 18:56:20,787 - INFO - Shortest path length: 0.81 units.
+2024-12-29 18:56:20,787 - INFO - Longest path length: 1.62 units.
+2024-12-29 18:56:20,787 - INFO - Total number of unique paths found: 10.
