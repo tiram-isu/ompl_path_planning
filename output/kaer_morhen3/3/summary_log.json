@@ -1,0 +1,27 @@
+{
+    "model": {
+        "name": "kaer_morhen3",
+        "camera_bounds": [
+            0.005,
+            0.005,
+            0.015
+        ],
+        "start_point": [
+            0.13,
+            -0.14,
+            -0.17
+        ],
+        "goal_point": [
+            -0.11,
+            0.28,
+            -0.16
+        ],
+        "max_time_per_path": 5
+    },
+    "planners": {
+        "RRT": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner RRT: cannot unpack non-iterable NoneType object"
+        }
+    }
+}

@@ -1,0 +1,14 @@
+2025-01-10 13:42:56,049 - INFO - Bounds set with padding of 1
+2025-01-10 13:42:56,050 - INFO - Bounds: -22.47, 33.44, -5.40, 23.36, -33.00, 22.33
+2025-01-10 13:43:19,639 - INFO - Planner PRM initialized with range 0.01.
+2025-01-10 13:43:19,640 - INFO - Start state: [ 3.59 -0.96 10.  ], Goal state: [ 0.46  0.25 10.  ]
+2025-01-10 13:43:19,640 - INFO - Planning 3 paths in 5 seconds...
+2025-01-10 13:43:19,751 - INFO - Path 1 added. Length: 20.24 units. Duration: 0.11 seconds.
+2025-01-10 13:43:19,886 - INFO - Path 2 added. Length: 27.18 units. Duration: 0.14 seconds.
+2025-01-10 13:43:20,007 - INFO - Path 3 added. Length: 37.78 units. Duration: 0.12 seconds.
+2025-01-10 13:43:20,007 - INFO - All paths planning completed. Total duration: 0.37 seconds.
+2025-01-10 13:43:20,008 - INFO - Average time per path: 0.12 seconds.
+2025-01-10 13:43:20,008 - INFO - Average path length of all paths: 28.40 units.
+2025-01-10 13:43:20,008 - INFO - Shortest path length: 20.24 units.
+2025-01-10 13:43:20,008 - INFO - Longest path length: 37.78 units.
+2025-01-10 13:43:20,008 - INFO - Total number of unique paths found: 3.

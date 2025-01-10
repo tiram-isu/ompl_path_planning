@@ -69,21 +69,21 @@ if __name__ == "__main__":
         'CForest', 'APS', 'SyCLoP', 'LTLPlanner', 'SPQRstar'
     ]
 
-    planners = ['PRM']
+    # planners = ['PRM']
 
     scale = 1.0
-    model_name = "cuboids"
+    model_name = "fuwa_v2"
     mesh = o3d.io.read_triangle_mesh(f"/app/models/{model_name}.obj")
 
-    start = np.array([-0.33, 0.10, -0.44]) * scale
-    goal = np.array([0.22, -0.16, -0.44]) * scale
-    planner_range = 0.1 * scale
-    state_validity_resolution = 0.01 * scale
-    camera_bounds = tuple(dim * scale for dim in (0.005, 0.005, 0.02))
+    start = np.array([3.59, -0.96, -0.4]) * scale
+    goal = np.array([0.46, 0.25, -0.3]) * scale
+    planner_range = 0.01 * scale
+    state_validity_resolution = 0.005 * scale
+    camera_bounds = tuple(dim * scale for dim in (0.04, 0.04, 0.04))
 
-    enable_visualization = True
+    enable_visualization = False
     num_paths = [1, 10, 50, 100]
-    num_paths = [100]
+    # num_paths = [3]
     max_time_per_path = 5  # maximum time in seconds for each planner process
 
     model = {"name": model_name, "mesh": mesh}

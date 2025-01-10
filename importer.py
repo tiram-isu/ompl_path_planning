@@ -14,7 +14,6 @@ def load_gaussians_from_nerfstudio_ckpt(ckpt_path, device="cuda"):
         "_model.gauss_params.quats",
         "_model.gauss_params.opacities",
         "_model.gauss_params.features_dc",
-        "_model.gauss_params.features_rest"
     ]
     gaussian_data = {
         key.split(".")[-1]: gauss_params[key].cpu().numpy()
@@ -50,6 +49,9 @@ def load_gaussians_from_ply(input_ply_file):
         for _ in range(vertex_count):
             for prop in vertex_properties:
                 fmt, size = property_format_and_size(prop, endian_char)
+                if fmt is None:
+                    offset += size  # Skip unsupported property
+                    continue
                 value = struct.unpack(fmt, body[offset:offset + size])[0]
                 offset += size
                 data[prop].append(value)
@@ -80,23 +82,27 @@ def parse_ply_header(header):
 def property_format_and_size(property_name, endian_char):
     """
     Get the struct format and size for a given .ply property name.
+    Returns None for unsupported properties.
     """
-    if property_name.startswith(("f_dc_", "f_rest_", "scale_", "rot_", "opacity", "x", "y", "z", "nx", "ny", "nz")):
+    if property_name.startswith(("f_dc_", "scale_", "rot_", "opacity", "x", "y", "z", "nx", "ny", "nz")):
         return f"{endian_char}f", 4  # All are floats
-    raise ValueError(f"Unsupported property: {property_name}")
+    return None, 4  # Skip unsupported properties with size 4 bytes
 
 def structure_gaussian_data(data):
     """
     Structure raw .ply data into a dictionary of Gaussian parameters.
     """
-    return {
-        "means": np.column_stack((data["x"], data["y"], data["z"])),
-        "scales": np.column_stack((data["scale_0"], data["scale_1"], data["scale_2"])),
-        "quats": np.column_stack((data["rot_0"], data["rot_1"], data["rot_2"], data["rot_3"])),
-        "opacities": np.array(data["opacity"]),
-        "features_dc": np.column_stack([data[f"f_dc_{i}"] for i in range(3)]),
-        "features_rest": np.column_stack([data[f"f_rest_{i}"] for i in range(40)])  # Assumes f_rest_0 to f_rest_39
-    }
+    try:
+        return {
+            "means": np.column_stack((data["x"], data["y"], data["z"])),
+            "scales": np.column_stack((data["scale_0"], data["scale_1"], data["scale_2"])),
+            "quats": np.column_stack((data["rot_0"], data["rot_1"], data["rot_2"], data["rot_3"])),
+            "opacities": np.array(data["opacity"]),
+            "features_dc": np.column_stack([data[f"f_dc_{i}"] for i in range(3)]),
+        }
+    except Exception as e:
+        print(f"Error structuring Gaussian data: {e}")
+        return None
 
 def convert_checkpoint_to_txt(checkpoint_path, output_txt_path):
     """
@@ -156,6 +162,9 @@ def parse_binary_ply(header, body):
         instance_data = []
         for prop in vertex_properties:
             fmt, size = property_format_and_size(prop, endian_char)
+            if fmt is None:
+                offset += size  # Skip unsupported property
+                continue
             value = struct.unpack(fmt, body[offset:offset + size])[0]
             offset += size
             instance_data.append(value)

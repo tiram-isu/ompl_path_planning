@@ -1,0 +1,16 @@
+2025-01-05 14:42:18,581 - INFO - Bounds set with padding of 0.1
+2025-01-05 14:42:18,581 - INFO - Bounds: -1.90, 1.50, -1.65, 1.95, -1.99, 0.33
+2025-01-05 14:42:40,481 - INFO - Planner RRT initialized with range 0.05.
+2025-01-05 14:42:40,482 - INFO - Start state: [ 0.13 -0.14 -0.17], Goal state: [-0.11  0.28 -0.16]
+2025-01-05 14:42:40,484 - INFO - Planning 5 paths in 5 seconds...
+2025-01-05 14:42:41,106 - INFO - Path 1 added. Length: 0.57 units. Duration: 0.62 seconds.
+2025-01-05 14:42:41,503 - INFO - Path 2 added. Length: 0.53 units. Duration: 0.40 seconds.
+2025-01-05 14:42:42,009 - INFO - Path 3 added. Length: 0.60 units. Duration: 0.50 seconds.
+2025-01-05 14:42:42,915 - INFO - Path 4 added. Length: 0.56 units. Duration: 0.90 seconds.
+2025-01-05 14:42:43,848 - INFO - Path 5 added. Length: 0.63 units. Duration: 0.93 seconds.
+2025-01-05 14:42:43,849 - INFO - All paths planning completed. Total duration: 3.37 seconds.
+2025-01-05 14:42:43,856 - INFO - Average time per path: 0.67 seconds.
+2025-01-05 14:42:43,856 - INFO - Average path length of all paths: 0.58 units.
+2025-01-05 14:42:43,856 - INFO - Shortest path length: 0.53 units.
+2025-01-05 14:42:43,856 - INFO - Longest path length: 0.63 units.
+2025-01-05 14:42:43,856 - INFO - Total number of unique paths found: 5.

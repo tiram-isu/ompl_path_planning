@@ -15,7 +15,7 @@ class HeightConstraint(ob.Constraint):
         self.vertices = vertices
         self.tree = cKDTree(vertices[:, :2])  # We use the first two dimensions (x, y)
         self.camera_bounds = camera_bounds
-        self.query_radius = camera_bounds[0] * 1.5  # Query radius for KDTree search
+        self.query_radius = camera_bounds[0] * 3  # Query radius for KDTree search
         distance = camera_bounds[2]
         self.min_distance = distance - padding
         self.max_distance = distance + padding
@@ -85,7 +85,7 @@ class PathPlanner:
         # Step 3: Set up the constraint (if any)
         vertices = np.asarray(self.mesh.vertices)
         # tree = KDTree(vertices)
-        self.height_constraint = HeightConstraint(self.space, vertices, camera_bounds, 0.015)
+        self.height_constraint = HeightConstraint(self.space, vertices, camera_bounds, 0.1)
         self.slope_constraint = SlopeConstraint(self.space, 45)  # 45 degrees maximum slope
 
         # Step 5: Initialize SpaceInformation with the base state space (self.space)
@@ -158,7 +158,9 @@ class PathPlanner:
         print("max time: ", max_time)
         if self.planner.solve(max_time):
             path = pdef.getSolutionPath()
-        return path
+            return path
+        else:
+            return None
 
     def plan_multiple_paths(self, num_paths, path_settings):
         """Plan multiple paths between the given start and goal points."""
@@ -194,6 +196,7 @@ class PathPlanner:
         # Log total planning duration and average time per path
         total_duration = time.time() - total_start_time
         logging.info(f"All paths planning completed. Total duration: {total_duration:.2f} seconds.")
+        print(f"All paths planning completed. Total duration: {total_duration:.2f} seconds.")
 
         # Calculate and log average path length, shortest and longest path lengths if paths were found
         if all_paths:

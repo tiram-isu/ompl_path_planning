@@ -61,14 +61,14 @@ class StateValidityChecker(ob.StateValidityChecker):
         """Check if the state is valid: no collision, satisfies the height constraint, and no excessive vertical jump."""
 
         # Check height constraint
-        if not self.constraint(state):
-            return False
+        # if not self.constraint(state):
+        #     return False
 
-        if self.prev_state is not None:
-            # Check slope constraint
-            if not self.slope_constraint(state, self.prev_state):
-                self.prev_state = [state[0], state[1], state[2]]
-                return False
+        # if self.prev_state is not None:
+        #     # Check slope constraint
+        #     if not self.slope_constraint(state, self.prev_state):
+        #         self.prev_state = [state[0], state[1], state[2]]
+        #         return False
 
         # Ccheck for collisions
         ellipsoid_center = np.array([state[0], state[1], state[2]])

@@ -1,0 +1,6 @@
+2025-01-05 17:56:42,776 - INFO - Bounds set with padding of 0.1
+2025-01-05 17:56:42,777 - INFO - Bounds: -0.69, 0.74, -5.73, 0.41, -0.74, 0.81
+2025-01-05 17:58:06,629 - INFO - Planner RRT initialized with range 0.1.
+2025-01-05 17:58:06,631 - INFO - Start state: [ 0.13 -0.14 -0.17], Goal state: [-0.11  0.28 -0.16]
+2025-01-05 17:58:06,655 - WARNING - Start or Goal state is invalid or out of bounds!
+2025-01-05 17:58:06,656 - ERROR - Error occurred for planner RRT: cannot unpack non-iterable NoneType object

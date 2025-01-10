@@ -1,0 +1,5 @@
+{
+    "num_cuboids": 246978,
+    "opacity_skipped_count": 585763,
+    "scale_skipped_count": 0
+}

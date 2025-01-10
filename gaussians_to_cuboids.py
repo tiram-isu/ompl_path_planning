@@ -70,9 +70,9 @@ def write_log_file(output_path, data):
         json.dump(data, f, indent=4)
 
 
-def save_gaussians_as_ellipsoids(gaussian_data, output_path, opacity_threshold=0, scale_threshold=0):
+def save_gaussians_as_ellipsoids(gaussian_data, output_path, base_scale, padding_factor, opacity_threshold=0, scale_threshold=0):
     """Convert Gaussians to cuboids and save as an OBJ file."""
-    output_dir = os.path.join(output_path, f"{opacity_threshold}_{scale_threshold}/")
+    output_dir = os.path.join(output_path, f"{base_scale}_{padding_factor}_{opacity_threshold}_{scale_threshold}/")
     os.makedirs(output_dir, exist_ok=True)
     output_file = os.path.join(output_dir, "cuboids.obj")
 
@@ -92,6 +92,8 @@ def save_gaussians_as_ellipsoids(gaussian_data, output_path, opacity_threshold=0
     mesh_list = []
     opacity_skipped, scale_skipped = 0, 0
 
+    starting_scale = base_scale / padding_factor
+
     for i, (mean, scale, quat, color, opacity) in enumerate(zip(means, scales, quats, normalized_colors, opacities)):
         if opacity < opacity_threshold:
             opacity_skipped += 1
@@ -101,7 +103,7 @@ def save_gaussians_as_ellipsoids(gaussian_data, output_path, opacity_threshold=0
             scale_skipped += 1
             continue
 
-        cuboid = o3d.geometry.TriangleMesh.create_box(width=0.001, height=0.001, depth=0.001)
+        cuboid = o3d.geometry.TriangleMesh.create_box(width=starting_scale, height=starting_scale, depth=starting_scale)
         cuboid.transform(np.diag([*scale, 1.0]))
         cuboid.rotate(R.from_quat(quat).as_matrix(), center=(0, 0, 0))
         cuboid.translate(mean)
@@ -131,14 +133,16 @@ def save_gaussians_as_ellipsoids(gaussian_data, output_path, opacity_threshold=0
 
 
 if __name__ == '__main__':
-    ckpt_path = "/app/models/stonehenge_colmap_aligned.ckpt"
-    ply_path = "/app/models/stonehenge_colmap_aligned.ply"
-    output_path = "/app/gs_models/"
+    ckpt_path = "/app/models/alameda_v3.ckpt"
+    ply_path = "/app/models/fuwa.ply"
+    output_path = "/app/gs_models/fuwa/"
     device = "cuda"
 
-    opacity_threshold = 0.7
+    opacity_threshold = 0.9
     scale_threshold = 0
+    base_scale = 0.01 # nerfstudio
+    padding_factor = 1
 
     # gaussian_data = importer.load_gaussians_from_nerfstudio_ckpt(ckpt_path, device=device)
     gaussian_data = importer.load_gaussians_from_ply(ply_path)
-    save_gaussians_as_ellipsoids(gaussian_data, output_path, opacity_threshold, scale_threshold)
+    save_gaussians_as_ellipsoids(gaussian_data, output_path, base_scale, padding_factor, opacity_threshold, scale_threshold)

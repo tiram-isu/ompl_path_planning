@@ -2,8 +2,8 @@
     "model": {
         "name": "cuboids",
         "camera_bounds": [
-            0.005,
-            0.005,
+            0.0025,
+            0.0025,
             0.02
         ],
         "start_point": [
@@ -21,63 +21,63 @@
     "planners": {
         "RRT": {
             "status": "Successful",
-            "total_time_taken": 0.91,
+            "total_time_taken": 0.84,
             "num_paths": 10,
-            "average_path_length": 0.9029999999999999,
-            "shortest_path_length": 0.82,
-            "longest_path_length": 1.06,
-            "path_length_std_dev": 0.08579627031520662,
-            "average_time_per_path": 0.092,
-            "time_per_path_std_dev": 0.04166533331199932,
+            "average_path_length": 0.884,
+            "shortest_path_length": 0.79,
+            "longest_path_length": 1.03,
+            "path_length_std_dev": 0.06974238309665079,
+            "average_time_per_path": 0.08299999999999999,
+            "time_per_path_std_dev": 0.04879549159502341,
             "paths": [
                 {
                     "id": 0,
-                    "length": 0.85,
-                    "duration": 0.12
+                    "length": 0.82,
+                    "duration": 0.1
                 },
                 {
                     "id": 1,
-                    "length": 0.82,
-                    "duration": 0.08
+                    "length": 0.79,
+                    "duration": 0.03
                 },
                 {
                     "id": 2,
-                    "length": 0.88,
-                    "duration": 0.09
-                },
-                {
-                    "id": 3,
-                    "length": 0.95,
-                    "duration": 0.08
-                },
-                {
-                    "id": 4,
-                    "length": 0.87,
-                    "duration": 0.09
-                },
-                {
-                    "id": 5,
-                    "length": 1.06,
-                    "duration": 0.2
-                },
-                {
-                    "id": 6,
                     "length": 0.82,
-                    "duration": 0.05
-                },
-                {
-                    "id": 7,
-                    "length": 1.06,
-                    "duration": 0.08
-                },
-                {
-                    "id": 8,
-                    "length": 0.87,
                     "duration": 0.04
                 },
                 {
+                    "id": 3,
+                    "length": 0.9,
+                    "duration": 0.04
+                },
+                {
+                    "id": 4,
+                    "length": 0.97,
+                    "duration": 0.06
+                },
+                {
+                    "id": 5,
+                    "length": 0.87,
+                    "duration": 0.18
+                },
+                {
+                    "id": 6,
+                    "length": 0.92,
+                    "duration": 0.16
+                },
+                {
+                    "id": 7,
+                    "length": 0.86,
+                    "duration": 0.05
+                },
+                {
+                    "id": 8,
+                    "length": 0.86,
+                    "duration": 0.08
+                },
+                {
                     "id": 9,
-                    "length": 0.85,
+                    "length": 1.03,
                     "duration": 0.09
                 }
             ]
