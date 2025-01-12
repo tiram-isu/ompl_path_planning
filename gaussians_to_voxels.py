@@ -7,6 +7,7 @@ import os
 import matplotlib.pyplot as plt
 import importer
 
+# Helper Functions
 def normalize_colors(features_dc):
     """Normalize feature values to [0, 1] range."""
     min_val, max_val = np.min(features_dc), np.max(features_dc)
@@ -16,19 +17,37 @@ def sigmoid(x):
     """Compute the sigmoid of an array."""
     return 1 / (1 + np.exp(-x))
 
-def create_histogram(data, output_path, x_label, title):
-    """Create and save a histogram."""
+def create_histogram(data, threshold, output_path, x_label, title):
+    """
+    Create and save a histogram with a vertical line indicating the threshold.
+
+    :param data: The data to plot in the histogram.
+    :param threshold: The threshold value to indicate on the histogram.
+    :param output_path: Path to save the histogram image.
+    :param x_label: Label for the x-axis.
+    :param title: Title of the histogram.
+    """
     plt.hist(
         data,
         bins=40,
         weights=np.ones_like(data) / len(data) * 100,  # Normalize to percentage
         edgecolor='black'
     )
+    # Add a vertical line at the threshold
+    plt.axvline(x=threshold, color='red', linestyle='--', linewidth=1, label=f"Threshold: {threshold}")
+    
+    # Add labels and title
     plt.xlabel(x_label)
     plt.ylabel('Percentage (%)')
     plt.title(title)
+    
+    # Add a legend for the threshold line
+    plt.legend()
+    
+    # Save the plot
     plt.savefig(output_path)
     plt.close()
+
 
 def save_screenshots(mesh, output_path):
     """Save screenshots of the mesh from top and 45-degree angles."""
@@ -71,12 +90,11 @@ def calculate_bounding_box(means):
     max_point = np.max(means_array, axis=0)  # Maximum x, y, z
     return min_point, max_point
 
-def determine_voxel_resolution(bounding_box_min, bounding_box_max, average_scale):
-    """Determine the voxel resolution based on the bounding box and average Gaussian scale."""
-    bounding_box_size = bounding_box_max - bounding_box_min
-    max_length = np.max(bounding_box_size)  # Maximum side length of the bounding box
-    voxel_resolution = int(np.ceil(max_length / average_scale))  # Number of voxels along the longest side
-    return voxel_resolution
+def calculate_scene_dimensions(means):
+    """Calculate the scene dimensions based on the Gaussian means."""
+    min_point, max_point = calculate_bounding_box(means)
+    scene_dimensions = max_point - min_point
+    return scene_dimensions
 
 def calculate_average_scale(scales, scale_factor):
     """Calculate the average scale of all Gaussians."""
@@ -92,80 +110,113 @@ def calculate_average_scale(scales, scale_factor):
     average_scale = np.cbrt(average_volume)  # Average side length of the ellipsoid
     return average_scale
 
-def determine_voxel_resolution(bounding_box_min, bounding_box_max, average_scale):
-    """Determine the voxel resolution based on the bounding box and average Gaussian scale."""
-    bounding_box_size = bounding_box_max - bounding_box_min
-    max_length = np.max(bounding_box_size)  # Maximum side length of the bounding box
-    voxel_resolution = int(np.ceil(max_length / average_scale))  # Number of voxels along the longest side
-    return voxel_resolution
 
-def save_voxels_as_cubes(voxel_grid, output_dir, voxel_colors, voxel_size=0.01):
-    """Convert the voxel grid to individual cubes and save as .ply file."""
-    # Convert each voxel to a cube mesh
-    voxel_points = []
-    for voxel in voxel_grid.get_voxels():
-        voxel_center = voxel.grid_index  # Get the position of the voxel
-        voxel_points.append(voxel_center)
+class VoxelGrid:
+    def __init__(self, scene_dimensions, voxel_size, bounding_box_min):
+        """
+        Initialize the voxel grid.
 
-    # Create small cubes (voxels) at each voxel position
-    voxel_meshes = []
-    for point, color in zip(voxel_points, voxel_colors):
-        voxel_cube = o3d.geometry.TriangleMesh.create_box(width=voxel_size, height=voxel_size, depth=voxel_size)
-        voxel_cube.translate(np.array(point) * voxel_size)  # Scale to the correct position
-        voxel_cube.paint_uniform_color(color)  # Set the color of the cube
-        voxel_meshes.append(voxel_cube)
+        :param scene_dimensions: (dim_x, dim_y, dim_z), dimensions of the scene.
+        :param voxel_size: Size of each voxel.
+        :param bounding_box_min: Minimum bounding box point (x, y, z).
+        """
+        self.scene_dimensions = np.array(scene_dimensions)
+        self.voxel_size = voxel_size
+        self.bounding_box_min = np.array(bounding_box_min)
+        self.grid_dims = self.calculate_grid_dimensions()
+        self.grid = np.zeros(self.grid_dims, dtype=np.bool_)
+    
+    def calculate_grid_dimensions(self):
+        """Calculate the voxel grid dimensions."""
+        return tuple(np.ceil(self.scene_dimensions / self.voxel_size).astype(int))
+    
+    def world_to_index(self, x, y, z):
+        """
+        Convert world coordinates to voxel grid indices.
 
-    # Combine all the cubes into a single mesh
-    combined_mesh = voxel_meshes[0]
-    for voxel in voxel_meshes[1:]:
-        combined_mesh += voxel
+        :param x: X coordinate in world space.
+        :param y: Y coordinate in world space.
+        :param z: Z coordinate in world space.
+        :return: Tuple of indices (i, j, k) or None if out of bounds.
+        """
+        voxel_indices = np.floor((np.array([x, y, z]) - self.bounding_box_min) / self.voxel_size).astype(int)
+        if np.all((voxel_indices >= 0) & (voxel_indices < self.grid_dims)):
+            return tuple(voxel_indices)
+        return None
+    
+    def mark_occupied(self, x, y, z):
+        """
+        Mark a voxel as occupied based on world coordinates.
 
-    # Save the combined mesh as a .ply file
-    output_file = os.path.join(output_dir, "voxels_cubes.ply")
-    o3d.io.write_triangle_mesh(output_file, combined_mesh)
-    print(f"Voxels as cubes saved to {output_file}")
+        :param x: X coordinate in world space.
+        :param y: Y coordinate in world space.
+        :param z: Z coordinate in world space.
+        """
+        index = self.world_to_index(x, y, z)
+        if index:
+            self.grid[index] = True
+    
+    def voxel_to_ply(self, colors):
+        """
+        Export the voxel grid to a .ply file.
 
-def save_gaussians_as_voxels(gaussian_data, output_path, scale_factor, manual_voxel_resolution=None, opacity_threshold=0, scale_threshold=0):
-    """Convert Gaussians to a voxel grid and save as a file."""
-    # Dynamically calculate voxel resolution if not manually specified
+        :param ply_filename: Path to save the .ply file.
+        """
+        mesh = o3d.geometry.TriangleMesh()
+        i = 0
+        
+        for x in range(self.grid_dims[0]):
+            for y in range(self.grid_dims[1]):
+                for z in range(self.grid_dims[2]):
+                    if self.grid[x, y, z]:
+                        # Create a cube for each occupied voxel
+                        voxel_center = self.bounding_box_min + np.array([x, y, z]) * self.voxel_size
+                        cube = o3d.geometry.TriangleMesh.create_box(self.voxel_size, self.voxel_size, self.voxel_size)
+                        cube.translate(voxel_center - np.array([self.voxel_size / 2] * 3))
+                        cube.paint_uniform_color(colors[x, y, z])
+                        mesh += cube
+                        i += 1
+
+        return mesh
+    
+    def save_voxel_grid_as_numpy(self, output_dir):
+        """Save the voxel grid as a .npy file."""
+        output_file = os.path.join(output_dir, "voxel_grid.npy")
+        np.save(output_file, self.grid)
+        print(f"Voxel grid saved as {output_file}")
+
+
+def save_gaussians_as_voxels(gaussian_data, output_path, scale_factor, manual_voxel_resolution=None, voxel_resolution_factor=1, opacity_threshold=0, scale_threshold=0, enable_logging=True):
+    # Get Gaussian data
     means = gaussian_data["means"]
     scales = gaussian_data["scales"]
-
-    # Step 1: Calculate the bounding box
-    bounding_box_min, bounding_box_max = calculate_bounding_box(means)
-
-    # Step 2: Calculate the average Gaussian scale
-    average_scale = calculate_average_scale(scales, scale_factor)
-
-    # Step 3: Determine voxel resolution
-    if manual_voxel_resolution is not None:
-        voxel_resolution = manual_voxel_resolution
-    else:
-        voxel_resolution = determine_voxel_resolution(bounding_box_min, bounding_box_max, average_scale)
-    print(f"Voxel resolution: {voxel_resolution}")
-
-    output_dir = os.path.join(output_path, f"voxels_{voxel_resolution}_{opacity_threshold}_{scale_threshold}/")
-    os.makedirs(output_dir, exist_ok=True)
-    output_file = os.path.join(output_dir, "voxels.ply")
-
-    features_dc = gaussian_data["features_dc"]
     opacities = sigmoid(gaussian_data["opacities"])
+    colors = normalize_colors(gaussian_data["features_dc"])
 
-    normalized_colors = normalize_colors(features_dc)
     volumes = np.abs([np.prod(scale) for scale in scales])
     volume_threshold = np.sum(volumes) * scale_threshold
 
-    create_histogram(opacities, os.path.join(output_dir, "opacities_histogram.png"), "Opacity Value", "Histogram of Opacity Values")
-    create_histogram(volumes, os.path.join(output_dir, "volumes_histogram.png"), "Volume Value", "Histogram of Volume Values")
+    dim_x, dim_y, dim_z = calculate_scene_dimensions(means)
+    bounding_box_min, _ = calculate_bounding_box(means)
 
-    voxel_size = 1.0 / voxel_resolution
-    voxel_points = []
-    voxel_colors = []
+    if manual_voxel_resolution is not None:
+        voxel_size = np.max(dim_x, dim_y, dim_z) / manual_voxel_resolution
+    else:
+        voxel_size = calculate_average_scale(scales, scale_factor) / voxel_resolution_factor
+
+    # Initialize the VoxelGrid
+    voxel_grid = VoxelGrid((dim_x, dim_y, dim_z), voxel_size, bounding_box_min)
+   
+    # Create output directory
+    output_dir = os.path.join(output_path, f"voxels_{voxel_grid.grid_dims[0]}x{voxel_grid.grid_dims[1]}x{voxel_grid.grid_dims[2]}_{opacity_threshold}_{scale_threshold}/")
+    os.makedirs(output_dir, exist_ok=True)
 
     opacity_skipped, scale_skipped = 0, 0
-
-    for i, (mean, scale, color, opacity) in enumerate(zip(means, scales, normalized_colors, opacities)):
-        if opacity < opacity_threshold:
+    if enable_logging:
+        voxel_colors = np.zeros((*voxel_grid.grid_dims, 3))  # RGB color array for each voxel (shape: (dim_x, dim_y, dim_z, 3))
+    # Mark occupied voxels if they meet the opacity and scale thresholds
+    for i in range(len(means)):
+        if opacities[i] < opacity_threshold:
             opacity_skipped += 1
             continue
 
@@ -173,78 +224,29 @@ def save_gaussians_as_voxels(gaussian_data, output_path, scale_factor, manual_vo
             scale_skipped += 1
             continue
 
-        # Add a voxel at the Gaussian's position
-        voxel_points.append(mean)
-        voxel_colors.append(color)
+        voxel_grid.mark_occupied(means[i][0], means[i][1], means[i][2])
 
-    if not voxel_points:
-        print("No voxels created. Adjust thresholds or check input data.")
-        return
+        if enable_logging:
+            index = voxel_grid.world_to_index(means[i][0], means[i][1], means[i][2])
+            voxel_colors[index] = colors[i]  # Ensure that colors[i] is an RGB value (3 elements)
 
-    # Create Open3D PointCloud and then convert to VoxelGrid
-    pcd = o3d.geometry.PointCloud()
-    pcd.points = o3d.utility.Vector3dVector(voxel_points)
-    pcd.colors = o3d.utility.Vector3dVector(voxel_colors)
+    voxel_grid.save_voxel_grid_as_numpy(output_dir)
 
-    points = np.asarray(pcd.points)  # Convert point cloud to a NumPy array
-    # Find the smallest x and y values across all points
-    min_x = np.min(points[:, 0])  # Smallest x value
-    min_y = np.min(points[:, 1])  # Smallest y value
-    min_z = np.min(points[:, 2])  # Smallest z value
+    if enable_logging:
+        # Create histograms of opacity and volume values TODO: add threshold
+        create_histogram(opacities, opacity_threshold, os.path.join(output_dir, "opacities_histogram.png"), "Opacity Value", "Histogram of Opacity Values")
+        create_histogram(volumes, volume_threshold, os.path.join(output_dir, "volumes_histogram.png"), "Volume Value", "Histogram of Volume Values")
 
-    # Create the VoxelGrid
-    voxel_grid = o3d.geometry.VoxelGrid.create_from_point_cloud(
-        input=pcd,
-        voxel_size=voxel_size
-    )
+        # Save the voxel grid as a .ply file
+        voxel_mesh = voxel_grid.voxel_to_ply(voxel_colors)  # Pass voxel_colors with RGB values
 
-    translation = np.array([min_x, min_y, min_z]) # align to Gaussian positions
+        # Save the combined mesh
+        ply_filename = os.path.join(output_dir, "voxels.ply")
+        o3d.io.write_triangle_mesh(ply_filename, voxel_mesh)
+        print(f"Voxel grid saved to {ply_filename}")
 
-    # Extract the existing voxels, their grid indices, and voxel size
-    voxels = voxel_grid.get_voxels()
-    voxel_size = voxel_grid.voxel_size
-
-    # Create a new VoxelGrid
-    corrected_voxel_grid = o3d.geometry.VoxelGrid()
-    corrected_voxel_grid.voxel_size = voxel_size
-
-    # Translate each voxel and add it to the new VoxelGrid
-    for voxel in voxels:
-        # Translate the grid index directly
-        new_grid_index = voxel.grid_index + translation / voxel_size  # Apply translation in voxel grid space
-        new_grid_index = np.round(new_grid_index).astype(int)  # Ensure grid indices are integers
-
-        # Create a new voxel and add it to the new grid
-        new_voxel = o3d.geometry.Voxel(new_grid_index)
-        corrected_voxel_grid.add_voxel(new_voxel)
-
-
-    # Save the corrected voxel grid
-    o3d.io.write_voxel_grid(output_file, corrected_voxel_grid)
-    print(f"Voxels saved to {output_file}")
-
-    save_voxels_as_cubes(corrected_voxel_grid, output_dir, voxel_colors, voxel_size)
-
-    # Visualization
-    vis = o3d.visualization.Visualizer()
-    vis.create_window(visible=False, width=2560, height=1440)
-    vis.add_geometry(corrected_voxel_grid)
-
-    def capture_image(filename):
-        vis.poll_events()
-        vis.update_renderer()
-        image = np.asarray(vis.capture_screen_float_buffer()) * 255
-        o3d.io.write_image(filename, o3d.geometry.Image(image.astype(np.uint8)))
-
-    capture_image(output_dir + "screenshot_top.png")
-    vis.destroy_window()
-
-    write_log_file(output_dir, {
-        "voxel_resolution": voxel_resolution,
-        "num_voxels": len(voxel_grid.get_voxels()),
-        "opacity_skipped_count": opacity_skipped,
-        "scale_skipped_count": scale_skipped
-    })
+        # Save screenshots of the voxel grid
+        save_screenshots(voxel_mesh, output_dir) # TODO: currently broken
 
 
 if __name__ == '__main__':
@@ -255,9 +257,11 @@ if __name__ == '__main__':
 
     opacity_threshold = 0.9
     scale_threshold = 0
-    manual_voxel_resolution = 180  # Set a number to use manual resolution, or None for dynamic resolution
+    manual_voxel_resolution = None  # Set a number to use manual resolution, or None for dynamic resolution
+    voxel_resolution_factor = 1.5  # Increase this value to increase the voxel resolution
     scale_factor = 0.001  # nerfstudio
+    enable_logging = True
 
     # gaussian_data = importer.load_gaussians_from_nerfstudio_ckpt(ckpt_path, device=device)
     gaussian_data = importer.load_gaussians_from_ply(ply_path)
-    save_gaussians_as_voxels(gaussian_data, output_path, scale_factor, manual_voxel_resolution, opacity_threshold, scale_threshold)
+    save_gaussians_as_voxels(gaussian_data, output_path, scale_factor, manual_voxel_resolution, voxel_resolution_factor, opacity_threshold, scale_threshold, enable_logging)
