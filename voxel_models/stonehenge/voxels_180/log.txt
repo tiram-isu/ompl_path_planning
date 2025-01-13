@@ -1,6 +1,0 @@
-{
-    "voxel_resolution": 180,
-    "num_voxels": 16067,
-    "opacity_skipped_count": 21204,
-    "scale_skipped_count": 0
-}

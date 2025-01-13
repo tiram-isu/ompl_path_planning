@@ -1,8 +1,0 @@
-2024-12-29 18:53:54,162 - INFO - Bounds set with padding of 0.1
-2024-12-29 18:53:54,162 - INFO - Bounds: -0.45, 0.45, -0.43, 0.43, -0.62, -0.25
-2024-12-29 18:53:55,656 - INFO - Planner LazyPRMstar initialized with range 0.1.
-2024-12-29 18:53:55,657 - INFO - Start state: [-0.33  0.1  -0.44], Goal state: [ 0.22 -0.16 -0.44]
-2024-12-29 18:53:55,657 - INFO - Planning 10 paths in 5 seconds...
-2024-12-29 18:54:00,712 - INFO - Path 1 added. Length: 0.80 units. Duration: 5.05 seconds.
-2024-12-29 18:54:05,766 - INFO - Path 2 added. Length: 0.93 units. Duration: 5.05 seconds.
-2024-12-29 18:54:10,788 - ERROR - Error occurred for planner LazyPRMstar: local variable 'path' referenced before assignment

@@ -6,6 +6,7 @@ import json
 import os
 import matplotlib.pyplot as plt
 import importer
+from voxel_grid import VoxelGrid
 
 # Helper Functions
 def normalize_colors(features_dc):
@@ -110,82 +111,6 @@ def calculate_average_scale(scales, scale_factor):
     average_scale = np.cbrt(average_volume)  # Average side length of the ellipsoid
     return average_scale
 
-
-class VoxelGrid:
-    def __init__(self, scene_dimensions, voxel_size, bounding_box_min):
-        """
-        Initialize the voxel grid.
-
-        :param scene_dimensions: (dim_x, dim_y, dim_z), dimensions of the scene.
-        :param voxel_size: Size of each voxel.
-        :param bounding_box_min: Minimum bounding box point (x, y, z).
-        """
-        self.scene_dimensions = np.array(scene_dimensions)
-        self.voxel_size = voxel_size
-        self.bounding_box_min = np.array(bounding_box_min)
-        self.grid_dims = self.calculate_grid_dimensions()
-        self.grid = np.zeros(self.grid_dims, dtype=np.bool_)
-    
-    def calculate_grid_dimensions(self):
-        """Calculate the voxel grid dimensions."""
-        return tuple(np.ceil(self.scene_dimensions / self.voxel_size).astype(int))
-    
-    def world_to_index(self, x, y, z):
-        """
-        Convert world coordinates to voxel grid indices.
-
-        :param x: X coordinate in world space.
-        :param y: Y coordinate in world space.
-        :param z: Z coordinate in world space.
-        :return: Tuple of indices (i, j, k) or None if out of bounds.
-        """
-        voxel_indices = np.floor((np.array([x, y, z]) - self.bounding_box_min) / self.voxel_size).astype(int)
-        if np.all((voxel_indices >= 0) & (voxel_indices < self.grid_dims)):
-            return tuple(voxel_indices)
-        return None
-    
-    def mark_occupied(self, x, y, z):
-        """
-        Mark a voxel as occupied based on world coordinates.
-
-        :param x: X coordinate in world space.
-        :param y: Y coordinate in world space.
-        :param z: Z coordinate in world space.
-        """
-        index = self.world_to_index(x, y, z)
-        if index:
-            self.grid[index] = True
-    
-    def voxel_to_ply(self, colors):
-        """
-        Export the voxel grid to a .ply file.
-
-        :param ply_filename: Path to save the .ply file.
-        """
-        mesh = o3d.geometry.TriangleMesh()
-        i = 0
-        
-        for x in range(self.grid_dims[0]):
-            for y in range(self.grid_dims[1]):
-                for z in range(self.grid_dims[2]):
-                    if self.grid[x, y, z]:
-                        # Create a cube for each occupied voxel
-                        voxel_center = self.bounding_box_min + np.array([x, y, z]) * self.voxel_size
-                        cube = o3d.geometry.TriangleMesh.create_box(self.voxel_size, self.voxel_size, self.voxel_size)
-                        cube.translate(voxel_center - np.array([self.voxel_size / 2] * 3))
-                        cube.paint_uniform_color(colors[x, y, z])
-                        mesh += cube
-                        i += 1
-
-        return mesh
-    
-    def save_voxel_grid_as_numpy(self, output_dir):
-        """Save the voxel grid as a .npy file."""
-        output_file = os.path.join(output_dir, "voxel_grid.npy")
-        np.save(output_file, self.grid)
-        print(f"Voxel grid saved as {output_file}")
-
-
 def save_gaussians_as_voxels(gaussian_data, output_path, scale_factor, manual_voxel_resolution=None, voxel_resolution_factor=1, opacity_threshold=0, scale_threshold=0, enable_logging=True):
     # Get Gaussian data
     means = gaussian_data["means"]
@@ -231,6 +156,7 @@ def save_gaussians_as_voxels(gaussian_data, output_path, scale_factor, manual_vo
             voxel_colors[index] = colors[i]  # Ensure that colors[i] is an RGB value (3 elements)
 
     voxel_grid.save_voxel_grid_as_numpy(output_dir)
+    voxel_grid.save_metadata(output_dir)
 
     if enable_logging:
         # Create histograms of opacity and volume values TODO: add threshold

@@ -45,7 +45,7 @@ def generate_summary_log(planners, output_path, model, path_settings):
     summary_data = {
         "model": {
             "name": model["name"],
-            "camera_bounds": path_settings["camera_bounds"],
+            "camera_radius": path_settings["camera_radius"],
             "start_point": path_settings["start"].tolist(),
             "goal_point": path_settings["goal"].tolist(),
             "max_time_per_path": path_settings["max_time_per_path"],

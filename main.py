@@ -6,6 +6,7 @@ from multiprocessing import Process
 from planner import PathPlanner
 from visualization import Visualizer
 import log_utils
+from voxel_grid import VoxelGrid
 
 
 def plan_and_visualize_path(model, planner, planner_settings, num_paths, path_settings, visualizer):
@@ -14,7 +15,7 @@ def plan_and_visualize_path(model, planner, planner_settings, num_paths, path_se
     log_utils.setup_logging(output_path)
 
     try:
-        path_planner = PathPlanner(model['mesh'], path_settings['camera_bounds'], planner_type=planner, range=planner_settings['planner_range'], state_validity_resolution=planner_settings['state_validity_resolution'])
+        path_planner = PathPlanner(model['voxel_grid'], path_settings['camera_radius'], planner_type=planner, range=planner_settings['planner_range'], state_validity_resolution=planner_settings['state_validity_resolution'])
         all_paths = path_planner.plan_multiple_paths(num_paths, path_settings)
         log_utils.save_paths_to_json(all_paths, output_path)
         visualizer.visualize_o3d(output_path, all_paths, path_settings['start'], path_settings['goal'])
@@ -22,10 +23,10 @@ def plan_and_visualize_path(model, planner, planner_settings, num_paths, path_se
         logging.error(f"Error occurred for planner {planner}: {e}")
         print(f"Error occurred for planner (main) {planner}: {e}")
 
-def run_planners(model, planners, planner_settings, path_settings, enable_visualization):
+def run_planners(model, planners, planner_settings, path_settings, enable_visualization, visualization_mesh):
     """Run multiple planners in parallel and save results."""
-    camera_bounds = path_settings['camera_bounds']
-    visualizer = Visualizer(model['mesh'], enable_visualization, camera_bounds[0], camera_bounds[2])
+    camera_radius = path_settings['camera_radius']
+    visualizer = Visualizer(visualization_mesh, enable_visualization, camera_radius)
     
     processes = []      
     summary_log_paths = []
@@ -69,25 +70,29 @@ if __name__ == "__main__":
         'CForest', 'APS', 'SyCLoP', 'LTLPlanner', 'SPQRstar'
     ]
 
-    # planners = ['PRM']
+    planners = ['PRM']
 
     scale = 1.0
-    model_name = "fuwa_v2"
-    mesh = o3d.io.read_triangle_mesh(f"/app/models/{model_name}.obj")
+    model_name = "kaer_morhen"
+    # mesh = o3d.io.read_triangle_mesh(f"/app/models/{model_name}.obj")
+    # load voxel grid
+    # voxel_grid = o3d.io.read_voxel_grid(f"/app/models/{model_name}.ply")
+    voxel_grid = VoxelGrid.from_saved_files(f"/app/voxel_models/kaer_morhen/voxels_255x257x150_0.9_0")
+    visualization_mesh = o3d.io.read_triangle_mesh(f"/app/voxel_models/kaer_morhen/voxels_255x257x150_0.9_0/voxels.ply")
 
-    start = np.array([3.59, -0.96, -0.4]) * scale
-    goal = np.array([0.46, 0.25, -0.3]) * scale
+    start = np.array([0.18, 0.08, -0.23]) * scale
+    goal = np.array([-0.03, -0.01, -0.16]) * scale
     planner_range = 0.01 * scale
     state_validity_resolution = 0.005 * scale
-    camera_bounds = tuple(dim * scale for dim in (0.04, 0.04, 0.04))
+    camera_radius = 0.005
 
-    enable_visualization = False
+    enable_visualization = True
     num_paths = [1, 10, 50, 100]
-    # num_paths = [3]
-    max_time_per_path = 5  # maximum time in seconds for each planner process
+    num_paths = [3]
+    max_time_per_path = 50  # maximum time in seconds for each planner process
 
-    model = {"name": model_name, "mesh": mesh}
+    model = {"name": model_name, "voxel_grid": voxel_grid}
     planner_settings = {"planner_range": planner_range, "state_validity_resolution": state_validity_resolution}
-    path_settings = {"num_paths": num_paths, "start": start, "goal": goal, "camera_bounds": camera_bounds, "max_time_per_path": max_time_per_path}
+    path_settings = {"num_paths": num_paths, "start": start, "goal": goal, "camera_radius": camera_radius, "max_time_per_path": max_time_per_path, "max_smoothing_steps": 3}
 
-    run_planners(model, planners, planner_settings, path_settings, enable_visualization)
+    run_planners(model, planners, planner_settings, path_settings, enable_visualization, visualization_mesh)

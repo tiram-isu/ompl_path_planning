@@ -1,6 +1,0 @@
-2024-12-29 18:50:10,137 - INFO - Bounds set with padding of 0.1
-2024-12-29 18:50:10,138 - INFO - Bounds: -0.45, 0.45, -0.43, 0.43, -0.62, -0.25
-2024-12-29 18:50:11,724 - INFO - Planner LazyPRM initialized with range 0.1.
-2024-12-29 18:50:11,725 - INFO - Start state: [-0.33  0.1  -0.44], Goal state: [ 0.22 -0.16 -0.44]
-2024-12-29 18:50:11,726 - INFO - Planning 1 paths in 5 seconds...
-2024-12-29 18:50:16,772 - ERROR - Error occurred for planner LazyPRM: local variable 'path' referenced before assignment

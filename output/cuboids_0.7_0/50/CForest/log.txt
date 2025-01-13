@@ -1,3 +1,0 @@
-2024-12-16 02:06:00,157 - INFO - Bounds set with padding of 0.01
-2024-12-16 02:06:00,157 - INFO - Bounds: -0.36, -0.34, -0.53 to 0.36, 0.34, -0.34
-2024-12-16 02:06:01,584 - ERROR - Error occurred for planner CForest: 'NoneType' object is not callable

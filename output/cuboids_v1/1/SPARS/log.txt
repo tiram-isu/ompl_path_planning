@@ -1,6 +1,0 @@
-2024-12-29 18:05:04,181 - INFO - Bounds set with padding of 0.1
-2024-12-29 18:05:04,182 - INFO - Bounds: -0.45, 0.45, -0.43, 0.43, -0.62, -0.25
-2024-12-29 18:05:12,519 - INFO - Planner SPARS initialized with range 0.1.
-2024-12-29 18:05:12,520 - INFO - Start state: [-0.33  0.1  -0.44], Goal state: [ 0.22 -0.16 -0.44]
-2024-12-29 18:05:12,521 - INFO - Planning 1 paths in 5 seconds...
-2024-12-29 18:05:17,937 - ERROR - Error occurred for planner SPARS: local variable 'path' referenced before assignment

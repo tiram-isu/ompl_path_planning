@@ -1,2 +1,0 @@
-2024-12-15 22:26:57,250 - INFO - Bounds set with padding of 0.01
-2024-12-15 22:26:59,881 - ERROR - Error occurred for planner pRRT: 'NoneType' object is not callable

@@ -1,3 +1,0 @@
-2024-11-02 17:57:36,365 - INFO - Bounds set with padding of 0.01
-2024-11-02 17:57:36,438 - ERROR - Planner type RRTX is not available in OMPL.
-2024-11-02 17:57:36,438 - ERROR - Error occurred for planner RRTX: Planner type RRTX is not supported.

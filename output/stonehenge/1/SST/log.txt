@@ -1,7 +1,0 @@
-2024-11-01 18:11:36,969 - INFO - Bounds set with padding of 0.01
-2024-11-01 18:11:37,054 - INFO - Planner SST initialized with range 0.1.
-2024-11-01 18:11:37,055 - INFO - Start state: [-1.24  0.31  0.08], Goal state: [ 0.46 -0.79  0.08]
-2024-11-01 18:11:37,260 - DEBUG - contains_points executed in 0.2048 seconds.
-2024-11-01 18:11:37,261 - DEBUG - contains_points executed in 0.0009 seconds.
-2024-11-01 18:11:37,261 - INFO - Planning 1 paths in 5 seconds...
-2024-11-01 18:11:42,293 - ERROR - No solution found for this attempt.

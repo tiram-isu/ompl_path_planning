@@ -5,10 +5,9 @@ import logging
 import time
 
 class Visualizer:
-    def __init__(self, mesh, enable_visualization, tube_width, tube_height):
+    def __init__(self, mesh, enable_visualization, tube_width):
         self.mesh = mesh
         self.tube_width = tube_width  # Width of the path tube
-        self.tube_height = tube_height # Height of the path tube
         logging.getLogger('matplotlib').setLevel(logging.WARNING)  # Suppress matplotlib logging
         self.enable_visualization = enable_visualization
 
@@ -111,7 +110,7 @@ class Visualizer:
     def create_marker(self, position, color=[1.0, 0.0, 0.0]):
         """Creates a sphere marker at the given position with the specified color."""
         marker = o3d.geometry.TriangleMesh.create_sphere(radius=1)
-        marker.vertices = o3d.utility.Vector3dVector(np.asarray(marker.vertices) * np.array([self.tube_width, self.tube_width, self.tube_height]) )
+        marker.vertices = o3d.utility.Vector3dVector(np.asarray(marker.vertices) * np.array([self.tube_width, self.tube_width, self.tube_width]) )
         marker.paint_uniform_color(color)
         marker.translate(position)
         return marker
@@ -143,7 +142,7 @@ class Visualizer:
         # Create cylinder and scale it to the computed length
         cylinder = o3d.geometry.TriangleMesh.create_cylinder(radius=1.0, height=1.0)
         # Scale cylinder
-        cylinder.vertices = o3d.utility.Vector3dVector(np.asarray(cylinder.vertices) * np.array([self.tube_height, self.tube_width, length]) )
+        cylinder.vertices = o3d.utility.Vector3dVector(np.asarray(cylinder.vertices) * np.array([self.tube_width, self.tube_width, length]) )
         cylinder.paint_uniform_color([1.0, 0.0, 0.0])  # Color the cylinder red
 
         # Rotate cylinder aroung x-axis by 90 degrees

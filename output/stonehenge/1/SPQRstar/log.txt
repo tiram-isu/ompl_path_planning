@@ -1,3 +1,0 @@
-2024-11-01 18:13:07,762 - INFO - Bounds set with padding of 0.01
-2024-11-01 18:13:07,839 - ERROR - Planner type SPQRstar is not available in OMPL.
-2024-11-01 18:13:07,839 - ERROR - Error occurred for planner SPQRstar: Planner type SPQRstar is not supported.

@@ -1,2 +1,0 @@
-2024-12-15 21:59:41,672 - INFO - Bounds set with padding of 0.01
-2024-12-15 21:59:44,308 - ERROR - Error occurred for planner APS: 'NoneType' object is not callable

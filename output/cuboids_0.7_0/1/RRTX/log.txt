@@ -1,3 +1,0 @@
-2024-12-16 01:20:09,607 - INFO - Bounds set with padding of 0.01
-2024-12-16 01:20:09,607 - INFO - Bounds: -0.36, -0.34, -0.53 to 0.36, 0.34, -0.34
-2024-12-16 01:20:11,071 - ERROR - Error occurred for planner RRTX: 'NoneType' object is not callable

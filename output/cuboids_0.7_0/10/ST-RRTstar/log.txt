@@ -1,3 +1,0 @@
-2024-12-16 01:29:29,992 - INFO - Bounds set with padding of 0.01
-2024-12-16 01:29:29,992 - INFO - Bounds: -0.36, -0.34, -0.53 to 0.36, 0.34, -0.34
-2024-12-16 01:29:31,451 - ERROR - Error occurred for planner ST-RRTstar: 'NoneType' object is not callable

@@ -1,3 +1,0 @@
-2024-11-01 18:42:38,351 - INFO - Bounds set with padding of 0.01
-2024-11-01 18:42:38,423 - ERROR - Planner type QMPstar is not available in OMPL.
-2024-11-01 18:42:38,423 - ERROR - Error occurred for planner QMPstar: Planner type QMPstar is not supported.
