@@ -1,83 +1,87 @@
-from ompl import base as ob
-from ompl import geometric as og
-import numpy as np
+#!/usr/bin/env python
 
-# Define the constraint for a sphere
-class SphereConstraint(ob.Constraint):
-    def __init__(self, dim, codim):
-        super(SphereConstraint, self).__init__(dim, codim)  # dim=3, codim=1
-        self.radius = 1.0  # Sphere radius
-        print("Sphere constraint initialized with radius:", self.radius)
+from __future__ import print_function
+import argparse
+import math
+import numpy as np
+import ompl.base as ob
+import ompl.geometric as og
+
+
+class Sphere(ob.Constraint):
+    def __init__(self):
+        super(Sphere, self).__init__(3, 1)
 
     def function(self, x, out):
-        # Constraint: x^2 + y^2 + z^2 - r^2 = 0
-        out[0] = x[0]**2 + x[1]**2 + x[2]**2 - self.radius**2
+        # print("function")
+        out[0] = np.linalg.norm(x) - 1
 
     def jacobian(self, x, out):
-        # Jacobian of the constraint: ∇f = [2x, 2y, 2z]
-        out[0][0] = 2 * x[0]
-        out[0][1] = 2 * x[1]
-        out[0][2] = 2 * x[2]
-
-# Main function
-def plan():
-    # Base space: 3D real vector space
-    base_space = ob.RealVectorStateSpace(3)
-    bounds = ob.RealVectorBounds(3)
-    bounds.setLow(-2)  # Set bounds to -2
-    bounds.setHigh(2)  # Set bounds to 2
-    base_space.setBounds(bounds)
-
-    # Constrained space: Sphere
-    constraint = SphereConstraint(3, 1)
-    constrained_space = ob.ConstrainedStateSpace(base_space, constraint)
-
-    # Space information (with constrained space)
-    si = ob.SpaceInformation(constrained_space)
-
-    # Set up the SpaceInformation object to handle validity check
-    def is_valid_state(state):
-        return si.satisfiesBounds(state)
-
-    si.setStateValidityChecker(ob.StateValidityCheckerFn(is_valid_state))
-
-    # Explicitly associate SpaceInformation with the ConstrainedStateSpace
-    constrained_space.setSpaceInformation(si)
-
-    # Define start and goal states
-    start = ob.State(constrained_space)
-    goal = ob.State(constrained_space)
-
-    # Assign values directly to the state
-    start[0], start[1], start[2] = 1.0, 0.0, 0.0  # Start on the sphere
-    goal[0], goal[1], goal[2] = 0.0, 1.0, 0.0  # Goal on the sphere
-
-    # Define the problem
-    pdef = ob.ProblemDefinition(si)
-    pdef.setStartAndGoalStates(start, goal)
-
-    # Planner (PRM)
-    planner = og.RRT(si)  # Explicitly instantiate the planner with SpaceInformation
-    planner.setProblemDefinition(pdef)
+        # print("jacobian")
+        out = x / np.linalg.norm(x)
+        return out
     
-    # Setup the planner (ensure setup happens after space information is correctly associated)
-    planner.setup()
+    def project(self, x):
+        print("project")
 
-    # Check if planner was properly initialized
-    if planner.getName() == "":
-        print("Error: Planner setup failed!")
-        return
-    
-    print(planner)
+sphere = Sphere()
 
-    # Solve the problem
-    solved = planner.solve(10.0)  # 10 seconds
+rvss = ob.RealVectorStateSpace(3)
 
-    if solved:
-        print("Found solution:")
-        print(pdef.getSolutionPath())
-    else:
-        print("No solution found.")
+bounds = ob.RealVectorBounds(3)
+bounds.setLow(-2)
+bounds.setHigh(2)
 
-if __name__ == "__main__":
-    plan()
+rvss.setBounds(bounds)
+
+constraint = Sphere()
+
+css = ob.ProjectedStateSpace(rvss, constraint)
+csi = ob.ConstrainedSpaceInformation(css)
+
+ss = og.SimpleSetup(csi)
+
+def obstacle(state):
+    # Convert the state into a numpy array for easier indexing
+    x = np.array([state[0], state[1], state[2]])
+
+    # Define a narrow band obstacle with a small hole on one side
+    if -0.1 < x[2] < 0.1:
+        if -0.05 < x[0] < 0.05:
+            return x[1] < 0
+        return False
+
+    return True
+
+ss.setStateValidityChecker(ob.StateValidityCheckerFn(obstacle))
+
+# Define the start and goal vectors
+sv = [0, 0, -1]  # Start state
+gv = [0, 0, 1]   # Goal state
+
+# Create scoped state objects for start and goal
+start = ob.State(css)
+goal = ob.State(css)
+
+# Set the values for the start and goal states directly from the numpy vectors
+for i in range(3):
+    start[i] = sv[i]
+    goal[i] = gv[i]
+
+# Set the start and goal states in the planner setup
+ss.setStartAndGoalStates(start, goal)
+
+pp = og.PRM(csi)
+ss.setPlanner(pp)
+
+ss.setup()
+
+stat = ss.solve(5.0)
+print("stat: ", stat)
+
+if stat:
+    ss.simplifySolution(5.0)
+    path = ss.getSolutionPath()
+    path.interpolate()
+else:
+    print("No solution found")
