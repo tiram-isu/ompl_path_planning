@@ -3,25 +3,34 @@ import logging
 import time
 from ompl import base as ob
 from ompl import geometric as og
-from collision_detection import StateValidityChecker, HeightConstraint
+from collision_detection import StateValidityChecker, HeightConstraint, Height
 
 class PathPlanner:
     def __init__(self, voxel_grid, agent_dims, planner_type, range, state_validity_resolution):
         self.voxel_grid = voxel_grid
         
-        self.space = ob.RealVectorStateSpace(3) # TODO: better space?
+        self.rvss = ob.RealVectorStateSpace(3) # TODO: better space?
 
         self.initialize_bounds()
 
-        leeway = .05
-        self.height_constraint = HeightConstraint(self.space, voxel_grid, agent_dims, leeway)
+        leeway = 1
+        # self.height_constraint = HeightConstraint(self.rvss, voxel_grid, agent_dims, leeway)
+        constraint = Height(voxel_grid, agent_dims, leeway)
+        
+        self.css = ob.ProjectedStateSpace(self.rvss, constraint)
+        self.csi = ob.ConstrainedSpaceInformation(self.css)
 
-        self.si = ob.SpaceInformation(self.space)
-        self.validity_checker = StateValidityChecker(self.si, voxel_grid, agent_dims, self.height_constraint)
-        self.si.setStateValidityChecker(ob.StateValidityCheckerFn(lambda state: self.validity_checker.is_valid(state)))
-        self.si.setStateValidityCheckingResolution(state_validity_resolution)
+        # self.si = ob.SpaceInformation(self.space)
+        # self.validity_checker = StateValidityChecker(self.si, voxel_grid, agent_dims, self.height_constraint)
+        # self.si.setStateValidityChecker(ob.StateValidityCheckerFn(lambda state: self.validity_checker.is_valid(state)))
+        # self.si.setStateValidityCheckingResolution(state_validity_resolution)
         # self.validity_checker = StateValidityChecker(self.si, voxel_grid, agent_dims, 0.1, self.height_constraint)
-        self.si.setup()
+        # self.si.setup()
+
+        self.validity_checker = StateValidityChecker(self.rvss, voxel_grid, agent_dims)
+
+        self.ss = og.SimpleSetup(self.csi)
+        self.ss.setStateValidityChecker(ob.StateValidityCheckerFn(self.validity_checker.is_valid))
 
         self.planner = self.initialize_planner(planner_type, range)
 
@@ -41,21 +50,22 @@ class PathPlanner:
         bounds.setLow(2, bounding_box_min[2])
         bounds.setHigh(2, bounding_box_min[2] + scene_dimensions[2])
 
-        self.space.setBounds(bounds)
+        self.rvss.setBounds(bounds)
 
     def initialize_planner(self, planner_type, range):
-        planner_class = getattr(og, planner_type, None)
-        planner = planner_class(self.si)
+        # planner_class = getattr(og, planner_type, None)
+        # planner = planner_class(self.si)
 
-        if hasattr(planner, "setRange"):
-            planner.setRange(range)
+        # if hasattr(planner, "setRange"):
+        #     planner.setRange(range)
         
-        logging.info(f"Initialized {planner_type} planner with range {range}")
+        # logging.info(f"Initialized {planner_type} planner with range {range}")
+        planner = og.PRM(self.csi)
         return planner
     
     def initialize_start_and_goal(self, start, goal):
-        start_state = ob.State(self.space)
-        goal_state = ob.State(self.space)
+        start_state = ob.State(self.css)
+        goal_state = ob.State(self.css)
 
         for i in range(3):
             start_state[i] = start[i]
@@ -66,17 +76,33 @@ class PathPlanner:
         return start_state, goal_state
     
     def plan_path(self, start_state, goal_state, max_time):
-        self.planner.clear()
+        # self.planner.clear()
 
-        pdef = ob.ProblemDefinition(self.si)
-        pdef.setStartAndGoalStates(start_state, goal_state)
-        self.planner.setProblemDefinition(pdef)
-        self.planner.setup()
+        # pdef = ob.ProblemDefinition(self.si)
+        # pdef.setStartAndGoalStates(start_state, goal_state)
+        # self.planner.setProblemDefinition(pdef)
+        # self.planner.setup()
 
-        if self.planner.solve(max_time):
-            path = pdef.getSolutionPath()
+        # if self.planner.solve(max_time):
+        #     path = pdef.getSolutionPath()
+        #     return path
+        # else:
+        #     return None
+
+        self.ss.setStartAndGoalStates(start_state, goal_state)
+        pp = self.planner
+        self.ss.setPlanner(pp)
+
+        self.ss.setup()
+
+        stat = self.ss.solve(max_time)
+        if stat:
+            self.ss.simplifySolution(5.0)
+            path = self.ss.getSolutionPath()
+            path.interpolate()
             return path
         else:
+            print("No solution found.")
             return None
         
     def plan_multiple_paths(self, num_paths, path_settings):
@@ -99,7 +125,7 @@ class PathPlanner:
             path_start_time = time.time()  # Start timing path planning duration
             path = self.plan_path(start_state, goal_state, max_time)
             if path is not None and path not in all_paths:
-                path_simplifier = og.PathSimplifier(self.si)
+                path_simplifier = og.PathSimplifier(self.csi)
                 path_simplifier.smoothBSpline(path, path_settings['max_smoothing_steps'])
                 all_paths.append(path)
                 path_duration = time.time() - path_start_time

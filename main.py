@@ -15,9 +15,13 @@ def plan_and_visualize_path(model, planner, planner_settings, num_paths, path_se
     log_utils.setup_logging(output_path)
 
     # try:
+    print(f"Running planner {planner} for {num_paths} paths.")
     path_planner = PathPlanner(model['voxel_grid'], path_settings['camera_dims'], planner_type=planner, range=planner_settings['planner_range'], state_validity_resolution=planner_settings['state_validity_resolution'])
+    print("Path planner initialized.")
     all_paths = path_planner.plan_multiple_paths(num_paths, path_settings)
+    print("Paths planned.")
     log_utils.save_paths_to_json(all_paths, output_path)
+    print("Visualizing")
     visualizer.visualize_o3d(output_path, all_paths, path_settings['start'], path_settings['goal'])
 # except Exception as e:
     # logging.error(f"Error occurred for planner {planner}: {e}")
@@ -55,10 +59,10 @@ def run_planners(model, planners, planner_settings, path_settings, enable_visual
                 p.join()
             
         # Write consolidated summary log file (comparing all planners for the same number of paths)
-        log_utils.generate_summary_log(planners, log_root, model, path_settings)
+    #     log_utils.generate_summary_log(planners, log_root, model, path_settings)
 
-        summary_log_paths.append(f"{log_root}/summary_log.json")
-    log_utils.generate_log_reports(summary_log_paths, f"/app/output/{model_name}/plots")
+    #     summary_log_paths.append(f"{log_root}/summary_log.json")
+    # log_utils.generate_log_reports(summary_log_paths, f"/app/output/{model_name}/plots")
 
 if __name__ == "__main__":
     planners = [
@@ -82,7 +86,7 @@ if __name__ == "__main__":
     start = np.array([0.18, 0.08, -0.23])
     goal = np.array([-0.03, -0.01, -0.16])
     planner_range = 0.01
-    state_validity_resolution = 0.005
+    state_validity_resolution = 0.01
     camera_dims = [0.002, 0.004] # radius, height
 
     enable_visualization = True

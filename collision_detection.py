@@ -7,7 +7,7 @@ from ompl import geometric as og
 from visualization import Visualizer
 
 class StateValidityChecker:
-    def __init__(self, space, voxel_grid, agent_dims, height_constraint):
+    def __init__(self, space, voxel_grid, agent_dims):
         """
         Initialize the StateValidityChecker with a voxel grid for collision and ground checking.
 
@@ -16,7 +16,7 @@ class StateValidityChecker:
         :param leeway: Distance below the lowest point of the agent's bounding box to check for ground.
         """
         self.voxel_grid = voxel_grid
-        self.height_constraint = height_constraint
+        # self.height_constraint = height_constraint
 
         # Calculate agent dimensions
         agent_radius = agent_dims[0] / 2
@@ -50,8 +50,8 @@ class StateValidityChecker:
                 return False
 
         # Check ground presence using the height constraint
-        if self.height_constraint.function(state) > 0:
-            return False
+        # if self.height_constraint.function(state) > 0:
+        #     return False
 
         return True
 
@@ -98,3 +98,46 @@ class HeightConstraint(ob.Constraint):
             i += self.voxel_size  # Increment by voxel size
 
         return 1  # Constraint violated, no ground found
+
+class Height(ob.Constraint):
+    def __init__(self, voxel_grid, agent_dims, leeway=0):
+        super(Height, self).__init__(3, 1)
+        self.voxel_grid = voxel_grid
+        self.voxel_size = voxel_grid.voxel_size
+        self.agent_radius = agent_dims[0] / 2
+        self.agent_height = agent_dims[1]
+        self.leeway = leeway
+
+
+    def function(self, state, out):
+        x, y, z = state[0], state[1], state[2]
+
+        # Start checking from the bottom of the agent's bounding box
+        i = 0
+        while i <= self.agent_height + self.leeway:
+            current_z = z - i
+            index = self.voxel_grid.world_to_index(x, y, current_z)
+            
+            # If index is invalid or out of bounds, terminate early
+            if not index or not self.voxel_grid.index_within_bounds(index):
+                break
+
+            # Check if the voxel is occupied
+            if self.voxel_grid.grid[index]:
+                out[0] = 0  # Constraint satisfied
+                return
+
+            i += self.voxel_size
+
+        out[0] = 1  # Constraint violated
+
+    def jacobian(self, state, out):
+        # Zero out the Jacobian initially
+        out[0][:] = 0
+
+        # Set a negative gradient along z-axis to move toward the ground
+        out[0][2] = -1
+    
+    # project method should be overwritten, but all my attempts make path planning slower instead of faster
+
+

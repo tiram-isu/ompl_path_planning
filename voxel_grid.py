@@ -34,6 +34,16 @@ class VoxelGrid:
         if np.all((voxel_indices >= 0) & (voxel_indices < self.grid_dims)):
             return tuple(voxel_indices)
         return None
+    
+    def index_to_world(self, index):
+        """
+        Convert voxel grid indices to world coordinates.
+
+        :param index: Tuple of indices (i, j, k).
+        :return: Tuple of world coordinates (x, y, z).
+        """
+        return tuple(self.bounding_box_min + np.array(index) * self.voxel_size)
+
 
     def mark_occupied(self, x, y, z):
         """
@@ -105,6 +115,30 @@ class VoxelGrid:
             print(f"Voxel grid and metadata loaded from {input_dir}")
         else:
             print(f"Files not found in {input_dir}. Please check the directory.")
+
+    def coord_within_bounds(self, x, y, z):
+        """
+        Check if a world coordinate (x, y, z) is within the bounds of the voxel grid.
+
+        :param x: X coordinate in world space.
+        :param y: Y coordinate in world space.
+        :param z: Z coordinate in world space.
+        :return: True if the coordinate is within bounds, False otherwise.
+        """
+        min_bound = self.bounding_box_min
+        max_bound = self.bounding_box_min + self.scene_dimensions
+        return np.all((np.array([x, y, z]) >= min_bound) & (np.array([x, y, z]) < max_bound))
+    
+    def index_within_bounds(self, index):
+        """
+        Check if voxel grid indices (i, j, k) are within the bounds of the grid.
+
+        :param i: Index along the x-axis.
+        :param j: Index along the y-axis.
+        :param k: Index along the z-axis.
+        :return: True if the indices are within bounds, False otherwise.
+        """
+        return 0 <= index[0] < self.grid_dims[0] and 0 <= index[1] < self.grid_dims[1] and 0 <= index[2] < self.grid_dims[2]
 
     @classmethod
     def from_saved_files(cls, input_dir):
