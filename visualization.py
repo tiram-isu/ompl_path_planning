@@ -13,7 +13,6 @@ class Visualizer:
         self.enable_visualization = enable_visualization
 
     def visualize_o3d(self, output_path, path_list, start_point, end_point):
-        print("visualizing")
         vis = o3d.visualization.Visualizer()
 
         if self.enable_visualization:

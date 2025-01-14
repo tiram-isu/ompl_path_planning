@@ -83,15 +83,16 @@ if __name__ == "__main__":
     goal = np.array([-0.03, -0.01, -0.16])
     planner_range = 0.01
     state_validity_resolution = 0.01
-    camera_dims = [0.002, 0.004] # radius, height
+    camera_dims = [0.004, 0.008] # radius, height
 
     enable_visualization = True
     num_paths = [1, 10, 50, 100]
     num_paths = [3]
     max_time_per_path = 5  # maximum time in seconds for each planner process
+    max_smoothing_steps = 3
 
     model = {"name": model_name, "voxel_grid": voxel_grid}
     planner_settings = {"planner_range": planner_range, "state_validity_resolution": state_validity_resolution}
-    path_settings = {"num_paths": num_paths, "start": start, "goal": goal, "camera_dims": camera_dims, "max_time_per_path": max_time_per_path, "max_smoothing_steps": 3}
+    path_settings = {"num_paths": num_paths, "start": start, "goal": goal, "camera_dims": camera_dims, "max_time_per_path": max_time_per_path, "max_smoothing_steps": max_smoothing_steps}
 
     run_planners(model, planners, planner_settings, path_settings, enable_visualization, visualization_mesh)

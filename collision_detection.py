@@ -49,10 +49,6 @@ class StateValidityChecker:
             if self.is_colliding(index):
                 return False
 
-        # Check ground presence using the height constraint
-        # if self.height_constraint.function(state) > 0:
-        #     return False
-
         return True
 
     def is_colliding(self, index):
