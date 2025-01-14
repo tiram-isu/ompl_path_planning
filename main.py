@@ -15,13 +15,9 @@ def plan_and_visualize_path(model, planner, planner_settings, num_paths, path_se
     log_utils.setup_logging(output_path)
 
     # try:
-    print(f"Running planner {planner} for {num_paths} paths.")
     path_planner = PathPlanner(model['voxel_grid'], path_settings['camera_dims'], planner_type=planner, range=planner_settings['planner_range'], state_validity_resolution=planner_settings['state_validity_resolution'])
-    print("Path planner initialized.")
     all_paths = path_planner.plan_multiple_paths(num_paths, path_settings)
-    print("Paths planned.")
     log_utils.save_paths_to_json(all_paths, output_path)
-    print("Visualizing")
     visualizer.visualize_o3d(output_path, all_paths, path_settings['start'], path_settings['goal'])
 # except Exception as e:
     # logging.error(f"Error occurred for planner {planner}: {e}")

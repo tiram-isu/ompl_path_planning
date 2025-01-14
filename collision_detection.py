@@ -67,41 +67,8 @@ class StateValidityChecker:
 
 
 class HeightConstraint(ob.Constraint):
-    def __init__(self, space, voxel_grid, agent_dims, leeway=0):
-        super(HeightConstraint, self).__init__(space.getDimension(), 1)
-        self.voxel_grid = voxel_grid
-        self.voxel_size = voxel_grid.voxel_size
-        self.agent_radius = agent_dims[0] / 2
-        self.agent_height = agent_dims[1]
-        self.leeway = leeway
-        print("leeway:", leeway)
-        print("Height constraint initialized")
-
-    def function(self, state):
-        """
-        Constraint function. Returns 0 if the constraint is satisfied, >0 otherwise.
-
-        :param state: The state to evaluate (x, y, z coordinates).
-        :return: 0 if the state satisfies the constraint, >0 otherwise.
-        """
-        x, y, z = state[0], state[1], state[2]
-
-        # Start checking from the lowest part of the agent's bounding box, within the leeway range
-        i = -self.agent_height
-        while i <= self.leeway:
-            index = self.voxel_grid.world_to_index(x, y, z - i)
-            # print(self.voxel_grid.grid[index])
-            if index and self.voxel_grid.grid[index]:  # Ground voxel found
-                # print("Ground found")
-                return 0.0  # Constraint satisfied, ground exists
-
-            i += self.voxel_size  # Increment by voxel size
-
-        return 1  # Constraint violated, no ground found
-
-class Height(ob.Constraint):
     def __init__(self, voxel_grid, agent_dims, leeway=0):
-        super(Height, self).__init__(3, 1)
+        super(HeightConstraint, self).__init__(3, 1)
         self.voxel_grid = voxel_grid
         self.voxel_size = voxel_grid.voxel_size
         self.agent_radius = agent_dims[0] / 2

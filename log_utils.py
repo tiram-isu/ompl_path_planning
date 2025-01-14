@@ -90,11 +90,49 @@ def generate_summary_log(planners, output_path, model, path_settings):
         json.dump(summary_data, f, indent=4)
 
 def save_paths_to_json(paths, output_path):
-    """Save paths to a JSON file."""
-    if paths:
-        serializable_paths = [[[float(coord) for coord in line.split()] for line in path.printAsMatrix().strip().split("\n")] for path in paths]
-        with open(os.path.join(output_path, "paths.json"), 'w') as f:
-            json.dump(serializable_paths, f, indent=4)
+    """
+    Write a list of OMPL PathGeometric objects to a single JSON file.
+
+    :param paths: List of PathGeometric objects to serialize.
+    :param filename: The file name where the paths will be saved.
+    """
+    # Initialize an empty list to store all paths
+    all_paths_data = []
+
+    print(type(paths))
+    print(paths[0])
+    
+    # Loop through each PathGeometric in the list
+    for path in paths:
+        print("test save")
+        print(path)
+        # Initialize a list to store the states of the current path
+        path_data = []
+        
+    #     # Loop through each state in the PathGeometric object
+    #     for state in path.getStates():
+    #         print("state: ", state)
+    #         # Extract state values (assuming a 3D state)
+    #         state_values = state.asVector()  # Convert state to a vector (or list)
+    #         path_data.append(state_values.tolist())  # Add state as a list of values
+        
+    #     # Append the current path's data to the list of all paths
+    #     all_paths_data.append({
+    #         "path": path_data
+    #     })
+    
+    # # Prepare data to be written as JSON
+    # paths_json = {
+    #     "paths": all_paths_data
+    # }
+
+    # filename = os.path.join(output_path, "paths.json")
+
+    # # Write the JSON data to the file
+    # with open(filename, 'w') as json_file:
+    #     json.dump(paths_json, json_file, indent=4)
+
+    # print(f"{len(paths)} paths saved to {filename}")
 
 def setup_logging(output_path):
     """Initialize logging for the given output path."""

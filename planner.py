@@ -3,7 +3,7 @@ import logging
 import time
 from ompl import base as ob
 from ompl import geometric as og
-from collision_detection import StateValidityChecker, HeightConstraint, Height
+from collision_detection import StateValidityChecker, HeightConstraint, HeightConstraint
 
 class PathPlanner:
     def __init__(self, voxel_grid, agent_dims, planner_type, range, state_validity_resolution):
@@ -14,18 +14,10 @@ class PathPlanner:
         self.initialize_bounds()
 
         leeway = 1
-        # self.height_constraint = HeightConstraint(self.rvss, voxel_grid, agent_dims, leeway)
-        constraint = Height(voxel_grid, agent_dims, leeway)
+        constraint = HeightConstraint(voxel_grid, agent_dims, leeway)
         
         self.css = ob.ProjectedStateSpace(self.rvss, constraint)
         self.csi = ob.ConstrainedSpaceInformation(self.css)
-
-        # self.si = ob.SpaceInformation(self.space)
-        # self.validity_checker = StateValidityChecker(self.si, voxel_grid, agent_dims, self.height_constraint)
-        # self.si.setStateValidityChecker(ob.StateValidityCheckerFn(lambda state: self.validity_checker.is_valid(state)))
-        # self.si.setStateValidityCheckingResolution(state_validity_resolution)
-        # self.validity_checker = StateValidityChecker(self.si, voxel_grid, agent_dims, 0.1, self.height_constraint)
-        # self.si.setup()
 
         self.validity_checker = StateValidityChecker(self.rvss, voxel_grid, agent_dims)
 
@@ -53,14 +45,13 @@ class PathPlanner:
         self.rvss.setBounds(bounds)
 
     def initialize_planner(self, planner_type, range):
-        # planner_class = getattr(og, planner_type, None)
-        # planner = planner_class(self.si)
+        planner_class = getattr(og, planner_type, None)
+        planner = planner_class(self.csi)
 
-        # if hasattr(planner, "setRange"):
-        #     planner.setRange(range)
+        if hasattr(planner, "setRange"):
+            planner.setRange(range)
         
-        # logging.info(f"Initialized {planner_type} planner with range {range}")
-        planner = og.PRM(self.csi)
+        logging.info(f"Initialized {planner_type} planner with range {range}")
         return planner
     
     def initialize_start_and_goal(self, start, goal):
@@ -76,19 +67,6 @@ class PathPlanner:
         return start_state, goal_state
     
     def plan_path(self, start_state, goal_state, max_time):
-        # self.planner.clear()
-
-        # pdef = ob.ProblemDefinition(self.si)
-        # pdef.setStartAndGoalStates(start_state, goal_state)
-        # self.planner.setProblemDefinition(pdef)
-        # self.planner.setup()
-
-        # if self.planner.solve(max_time):
-        #     path = pdef.getSolutionPath()
-        #     return path
-        # else:
-        #     return None
-
         self.ss.setStartAndGoalStates(start_state, goal_state)
         pp = self.planner
         self.ss.setPlanner(pp)
@@ -109,7 +87,6 @@ class PathPlanner:
         max_time = path_settings['max_time_per_path']
         all_paths = []
 
-        # self.si.setStateValidityChecker(self.validity_checker)
         start_state, goal_state = self.initialize_start_and_goal(path_settings['start'], path_settings['goal'])
         if start_state is None or goal_state is None:
             return None
@@ -124,9 +101,11 @@ class PathPlanner:
         while len(all_paths) < num_paths:
             path_start_time = time.time()  # Start timing path planning duration
             path = self.plan_path(start_state, goal_state, max_time)
+            print("first: ", path)
             if path is not None and path not in all_paths:
-                path_simplifier = og.PathSimplifier(self.csi)
-                path_simplifier.smoothBSpline(path, path_settings['max_smoothing_steps'])
+                print("if: ", path)
+                # path_simplifier = og.PathSimplifier(self.csi)
+                # path_simplifier.smoothBSpline(path, path_settings['max_smoothing_steps'])
                 all_paths.append(path)
                 path_duration = time.time() - path_start_time
                 path_length = self.calculate_path_length(path)
@@ -138,6 +117,9 @@ class PathPlanner:
                 logging.error(f"No solution found for attempt {len(all_paths)}.")
                 print(f"No solution found for attempt {len(all_paths)}.")
 
+        print("list: ", all_paths)
+        print(type(all_paths[0]))
+        print("Path states: ", [state for state in all_paths[0].getStates()])
         # Log total planning duration and average time per path
         total_duration = time.time() - total_start_time
         logging.info(f"All paths planning completed. Total duration: {total_duration:.2f} seconds.")
