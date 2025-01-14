@@ -1,0 +1,50 @@
+{
+    "model": {
+        "name": "stonehenge",
+        "camera_dims": [
+            0.002,
+            0.004
+        ],
+        "start_point": [
+            -0.33,
+            0.1,
+            -0.44
+        ],
+        "goal_point": [
+            0.22,
+            -0.16,
+            -0.44
+        ],
+        "max_time_per_path": 5
+    },
+    "planners": {
+        "PRM": {
+            "status": "Successful",
+            "total_time_taken": 2.71,
+            "num_paths": 3,
+            "average_path_length": 0.89,
+            "shortest_path_length": 0.8,
+            "longest_path_length": 0.96,
+            "path_length_std_dev": 0.06683312551921138,
+            "average_time_per_path": 0.9033333333333333,
+            "time_per_path_std_dev": 0.1579732748143038,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.8,
+                    "duration": 1.01
+                },
+                {
+                    "id": 1,
+                    "length": 0.91,
+                    "duration": 0.68
+                },
+                {
+                    "id": 2,
+                    "length": 0.96,
+                    "duration": 1.02
+                }
+            ]
+        }
+    }
+}

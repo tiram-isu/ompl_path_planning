@@ -1,0 +1,40 @@
+{
+    "model": {
+        "name": "kaer_morhen",
+        "camera_dims": [
+            0.002,
+            0.004
+        ],
+        "start_point": [
+            0.18,
+            0.08,
+            -0.23
+        ],
+        "goal_point": [
+            -0.03,
+            -0.01,
+            -0.16
+        ],
+        "max_time_per_path": 5
+    },
+    "planners": {
+        "RRT": {
+            "status": "Successful",
+            "total_time_taken": 0.51,
+            "num_paths": 1,
+            "average_path_length": 0.76,
+            "shortest_path_length": 0.76,
+            "longest_path_length": 0.76,
+            "path_length_std_dev": 0.0,
+            "average_time_per_path": 0.5,
+            "time_per_path_std_dev": 0.0,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.76,
+                    "duration": 0.5
+                }
+            ]
+        }
+    }
+}

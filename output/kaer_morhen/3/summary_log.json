@@ -1,7 +1,10 @@
 {
     "model": {
         "name": "kaer_morhen",
-        "camera_radius": 0.005,
+        "camera_dims": [
+            0.002,
+            0.004
+        ],
         "start_point": [
             0.18,
             0.08,
@@ -12,34 +15,34 @@
             -0.01,
             -0.16
         ],
-        "max_time_per_path": 50
+        "max_time_per_path": 5
     },
     "planners": {
         "PRM": {
             "status": "Successful",
-            "total_time_taken": 0.32,
+            "total_time_taken": 34.98,
             "num_paths": 3,
-            "average_path_length": 0.59,
-            "shortest_path_length": 0.55,
-            "longest_path_length": 0.65,
-            "path_length_std_dev": 0.04320493798938574,
-            "average_time_per_path": 0.11,
-            "time_per_path_std_dev": 0.0,
+            "average_path_length": 0.45333333333333337,
+            "shortest_path_length": 0.38,
+            "longest_path_length": 0.54,
+            "path_length_std_dev": 0.06599663291074445,
+            "average_time_per_path": 3.276666666666667,
+            "time_per_path_std_dev": 1.0043018581194711,
             "paths": [
                 {
                     "id": 0,
-                    "length": 0.57,
-                    "duration": 0.11
+                    "length": 0.38,
+                    "duration": 3.81
                 },
                 {
                     "id": 1,
-                    "length": 0.55,
-                    "duration": 0.11
+                    "length": 0.54,
+                    "duration": 1.87
                 },
                 {
                     "id": 2,
-                    "length": 0.65,
-                    "duration": 0.11
+                    "length": 0.44,
+                    "duration": 4.15
                 }
             ]
         }

@@ -3,24 +3,26 @@ import logging
 import time
 from ompl import base as ob
 from ompl import geometric as og
-from collision_detection import StateValidityChecker
+from collision_detection import StateValidityChecker, HeightConstraint
 
 class PathPlanner:
     def __init__(self, voxel_grid, agent_dims, planner_type, range, state_validity_resolution):
         self.voxel_grid = voxel_grid
-        self.agent_dims = agent_dims
         
         self.space = ob.RealVectorStateSpace(3) # TODO: better space?
 
         self.initialize_bounds()
 
+        leeway = .05
+        self.height_constraint = HeightConstraint(self.space, voxel_grid, agent_dims, leeway)
+
         self.si = ob.SpaceInformation(self.space)
-        self.validity_checker = StateValidityChecker(voxel_grid)
+        self.validity_checker = StateValidityChecker(self.si, voxel_grid, agent_dims, self.height_constraint)
         self.si.setStateValidityChecker(ob.StateValidityCheckerFn(lambda state: self.validity_checker.is_valid(state)))
         self.si.setStateValidityCheckingResolution(state_validity_resolution)
+        # self.validity_checker = StateValidityChecker(self.si, voxel_grid, agent_dims, 0.1, self.height_constraint)
         self.si.setup()
 
-        self.validity_checker = StateValidityChecker(self.voxel_grid)
         self.planner = self.initialize_planner(planner_type, range)
 
 

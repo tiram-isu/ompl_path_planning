@@ -177,11 +177,11 @@ def save_gaussians_as_voxels(gaussian_data, output_path, scale_factor, manual_vo
 
 if __name__ == '__main__':
     ckpt_path = "/app/models/alameda_v3.ckpt"
-    ply_path = "/app/models/kaer_morhen.ply"
-    output_path = "/app/voxel_models/kaer_morhen/"
+    ply_path = "/app/models/stonehenge_colmap_aligned.ply"
+    output_path = "/app/voxel_models/stonehenge/"
     device = "cuda"
 
-    opacity_threshold = 0.9
+    opacity_threshold = 0
     scale_threshold = 0
     manual_voxel_resolution = None  # Set a number to use manual resolution, or None for dynamic resolution
     voxel_resolution_factor = 1.5  # Increase this value to increase the voxel resolution
