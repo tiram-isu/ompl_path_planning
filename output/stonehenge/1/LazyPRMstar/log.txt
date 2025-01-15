@@ -1,0 +1,9 @@
+2025-01-15 14:19:14,339 - INFO - Initialized LazyPRMstar planner with range 0.1
+2025-01-15 14:19:14,339 - INFO - Planning 1 paths in 5 seconds...
+2025-01-15 14:19:19,380 - INFO - Path 1 added. Length: 0.67 units. Duration: 5.04 seconds.
+2025-01-15 14:19:19,380 - INFO - All paths planning completed. Total duration: 5.04 seconds.
+2025-01-15 14:19:19,380 - INFO - Average time per path: 5.04 seconds.
+2025-01-15 14:19:19,380 - INFO - Average path length of all paths: 0.67 units.
+2025-01-15 14:19:19,380 - INFO - Shortest path length: 0.67 units.
+2025-01-15 14:19:19,380 - INFO - Longest path length: 0.67 units.
+2025-01-15 14:19:19,380 - INFO - Total number of unique paths found: 1.

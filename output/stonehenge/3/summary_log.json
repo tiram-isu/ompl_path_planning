@@ -2,8 +2,8 @@
     "model": {
         "name": "stonehenge",
         "camera_dims": [
-            0.002,
-            0.004
+            0.004,
+            0.008
         ],
         "start_point": [
             -0.33,
@@ -20,31 +20,403 @@
     "planners": {
         "PRM": {
             "status": "Successful",
-            "total_time_taken": 2.71,
+            "total_time_taken": 2.36,
             "num_paths": 3,
-            "average_path_length": 0.89,
-            "shortest_path_length": 0.8,
-            "longest_path_length": 0.96,
-            "path_length_std_dev": 0.06683312551921138,
-            "average_time_per_path": 0.9033333333333333,
-            "time_per_path_std_dev": 0.1579732748143038,
+            "average_path_length": 0.8433333333333333,
+            "shortest_path_length": 0.81,
+            "longest_path_length": 0.88,
+            "path_length_std_dev": 0.02867441755680874,
+            "average_time_per_path": 0.79,
+            "time_per_path_std_dev": 0.23338094752285726,
             "paths": [
                 {
                     "id": 0,
-                    "length": 0.8,
-                    "duration": 1.01
+                    "length": 0.81,
+                    "duration": 0.96
                 },
                 {
                     "id": 1,
-                    "length": 0.91,
-                    "duration": 0.68
+                    "length": 0.84,
+                    "duration": 0.46
                 },
                 {
                     "id": 2,
-                    "length": 0.96,
-                    "duration": 1.02
+                    "length": 0.88,
+                    "duration": 0.95
                 }
             ]
+        },
+        "LazyPRM": {
+            "status": "Failed",
+            "error_message": "No solution found for attempt 0."
+        },
+        "PRMstar": {
+            "status": "Successful",
+            "total_time_taken": 15.03,
+            "num_paths": 3,
+            "average_path_length": 0.75,
+            "shortest_path_length": 0.66,
+            "longest_path_length": 0.8,
+            "path_length_std_dev": 0.06377042156569664,
+            "average_time_per_path": 5.01,
+            "time_per_path_std_dev": 0.0,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.79,
+                    "duration": 5.01
+                },
+                {
+                    "id": 1,
+                    "length": 0.66,
+                    "duration": 5.01
+                },
+                {
+                    "id": 2,
+                    "length": 0.8,
+                    "duration": 5.01
+                }
+            ]
+        },
+        "LazyPRMstar": {
+            "status": "Failed",
+            "error_message": "No solution found for attempt 0."
+        },
+        "SPARS": {
+            "status": "Failed",
+            "error_message": "No solution found for attempt 0."
+        },
+        "SPARS2": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner SPARS2: 'NoneType' object is not callable"
+        },
+        "RRT": {
+            "status": "Successful",
+            "total_time_taken": 15.11,
+            "num_paths": 3,
+            "average_path_length": 0.7699999999999999,
+            "shortest_path_length": 0.72,
+            "longest_path_length": 0.83,
+            "path_length_std_dev": 0.04546060565661951,
+            "average_time_per_path": 5.036666666666666,
+            "time_per_path_std_dev": 0.018856180831641284,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.76,
+                    "duration": 5.01
+                },
+                {
+                    "id": 1,
+                    "length": 0.83,
+                    "duration": 5.05
+                },
+                {
+                    "id": 2,
+                    "length": 0.72,
+                    "duration": 5.05
+                }
+            ]
+        },
+        "RRTConnect": {
+            "status": "Successful",
+            "total_time_taken": 15.05,
+            "num_paths": 3,
+            "average_path_length": 0.48666666666666664,
+            "shortest_path_length": 0.42,
+            "longest_path_length": 0.53,
+            "path_length_std_dev": 0.047842333648024434,
+            "average_time_per_path": 5.016666666666667,
+            "time_per_path_std_dev": 0.0235702260395515,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.51,
+                    "duration": 5.0
+                },
+                {
+                    "id": 1,
+                    "length": 0.53,
+                    "duration": 5.0
+                },
+                {
+                    "id": 2,
+                    "length": 0.42,
+                    "duration": 5.05
+                }
+            ]
+        },
+        "RRTstar": {
+            "status": "Successful",
+            "total_time_taken": 15.09,
+            "num_paths": 3,
+            "average_path_length": 0.2833333333333334,
+            "shortest_path_length": 0.18,
+            "longest_path_length": 0.34,
+            "path_length_std_dev": 0.07318166133366717,
+            "average_time_per_path": 5.026666666666666,
+            "time_per_path_std_dev": 0.012472191289246601,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.18,
+                    "duration": 5.03
+                },
+                {
+                    "id": 1,
+                    "length": 0.34,
+                    "duration": 5.01
+                },
+                {
+                    "id": 2,
+                    "length": 0.33,
+                    "duration": 5.04
+                }
+            ]
+        },
+        "SST": {
+            "status": "Failed",
+            "error_message": "No solution found for attempt 0."
+        },
+        "T-RRT": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner T-RRT: 'NoneType' object is not callable"
+        },
+        "VF-RRT": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner VF-RRT: 'NoneType' object is not callable"
+        },
+        "pRRT": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner pRRT: 'NoneType' object is not callable"
+        },
+        "LazyRRT": {
+            "status": "Failed",
+            "error_message": "No solution found for attempt 0."
+        },
+        "TSRRT": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner TSRRT: 'NoneType' object is not callable"
+        },
+        "EST": {
+            "status": "Successful",
+            "total_time_taken": 15.07,
+            "num_paths": 3,
+            "average_path_length": 1.01,
+            "shortest_path_length": 0.9,
+            "longest_path_length": 1.19,
+            "path_length_std_dev": 0.12832251036613437,
+            "average_time_per_path": 5.02,
+            "time_per_path_std_dev": 0.021602468994692817,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.94,
+                    "duration": 5.01
+                },
+                {
+                    "id": 1,
+                    "length": 0.9,
+                    "duration": 5.05
+                },
+                {
+                    "id": 2,
+                    "length": 1.19,
+                    "duration": 5.0
+                }
+            ]
+        },
+        "KPIECE": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner KPIECE: 'NoneType' object is not callable"
+        },
+        "BKPIECE": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner BKPIECE: 'NoneType' object is not callable"
+        },
+        "LBKPIECE": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner LBKPIECE: 'NoneType' object is not callable"
+        },
+        "STRIDE": {
+            "status": "Successful",
+            "total_time_taken": 15.11,
+            "num_paths": 3,
+            "average_path_length": 1.2666666666666666,
+            "shortest_path_length": 1.12,
+            "longest_path_length": 1.42,
+            "path_length_std_dev": 0.12256517540566816,
+            "average_time_per_path": 5.033333333333332,
+            "time_per_path_std_dev": 0.016996731711975997,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 1.42,
+                    "duration": 5.05
+                },
+                {
+                    "id": 1,
+                    "length": 1.26,
+                    "duration": 5.01
+                },
+                {
+                    "id": 2,
+                    "length": 1.12,
+                    "duration": 5.04
+                }
+            ]
+        },
+        "PDST": {
+            "status": "Successful",
+            "total_time_taken": 9.55,
+            "num_paths": 3,
+            "average_path_length": 1.0366666666666666,
+            "shortest_path_length": 0.75,
+            "longest_path_length": 1.4,
+            "path_length_std_dev": 0.270842307543625,
+            "average_time_per_path": 3.1799999999999997,
+            "time_per_path_std_dev": 1.1722058977273004,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.96,
+                    "duration": 3.13
+                },
+                {
+                    "id": 1,
+                    "length": 0.75,
+                    "duration": 1.77
+                },
+                {
+                    "id": 2,
+                    "length": 1.4,
+                    "duration": 4.64
+                }
+            ]
+        },
+        "FMTstar": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner FMTstar: 'NoneType' object is not callable"
+        },
+        "BMFTstar": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner BMFTstar: 'NoneType' object is not callable"
+        },
+        "QRRT": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner QRRT: Python argument types in"
+        },
+        "QRRTstar": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner QRRTstar: 'NoneType' object is not callable"
+        },
+        "QMP": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner QMP: 'NoneType' object is not callable"
+        },
+        "QMPstar": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner QMPstar: 'NoneType' object is not callable"
+        },
+        "RRTsharp": {
+            "status": "Successful",
+            "total_time_taken": 15.21,
+            "num_paths": 3,
+            "average_path_length": 0.39333333333333337,
+            "shortest_path_length": 0.29,
+            "longest_path_length": 0.5,
+            "path_length_std_dev": 0.08576453553512405,
+            "average_time_per_path": 5.066666666666666,
+            "time_per_path_std_dev": 0.041096093353126736,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.5,
+                    "duration": 5.12
+                },
+                {
+                    "id": 1,
+                    "length": 0.29,
+                    "duration": 5.06
+                },
+                {
+                    "id": 2,
+                    "length": 0.39,
+                    "duration": 5.02
+                }
+            ]
+        },
+        "RRTX": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner RRTX: 'NoneType' object is not callable"
+        },
+        "InformedRRTstar": {
+            "status": "Successful",
+            "total_time_taken": 15.1,
+            "num_paths": 3,
+            "average_path_length": 0.4166666666666667,
+            "shortest_path_length": 0.28,
+            "longest_path_length": 0.5,
+            "path_length_std_dev": 0.09741092797468304,
+            "average_time_per_path": 5.033333333333334,
+            "time_per_path_std_dev": 0.004714045207910216,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.5,
+                    "duration": 5.03
+                },
+                {
+                    "id": 1,
+                    "length": 0.47,
+                    "duration": 5.03
+                },
+                {
+                    "id": 2,
+                    "length": 0.28,
+                    "duration": 5.04
+                }
+            ]
+        },
+        "BITstar": {
+            "status": "Failed",
+            "error_message": "No solution found for attempt 0."
+        },
+        "ABITstar": {
+            "status": "Failed",
+            "error_message": "No solution found for attempt 0."
+        },
+        "AITstar": {
+            "status": "Failed",
+            "error_message": null
+        },
+        "LBTRRT": {
+            "status": "Failed",
+            "error_message": null
+        },
+        "ST-RRTstar": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner ST-RRTstar: 'NoneType' object is not callable"
+        },
+        "CForest": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner CForest: 'NoneType' object is not callable"
+        },
+        "APS": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner APS: 'NoneType' object is not callable"
+        },
+        "SyCLoP": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner SyCLoP: 'NoneType' object is not callable"
+        },
+        "LTLPlanner": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner LTLPlanner: 'NoneType' object is not callable"
+        },
+        "SPQRstar": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner SPQRstar: 'NoneType' object is not callable"
         }
     }
 }

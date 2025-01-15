@@ -1,0 +1,1 @@
+2025-01-15 14:19:41,912 - ERROR - Error occurred for planner BMFTstar: 'NoneType' object is not callable

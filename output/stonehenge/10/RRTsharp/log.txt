@@ -1,0 +1,18 @@
+2025-01-15 14:23:56,757 - INFO - Initialized RRTsharp planner with range 0.1
+2025-01-15 14:23:56,758 - INFO - Planning 10 paths in 5 seconds...
+2025-01-15 14:24:01,771 - INFO - Path 1 added. Length: 0.62 units. Duration: 5.01 seconds.
+2025-01-15 14:24:06,781 - INFO - Path 2 added. Length: 0.62 units. Duration: 5.01 seconds.
+2025-01-15 14:24:11,788 - INFO - Path 3 added. Length: 0.62 units. Duration: 5.01 seconds.
+2025-01-15 14:24:16,813 - INFO - Path 4 added. Length: 0.62 units. Duration: 5.02 seconds.
+2025-01-15 14:24:21,821 - INFO - Path 5 added. Length: 0.63 units. Duration: 5.01 seconds.
+2025-01-15 14:24:26,872 - INFO - Path 6 added. Length: 0.63 units. Duration: 5.05 seconds.
+2025-01-15 14:24:31,913 - INFO - Path 7 added. Length: 0.62 units. Duration: 5.04 seconds.
+2025-01-15 14:24:36,927 - INFO - Path 8 added. Length: 0.63 units. Duration: 5.01 seconds.
+2025-01-15 14:24:41,940 - INFO - Path 9 added. Length: 0.62 units. Duration: 5.01 seconds.
+2025-01-15 14:24:46,960 - INFO - Path 10 added. Length: 0.62 units. Duration: 5.02 seconds.
+2025-01-15 14:24:46,960 - INFO - All paths planning completed. Total duration: 50.20 seconds.
+2025-01-15 14:24:46,960 - INFO - Average time per path: 5.02 seconds.
+2025-01-15 14:24:46,960 - INFO - Average path length of all paths: 0.62 units.
+2025-01-15 14:24:46,960 - INFO - Shortest path length: 0.62 units.
+2025-01-15 14:24:46,960 - INFO - Longest path length: 0.63 units.
+2025-01-15 14:24:46,960 - INFO - Total number of unique paths found: 10.

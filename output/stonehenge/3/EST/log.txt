@@ -1,0 +1,11 @@
+2025-01-15 14:14:08,774 - INFO - Initialized EST planner with range 0.1
+2025-01-15 14:14:08,774 - INFO - Planning 3 paths in 5 seconds...
+2025-01-15 14:14:13,789 - INFO - Path 1 added. Length: 0.94 units. Duration: 5.01 seconds.
+2025-01-15 14:14:18,842 - INFO - Path 2 added. Length: 0.90 units. Duration: 5.05 seconds.
+2025-01-15 14:14:23,845 - INFO - Path 3 added. Length: 1.19 units. Duration: 5.00 seconds.
+2025-01-15 14:14:23,846 - INFO - All paths planning completed. Total duration: 15.07 seconds.
+2025-01-15 14:14:23,846 - INFO - Average time per path: 5.02 seconds.
+2025-01-15 14:14:23,846 - INFO - Average path length of all paths: 1.01 units.
+2025-01-15 14:14:23,846 - INFO - Shortest path length: 0.90 units.
+2025-01-15 14:14:23,846 - INFO - Longest path length: 1.19 units.
+2025-01-15 14:14:23,846 - INFO - Total number of unique paths found: 3.

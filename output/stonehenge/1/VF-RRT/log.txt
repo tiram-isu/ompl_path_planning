@@ -1,0 +1,1 @@
+2025-01-15 14:19:39,399 - ERROR - Error occurred for planner VF-RRT: 'NoneType' object is not callable

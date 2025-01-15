@@ -1,0 +1,1 @@
+2025-01-15 14:28:21,435 - ERROR - Error occurred for planner APS: 'NoneType' object is not callable

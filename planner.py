@@ -20,9 +20,8 @@ class PathPlanner:
         self.csi = ob.ConstrainedSpaceInformation(self.css)
 
         self.validity_checker = StateValidityChecker(self.csi, voxel_grid, agent_dims)
-
-        # self.ss = og.SimpleSetup(self.csi)
-        # self.ss.setStateValidityChecker(ob.StateValidityCheckerFn(self.validity_checker.is_valid))
+        self.csi.setStateValidityChecker(ob.StateValidityCheckerFn(self.validity_checker.is_valid))
+        self.csi.setStateValidityCheckingResolution(state_validity_resolution)
 
         self.planner = self.initialize_planner(planner_type, range)
 
@@ -78,7 +77,6 @@ class PathPlanner:
         max_time = path_settings['max_time_per_path']
         all_paths = []
 
-        self.csi.setStateValidityChecker(ob.StateValidityCheckerFn(self.validity_checker.is_valid))
 
         start_state, goal_state = self.initialize_start_and_goal(path_settings['start'], path_settings['goal'])
         if start_state is None or goal_state is None:
@@ -91,22 +89,22 @@ class PathPlanner:
 
         # Loop until desired number of paths is found
         path_lengths = []
-        while len(all_paths) < num_paths:
+        for i in range(num_paths):
             path_start_time = time.time()  # Start timing path planning duration
             path = self.plan_path(start_state, goal_state, max_time)
             if path is not None and path not in all_paths:
-                path_simplifier = og.PathSimplifier(self.csi)
-                path_simplifier.smoothBSpline(path, path_settings['max_smoothing_steps'])
+                # path_simplifier = og.PathSimplifier(self.csi)
+                # path_simplifier.smoothBSpline(path, path_settings['max_smoothing_steps'])
                 all_paths.append(path)
                 path_duration = time.time() - path_start_time
                 path_length = self.calculate_path_length(path)
                 path_lengths.append(path_length)
 
-                logging.info(f"Path {len(all_paths)} added. Length: {path_length:.2f} units. Duration: {path_duration:.2f} seconds.")
-                print(f"Path {len(all_paths)} added. Length: {path_length:.2f} units. Duration: {path_duration:.2f} seconds.")
+                logging.info(f"Path {i} added. Length: {path_length:.2f} units. Duration: {path_duration:.2f} seconds.")
+                print(f"Path {i} added. Length: {path_length:.2f} units. Duration: {path_duration:.2f} seconds.")
             else:
-                logging.error(f"No solution found for attempt {len(all_paths)}.")
-                print(f"No solution found for attempt {len(all_paths)}.")
+                logging.error(f"No solution found for attempt {i}.")
+                print(f"No solution found for attempt {i}.")
 
         # Log total planning duration and average time per path
         total_duration = time.time() - total_start_time

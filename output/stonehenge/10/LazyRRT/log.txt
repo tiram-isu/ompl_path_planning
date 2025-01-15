@@ -1,0 +1,18 @@
+2025-01-15 14:23:51,812 - INFO - Initialized LazyRRT planner with range 0.1
+2025-01-15 14:23:51,812 - INFO - Planning 10 paths in 5 seconds...
+2025-01-15 14:23:51,830 - INFO - Path 1 added. Length: 0.82 units. Duration: 0.02 seconds.
+2025-01-15 14:23:51,885 - INFO - Path 2 added. Length: 1.08 units. Duration: 0.05 seconds.
+2025-01-15 14:23:51,897 - INFO - Path 3 added. Length: 1.26 units. Duration: 0.01 seconds.
+2025-01-15 14:23:51,958 - INFO - Path 4 added. Length: 1.06 units. Duration: 0.06 seconds.
+2025-01-15 14:23:52,023 - INFO - Path 5 added. Length: 0.94 units. Duration: 0.06 seconds.
+2025-01-15 14:23:52,065 - INFO - Path 6 added. Length: 0.77 units. Duration: 0.04 seconds.
+2025-01-15 14:23:52,095 - INFO - Path 7 added. Length: 1.02 units. Duration: 0.03 seconds.
+2025-01-15 14:23:52,149 - INFO - Path 8 added. Length: 1.03 units. Duration: 0.05 seconds.
+2025-01-15 14:23:52,157 - INFO - Path 9 added. Length: 0.79 units. Duration: 0.01 seconds.
+2025-01-15 14:23:52,190 - INFO - Path 10 added. Length: 0.77 units. Duration: 0.03 seconds.
+2025-01-15 14:23:52,190 - INFO - All paths planning completed. Total duration: 0.38 seconds.
+2025-01-15 14:23:52,190 - INFO - Average time per path: 0.04 seconds.
+2025-01-15 14:23:52,191 - INFO - Average path length of all paths: 0.95 units.
+2025-01-15 14:23:52,191 - INFO - Shortest path length: 0.77 units.
+2025-01-15 14:23:52,191 - INFO - Longest path length: 1.26 units.
+2025-01-15 14:23:52,191 - INFO - Total number of unique paths found: 10.

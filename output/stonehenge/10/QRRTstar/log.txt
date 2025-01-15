@@ -1,0 +1,1 @@
+2025-01-15 14:23:56,724 - ERROR - Error occurred for planner QRRTstar: 'NoneType' object is not callable

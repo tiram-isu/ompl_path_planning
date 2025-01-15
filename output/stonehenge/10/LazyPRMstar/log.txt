@@ -1,0 +1,18 @@
+2025-01-15 14:21:11,647 - INFO - Initialized LazyPRMstar planner with range 0.1
+2025-01-15 14:21:11,647 - INFO - Planning 10 paths in 5 seconds...
+2025-01-15 14:21:16,661 - INFO - Path 1 added. Length: 0.68 units. Duration: 5.01 seconds.
+2025-01-15 14:21:21,682 - INFO - Path 2 added. Length: 0.64 units. Duration: 5.02 seconds.
+2025-01-15 14:21:26,694 - INFO - Path 3 added. Length: 0.63 units. Duration: 5.01 seconds.
+2025-01-15 14:21:31,718 - INFO - Path 4 added. Length: 0.69 units. Duration: 5.02 seconds.
+2025-01-15 14:21:36,748 - INFO - Path 5 added. Length: 0.67 units. Duration: 5.03 seconds.
+2025-01-15 14:21:41,758 - INFO - Path 6 added. Length: 0.68 units. Duration: 5.01 seconds.
+2025-01-15 14:21:46,773 - INFO - Path 7 added. Length: 0.67 units. Duration: 5.01 seconds.
+2025-01-15 14:21:51,820 - INFO - Path 8 added. Length: 0.68 units. Duration: 5.05 seconds.
+2025-01-15 14:21:56,833 - INFO - Path 9 added. Length: 0.67 units. Duration: 5.01 seconds.
+2025-01-15 14:22:01,849 - INFO - Path 10 added. Length: 0.69 units. Duration: 5.02 seconds.
+2025-01-15 14:22:01,849 - INFO - All paths planning completed. Total duration: 50.20 seconds.
+2025-01-15 14:22:01,849 - INFO - Average time per path: 5.02 seconds.
+2025-01-15 14:22:01,849 - INFO - Average path length of all paths: 0.67 units.
+2025-01-15 14:22:01,849 - INFO - Shortest path length: 0.63 units.
+2025-01-15 14:22:01,849 - INFO - Longest path length: 0.69 units.
+2025-01-15 14:22:01,849 - INFO - Total number of unique paths found: 10.

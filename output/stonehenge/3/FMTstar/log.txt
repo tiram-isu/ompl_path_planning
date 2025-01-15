@@ -1,0 +1,1 @@
+2025-01-15 14:14:50,330 - ERROR - Error occurred for planner FMTstar: 'NoneType' object is not callable

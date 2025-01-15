@@ -99,7 +99,18 @@ def save_paths_to_json(paths, output_path):
 def setup_logging(output_path):
     """Initialize logging for the given output path."""
     os.makedirs(output_path, exist_ok=True)
-    logging.basicConfig(filename=os.path.join(output_path, "log.txt"), level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s', filemode='w')
+
+    # Reset any existing logging configuration
+    for handler in logging.root.handlers[:]:
+        logging.root.removeHandler(handler)
+
+    # Configure logging
+    logging.basicConfig(
+        filename=os.path.join(output_path, "log.txt"),
+        level=logging.DEBUG,
+        format='%(asctime)s - %(levelname)s - %(message)s',
+        filemode='w'
+    )
 
 def extract_log_data(json_path):
     """Extract data from the summary JSON file."""

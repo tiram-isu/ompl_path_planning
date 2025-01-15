@@ -1,0 +1,1 @@
+2025-01-15 14:19:40,754 - ERROR - Error occurred for planner LBKPIECE: 'NoneType' object is not callable

@@ -1,11 +1,11 @@
-2025-01-14 01:11:32,583 - INFO - Initialized PRM planner with range 0.01
-2025-01-14 01:11:32,583 - INFO - Planning 3 paths in 5 seconds...
-2025-01-14 01:11:33,595 - INFO - Path 1 added. Length: 0.80 units. Duration: 1.01 seconds.
-2025-01-14 01:11:34,278 - INFO - Path 2 added. Length: 0.91 units. Duration: 0.68 seconds.
-2025-01-14 01:11:35,296 - INFO - Path 3 added. Length: 0.96 units. Duration: 1.02 seconds.
-2025-01-14 01:11:35,297 - INFO - All paths planning completed. Total duration: 2.71 seconds.
-2025-01-14 01:11:35,297 - INFO - Average time per path: 0.90 seconds.
-2025-01-14 01:11:35,297 - INFO - Average path length of all paths: 0.89 units.
-2025-01-14 01:11:35,297 - INFO - Shortest path length: 0.80 units.
-2025-01-14 01:11:35,297 - INFO - Longest path length: 0.96 units.
-2025-01-14 01:11:35,297 - INFO - Total number of unique paths found: 3.
+2025-01-15 14:10:27,736 - INFO - Initialized PRM planner with range 0.1
+2025-01-15 14:10:27,736 - INFO - Planning 3 paths in 5 seconds...
+2025-01-15 14:10:28,694 - INFO - Path 1 added. Length: 0.81 units. Duration: 0.96 seconds.
+2025-01-15 14:10:29,150 - INFO - Path 2 added. Length: 0.84 units. Duration: 0.46 seconds.
+2025-01-15 14:10:30,099 - INFO - Path 3 added. Length: 0.88 units. Duration: 0.95 seconds.
+2025-01-15 14:10:30,099 - INFO - All paths planning completed. Total duration: 2.36 seconds.
+2025-01-15 14:10:30,099 - INFO - Average time per path: 0.79 seconds.
+2025-01-15 14:10:30,099 - INFO - Average path length of all paths: 0.84 units.
+2025-01-15 14:10:30,099 - INFO - Shortest path length: 0.81 units.
+2025-01-15 14:10:30,099 - INFO - Longest path length: 0.88 units.
+2025-01-15 14:10:30,099 - INFO - Total number of unique paths found: 3.

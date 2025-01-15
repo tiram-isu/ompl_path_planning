@@ -1,0 +1,9 @@
+2025-01-15 14:19:27,054 - INFO - Initialized RRT planner with range 0.1
+2025-01-15 14:19:27,054 - INFO - Planning 1 paths in 5 seconds...
+2025-01-15 14:19:27,076 - INFO - Path 1 added. Length: 0.98 units. Duration: 0.02 seconds.
+2025-01-15 14:19:27,077 - INFO - All paths planning completed. Total duration: 0.02 seconds.
+2025-01-15 14:19:27,077 - INFO - Average time per path: 0.02 seconds.
+2025-01-15 14:19:27,077 - INFO - Average path length of all paths: 0.98 units.
+2025-01-15 14:19:27,077 - INFO - Shortest path length: 0.98 units.
+2025-01-15 14:19:27,077 - INFO - Longest path length: 0.98 units.
+2025-01-15 14:19:27,077 - INFO - Total number of unique paths found: 1.

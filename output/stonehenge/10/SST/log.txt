@@ -1,0 +1,14 @@
+2025-01-15 14:23:00,998 - INFO - Initialized SST planner with range 0.1
+2025-01-15 14:23:00,998 - INFO - Planning 10 paths in 5 seconds...
+2025-01-15 14:23:06,050 - ERROR - No solution found for attempt 0.
+2025-01-15 14:23:11,072 - ERROR - No solution found for attempt 0.
+2025-01-15 14:23:16,074 - ERROR - No solution found for attempt 0.
+2025-01-15 14:23:21,091 - ERROR - No solution found for attempt 0.
+2025-01-15 14:23:26,130 - ERROR - No solution found for attempt 0.
+2025-01-15 14:23:31,144 - ERROR - No solution found for attempt 0.
+2025-01-15 14:23:36,148 - ERROR - No solution found for attempt 0.
+2025-01-15 14:23:41,153 - ERROR - No solution found for attempt 0.
+2025-01-15 14:23:46,205 - ERROR - No solution found for attempt 0.
+2025-01-15 14:23:51,224 - ERROR - No solution found for attempt 0.
+2025-01-15 14:23:51,225 - INFO - All paths planning completed. Total duration: 50.23 seconds.
+2025-01-15 14:23:51,751 - ERROR - Error occurred for planner SST: local variable 'path_geometries' referenced before assignment

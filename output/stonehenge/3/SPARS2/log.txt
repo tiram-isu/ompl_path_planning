@@ -1,0 +1,1 @@
+2025-01-15 14:12:19,530 - ERROR - Error occurred for planner SPARS2: 'NoneType' object is not callable

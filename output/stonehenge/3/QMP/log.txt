@@ -1,0 +1,1 @@
+2025-01-15 14:14:50,374 - ERROR - Error occurred for planner QMP: 'NoneType' object is not callable

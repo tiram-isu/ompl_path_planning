@@ -1,0 +1,8 @@
+2025-01-15 14:11:48,432 - INFO - Initialized SPARS planner with range 0.1
+2025-01-15 14:11:48,433 - INFO - Planning 3 paths in 5 seconds...
+2025-01-15 14:11:53,537 - ERROR - No solution found for attempt 0.
+2025-01-15 14:11:58,579 - ERROR - No solution found for attempt 0.
+2025-01-15 14:12:03,712 - ERROR - No solution found for attempt 0.
+2025-01-15 14:12:08,786 - ERROR - No solution found for attempt 0.
+2025-01-15 14:12:13,853 - ERROR - No solution found for attempt 0.
+2025-01-15 14:12:18,913 - ERROR - No solution found for attempt 0.

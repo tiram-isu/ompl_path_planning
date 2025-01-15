@@ -66,27 +66,27 @@ class HeightConstraint(ob.Constraint):
         self.agent_height = agent_dims[1]
         self.leeway = leeway
 
+        bounding_box_min = voxel_grid.bounding_box_min
+        self.leeway_index_range = voxel_grid.world_to_index(bounding_box_min[0], bounding_box_min[1], bounding_box_min[2] + leeway)
 
     def function(self, state, out):
-        # return
         x, y, z = state[0], state[1], state[2]
 
-        # Start checking from the bottom of the agent's bounding box
-        i = 0
-        while i <= self.agent_height + self.leeway:
-            current_z = z - i
-            index = self.voxel_grid.world_to_index(x, y, current_z)
-            
-            # If index is invalid or out of bounds, terminate early
-            if not index or not self.voxel_grid.index_within_bounds(index):
+        index = self.voxel_grid.world_to_index(x, y, z)
+        if not index:
+            out[0] = 1
+            return
+
+        i = 1
+        while i <= self.leeway_index_range[2] + 1:
+            index_below = index[0], index[1], index[2] - i
+            if not self.voxel_grid.index_within_bounds(index_below):
                 break
 
-            # Check if the voxel is occupied
-            if self.voxel_grid.grid[index]:
-                out[0] = 0  # Constraint satisfied
+            if self.voxel_grid.grid[index_below]:
+                out[0] = 0
                 return
-
-            i += self.voxel_size
+            i += 1
 
         out[0] = 1  # Constraint violated
 
@@ -96,8 +96,6 @@ class HeightConstraint(ob.Constraint):
         out[0][:] = 0
 
         # Set a negative gradient along z-axis to move toward the ground
-        out[0][2] = -1
+        out[0][2] = -self.leeway
     
-    # project method should be overwritten, but all my attempts make path planning slower instead of faster
-
 
