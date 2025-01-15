@@ -5,61 +5,56 @@ from ompl import base as ob
 from voxel_grid import VoxelGrid
 from ompl import geometric as og
 from visualization import Visualizer
+import math
 
-class StateValidityChecker:
-    def __init__(self, space, voxel_grid, agent_dims):
+class StateValidityChecker(ob.StateValidityChecker):
+    def __init__(self, si, voxel_grid, agent_dims):
         """
-        Initialize the StateValidityChecker with a voxel grid for collision and ground checking.
+        Initialize the StateValidityChecker with a voxel grid for collision checking.
 
         :param voxel_grid: An instance of VoxelGrid used to check for collisions.
         :param agent_dims: A tuple (width, height) representing the agent's dimensions.
-        :param leeway: Distance below the lowest point of the agent's bounding box to check for ground.
         """
+        super().__init__(si)
+
         self.voxel_grid = voxel_grid
-        # self.height_constraint = height_constraint
-
-        # Calculate agent dimensions
-        agent_radius = agent_dims[0] / 2
-        agent_height = agent_dims[1]
-
-        if agent_radius == 0 and agent_height == 0:
-            # Single point check for zero dimensions
-            self.relative_offsets = [(0, 0, 0)]
-        else:
-            # Define relative offsets for bounding box corners
-            self.relative_offsets = [
-                (-agent_radius, -agent_radius, 0),
-                (+agent_radius, +agent_radius, 0),
-                (-agent_radius, -agent_radius, -agent_height),
-                (+agent_radius, +agent_radius, -agent_height)
-            ]
-
+        self.agent_radius = agent_dims[0] / 2
+        self.agent_height = agent_dims[1]
+        self.padding = 2
 
     def is_valid(self, state):
         """
-        Check if a state is valid (no collision and ground presence) using the voxel grid.
+        Check if a state is valid (no collision) using the voxel grid.
 
         :param state: The state to check, which consists of (x, y, z) world coordinates.
-        :return: True if the state is valid, False otherwise (i.e., in collision or no ground).
+        :return: True if the state is valid, False otherwise.
         """
-        # Check collisions
-        for dx, dy, dz in self.relative_offsets:
-            nx, ny, nz = state[0] + dx, state[1] + dy, state[2] + dz
-            index = self.voxel_grid.world_to_index(nx, ny, nz)
-            if self.is_colliding(index):
-                return False
+        x, y, z = state[0], state[1], state[2]
 
-        return True
+        # Compute the min and max indices for the agent's bounding box
+        index_min = self.voxel_grid.world_to_index(x - self.agent_radius, y - self.agent_radius, z - self.agent_height)
+        index_max = self.voxel_grid.world_to_index(x + self.agent_radius, y + self.agent_radius, z)
 
-    def is_colliding(self, index):
-        """
-        Check if the given index corresponds to a collision.
-        :param index: The voxel grid index.
-        :return: True if the index is occupied or out of bounds, False otherwise.
-        """
-        if index:
-            return self.voxel_grid.grid[index]  # True if occupied
-        return True  # Outside the grid, considered invalid
+        # If out of bounds, state is invalid
+        if index_min is None or index_max is None:
+            return False
+
+        # Add padding
+        index_min = (max(index_min[0] - self.padding, 0),
+                     max(index_min[1] - self.padding, 0),
+                     max(index_min[2] - self.padding, 0))
+        index_max = (min(index_max[0] + self.padding, self.voxel_grid.grid_dims[0] - 1),
+                     min(index_max[1] + self.padding, self.voxel_grid.grid_dims[1] - 1),
+                     min(index_max[2] + self.padding, self.voxel_grid.grid_dims[2] - 1))
+
+        # Extract the cuboid of voxels
+        voxel_slice = self.voxel_grid.grid[index_min[0]:index_max[0] + 1,
+                                           index_min[1]:index_max[1] + 1,
+                                           index_min[2]:index_max[2] + 1]
+
+        # Check if any voxel in the cuboid is occupied
+        return not np.any(voxel_slice)
+
 
 
 class HeightConstraint(ob.Constraint):
@@ -73,6 +68,7 @@ class HeightConstraint(ob.Constraint):
 
 
     def function(self, state, out):
+        # return
         x, y, z = state[0], state[1], state[2]
 
         # Start checking from the bottom of the agent's bounding box
@@ -95,6 +91,7 @@ class HeightConstraint(ob.Constraint):
         out[0] = 1  # Constraint violated
 
     def jacobian(self, state, out):
+        # return
         # Zero out the Jacobian initially
         out[0][:] = 0
 

@@ -35,6 +35,12 @@ class VoxelGrid:
             return tuple(voxel_indices)
         return None
     
+    def world_to_index_ceil(self, x, y, z):
+        voxel_indices = np.ceil((np.array([x, y, z]) - self.bounding_box_min) / self.voxel_size).astype(int)
+        if np.all((voxel_indices >= 0) & (voxel_indices < self.grid_dims)):
+            return tuple(voxel_indices)
+        return None
+    
     def index_to_world(self, index):
         """
         Convert voxel grid indices to world coordinates.
@@ -43,6 +49,22 @@ class VoxelGrid:
         :return: Tuple of world coordinates (x, y, z).
         """
         return tuple(self.bounding_box_min + np.array(index) * self.voxel_size)
+    
+    def get_voxels_in_cuboid(self, index_min, index_max):
+        """
+        Get all voxel indices within a cuboid defined by two corners.
+
+        :param index_min: Minimum corner of the cuboid.
+        :param index_max: Maximum corner of the cuboid.
+        :return: List of voxel indices within the cuboid.
+        """
+        indices = []
+        for i in range(index_min[0], index_max[0] + 1):
+            for j in range(index_min[1], index_max[1] + 1):
+                for k in range(index_min[2], index_max[2] + 1):
+                    if self.index_within_bounds((i, j, k)):
+                        indices.append((i, j, k))
+        return indices
 
 
     def mark_occupied(self, x, y, z):

@@ -19,7 +19,7 @@ class PathPlanner:
         self.css = ob.ProjectedStateSpace(self.rvss, constraint)
         self.csi = ob.ConstrainedSpaceInformation(self.css)
 
-        self.validity_checker = StateValidityChecker(self.rvss, voxel_grid, agent_dims)
+        self.validity_checker = StateValidityChecker(self.csi, voxel_grid, agent_dims)
 
         # self.ss = og.SimpleSetup(self.csi)
         # self.ss.setStateValidityChecker(ob.StateValidityCheckerFn(self.validity_checker.is_valid))
@@ -64,22 +64,6 @@ class PathPlanner:
         return start_state, goal_state
     
     def plan_path(self, start_state, goal_state, max_time):
-        # self.ss.setStartAndGoalStates(start_state, goal_state)
-        # pp = self.planner
-        # self.ss.setPlanner(pp)
-
-        # self.ss.setup()
-
-        # stat = self.ss.solve(max_time)
-        # if stat:
-        #     self.ss.simplifySolution(5.0)
-        #     path = self.ss.getSolutionPath()
-        #     path.interpolate()
-        #     return path
-        # else:
-        #     print("No solution found.")
-        #     return None
-
         self.planner.clear() # increases time taken for each path
 
         pdef = ob.ProblemDefinition(self.csi)
@@ -111,8 +95,8 @@ class PathPlanner:
             path_start_time = time.time()  # Start timing path planning duration
             path = self.plan_path(start_state, goal_state, max_time)
             if path is not None and path not in all_paths:
-                # path_simplifier = og.PathSimplifier(self.csi)
-                # path_simplifier.smoothBSpline(path, path_settings['max_smoothing_steps'])
+                path_simplifier = og.PathSimplifier(self.csi)
+                path_simplifier.smoothBSpline(path, path_settings['max_smoothing_steps'])
                 all_paths.append(path)
                 path_duration = time.time() - path_start_time
                 path_length = self.calculate_path_length(path)
