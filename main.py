@@ -72,23 +72,31 @@ if __name__ == "__main__":
 
     planners = ['PRM']
 
-    model_name = "test"
+    model_name = "kaer_morhen"
     # mesh = o3d.io.read_triangle_mesh(f"/app/models/{model_name}.obj")
     # load voxel grid
     # voxel_grid = o3d.io.read_voxel_grid(f"/app/models/{model_name}.ply")
-    voxel_grid = VoxelGrid.from_saved_files(f"/app/voxel_models/stonehenge/voxels_115x110x24_0.9_0/")
+    voxel_grid = VoxelGrid.from_saved_files(f"/app/voxel_models/stonehenge_new/voxels_115x110x24_0_0/")
     
-    visualization_mesh = o3d.io.read_triangle_mesh(f"/app/voxel_models/stonehenge/voxels_115x110x24_0.9_0//voxels.ply")
+    visualization_mesh = o3d.io.read_triangle_mesh(f"/app/voxel_models/stonehenge_new/voxels_115x110x24_0_0/voxels.ply")
 
+    # kaer_morhen
+    # start = np.array([0.15, 0.08, -0.23])
+    # goal = np.array([0.03, 0.01, -0.17])
+    # start = np.array([0.15, -0.01, -0.16])
+    # goal = np.array([-0.24, 0.04, -0.15])
+
+    # stonehenge
     start = np.array([-0.33, 0.10, -0.44])
     goal = np.array([0.22, -0.16, -0.44])
+
     planner_range = 0.1
-    state_validity_resolution = 0.01
-    camera_dims = [0.004, 0.008] # radius, height
+    state_validity_resolution = 0.0001
+    camera_dims = [0.001, 0.002] # radius, height
 
     enable_visualization = True
-    num_paths = [1, 10, 50, 100]
-    num_paths = [3]
+    num_paths = [1, 10]
+    num_paths = [10]
     max_time_per_path = 5  # maximum time in seconds for each planner process
     max_smoothing_steps = 1
 

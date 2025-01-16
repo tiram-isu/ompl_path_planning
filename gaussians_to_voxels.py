@@ -178,14 +178,14 @@ def save_gaussians_as_voxels(gaussian_data, output_path, scale_factor, manual_vo
 if __name__ == '__main__':
     ckpt_path = "/app/models/alameda_v3.ckpt"
     ply_path = "/app/models/stonehenge_colmap_aligned.ply"
-    output_path = "/app/voxel_models/stonehenge/"
+    output_path = "/app/voxel_models/stonehenge_new/"
     device = "cuda"
 
     opacity_threshold = 0
     scale_threshold = 0
     manual_voxel_resolution = None  # Set a number to use manual resolution, or None for dynamic resolution
     voxel_resolution_factor = 1.5  # Increase this value to increase the voxel resolution
-    scale_factor = 0.001  # nerfstudio
+    scale_factor = 0.001  # nerfstudio - 0.01 for vanilla 3DGS
     enable_logging = True
 
     # gaussian_data = importer.load_gaussians_from_nerfstudio_ckpt(ckpt_path, device=device)
