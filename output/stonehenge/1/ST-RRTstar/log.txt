@@ -1,1 +1,0 @@
-2025-01-15 14:20:16,017 - ERROR - Error occurred for planner ST-RRTstar: 'NoneType' object is not callable

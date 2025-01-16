@@ -1,9 +1,0 @@
-2025-01-15 14:19:27,636 - INFO - Initialized RRTConnect planner with range 0.1
-2025-01-15 14:19:27,636 - INFO - Planning 1 paths in 5 seconds...
-2025-01-15 14:19:27,642 - INFO - Path 1 added. Length: 0.75 units. Duration: 0.01 seconds.
-2025-01-15 14:19:27,642 - INFO - All paths planning completed. Total duration: 0.01 seconds.
-2025-01-15 14:19:27,642 - INFO - Average time per path: 0.01 seconds.
-2025-01-15 14:19:27,642 - INFO - Average path length of all paths: 0.75 units.
-2025-01-15 14:19:27,642 - INFO - Shortest path length: 0.75 units.
-2025-01-15 14:19:27,642 - INFO - Longest path length: 0.75 units.
-2025-01-15 14:19:27,642 - INFO - Total number of unique paths found: 1.

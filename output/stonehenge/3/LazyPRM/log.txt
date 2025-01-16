@@ -1,8 +1,0 @@
-2025-01-15 14:10:30,664 - INFO - Initialized LazyPRM planner with range 0.1
-2025-01-15 14:10:30,664 - INFO - Planning 3 paths in 5 seconds...
-2025-01-15 14:10:35,688 - ERROR - No solution found for attempt 0.
-2025-01-15 14:10:40,738 - ERROR - No solution found for attempt 0.
-2025-01-15 14:10:45,746 - ERROR - No solution found for attempt 0.
-2025-01-15 14:10:50,803 - ERROR - No solution found for attempt 0.
-2025-01-15 14:10:55,813 - ERROR - No solution found for attempt 0.
-2025-01-15 14:11:00,853 - ERROR - No solution found for attempt 0.

@@ -1,9 +1,0 @@
-2025-01-15 15:14:43,575 - INFO - Initialized PRM planner with range 0.1
-2025-01-15 15:14:43,575 - INFO - Planning 1 paths in 5 seconds...
-2025-01-15 15:14:43,679 - INFO - Path 0 added. Length: 0.85 units. Duration: 0.10 seconds.
-2025-01-15 15:14:43,679 - INFO - All paths planning completed. Total duration: 0.10 seconds.
-2025-01-15 15:14:43,679 - INFO - Average time per path: 0.10 seconds.
-2025-01-15 15:14:43,679 - INFO - Average path length of all paths: 0.85 units.
-2025-01-15 15:14:43,679 - INFO - Shortest path length: 0.85 units.
-2025-01-15 15:14:43,679 - INFO - Longest path length: 0.85 units.
-2025-01-15 15:14:43,679 - INFO - Total number of unique paths found: 1.

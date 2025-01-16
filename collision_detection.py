@@ -8,7 +8,7 @@ from visualization import Visualizer
 import math
 
 class StateValidityChecker(ob.StateValidityChecker):
-    def __init__(self, si, voxel_grid, agent_dims):
+    def __init__(self, si, voxel_grid, agent_dims, slope_constraint):
         """
         Initialize the StateValidityChecker with a voxel grid for collision checking.
 
@@ -21,8 +21,9 @@ class StateValidityChecker(ob.StateValidityChecker):
         self.agent_radius = agent_dims[0] / 2
         self.agent_height = agent_dims[1]
         self.padding = 2
+        self.slope_constraint = slope_constraint
 
-    def is_valid(self, state):
+    def isValid(self, state):
         """
         Check if a state is valid (no collision) using the voxel grid.
 
@@ -51,6 +52,10 @@ class StateValidityChecker(ob.StateValidityChecker):
         voxel_slice = self.voxel_grid.grid[index_min[0]:index_max[0] + 1,
                                            index_min[1]:index_max[1] + 1,
                                            index_min[2]:index_max[2] + 1]
+        
+        # Check slope
+        if not self.slope_constraint.is_valid(state):
+            return False
 
         # Check if any voxel in the cuboid is occupied
         return not np.any(voxel_slice)
@@ -97,5 +102,33 @@ class HeightConstraint(ob.Constraint):
 
         # Set a negative gradient along z-axis to move toward the ground
         out[0][2] = -self.leeway
+
+class SlopeConstraint():
+    def __init__(self, max_slope_degrees):
+        self.max_slope_radians = np.tan(np.radians(max_slope_degrees))
+        self.prev_state = None
+
+    def is_valid(self, state):
+        # Calculate the horizontal distance
+        dx = self.prev_state[0] - state[0]
+        dy = self.prev_state[1] - state[1]
+        dz = self.prev_state[2] - state[2]
+        horizontal_distance = (dx**2 + dy**2)**0.5
+
+        # Avoid division by zero for horizontal distance
+        if horizontal_distance == 0 and dz != 0:
+            return False
+        elif horizontal_distance == 0 and dz == 0:
+            return True
+
+        # Check if the slope is within the allowable limit
+        slope = abs(dz) / horizontal_distance
+        return slope <= self.max_slope_radians
+
+    def clear_prev_state(self):
+        self.prev_state = None
+    
+    def set_prev_state(self, state):
+        self.prev_state = state
     
 

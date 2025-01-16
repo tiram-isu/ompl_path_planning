@@ -1,8 +1,0 @@
-2025-01-15 14:15:54,088 - INFO - Initialized ABITstar planner with range 0.1
-2025-01-15 14:15:54,089 - INFO - Planning 3 paths in 5 seconds...
-2025-01-15 14:15:59,090 - ERROR - No solution found for attempt 0.
-2025-01-15 14:16:04,101 - ERROR - No solution found for attempt 0.
-2025-01-15 14:16:09,247 - ERROR - No solution found for attempt 0.
-2025-01-15 14:16:14,276 - ERROR - No solution found for attempt 0.
-2025-01-15 14:16:19,280 - ERROR - No solution found for attempt 0.
-2025-01-15 14:16:24,372 - ERROR - No solution found for attempt 0.

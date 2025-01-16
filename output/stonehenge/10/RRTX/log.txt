@@ -1,1 +1,0 @@
-2025-01-15 14:24:47,579 - ERROR - Error occurred for planner RRTX: 'NoneType' object is not callable

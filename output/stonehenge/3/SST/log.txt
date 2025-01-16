@@ -1,8 +1,0 @@
-2025-01-15 14:13:06,548 - INFO - Initialized SST planner with range 0.1
-2025-01-15 14:13:06,548 - INFO - Planning 3 paths in 5 seconds...
-2025-01-15 14:13:11,573 - ERROR - No solution found for attempt 0.
-2025-01-15 14:13:16,576 - ERROR - No solution found for attempt 0.
-2025-01-15 14:13:21,583 - ERROR - No solution found for attempt 0.
-2025-01-15 14:13:26,629 - ERROR - No solution found for attempt 0.
-2025-01-15 14:13:31,632 - ERROR - No solution found for attempt 0.
-2025-01-15 14:13:36,664 - ERROR - No solution found for attempt 0.

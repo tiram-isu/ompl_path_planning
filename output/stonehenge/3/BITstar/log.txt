@@ -1,8 +1,0 @@
-2025-01-15 14:15:22,994 - INFO - Initialized BITstar planner with range 0.1
-2025-01-15 14:15:22,995 - INFO - Planning 3 paths in 5 seconds...
-2025-01-15 14:15:28,017 - ERROR - No solution found for attempt 0.
-2025-01-15 14:15:33,072 - ERROR - No solution found for attempt 0.
-2025-01-15 14:15:38,202 - ERROR - No solution found for attempt 0.
-2025-01-15 14:15:43,234 - ERROR - No solution found for attempt 0.
-2025-01-15 14:15:48,256 - ERROR - No solution found for attempt 0.
-2025-01-15 14:15:53,272 - ERROR - No solution found for attempt 0.

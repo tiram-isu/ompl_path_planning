@@ -3,7 +3,7 @@ import logging
 import time
 from ompl import base as ob
 from ompl import geometric as og
-from collision_detection import StateValidityChecker, HeightConstraint, HeightConstraint
+from collision_detection import StateValidityChecker, HeightConstraint, SlopeConstraint
 
 class PathPlanner:
     def __init__(self, voxel_grid, agent_dims, planner_type, range, state_validity_resolution):
@@ -14,13 +14,14 @@ class PathPlanner:
         self.initialize_bounds()
 
         leeway = .05
-        constraint = HeightConstraint(voxel_grid, agent_dims, leeway)
+        height_constraint = HeightConstraint(voxel_grid, agent_dims, leeway)
+        self.slope_constraint = SlopeConstraint(max_slope_degrees=45)
         
-        self.css = ob.ProjectedStateSpace(self.rvss, constraint)
+        self.css = ob.ProjectedStateSpace(self.rvss, height_constraint)
         self.csi = ob.ConstrainedSpaceInformation(self.css)
 
-        self.validity_checker = StateValidityChecker(self.csi, voxel_grid, agent_dims)
-        self.csi.setStateValidityChecker(ob.StateValidityCheckerFn(self.validity_checker.is_valid))
+        self.validity_checker = StateValidityChecker(self.csi, voxel_grid, agent_dims, self.slope_constraint)
+        self.csi.setStateValidityChecker(ob.StateValidityCheckerFn(self.validity_checker.isValid))
         self.csi.setStateValidityCheckingResolution(state_validity_resolution)
 
         self.planner = self.initialize_planner(planner_type, range)
@@ -53,6 +54,8 @@ class PathPlanner:
     def initialize_start_and_goal(self, start, goal):
         start_state = ob.State(self.css)
         goal_state = ob.State(self.css)
+
+        self.slope_constraint.set_prev_state(start)
 
         for i in range(3):
             start_state[i] = start[i]
@@ -92,12 +95,12 @@ class PathPlanner:
         for i in range(num_paths):
             path_start_time = time.time()  # Start timing path planning duration
             path = self.plan_path(start_state, goal_state, max_time)
-            if path is not None and path not in all_paths:
-                # path_simplifier = og.PathSimplifier(self.csi)
-                # path_simplifier.smoothBSpline(path, path_settings['max_smoothing_steps'])
+            if path is not None:
+                path_simplifier = og.PathSimplifier(self.csi)
+                path_simplifier.smoothBSpline(path, 3)
                 all_paths.append(path)
                 path_duration = time.time() - path_start_time
-                path_length = self.calculate_path_length(path)
+                path_length = path.length()
                 path_lengths.append(path_length)
 
                 logging.info(f"Path {i} added. Length: {path_length:.2f} units. Duration: {path_duration:.2f} seconds.")
@@ -126,15 +129,3 @@ class PathPlanner:
             logging.info(f"Total number of unique paths found: {len(all_paths)}.")
 
         return all_paths
-    
-    def calculate_path_length(self, path):
-        """Calculates the length of a given path."""
-        length = 0.0
-        for i in range(path.getStateCount() - 1):
-            state1 = path.getState(i)
-            state2 = path.getState(i + 1)
-
-            # Calculate Euclidean distance between consecutive states
-            distance = np.linalg.norm(np.array([state1[0], state1[1], state1[2]]) - np.array([state2[0], state2[1], state2[2]]))
-            length += distance
-        return length

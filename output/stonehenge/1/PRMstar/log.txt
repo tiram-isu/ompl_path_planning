@@ -1,9 +1,0 @@
-2025-01-15 14:19:08,765 - INFO - Initialized PRMstar planner with range 0.1
-2025-01-15 14:19:08,765 - INFO - Planning 1 paths in 5 seconds...
-2025-01-15 14:19:13,772 - INFO - Path 1 added. Length: 0.65 units. Duration: 5.01 seconds.
-2025-01-15 14:19:13,773 - INFO - All paths planning completed. Total duration: 5.01 seconds.
-2025-01-15 14:19:13,773 - INFO - Average time per path: 5.01 seconds.
-2025-01-15 14:19:13,773 - INFO - Average path length of all paths: 0.65 units.
-2025-01-15 14:19:13,773 - INFO - Shortest path length: 0.65 units.
-2025-01-15 14:19:13,773 - INFO - Longest path length: 0.65 units.
-2025-01-15 14:19:13,773 - INFO - Total number of unique paths found: 1.

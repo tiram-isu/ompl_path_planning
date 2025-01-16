@@ -1,1 +1,0 @@
-2025-01-15 14:20:16,053 - ERROR - Error occurred for planner SyCLoP: 'NoneType' object is not callable

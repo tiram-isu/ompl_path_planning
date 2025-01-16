@@ -72,7 +72,7 @@ if __name__ == "__main__":
 
     planners = ['PRM']
 
-    model_name = "stonehenge__new_height+jacobian2"
+    model_name = "test"
     # mesh = o3d.io.read_triangle_mesh(f"/app/models/{model_name}.obj")
     # load voxel grid
     # voxel_grid = o3d.io.read_voxel_grid(f"/app/models/{model_name}.ply")
@@ -88,7 +88,7 @@ if __name__ == "__main__":
 
     enable_visualization = True
     num_paths = [1, 10, 50, 100]
-    num_paths = [10]
+    num_paths = [3]
     max_time_per_path = 5  # maximum time in seconds for each planner process
     max_smoothing_steps = 1
 

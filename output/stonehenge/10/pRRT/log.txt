@@ -1,1 +1,0 @@
-2025-01-15 14:23:51,801 - ERROR - Error occurred for planner pRRT: 'NoneType' object is not callable
