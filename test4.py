@@ -80,7 +80,7 @@ class PathPlanner:
         problem.setStartAndGoalStates(start_state, goal_state)
 
         # Choose the RRT planner
-        planner = og.RRT(si)
+        planner = og.PRM(si)
         planner.setProblemDefinition(problem)
         planner.setup()
 
@@ -89,11 +89,12 @@ class PathPlanner:
             path = problem.getSolutionPath()
             waypoints = []
 
-            for i in range(path.getStateCount()):
-                state = path.getState(i)
-                waypoints.append([state[0], state[1], state[2]])
+            if path:
+                for i in range(path.getStateCount()):
+                    state = path.getState(i)
+                    waypoints.append([state[0], state[1], state[2]])
 
-            return waypoints
+                return waypoints
 
         return None
 
