@@ -3,7 +3,7 @@ import logging
 import time
 from ompl import base as ob
 from ompl import geometric as og
-from collision_detection import StateValidityChecker, HeightConstraint, SlopeConstraint
+from collision_detection import StateValidityChecker
 
 class PathPlanner:
     def __init__(self, voxel_grid, agent_dims, planner_type, range, state_validity_resolution):
@@ -13,14 +13,9 @@ class PathPlanner:
 
         self.initialize_bounds()
 
-        leeway = .05
-        height_constraint = HeightConstraint(voxel_grid, agent_dims, leeway)
-        self.slope_constraint = SlopeConstraint(max_slope_degrees=45)
-        
-        self.css = ob.ProjectedStateSpace(self.rvss, height_constraint)
-        self.csi = ob.ConstrainedSpaceInformation(self.css)
+        self.csi = ob.SpaceInformation(self.rvss)
 
-        self.validity_checker = StateValidityChecker(self.csi, voxel_grid, agent_dims, self.slope_constraint)
+        self.validity_checker = StateValidityChecker(self.csi, voxel_grid, agent_dims)
         self.csi.setStateValidityChecker(ob.StateValidityCheckerFn(self.validity_checker.isValid))
         self.csi.setStateValidityCheckingResolution(state_validity_resolution)
 
@@ -52,10 +47,8 @@ class PathPlanner:
         return planner
     
     def initialize_start_and_goal(self, start, goal):
-        start_state = ob.State(self.css)
-        goal_state = ob.State(self.css)
-
-        self.slope_constraint.set_prev_state(start)
+        start_state = ob.State(self.rvss)
+        goal_state = ob.State(self.rvss)
 
         for i in range(3):
             start_state[i] = start[i]

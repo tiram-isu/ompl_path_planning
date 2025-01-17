@@ -9,7 +9,7 @@ import math
 from collections import defaultdict
 
 class StateValidityChecker(ob.StateValidityChecker):
-    def __init__(self, si, voxel_grid, agent_dims, slope_constraint):
+    def __init__(self, si, voxel_grid, agent_dims):
         """
         Initialize the StateValidityChecker with a voxel grid for collision checking.
 
@@ -22,7 +22,6 @@ class StateValidityChecker(ob.StateValidityChecker):
         self.agent_radius = agent_dims[0] / 2
         self.agent_height = agent_dims[1]
         self.padding = 1
-        self.slope_constraint = slope_constraint
 
     def isValid(self, state):
         """
@@ -55,10 +54,6 @@ class StateValidityChecker(ob.StateValidityChecker):
                 for k in range(index_min[2], index_max[2] + 1):
                     if (i, j, k) in self.voxel_grid.grid:
                         return False
-
-        # Check slope
-        if not self.slope_constraint.is_valid(state):
-            return False
 
         # If no occupied voxels were found and slope is valid, the state is valid
         return True

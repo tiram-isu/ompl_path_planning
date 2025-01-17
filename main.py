@@ -91,7 +91,7 @@ if __name__ == "__main__":
     goal = np.array([0.22, -0.16, -0.44])
 
     planner_range = 0.1
-    state_validity_resolution = 0.0001
+    state_validity_resolution = 0.01
     camera_dims = [0.001, 0.002] # radius, height
 
     enable_visualization = True
