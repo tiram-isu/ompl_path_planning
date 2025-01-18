@@ -23,6 +23,8 @@ class StateValidityChecker(ob.StateValidityChecker):
         self.agent_height = agent_dims[1]
         self.padding = 1
 
+        self.prev_state = None
+
     def isValid(self, state):
         """
         Check if a state is valid (no collision) using the voxel grid.
@@ -31,6 +33,9 @@ class StateValidityChecker(ob.StateValidityChecker):
         :return: True if the state is valid, False otherwise.
         """
         x, y, z = state[0], state[1], state[2]
+
+        if not self.is_slope_valid(state):
+            return False
 
         # Compute the min and max indices for the agent's bounding box
         index_min = self.voxel_grid.world_to_index(x - self.agent_radius, y - self.agent_radius, z - self.agent_height)
@@ -57,4 +62,32 @@ class StateValidityChecker(ob.StateValidityChecker):
 
         # If no occupied voxels were found and slope is valid, the state is valid
         return True
+    
+    def is_slope_valid(self, state):
+        if self.prev_state is None:
+            return True
+        
+        x, y, z = state[0], state[1], state[2]
+        prev_x, prev_y, prev_z = self.prev_state[0], self.prev_state[1], self.prev_state[2]
+        delta_x = x - prev_x
+        delta_y = y - prev_y
+        delta_z = z - prev_z
+
+        # Horizontal distance in the x-y plane
+        horizontal_distance = math.sqrt(delta_x**2 + delta_y**2)
+
+        # Avoid division by zero
+        if horizontal_distance == 0:
+            return False  # Vertical line; slope is undefined or infinite
+
+        # Calculate slope in degrees
+        slope_degrees = math.degrees(math.atan(abs(delta_z) / horizontal_distance))
+
+        # Return False if slope is greater than 45°, otherwise True
+        return slope_degrees <= 45
+
+        
+    def set_prev_state(self, state):
+        self.prev_state = state
+
 

@@ -59,6 +59,8 @@ class PathPlanner:
         return start_state, goal_state
     
     def plan_path(self, start_state, goal_state, max_time):
+        self.validity_checker.set_prev_state(None)
+
         self.planner.clear() # increases time taken for each path
 
         pdef = ob.ProblemDefinition(self.csi)
@@ -77,6 +79,7 @@ class PathPlanner:
         start_state, goal_state = self.initialize_start_and_goal(path_settings['start'], path_settings['goal'])
         if start_state is None or goal_state is None:
             return None
+        
         
         total_start_time = time.time()  # Start timing total planning duration
         logging.info(f"Planning {num_paths} paths in {max_time} seconds...")

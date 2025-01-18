@@ -14,14 +14,14 @@ def plan_and_visualize_path(model, planner, planner_settings, num_paths, path_se
     output_path = f"/app/output/{model['name']}/{num_paths}/{planner}"
     log_utils.setup_logging(output_path)
 
-    # try:
-    path_planner = PathPlanner(model['voxel_grid'], path_settings['camera_dims'], planner_type=planner, range=planner_settings['planner_range'], state_validity_resolution=planner_settings['state_validity_resolution'])
-    all_paths = path_planner.plan_multiple_paths(num_paths, path_settings)
-    log_utils.save_paths_to_json(all_paths, output_path)
-    visualizer.visualize_o3d(output_path, all_paths, path_settings['start'], path_settings['goal'])
-    # except Exception as e:
-    #     logging.error(f"Error occurred for planner {planner}: {e}")
-    #     print(f"Error occurred for planner (main) {planner}: {e}")
+    try:
+        path_planner = PathPlanner(model['voxel_grid'], path_settings['camera_dims'], planner_type=planner, range=planner_settings['planner_range'], state_validity_resolution=planner_settings['state_validity_resolution'])
+        all_paths = path_planner.plan_multiple_paths(num_paths, path_settings)
+        log_utils.save_paths_to_json(all_paths, output_path)
+        visualizer.visualize_o3d(output_path, all_paths, path_settings['start'], path_settings['goal'])
+    except Exception as e:
+        logging.error(f"Error occurred for planner {planner}: {e}")
+        print(f"Error occurred for planner (main) {planner}: {e}")
 
 def run_planners(model, planners, planner_settings, path_settings, enable_visualization, visualization_mesh):
     """Run multiple planners in parallel and save results."""
@@ -70,33 +70,33 @@ if __name__ == "__main__":
         'CForest', 'APS', 'SyCLoP', 'LTLPlanner', 'SPQRstar'
     ]
 
-    planners = ['PRM']
+    # planners = ['PRM']
 
     model_name = "kaer_morhen"
     # mesh = o3d.io.read_triangle_mesh(f"/app/models/{model_name}.obj")
     # load voxel grid
     # voxel_grid = o3d.io.read_voxel_grid(f"/app/models/{model_name}.ply")
-    voxel_grid = VoxelGrid.from_saved_files(f"/app/voxel_models/stonehenge_test/voxels_115x110x24_0_0/ground/")
+    voxel_grid = VoxelGrid.from_saved_files(f"/app/voxel_models/kaer_morhen_test/voxels_255x257x150_0_0/ground/")
     
-    visualization_mesh = o3d.io.read_triangle_mesh(f"/app/voxel_models/stonehenge_test/voxels_115x110x24_0_0/voxels.ply")
+    visualization_mesh = o3d.io.read_triangle_mesh(f"/app/voxel_models/kaer_morhen_test/voxels_255x257x150_0_0/voxels.ply")
 
     # kaer_morhen
     # start = np.array([0.15, 0.08, -0.23])
     # goal = np.array([0.03, 0.01, -0.17])
-    # start = np.array([0.15, -0.01, -0.16])
-    # goal = np.array([-0.24, 0.04, -0.15])
+    start = np.array([0.15, -0.01, -0.15])
+    goal = np.array([-0.24, 0.04, -0.14])
 
     # stonehenge
-    start = np.array([-0.33, 0.10, -0.44])
-    goal = np.array([0.22, -0.16, -0.44])
+    # start = np.array([-0.33, 0.10, -0.44])
+    # goal = np.array([0.22, -0.16, -0.44])
 
     planner_range = 0.1
     state_validity_resolution = 0.01
     camera_dims = [0.001, 0.002] # radius, height
 
-    enable_visualization = True
-    num_paths = [1, 10]
-    num_paths = [10]
+    enable_visualization = False
+    num_paths = [1, 10, 50, 100]
+    # num_paths = [10]
     max_time_per_path = 5  # maximum time in seconds for each planner process
     max_smoothing_steps = 1
 

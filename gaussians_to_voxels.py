@@ -177,6 +177,7 @@ def save_gaussians_as_voxels(gaussian_data, output_path, scale_factor, manual_vo
     padding_output_dir = output_dir + "padding"
     os.makedirs(padding_output_dir, exist_ok=True)
 
+    # TODO: general padding probably not good, just for filling holes in the floor
     voxel_grid_padding = voxel_grid.add_padding(1)
     voxel_grid_padding.save_voxel_grid_as_numpy(padding_output_dir)
     voxel_grid_padding.save_metadata(padding_output_dir)
@@ -188,7 +189,7 @@ def save_gaussians_as_voxels(gaussian_data, output_path, scale_factor, manual_vo
     ground_output_dir = output_dir + "ground"
     os.makedirs(ground_output_dir, exist_ok=True)
 
-    voxel_grid_ground = voxel_grid_padding.mark_voxels_without_support(20) # padding in indices
+    voxel_grid_ground = voxel_grid_padding.mark_voxels_without_support(6) # padding in indices
     voxel_grid_ground.save_voxel_grid_as_numpy(ground_output_dir)
     voxel_grid_ground.save_metadata(ground_output_dir)
     # save as ply
@@ -199,8 +200,8 @@ def save_gaussians_as_voxels(gaussian_data, output_path, scale_factor, manual_vo
 
 if __name__ == '__main__':
     ckpt_path = "/app/models/alameda_v3.ckpt"
-    ply_path = "/app/models/stonehenge_colmap_aligned.ply"
-    output_path = "/app/voxel_models/stonehenge_test/"
+    ply_path = "/app/models/kaer_morhen.ply"
+    output_path = "/app/voxel_models/kaer_morhen_test2/"
     device = "cuda"
 
     opacity_threshold = 0

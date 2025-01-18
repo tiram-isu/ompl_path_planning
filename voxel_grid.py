@@ -183,7 +183,6 @@ class VoxelGrid:
         """
         new_grid = VoxelGrid(self.scene_dimensions, self.voxel_size, self.bounding_box_min)
         grid_height = self.grid_dims[2]
-        counter = 0
         for x in range(self.grid_dims[0]):
             for y in range(self.grid_dims[1]):
                 for z in range(self.grid_dims[2]):
