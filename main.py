@@ -76,9 +76,9 @@ if __name__ == "__main__":
     # mesh = o3d.io.read_triangle_mesh(f"/app/models/{model_name}.obj")
     # load voxel grid
     # voxel_grid = o3d.io.read_voxel_grid(f"/app/models/{model_name}.ply")
-    voxel_grid = VoxelGrid.from_saved_files(f"/app/voxel_models/stonehenge_new/voxels_115x110x24_0_0/")
+    voxel_grid = VoxelGrid.from_saved_files(f"/app/voxel_models/stonehenge_test/voxels_115x110x24_0_0/ground/")
     
-    visualization_mesh = o3d.io.read_triangle_mesh(f"/app/voxel_models/stonehenge_new/voxels_115x110x24_0_0/voxels.ply")
+    visualization_mesh = o3d.io.read_triangle_mesh(f"/app/voxel_models/stonehenge_test/voxels_115x110x24_0_0/voxels.ply")
 
     # kaer_morhen
     # start = np.array([0.15, 0.08, -0.23])

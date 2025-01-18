@@ -78,7 +78,7 @@ class VoxelGrid:
         if index:
             self.grid[index] = True
 
-    def voxel_to_ply(self, colors):
+    def voxel_to_ply(self, colors=None):
         """
         Export the voxel grid to a .ply file.
 
@@ -93,7 +93,8 @@ class VoxelGrid:
                 voxel_center = self.bounding_box_min + np.array([x, y, z]) * self.voxel_size
                 cube = o3d.geometry.TriangleMesh.create_box(self.voxel_size, self.voxel_size, self.voxel_size)
                 cube.translate(voxel_center - np.array([self.voxel_size / 2] * 3))
-                cube.paint_uniform_color(colors[x, y, z])
+                if colors is not None:
+                    cube.paint_uniform_color(colors[x, y, z])
                 mesh += cube
                 i += 1
 
@@ -158,6 +159,43 @@ class VoxelGrid:
         :return: True if the indices are within bounds, False otherwise.
         """
         return 0 <= index[0] < self.grid_dims[0] and 0 <= index[1] < self.grid_dims[1] and 0 <= index[2] < self.grid_dims[2]
+
+    def add_padding(self, padding):
+        """
+        Add padding to the voxel grid.
+
+        :param padding: Number of voxels to add around the occupied voxels.
+        """
+        new_grid = VoxelGrid(self.scene_dimensions, self.voxel_size, self.bounding_box_min)
+        for (x, y, z) in self.grid.keys():
+            if self.grid[(x, y, z)]:
+                indices = self.get_voxels_in_cuboid((x - padding, y - padding, z - padding),
+                                                    (x + padding, y + padding, z + padding))
+                for index in indices:
+                    new_grid.grid[index] = True
+        return new_grid
+    
+    def mark_voxels_without_support(self, support_threshold):
+        """
+        Mark voxels without support as unoccupied.
+
+        :param support_threshold: Minimum number of occupied voxels below a voxel to consider it unsupported.
+        """
+        new_grid = VoxelGrid(self.scene_dimensions, self.voxel_size, self.bounding_box_min)
+        grid_height = self.grid_dims[2]
+        counter = 0
+        for x in range(self.grid_dims[0]):
+            for y in range(self.grid_dims[1]):
+                for z in range(self.grid_dims[2]):
+                    new_grid.grid[(x, y, z)] = True
+                    for i in range(support_threshold):
+                        if z + i >= grid_height:
+                            break
+                        if (x, y, grid_height - z - i) in self.grid and (x, y, grid_height - z) not in self.grid:
+                            new_grid.grid.pop((x, y, grid_height - z), None)
+                            break
+        return new_grid
+
 
     @classmethod
     def from_saved_files(cls, input_dir):
