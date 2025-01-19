@@ -136,89 +136,70 @@ def save_gaussians_as_voxels(gaussian_data, output_path, scale_factor, manual_vo
     output_dir = os.path.join(output_path, f"voxels_{voxel_grid.grid_dims[0]}x{voxel_grid.grid_dims[1]}x{voxel_grid.grid_dims[2]}_{opacity_threshold}_{scale_threshold}/")
     os.makedirs(output_dir, exist_ok=True)
 
-    opacity_skipped, scale_skipped = 0, 0
-    if enable_logging:
-        voxel_colors = np.zeros((*voxel_grid.grid_dims, 3))  # RGB color array for each voxel (shape: (dim_x, dim_y, dim_z, 3))
-    # Mark occupied voxels if they meet the opacity and scale thresholds
-    for i in range(len(means)):
-        if opacities[i] < opacity_threshold:
-            opacity_skipped += 1
-            continue
+    # opacity_skipped, scale_skipped = 0, 0
+    # if enable_logging:
+    #     voxel_colors = np.zeros((*voxel_grid.grid_dims, 3))  # RGB color array for each voxel (shape: (dim_x, dim_y, dim_z, 3))
+    # # Mark occupied voxels if they meet the opacity and scale thresholds
+    # for i in range(len(means)):
+    #     if opacities[i] < opacity_threshold:
+    #         opacity_skipped += 1
+    #         continue
 
-        if volumes[i] < volume_threshold:
-            scale_skipped += 1
-            continue
+    #     if volumes[i] < volume_threshold:
+    #         scale_skipped += 1
+    #         continue
 
-        voxel_grid.mark_occupied(means[i][0], means[i][1], means[i][2])
+    #     voxel_grid.mark_occupied(means[i][0], means[i][1], means[i][2])
 
-        if enable_logging:
-            index = voxel_grid.world_to_index(means[i][0], means[i][1], means[i][2])
-            voxel_colors[index] = colors[i]  # Ensure that colors[i] is an RGB value (3 elements)
+    #     if enable_logging:
+    #         index = voxel_grid.world_to_index(means[i][0], means[i][1], means[i][2])
+    #         voxel_colors[index] = colors[i]  # Ensure that colors[i] is an RGB value (3 elements)
 
-    voxel_grid.save_voxel_grid(output_dir)
-    voxel_grid.save_metadata(output_dir)
+    # voxel_grid.save_voxel_grid(output_dir)
+    # voxel_grid.save_metadata(output_dir)
 
-    if enable_logging:
-        # Create histograms of opacity and volume values TODO: add threshold
-        create_histogram(opacities, opacity_threshold, os.path.join(output_dir, "opacities_histogram.png"), "Opacity Value", "Histogram of Opacity Values")
-        create_histogram(volumes, volume_threshold, os.path.join(output_dir, "volumes_histogram.png"), "Volume Value", "Histogram of Volume Values")
+    # if enable_logging:
+    #     # Create histograms of opacity and volume values TODO: add threshold
+    #     create_histogram(opacities, opacity_threshold, os.path.join(output_dir, "opacities_histogram.png"), "Opacity Value", "Histogram of Opacity Values")
+    #     create_histogram(volumes, volume_threshold, os.path.join(output_dir, "volumes_histogram.png"), "Volume Value", "Histogram of Volume Values")
 
-        # Save the voxel grid as a .ply file
-        voxel_mesh = voxel_grid.voxel_to_ply(voxel_colors)  # Pass voxel_colors with RGB values
+    #     # Save the voxel grid as a .ply file
+    #     voxel_mesh = voxel_grid.voxel_to_ply(voxel_colors)  # Pass voxel_colors with RGB values
 
-        # Save the combined mesh
-        ply_filename = os.path.join(output_dir, "voxels.ply")
-        o3d.io.write_triangle_mesh(ply_filename, voxel_mesh)
-        print(f"Voxel grid saved to {ply_filename}")
+    #     # Save the combined mesh
+    #     ply_filename = os.path.join(output_dir, "voxels.ply")
+    #     o3d.io.write_triangle_mesh(ply_filename, voxel_mesh)
+    #     print(f"Voxel grid saved to {ply_filename}")
 
-        # Save screenshots of the voxel grid
-        save_screenshots(voxel_mesh, output_dir) # TODO: currently broken
-
-
-    # counter = 0
-
-    # for x in range(voxel_grid.grid_dims[0]):
-    #     for y in range(voxel_grid.grid_dims[1]):
-    #         for z in range(voxel_grid.grid_dims[2]):
-    #             if voxel_grid.grid[x, y, z]:
-    #                 counter += 1
-    # print(f"Occupied voxels (orig): {counter}")
-
-    # voxel_grid = VoxelGrid.from_saved_files(output_dir)
-
-    # counter = 0
-
-    # for x in range(voxel_grid.grid_dims[0]):
-    #     for y in range(voxel_grid.grid_dims[1]):
-    #         for z in range(voxel_grid.grid_dims[2]):
-    #             if voxel_grid.grid[x, y, z]:
-    #                 counter += 1
-    # print(f"Occupied voxels (orig): {counter}")
+    #     # Save screenshots of the voxel grid
+    #     save_screenshots(voxel_mesh, output_dir) # TODO: currently broken
 
 
-    padding_output_dir = output_dir + "padding"
-    os.makedirs(padding_output_dir, exist_ok=True)
+
+    # padding_output_dir = output_dir + "padding"
+    # os.makedirs(padding_output_dir, exist_ok=True)
 
 
-    # TODO: general padding probably not good, just for filling holes in the floor
-    voxel_grid_padding = voxel_grid.add_padding(1)
-    voxel_grid_padding.save_voxel_grid(padding_output_dir)
-    voxel_grid_padding.save_metadata(padding_output_dir)
-    # save as ply
-    voxel_mesh_padding = voxel_grid_padding.voxel_to_ply(None)
-    ply_filename_padding = os.path.join(padding_output_dir, "voxels_padding.ply")
-    o3d.io.write_triangle_mesh(ply_filename_padding, voxel_mesh_padding)
+    # # TODO: general padding probably not good, just for filling holes in the floor
+    # voxel_grid_padding = voxel_grid.add_padding(1)
+    # voxel_grid_padding.save_voxel_grid(padding_output_dir)
+    # voxel_grid_padding.save_metadata(padding_output_dir)
+    # # save as ply
+    # voxel_mesh_padding = voxel_grid_padding.voxel_to_ply(None)
+    # ply_filename_padding = os.path.join(padding_output_dir, "voxels_padding.ply")
+    # o3d.io.write_triangle_mesh(ply_filename_padding, voxel_mesh_padding)
+    voxel_grid_padding = VoxelGrid.from_saved_files(output_dir + "padding/")
 
     ground_output_dir = output_dir + "ground"
     os.makedirs(ground_output_dir, exist_ok=True)
 
-    # voxel_grid_ground = voxel_grid_padding.mark_voxels_without_support(6) # padding in indices
-    # voxel_grid_ground.save_voxel_grid(ground_output_dir)
-    # voxel_grid_ground.save_metadata(ground_output_dir)
-    # # save as ply
-    # voxel_mesh_ground = voxel_grid_ground.voxel_to_ply(None)
-    # ply_filename_ground = os.path.join(ground_output_dir, "voxels_ground.ply")
-    # o3d.io.write_triangle_mesh(ply_filename_ground, voxel_mesh_ground)
+    voxel_grid_ground = voxel_grid_padding.mark_voxels_without_support(6) # padding in indices
+    voxel_grid_ground.save_voxel_grid(ground_output_dir)
+    voxel_grid_ground.save_metadata(ground_output_dir)
+    # save as ply
+    voxel_mesh_ground = voxel_grid_ground.voxel_to_ply(None)
+    ply_filename_ground = os.path.join(ground_output_dir, "voxels_ground.ply")
+    o3d.io.write_triangle_mesh(ply_filename_ground, voxel_mesh_ground)
 
 
 

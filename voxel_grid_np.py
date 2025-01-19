@@ -15,7 +15,7 @@ class VoxelGrid:
         self.voxel_size = voxel_size
         self.bounding_box_min = np.array(bounding_box_min)
         self.grid_dims = self.calculate_grid_dimensions()
-        self.grid = np.zeros(self.grid_dims, dtype=np.bool_)
+        self.grid = {}  # Sparse representation as a dictionary
 
     def calculate_grid_dimensions(self):
         """Calculate the voxel grid dimensions."""
@@ -34,13 +34,13 @@ class VoxelGrid:
         if np.all((voxel_indices >= 0) & (voxel_indices < self.grid_dims)):
             return tuple(voxel_indices)
         return None
-    
+
     def world_to_index_ceil(self, x, y, z):
         voxel_indices = np.ceil((np.array([x, y, z]) - self.bounding_box_min) / self.voxel_size).astype(int)
         if np.all((voxel_indices >= 0) & (voxel_indices < self.grid_dims)):
             return tuple(voxel_indices)
         return None
-    
+
     def index_to_world(self, index):
         """
         Convert voxel grid indices to world coordinates.
@@ -49,7 +49,7 @@ class VoxelGrid:
         :return: Tuple of world coordinates (x, y, z).
         """
         return tuple(self.bounding_box_min + np.array(index) * self.voxel_size)
-    
+
     def get_voxels_in_cuboid(self, index_min, index_max):
         """
         Get all voxel indices within a cuboid defined by two corners.
@@ -66,7 +66,6 @@ class VoxelGrid:
                         indices.append((i, j, k))
         return indices
 
-
     def mark_occupied(self, x, y, z):
         """
         Mark a voxel as occupied based on world coordinates.
@@ -79,7 +78,7 @@ class VoxelGrid:
         if index:
             self.grid[index] = True
 
-    def voxel_to_ply(self, colors):
+    def voxel_to_ply(self, colors=None):
         """
         Export the voxel grid to a .ply file.
 
@@ -88,17 +87,16 @@ class VoxelGrid:
         mesh = o3d.geometry.TriangleMesh()
         i = 0
 
-        for x in range(self.grid_dims[0]):
-            for y in range(self.grid_dims[1]):
-                for z in range(self.grid_dims[2]):
-                    if self.grid[x, y, z]:
-                        # Create a cube for each occupied voxel
-                        voxel_center = self.bounding_box_min + np.array([x, y, z]) * self.voxel_size
-                        cube = o3d.geometry.TriangleMesh.create_box(self.voxel_size, self.voxel_size, self.voxel_size)
-                        cube.translate(voxel_center - np.array([self.voxel_size / 2] * 3))
-                        cube.paint_uniform_color(colors[x, y, z])
-                        mesh += cube
-                        i += 1
+        for (x, y, z) in self.grid.keys():
+            if self.grid[(x, y, z)]:
+                # Create a cube for each occupied voxel
+                voxel_center = self.bounding_box_min + np.array([x, y, z]) * self.voxel_size
+                cube = o3d.geometry.TriangleMesh.create_box(self.voxel_size, self.voxel_size, self.voxel_size)
+                cube.translate(voxel_center - np.array([self.voxel_size / 2] * 3))
+                if colors is not None:
+                    cube.paint_uniform_color(colors[x, y, z])
+                mesh += cube
+                i += 1
 
         return mesh
 
@@ -123,7 +121,7 @@ class VoxelGrid:
         """Load the voxel grid and metadata from files in the given directory."""
         voxel_grid_file = os.path.join(input_dir, 'voxel_grid.npy')
         metadata_file = os.path.join(input_dir, 'metadata.npy')
-        
+
         if os.path.exists(voxel_grid_file) and os.path.exists(metadata_file):
             # Load metadata
             metadata = np.load(metadata_file, allow_pickle=True).item()
@@ -133,7 +131,7 @@ class VoxelGrid:
             self.grid_dims = self.calculate_grid_dimensions()  # Recalculate grid dimensions
 
             # Load voxel grid
-            self.grid = np.load(voxel_grid_file)
+            self.grid = np.load(voxel_grid_file, allow_pickle=True).item()
             print(f"Voxel grid and metadata loaded from {input_dir}")
         else:
             print(f"Files not found in {input_dir}. Please check the directory.")
@@ -150,7 +148,7 @@ class VoxelGrid:
         min_bound = self.bounding_box_min
         max_bound = self.bounding_box_min + self.scene_dimensions
         return np.all((np.array([x, y, z]) >= min_bound) & (np.array([x, y, z]) < max_bound))
-    
+
     def index_within_bounds(self, index):
         """
         Check if voxel grid indices (i, j, k) are within the bounds of the grid.
@@ -162,6 +160,42 @@ class VoxelGrid:
         """
         return 0 <= index[0] < self.grid_dims[0] and 0 <= index[1] < self.grid_dims[1] and 0 <= index[2] < self.grid_dims[2]
 
+    def add_padding(self, padding):
+        """
+        Add padding to the voxel grid.
+
+        :param padding: Number of voxels to add around the occupied voxels.
+        """
+        new_grid = VoxelGrid(self.scene_dimensions, self.voxel_size, self.bounding_box_min)
+        for (x, y, z) in self.grid.keys():
+            if self.grid[(x, y, z)]:
+                indices = self.get_voxels_in_cuboid((x - padding, y - padding, z - padding),
+                                                    (x + padding, y + padding, z + padding))
+                for index in indices:
+                    new_grid.grid[index] = True
+        return new_grid
+    
+    def mark_voxels_without_support(self, support_threshold):
+        """
+        Mark voxels without support as unoccupied.
+
+        :param support_threshold: Minimum number of occupied voxels below a voxel to consider it unsupported.
+        """
+        new_grid = VoxelGrid(self.scene_dimensions, self.voxel_size, self.bounding_box_min)
+        grid_height = self.grid_dims[2]
+        for x in range(self.grid_dims[0]):
+            for y in range(self.grid_dims[1]):
+                for z in range(self.grid_dims[2]):
+                    new_grid.grid[(x, y, z)] = True
+                    for i in range(support_threshold):
+                        if z + i >= grid_height:
+                            break
+                        if (x, y, grid_height - z - i) in self.grid and (x, y, grid_height - z) not in self.grid:
+                            new_grid.grid.pop((x, y, grid_height - z), None)
+                            break
+        return new_grid
+
+
     @classmethod
     def from_saved_files(cls, input_dir):
         """
@@ -172,7 +206,7 @@ class VoxelGrid:
         """
         voxel_grid_file = os.path.join(input_dir, 'voxel_grid.npy')
         metadata_file = os.path.join(input_dir, 'metadata.npy')
-        
+
         if os.path.exists(voxel_grid_file) and os.path.exists(metadata_file):
             # Load metadata
             metadata = np.load(metadata_file, allow_pickle=True).item()
@@ -184,7 +218,7 @@ class VoxelGrid:
             voxel_grid = cls(scene_dimensions, voxel_size, bounding_box_min)
 
             # Load the voxel grid data
-            voxel_grid.grid = np.load(voxel_grid_file)
+            voxel_grid.grid = np.load(voxel_grid_file, allow_pickle=True).item()
             print(f"Voxel grid and metadata loaded from {input_dir}")
             return voxel_grid
         else:

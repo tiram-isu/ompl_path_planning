@@ -110,7 +110,7 @@ if __name__ == "__main__":
     # voxel_grid = VoxelGrid.from_saved_files(f"/app/voxel_models/stonehenge_2/voxels_115x110x24_0_0/padding/")
     # visualization_mesh_path = f"/app/voxel_models/stonehenge_2/voxels_115x110x24_0_0/voxels.ply"
 
-    voxel_grid = VoxelGrid.from_saved_files(f"/app/voxel_models/kaer_morhen_2/voxels_255x257x150_0_0/padding/")
+    voxel_grid = VoxelGrid.from_saved_files(f"/app/voxel_models/kaer_morhen_2/voxels_255x257x150_0_0/ground/")
     visualization_mesh_path = f"/app/voxel_models/kaer_morhen_2/voxels_255x257x150_0_0/voxels.ply"
 
 
@@ -130,7 +130,7 @@ if __name__ == "__main__":
 
     enable_visualization = True
     num_paths = [1, 10, 50, 100]
-    num_paths = [10]
+    num_paths = [100]
     max_time_per_path = 10  # maximum time in seconds for each planner process
     max_smoothing_steps = 1
 

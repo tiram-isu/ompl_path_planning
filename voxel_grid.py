@@ -194,42 +194,36 @@ class VoxelGrid:
 
     def mark_voxels_without_support(self, support_threshold):
         """
-        Mark voxels without support as unoccupied using efficient tensor operations.
-        Creates a new VoxelGrid with the modifications.
+        Mark voxels without support as unoccupied.
 
-        :param support_threshold: Minimum number of occupied voxels below a voxel to consider it unsupported.
-        :return: A new VoxelGrid with unsupported voxels marked as unoccupied.
+        :param support_threshold: Minimum number of occupied voxels below a voxel to consider it supported.
         """
-        # Create a new VoxelGrid that is a copy of the original one
-        new_grid = VoxelGrid(self.scene_dimensions, self.voxel_size, self.bounding_box_min, use_gpu=self.grid.device.type == 'cuda')
 
-        # Get the size of the grid
-        grid_height = self.grid_dims[2] - 1
-        
-        # Create a tensor of the same shape as the grid, initialized to True
-        unsupported_voxels = torch.ones_like(self.grid, dtype=torch.bool, device=self.grid.device)
+        new_voxel_grid = VoxelGrid(self.scene_dimensions, self.voxel_size, self.bounding_box_min)
+        grid_dims = self.grid_dims
+        device = self.grid.device
 
-        # Loop through each voxel column (x, y) pair
-        for x in range(self.grid_dims[0]):
-            for y in range(self.grid_dims[1]):
-                for z in range(grid_height):
-                    # print(x, y, grid_height - z)
-                    if self.grid[x, y, grid_height - z]:
-                        unsupported_voxels[x, y, grid_height - z] = False
-                        break
-                    for i in range(support_threshold):
-                        # Make sure the index is within bounds before accessing
-                        
-                        if z + i >= grid_height:
-                            break
-                        # Check if the voxel has support beneath it (within the allowed range)
-                        if self.grid[x, y, grid_height - z - i]:
-                            unsupported_voxels[x, y, grid_height - z - i] = False
-                            break
+        # Create a copy of the grid to modify it safely
+        new_grid = self.grid.clone()
 
-        # Assign the unsupported voxels back to the new voxel grid
-        new_grid.grid = unsupported_voxels
-        return new_grid
+        # Iterate over all layers starting from the top (z-axis descending)
+        for z in range(grid_dims[2] - 1, 0, -1):  # Start from the second highest layer
+            # Count the number of occupied voxels below the current layer
+            below_support = torch.zeros_like(new_grid[:, :, z], dtype=torch.int32, device=device)
+
+            for offset in range(1, support_threshold + 1):
+                if z - offset >= 0:
+                    below_support += self.grid[:, :, z - offset].int()
+
+            # Identify unsupported voxels in the current layer
+            unsupported = below_support == 0
+
+            # Mark unsupported voxels as occupied in the new grid
+            new_grid[:, :, z][unsupported] = True
+
+        # Update the grid with the modified version
+        new_voxel_grid.grid = new_grid
+        return new_voxel_grid
 
     @classmethod
     def from_saved_files(cls, input_dir):
