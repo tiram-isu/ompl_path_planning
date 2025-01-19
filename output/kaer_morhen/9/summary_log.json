@@ -1,0 +1,26 @@
+{
+    "model": {
+        "name": "kaer_morhen",
+        "camera_dims": [
+            0.001,
+            0.002
+        ],
+        "start_point": [
+            0.15,
+            0.08,
+            -0.24
+        ],
+        "goal_point": [
+            0.03,
+            0.01,
+            -0.19
+        ],
+        "max_time_per_path": 5
+    },
+    "planners": {
+        "PRM": {
+            "status": "Failed",
+            "error_message": "No solution found for attempt 8."
+        }
+    }
+}
