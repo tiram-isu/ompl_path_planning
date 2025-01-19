@@ -155,7 +155,7 @@ def save_gaussians_as_voxels(gaussian_data, output_path, scale_factor, manual_vo
             index = voxel_grid.world_to_index(means[i][0], means[i][1], means[i][2])
             voxel_colors[index] = colors[i]  # Ensure that colors[i] is an RGB value (3 elements)
 
-    voxel_grid.save_voxel_grid_as_numpy(output_dir)
+    voxel_grid.save_voxel_grid(output_dir)
     voxel_grid.save_metadata(output_dir)
 
     if enable_logging:
@@ -174,12 +174,35 @@ def save_gaussians_as_voxels(gaussian_data, output_path, scale_factor, manual_vo
         # Save screenshots of the voxel grid
         save_screenshots(voxel_mesh, output_dir) # TODO: currently broken
 
+
+    # counter = 0
+
+    # for x in range(voxel_grid.grid_dims[0]):
+    #     for y in range(voxel_grid.grid_dims[1]):
+    #         for z in range(voxel_grid.grid_dims[2]):
+    #             if voxel_grid.grid[x, y, z]:
+    #                 counter += 1
+    # print(f"Occupied voxels (orig): {counter}")
+
+    # voxel_grid = VoxelGrid.from_saved_files(output_dir)
+
+    # counter = 0
+
+    # for x in range(voxel_grid.grid_dims[0]):
+    #     for y in range(voxel_grid.grid_dims[1]):
+    #         for z in range(voxel_grid.grid_dims[2]):
+    #             if voxel_grid.grid[x, y, z]:
+    #                 counter += 1
+    # print(f"Occupied voxels (orig): {counter}")
+
+
     padding_output_dir = output_dir + "padding"
     os.makedirs(padding_output_dir, exist_ok=True)
 
+
     # TODO: general padding probably not good, just for filling holes in the floor
     voxel_grid_padding = voxel_grid.add_padding(1)
-    voxel_grid_padding.save_voxel_grid_as_numpy(padding_output_dir)
+    voxel_grid_padding.save_voxel_grid(padding_output_dir)
     voxel_grid_padding.save_metadata(padding_output_dir)
     # save as ply
     voxel_mesh_padding = voxel_grid_padding.voxel_to_ply(None)
@@ -189,19 +212,20 @@ def save_gaussians_as_voxels(gaussian_data, output_path, scale_factor, manual_vo
     ground_output_dir = output_dir + "ground"
     os.makedirs(ground_output_dir, exist_ok=True)
 
-    voxel_grid_ground = voxel_grid_padding.mark_voxels_without_support(6) # padding in indices
-    voxel_grid_ground.save_voxel_grid_as_numpy(ground_output_dir)
-    voxel_grid_ground.save_metadata(ground_output_dir)
-    # save as ply
-    voxel_mesh_ground = voxel_grid_ground.voxel_to_ply(None)
-    ply_filename_ground = os.path.join(ground_output_dir, "voxels_ground.ply")
-    o3d.io.write_triangle_mesh(ply_filename_ground, voxel_mesh_ground)
+    # voxel_grid_ground = voxel_grid_padding.mark_voxels_without_support(6) # padding in indices
+    # voxel_grid_ground.save_voxel_grid(ground_output_dir)
+    # voxel_grid_ground.save_metadata(ground_output_dir)
+    # # save as ply
+    # voxel_mesh_ground = voxel_grid_ground.voxel_to_ply(None)
+    # ply_filename_ground = os.path.join(ground_output_dir, "voxels_ground.ply")
+    # o3d.io.write_triangle_mesh(ply_filename_ground, voxel_mesh_ground)
+
 
 
 if __name__ == '__main__':
     ckpt_path = "/app/models/alameda_v3.ckpt"
     ply_path = "/app/models/kaer_morhen.ply"
-    output_path = "/app/voxel_models/kaer_morhen_test2/"
+    output_path = "/app/voxel_models/kaer_morhen_2/"
     device = "cuda"
 
     opacity_threshold = 0
@@ -213,4 +237,5 @@ if __name__ == '__main__':
 
     # gaussian_data = importer.load_gaussians_from_nerfstudio_ckpt(ckpt_path, device=device)
     gaussian_data = importer.load_gaussians_from_ply(ply_path)
+    # print(gaussian_data)
     save_gaussians_as_voxels(gaussian_data, output_path, scale_factor, manual_voxel_resolution, voxel_resolution_factor, opacity_threshold, scale_threshold, enable_logging)

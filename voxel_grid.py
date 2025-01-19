@@ -1,21 +1,28 @@
 import numpy as np
+import torch
 import open3d as o3d
 import os
 
 class VoxelGrid:
-    def __init__(self, scene_dimensions, voxel_size, bounding_box_min):
+    def __init__(self, scene_dimensions, voxel_size, bounding_box_min, use_gpu=True):
         """
         Initialize the voxel grid.
 
         :param scene_dimensions: (dim_x, dim_y, dim_z), dimensions of the scene.
         :param voxel_size: Size of each voxel.
         :param bounding_box_min: Minimum bounding box point (x, y, z).
+        :param use_gpu: Boolean to use GPU if available.
         """
         self.scene_dimensions = np.array(scene_dimensions)
         self.voxel_size = voxel_size
         self.bounding_box_min = np.array(bounding_box_min)
         self.grid_dims = self.calculate_grid_dimensions()
-        self.grid = {}  # Sparse representation as a dictionary
+
+        # Decide whether to use the GPU
+        device = 'cuda' if use_gpu and torch.cuda.is_available() else 'cpu'
+
+        # Initialize a tensor for the voxel grid
+        self.grid = torch.zeros(self.grid_dims, dtype=torch.bool, device=device if use_gpu and torch.cuda.is_available() else 'cpu')
 
     def calculate_grid_dimensions(self):
         """Calculate the voxel grid dimensions."""
@@ -36,6 +43,14 @@ class VoxelGrid:
         return None
 
     def world_to_index_ceil(self, x, y, z):
+        """
+        Convert world coordinates to voxel grid indices using ceiling.
+
+        :param x: X coordinate in world space.
+        :param y: Y coordinate in world space.
+        :param z: Z coordinate in world space.
+        :return: Tuple of indices (i, j, k) or None if out of bounds.
+        """
         voxel_indices = np.ceil((np.array([x, y, z]) - self.bounding_box_min) / self.voxel_size).astype(int)
         if np.all((voxel_indices >= 0) & (voxel_indices < self.grid_dims)):
             return tuple(voxel_indices)
@@ -76,34 +91,35 @@ class VoxelGrid:
         """
         index = self.world_to_index(x, y, z)
         if index:
-            self.grid[index] = True
+            self.grid[index] = 1  # Mark as occupied
 
     def voxel_to_ply(self, colors=None):
         """
         Export the voxel grid to a .ply file.
 
-        :param ply_filename: Path to save the .ply file.
+        :param colors: Color data for the voxels (optional).
+        :return: Open3D TriangleMesh object.
         """
         mesh = o3d.geometry.TriangleMesh()
-        i = 0
-
-        for (x, y, z) in self.grid.keys():
-            if self.grid[(x, y, z)]:
+        for idx, occupied in np.ndenumerate(self.grid.cpu().numpy()):  # Move to CPU for Open3D
+            if occupied:
                 # Create a cube for each occupied voxel
-                voxel_center = self.bounding_box_min + np.array([x, y, z]) * self.voxel_size
+                voxel_center = self.bounding_box_min + np.array(idx) * self.voxel_size
                 cube = o3d.geometry.TriangleMesh.create_box(self.voxel_size, self.voxel_size, self.voxel_size)
                 cube.translate(voxel_center - np.array([self.voxel_size / 2] * 3))
                 if colors is not None:
-                    cube.paint_uniform_color(colors[x, y, z])
+                    cube.paint_uniform_color(colors[idx])
                 mesh += cube
-                i += 1
-
         return mesh
 
-    def save_voxel_grid_as_numpy(self, output_dir):
-        """Save the voxel grid as a .npy file."""
-        output_file = os.path.join(output_dir, "voxel_grid.npy")
-        np.save(output_file, self.grid)
+    def save_voxel_grid(self, output_dir):
+        """
+        Save the voxel grid efficiently using PyTorch's native serialization.
+
+        :param output_dir: Directory where the voxel grid will be saved.
+        """
+        output_file = os.path.join(output_dir, "voxel_grid.pt")  # Saving as a PyTorch tensor file
+        torch.save(self.grid, output_file)  # Efficiently save the grid tensor
         print(f"Voxel grid saved as {output_file}")
 
     def save_metadata(self, output_dir):
@@ -117,24 +133,19 @@ class VoxelGrid:
         np.save(metadata_file, metadata)
         print(f"Metadata saved as {metadata_file}")
 
-    def load_voxel_grid_and_metadata(self, input_dir):
-        """Load the voxel grid and metadata from files in the given directory."""
-        voxel_grid_file = os.path.join(input_dir, 'voxel_grid.npy')
-        metadata_file = os.path.join(input_dir, 'metadata.npy')
+    def load_voxel_grid(self, input_dir):
+        """
+        Load the voxel grid efficiently using PyTorch's native deserialization.
 
-        if os.path.exists(voxel_grid_file) and os.path.exists(metadata_file):
-            # Load metadata
-            metadata = np.load(metadata_file, allow_pickle=True).item()
-            self.scene_dimensions = metadata['scene_dimensions']
-            self.voxel_size = metadata['voxel_size']
-            self.bounding_box_min = metadata['bounding_box_min']
-            self.grid_dims = self.calculate_grid_dimensions()  # Recalculate grid dimensions
+        :param input_dir: Directory where the voxel grid file is stored.
+        """
+        voxel_grid_file = os.path.join(input_dir, 'voxel_grid.pt')
 
-            # Load voxel grid
-            self.grid = np.load(voxel_grid_file, allow_pickle=True).item()
-            print(f"Voxel grid and metadata loaded from {input_dir}")
+        if os.path.exists(voxel_grid_file):
+            self.grid = torch.load(voxel_grid_file, map_location=self.grid.device)  # Load directly as a tensor
+            print(f"Voxel grid loaded from {voxel_grid_file}")
         else:
-            print(f"Files not found in {input_dir}. Please check the directory.")
+            print(f"Voxel grid file not found in {input_dir}. Please check the directory.")
 
     def coord_within_bounds(self, x, y, z):
         """
@@ -167,44 +178,68 @@ class VoxelGrid:
         :param padding: Number of voxels to add around the occupied voxels.
         """
         new_grid = VoxelGrid(self.scene_dimensions, self.voxel_size, self.bounding_box_min)
-        for (x, y, z) in self.grid.keys():
-            if self.grid[(x, y, z)]:
-                indices = self.get_voxels_in_cuboid((x - padding, y - padding, z - padding),
-                                                    (x + padding, y + padding, z + padding))
-                for index in indices:
-                    new_grid.grid[index] = True
+
+        # Get the non-zero indices from the grid (occupied voxels)
+        occupied_voxels = self.grid.cpu().numpy().nonzero()
+
+        # Iterate over the non-zero indices (x, y, z) using zip
+        for x, y, z in zip(*occupied_voxels):  # Unpack the (x, y, z) indices
+            # Get the indices for the padded region around the occupied voxel
+            indices = self.get_voxels_in_cuboid((x - padding, y - padding, z - padding),
+                                                (x + padding, y + padding, z + padding))
+            for index in indices:
+                new_grid.grid[index] = True
+
         return new_grid
-    
+
     def mark_voxels_without_support(self, support_threshold):
         """
-        Mark voxels without support as unoccupied.
+        Mark voxels without support as unoccupied using efficient tensor operations.
+        Creates a new VoxelGrid with the modifications.
 
         :param support_threshold: Minimum number of occupied voxels below a voxel to consider it unsupported.
+        :return: A new VoxelGrid with unsupported voxels marked as unoccupied.
         """
-        new_grid = VoxelGrid(self.scene_dimensions, self.voxel_size, self.bounding_box_min)
-        grid_height = self.grid_dims[2]
+        # Create a new VoxelGrid that is a copy of the original one
+        new_grid = VoxelGrid(self.scene_dimensions, self.voxel_size, self.bounding_box_min, use_gpu=self.grid.device.type == 'cuda')
+
+        # Get the size of the grid
+        grid_height = self.grid_dims[2] - 1
+        
+        # Create a tensor of the same shape as the grid, initialized to True
+        unsupported_voxels = torch.ones_like(self.grid, dtype=torch.bool, device=self.grid.device)
+
+        # Loop through each voxel column (x, y) pair
         for x in range(self.grid_dims[0]):
             for y in range(self.grid_dims[1]):
-                for z in range(self.grid_dims[2]):
-                    new_grid.grid[(x, y, z)] = True
+                for z in range(grid_height):
+                    # print(x, y, grid_height - z)
+                    if self.grid[x, y, grid_height - z]:
+                        unsupported_voxels[x, y, grid_height - z] = False
+                        break
                     for i in range(support_threshold):
+                        # Make sure the index is within bounds before accessing
+                        
                         if z + i >= grid_height:
                             break
-                        if (x, y, grid_height - z - i) in self.grid and (x, y, grid_height - z) not in self.grid:
-                            new_grid.grid.pop((x, y, grid_height - z), None)
+                        # Check if the voxel has support beneath it (within the allowed range)
+                        if self.grid[x, y, grid_height - z - i]:
+                            unsupported_voxels[x, y, grid_height - z - i] = False
                             break
-        return new_grid
 
+        # Assign the unsupported voxels back to the new voxel grid
+        new_grid.grid = unsupported_voxels
+        return new_grid
 
     @classmethod
     def from_saved_files(cls, input_dir):
         """
         A class method to recreate a VoxelGrid object from saved files.
 
-        :param input_dir: Directory containing 'voxel_grid.npy' and 'metadata.npy'.
+        :param input_dir: Directory containing 'voxel_grid.pt' and 'metadata.npy'.
         :return: An instance of the VoxelGrid class with loaded data.
         """
-        voxel_grid_file = os.path.join(input_dir, 'voxel_grid.npy')
+        voxel_grid_file = os.path.join(input_dir, 'voxel_grid.pt')  # Change to '.pt' for PyTorch tensor
         metadata_file = os.path.join(input_dir, 'metadata.npy')
 
         if os.path.exists(voxel_grid_file) and os.path.exists(metadata_file):
@@ -217,8 +252,9 @@ class VoxelGrid:
             # Create the VoxelGrid object
             voxel_grid = cls(scene_dimensions, voxel_size, bounding_box_min)
 
-            # Load the voxel grid data
-            voxel_grid.grid = np.load(voxel_grid_file, allow_pickle=True).item()
+            # Load the voxel grid data as a PyTorch tensor
+            voxel_grid.grid = torch.load(voxel_grid_file, map_location=voxel_grid.grid.device)  # Using torch.load for .pt files
+            # print(voxel_grid.grid)
             print(f"Voxel grid and metadata loaded from {input_dir}")
             return voxel_grid
         else:

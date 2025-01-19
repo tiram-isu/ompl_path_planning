@@ -6,8 +6,17 @@ from ompl import geometric as og
 from collision_detection import StateValidityChecker
 
 class PathPlanner:
-    def __init__(self, voxel_grid, agent_dims, planner_type, range, state_validity_resolution):
+    def __init__(self, voxel_grid, agent_dims, planner_type, planner_range, state_validity_resolution):
         self.voxel_grid = voxel_grid
+        # print(voxel_grid, voxel_grid.grid_dims[0], voxel_grid.grid_dims[1], voxel_grid.grid_dims[2])
+        # counter = 0
+
+        # for x in range(voxel_grid.grid_dims[0]):
+        #     for y in range(voxel_grid.grid_dims[1]):
+        #         for z in range(voxel_grid.grid_dims[2]):
+        #             if voxel_grid.grid[x, y, z]:
+        #                 counter += 1
+        # print(f"Occupied voxels (planner): {counter}")
         
         self.rvss = ob.RealVectorStateSpace(3) # TODO: better space?
 
@@ -19,7 +28,7 @@ class PathPlanner:
         self.csi.setStateValidityChecker(ob.StateValidityCheckerFn(self.validity_checker.isValid))
         self.csi.setStateValidityCheckingResolution(state_validity_resolution)
 
-        self.planner = self.initialize_planner(planner_type, range)
+        self.planner = self.initialize_planner(planner_type, planner_range)
 
 
     def initialize_bounds(self):

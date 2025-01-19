@@ -1,12 +1,6 @@
-import numpy as np
-import open3d as o3d
-import ompl
-from ompl import base as ob
-from voxel_grid import VoxelGrid
-from ompl import geometric as og
-from visualization import Visualizer
 import math
-from collections import defaultdict
+import torch
+from ompl import base as ob
 
 class StateValidityChecker(ob.StateValidityChecker):
     def __init__(self, si, voxel_grid, agent_dims):
@@ -21,9 +15,26 @@ class StateValidityChecker(ob.StateValidityChecker):
         self.voxel_grid = voxel_grid
         self.agent_radius = agent_dims[0] / 2
         self.agent_height = agent_dims[1]
-        self.padding = 1
+        self.padding = 0
 
         self.prev_state = None
+
+        # counter = 0
+
+        # for x in range(voxel_grid.grid_dims[0]):
+        #     for y in range(voxel_grid.grid_dims[1]):
+        #         for z in range(voxel_grid.grid_dims[2]):
+        #             if voxel_grid.grid[x, y, z]:
+        #                 counter += 1
+        # print(f"Occupied voxels (orig): {counter}")
+
+        # for x in range(self.voxel_grid.grid_dims[0]):
+        #     for y in range(self.voxel_grid.grid_dims[1]):
+        #         for z in range(self.voxel_grid.grid_dims[2]):
+        #             # print(x, y, z, self.voxel_grid.grid[x, y, z])
+        #             if voxel_grid.grid[x, y, z]:
+        #                 counter += 1
+        # print(f"Occupied voxels: {counter}")
 
     def isValid(self, state):
         """
@@ -32,6 +43,7 @@ class StateValidityChecker(ob.StateValidityChecker):
         :param state: The state to check, which consists of (x, y, z) world coordinates.
         :return: True if the state is valid, False otherwise.
         """
+
         x, y, z = state[0], state[1], state[2]
 
         if not self.is_slope_valid(state):
@@ -44,26 +56,45 @@ class StateValidityChecker(ob.StateValidityChecker):
         # If out of bounds, state is invalid
         if index_min is None or index_max is None:
             return False
+        
+        index = self.voxel_grid.world_to_index(x, y, z)
+        # print(index, self.voxel_grid.grid[index[0], index[1], index[2]])
+        
+        if self.voxel_grid.grid[index[0], index[1], index[2]]:
+            # print("Min index is occupied")
+            return False
 
-        # Add padding
-        index_min = (max(index_min[0] - self.padding, 0),
-                     max(index_min[1] - self.padding, 0),
-                     max(index_min[2] - self.padding, 0))
-        index_max = (min(index_max[0] + self.padding, self.voxel_grid.grid_dims[0] - 1),
-                     min(index_max[1] + self.padding, self.voxel_grid.grid_dims[1] - 1),
-                     min(index_max[2] + self.padding, self.voxel_grid.grid_dims[2] - 1))
+        # # Ensure the indices are on the same device as the voxel grid
+        # index_min = torch.tensor(index_min, dtype=torch.long, device=self.voxel_grid.grid.device)
+        # index_max = torch.tensor(index_max, dtype=torch.long, device=self.voxel_grid.grid.device)
 
-        # Check all voxels in the bounding box
-        for i in range(index_min[0], index_max[0] + 1):
-            for j in range(index_min[1], index_max[1] + 1):
-                for k in range(index_min[2], index_max[2] + 1):
-                    if (i, j, k) in self.voxel_grid.grid:
-                        return False
+        # # Add padding
+        # index_min = (max(index_min[0] - self.padding, 0),
+        #              max(index_min[1] - self.padding, 0),
+        #              max(index_min[2] - self.padding, 0))
+        # index_max = (min(index_max[0] + self.padding, self.voxel_grid.grid_dims[0] - 1),
+        #              min(index_max[1] + self.padding, self.voxel_grid.grid_dims[1] - 1),
+        #              min(index_max[2] + self.padding, self.voxel_grid.grid_dims[2] - 1))
+
+        # # Perform collision check using slicing (we now use torch tensor slicing)
+        # subgrid = self.voxel_grid.grid[index_min[0]:index_max[0] + 1,
+        #                                index_min[1]:index_max[1] + 1,
+        #                                index_min[2]:index_max[2] + 1]
+
+        # # If any voxel in the region is occupied, return False
+        # if torch.any(subgrid):
+        #     return False
 
         # If no occupied voxels were found and slope is valid, the state is valid
         return True
-    
+
     def is_slope_valid(self, state):
+        """
+        Check if the slope between the current state and the previous state is valid.
+
+        :param state: The current state to check, consists of (x, y, z) world coordinates.
+        :return: True if the slope is valid, False otherwise.
+        """
         if self.prev_state is None:
             return True
         
@@ -86,8 +117,10 @@ class StateValidityChecker(ob.StateValidityChecker):
         # Return False if slope is greater than 45°, otherwise True
         return slope_degrees <= 45
 
-        
     def set_prev_state(self, state):
+        """
+        Set the previous state to compare slopes.
+
+        :param state: The previous state to set, consists of (x, y, z) world coordinates.
+        """
         self.prev_state = state
-
-

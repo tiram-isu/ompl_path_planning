@@ -5,8 +5,8 @@ import logging
 import time
 
 class Visualizer:
-    def __init__(self, mesh, enable_visualization, camera_dims):
-        self.mesh = mesh
+    def __init__(self, mesh_path, enable_visualization, camera_dims):
+        self.mesh_path = mesh_path
         self.tube_width = camera_dims[0]  # Width of the path tube
         self.tube_height = camera_dims[1]  # Height of the path tube
         logging.getLogger('matplotlib').setLevel(logging.WARNING)  # Suppress matplotlib logging
@@ -21,7 +21,8 @@ class Visualizer:
             vis.create_window(visible=False, width=2560, height=1440)
 
         # Add the mesh to the visualizer
-        vis.add_geometry(self.mesh)
+        mesh = o3d.io.read_triangle_mesh(self.mesh_path)
+        vis.add_geometry(mesh)
 
         if len(path_list) > 0:
             # Path tubes
@@ -47,7 +48,7 @@ class Visualizer:
     
         # Render the scene and wait for a moment before taking the screenshot
         vis.poll_events()  # Process any events like window resize
-        vis.update_geometry(self.mesh)  # Update geometry if any changes
+        vis.update_geometry(mesh)  # Update geometry if any changes
         vis.update_renderer()  # Update the renderer
         
         # Capture the screenshot
