@@ -1,6 +1,0 @@
-numpy
-trimesh
-matplotlib
-open3d
-ompl
-fcl
