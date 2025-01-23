@@ -72,23 +72,24 @@ if __name__ == "__main__":
 
     planners = ['PRM']
 
-    model_name = "kaer_morhen"
-    # mesh = o3d.io.read_triangle_mesh(f"/app/models/{model_name}.obj")
-    # load voxel grid
-    # voxel_grid = o3d.io.read_voxel_grid(f"/app/models/{model_name}.ply")
+    model_name = "km"
+    # voxel_grid = VoxelGrid.from_saved_files(f"/app/voxel_models/stonehenge/voxels_115x110x24_0.9_0/ground/")
+    # visualization_mesh = o3d.io.read_triangle_mesh(f"/app/voxel_models/stonehenge/voxels_115x110x24_0.9_0/voxels.ply")
+
+
+    # model_name = "kaer_morhen"
     voxel_grid = VoxelGrid.from_saved_files(f"/app/voxel_models/kaer_morhen_3/voxels_255x257x150_0.9_0/padding/")
-    
     visualization_mesh = o3d.io.read_triangle_mesh(f"/app/voxel_models/kaer_morhen_3/voxels_255x257x150_0.9_0/voxels.ply")
 
     # kaer_morhen
-    start = np.array([0.15, 0.08, -0.24])
-    goal = np.array([0.03, 0.01, -0.19])
-    # start = np.array([0.15, -0.01, -0.16])
-    # goal = np.array([-0.24, 0.04, -0.15])
+    # start = np.array([0.15, 0.08, -0.24])
+    # goal = np.array([0.03, 0.01, -0.19])
+    start = np.array([0.15, -0.01, -0.16])
+    goal = np.array([-0.24, 0.04, -0.15])
 
     # stonehenge
-    # start = np.array([-0.33, 0.10, -0.44])
-    # goal = np.array([0.22, -0.16, -0.44])
+    # start = np.array([-0.33, 0.10, -0.45])
+    # goal = np.array([0.22, -0.16, -0.45])
 
     planner_range = 0.1
     state_validity_resolution = 0.01
@@ -96,8 +97,8 @@ if __name__ == "__main__":
 
     enable_visualization = True
     num_paths = [1, 10, 50, 100]
-    num_paths = [9]
-    max_time_per_path = 5  # maximum time in seconds for each planner process
+    num_paths = [10]
+    max_time_per_path = 100  # maximum time in seconds for each planner process
     max_smoothing_steps = 1
 
     model = {"name": model_name, "voxel_grid": voxel_grid}

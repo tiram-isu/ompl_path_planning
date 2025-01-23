@@ -1,0 +1,85 @@
+{
+    "model": {
+        "name": "stonehenge",
+        "camera_dims": [
+            0.001,
+            0.002
+        ],
+        "start_point": [
+            -0.33,
+            0.1,
+            -0.45
+        ],
+        "goal_point": [
+            0.22,
+            -0.16,
+            -0.45
+        ],
+        "max_time_per_path": 100
+    },
+    "planners": {
+        "PRM": {
+            "status": "Successful",
+            "total_time_taken": 1.08,
+            "num_paths": 10,
+            "average_path_length": 0.7769999999999999,
+            "shortest_path_length": 0.67,
+            "longest_path_length": 1.03,
+            "path_length_std_dev": 0.09623408959407263,
+            "average_time_per_path": 0.11000000000000001,
+            "time_per_path_std_dev": 1.3877787807814457e-17,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.76,
+                    "duration": 0.11
+                },
+                {
+                    "id": 1,
+                    "length": 0.79,
+                    "duration": 0.11
+                },
+                {
+                    "id": 2,
+                    "length": 0.68,
+                    "duration": 0.11
+                },
+                {
+                    "id": 3,
+                    "length": 0.77,
+                    "duration": 0.11
+                },
+                {
+                    "id": 4,
+                    "length": 0.7,
+                    "duration": 0.11
+                },
+                {
+                    "id": 5,
+                    "length": 0.81,
+                    "duration": 0.11
+                },
+                {
+                    "id": 6,
+                    "length": 0.67,
+                    "duration": 0.11
+                },
+                {
+                    "id": 7,
+                    "length": 1.03,
+                    "duration": 0.11
+                },
+                {
+                    "id": 8,
+                    "length": 0.79,
+                    "duration": 0.11
+                },
+                {
+                    "id": 9,
+                    "length": 0.77,
+                    "duration": 0.11
+                }
+            ]
+        }
+    }
+}

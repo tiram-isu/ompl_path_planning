@@ -134,13 +134,13 @@ def save_gaussians_as_ellipsoids(gaussian_data, output_path, base_scale, padding
 
 if __name__ == '__main__':
     ckpt_path = "/app/models/alameda_v3.ckpt"
-    ply_path = "/app/models/fuwa.ply"
-    output_path = "/app/gs_models/fuwa/"
+    ply_path = "/app/models/kaer_morhen.ply"
+    output_path = "/app/gs_models/kaer_morhen/"
     device = "cuda"
 
     opacity_threshold = 0.9
     scale_threshold = 0
-    base_scale = 0.01 # nerfstudio
+    base_scale = 0.001 # nerfstudio
     padding_factor = 1
 
     # gaussian_data = importer.load_gaussians_from_nerfstudio_ckpt(ckpt_path, device=device)
