@@ -96,21 +96,26 @@ def save_paths_to_json(paths, output_path):
         with open(os.path.join(output_path, "paths.json"), 'w') as f:
             json.dump(serializable_paths, f, indent=4)
 
-def setup_logging(output_path):
+def setup_logging(output_path, enable_logging):
     """Initialize logging for the given output path."""
-    os.makedirs(output_path, exist_ok=True)
+    if enable_logging:
+        os.makedirs(output_path, exist_ok=True)
 
-    # Reset any existing logging configuration
-    for handler in logging.root.handlers[:]:
-        logging.root.removeHandler(handler)
+        # Reset any existing logging configuration
+        for handler in logging.root.handlers[:]:
+            logging.root.removeHandler(handler)
 
-    # Configure logging
-    logging.basicConfig(
-        filename=os.path.join(output_path, "log.txt"),
-        level=logging.DEBUG,
-        format='%(asctime)s - %(levelname)s - %(message)s',
-        filemode='w'
-    )
+        # Configure logging
+        logging.basicConfig(
+            filename=os.path.join(output_path, "log.txt"),
+            level=logging.DEBUG,
+            format='%(asctime)s - %(levelname)s - %(message)s',
+            filemode='w'
+        )
+    else:
+        # Disable logging
+        logging.disable(logging.CRITICAL)
+
 
 def extract_log_data(json_path):
     """Extract data from the summary JSON file."""

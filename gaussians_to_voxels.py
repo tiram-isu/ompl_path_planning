@@ -174,11 +174,23 @@ def save_gaussians_as_voxels(gaussian_data, output_path, scale_factor, manual_vo
         # Save screenshots of the voxel grid
         save_screenshots(voxel_mesh, output_dir) # TODO: currently broken
 
+    # Padding
+    padding_output_dir = output_dir + "padding"
+    os.makedirs(padding_output_dir, exist_ok=True)
+
+    voxel_grid_padding = voxel_grid.add_padding(1)
+    voxel_grid_padding.save_voxel_grid_as_numpy(padding_output_dir)
+    voxel_grid_padding.save_metadata(padding_output_dir)
+    # save as ply
+    voxel_mesh_padding = voxel_grid_padding.voxel_to_ply(None)
+    ply_filename_padding = os.path.join(padding_output_dir, "voxels_padding.ply")
+    o3d.io.write_triangle_mesh(ply_filename_padding, voxel_mesh_padding)
+
     # Ground
     ground_output_dir = output_dir + "ground"
     os.makedirs(ground_output_dir, exist_ok=True)
 
-    voxel_grid_ground = voxel_grid.mark_voxels_without_support(9) # padding in indices
+    voxel_grid_ground = voxel_grid_padding.mark_voxels_without_support(9) # padding in indices
     voxel_grid_ground.save_voxel_grid_as_numpy(ground_output_dir)
     voxel_grid_ground.save_metadata(ground_output_dir)
     # save as ply
@@ -186,17 +198,7 @@ def save_gaussians_as_voxels(gaussian_data, output_path, scale_factor, manual_vo
     ply_filename_ground = os.path.join(ground_output_dir, "voxels_ground.ply")
     o3d.io.write_triangle_mesh(ply_filename_ground, voxel_mesh_ground)
     
-    padding_output_dir = output_dir + "padding"
-    os.makedirs(padding_output_dir, exist_ok=True)
 
-    # Padding
-    voxel_grid_padding = voxel_grid_ground.add_padding(1)
-    voxel_grid_padding.save_voxel_grid_as_numpy(padding_output_dir)
-    voxel_grid_padding.save_metadata(padding_output_dir)
-    # save as ply
-    voxel_mesh_padding = voxel_grid_padding.voxel_to_ply(None)
-    ply_filename_padding = os.path.join(padding_output_dir, "voxels_padding.ply")
-    o3d.io.write_triangle_mesh(ply_filename_padding, voxel_mesh_padding)
 
 
 
