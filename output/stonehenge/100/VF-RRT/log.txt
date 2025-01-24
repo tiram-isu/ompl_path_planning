@@ -1,0 +1,1 @@
+2025-01-24 20:36:29,785 - ERROR - Error occurred for planner VF-RRT: Planner type VF-RRT is not valid.

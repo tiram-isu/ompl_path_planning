@@ -1,0 +1,15 @@
+2025-01-24 19:15:11,678 - INFO - Initialized SST planner with range 0.1
+2025-01-24 19:15:11,723 - INFO - Start state [-0.33  0.1  -0.38] is invalid. Found new valid start state: (-0.3311038289490857, 0.09958053333627048, -0.4333763732769788)
+2025-01-24 19:15:11,801 - INFO - Goal state [ 0.22 -0.16 -0.38] is invalid. Found new valid goal state: (0.21980098821145777, -0.1613743800555659, -0.4333763732769788)
+2025-01-24 19:15:11,801 - INFO - Planning 10 paths with max time 5 seconds per path...
+2025-01-24 19:15:16,819 - ERROR - No solution found for attempt 0.
+2025-01-24 19:15:21,866 - ERROR - No solution found for attempt 1.
+2025-01-24 19:15:26,890 - ERROR - No solution found for attempt 2.
+2025-01-24 19:15:31,926 - ERROR - No solution found for attempt 3.
+2025-01-24 19:15:36,957 - ERROR - No solution found for attempt 4.
+2025-01-24 19:15:42,441 - ERROR - No solution found for attempt 5.
+2025-01-24 19:15:47,454 - ERROR - No solution found for attempt 6.
+2025-01-24 19:15:52,497 - ERROR - No solution found for attempt 7.
+2025-01-24 19:15:57,541 - ERROR - No solution found for attempt 8.
+2025-01-24 19:16:02,577 - ERROR - No solution found for attempt 9.
+2025-01-24 19:16:02,578 - INFO - Completed planning 0 paths in 50.78 seconds.

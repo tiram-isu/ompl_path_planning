@@ -1,0 +1,1 @@
+2025-01-24 21:20:08,352 - ERROR - Error occurred for planner ST-RRTstar: Planner type ST-RRTstar is not valid.

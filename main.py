@@ -128,15 +128,23 @@ def run_planners_for_paths(
 
 if __name__ == "__main__":
     # Configuration
-    planners = ['PRM']  # Example planner list
+    planners = [
+        'PRM', 'LazyPRM', 'PRMstar', 'LazyPRMstar', 'SPARS', 'SPARS2', 'RRT', 'RRTConnect',
+        'RRTstar', 'SST', 'T-RRT', 'VF-RRT', 'pRRT', 'LazyRRT', 'TSRRT', 'EST', 
+        'KPIECE', 'BKPIECE', 'LBKPIECE', 'STRIDE', 'PDST', 'FMTstar', 'BMFTstar', 'QRRT', 
+        'QRRTstar', 'QMP', 'QMPstar', 'RRTsharp', 'RRTX', 'InformedRRTstar', 
+        'BITstar', 'ABITstar', 'AITstar', 'LBTRRT'
+    ]
 
-    model_name = "km"
+    # planners = ['PRM']  # Example planner list
+
+    model_name = "stonehenge"
     voxel_grid = VoxelGrid.from_saved_files("/app/voxel_models/stonehenge/voxels_115x110x24_0.9_0/ground/")
     visualization_mesh_path = "/app/voxel_models/stonehenge/voxels_115x110x24_0.9_0/voxels.ply"
 
     # Example start and goal configurations
-    start = np.array([-0.33, 0.10, -0.41])
-    goal = np.array([0.22, -0.16, -0.4])
+    start = np.array([-0.33, 0.10, -0.38])
+    goal = np.array([0.22, -0.16, -0.38])
 
     planner_settings = {
         "planner_range": 0.1,
@@ -144,7 +152,7 @@ if __name__ == "__main__":
     }
 
     path_settings = {
-        "num_paths": [10],
+        "num_paths": [1, 10, 50, 100],
         "start": start,
         "goal": goal,
         "camera_dims": [0.001, 0.002],
@@ -153,7 +161,7 @@ if __name__ == "__main__":
     }
 
     debugging_settings = {
-        "enable_visualization": True,
+        "enable_visualization": False,
         "visualization_mesh": visualization_mesh_path,
         "enable_logging": True
     }

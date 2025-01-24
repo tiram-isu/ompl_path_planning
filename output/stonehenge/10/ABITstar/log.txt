@@ -1,0 +1,18 @@
+2025-01-24 19:18:39,593 - INFO - Initialized ABITstar planner with range 0.1
+2025-01-24 19:18:39,638 - INFO - Start state [-0.33  0.1  -0.38] is invalid. Found new valid start state: (-0.3311038289490857, 0.09958053333627048, -0.4333763732769788)
+2025-01-24 19:18:39,711 - INFO - Goal state [ 0.22 -0.16 -0.38] is invalid. Found new valid goal state: (0.21980098821145777, -0.1613743800555659, -0.4333763732769788)
+2025-01-24 19:18:39,711 - INFO - Planning 10 paths with max time 5 seconds per path...
+2025-01-24 19:18:44,729 - INFO - Path 0 added. Length: 0.62 units. Duration: 5.02 seconds.
+2025-01-24 19:18:49,756 - INFO - Path 1 added. Length: 0.62 units. Duration: 5.03 seconds.
+2025-01-24 19:18:55,090 - INFO - Path 2 added. Length: 0.62 units. Duration: 5.33 seconds.
+2025-01-24 19:19:01,377 - INFO - Path 3 added. Length: 0.62 units. Duration: 6.29 seconds.
+2025-01-24 19:19:06,403 - INFO - Path 4 added. Length: 0.62 units. Duration: 5.03 seconds.
+2025-01-24 19:19:11,435 - INFO - Path 5 added. Length: 0.62 units. Duration: 5.03 seconds.
+2025-01-24 19:19:16,463 - INFO - Path 6 added. Length: 0.62 units. Duration: 5.03 seconds.
+2025-01-24 19:19:21,491 - INFO - Path 7 added. Length: 0.62 units. Duration: 5.03 seconds.
+2025-01-24 19:19:28,466 - INFO - Path 8 added. Length: 0.62 units. Duration: 6.97 seconds.
+2025-01-24 19:19:33,508 - INFO - Path 9 added. Length: 0.62 units. Duration: 5.04 seconds.
+2025-01-24 19:19:33,508 - INFO - Completed planning 10 paths in 53.80 seconds.
+2025-01-24 19:19:33,508 - INFO - Average path length: 0.62 units.
+2025-01-24 19:19:33,508 - INFO - Shortest path length: 0.62 units.
+2025-01-24 19:19:33,508 - INFO - Longest path length: 0.62 units.
