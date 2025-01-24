@@ -1,6 +1,7 @@
 import numpy as np
 import open3d as o3d
 import os
+import heapq
 
 class VoxelGrid:
     def __init__(self, scene_dimensions, voxel_size, bounding_box_min):
@@ -224,6 +225,48 @@ class VoxelGrid:
                             new_grid.grid.pop((x, y, grid_height - z), None)
                             break
         return new_grid
+    
+    def find_closest_free_voxel(self, x, y, z):
+        """
+        Find the world coordinates of the closest free (unoccupied) voxel to a given point.
+        
+        :param x: X coordinate in world space.
+        :param y: Y coordinate in world space.
+        :param z: Z coordinate in world space.
+        :return: Tuple of the world coordinates (x, y, z) of the closest free voxel, or None if none found.
+        """
+        start_index = self.world_to_index(x, y, z)
+        if start_index is None:
+            print("Input coordinates are out of bounds.")
+            return None
+
+        # Priority queue for BFS based on distance
+        queue = []
+        heapq.heappush(queue, (0, start_index))  # (distance, voxel index)
+        visited = set()
+
+        while queue:
+            dist, current_index = heapq.heappop(queue)
+            if current_index in visited:
+                continue
+            visited.add(current_index)
+
+            # Check if the current voxel is free
+            if not self.is_voxel_occupied(current_index):
+                return self.index_to_world(current_index)
+
+            # Expand to neighboring voxels
+            neighbors = [
+                (current_index[0] + dx, current_index[1] + dy, current_index[2] + dz)
+                for dx, dy, dz in [(-1, 0, 0), (1, 0, 0), (0, -1, 0), (0, 1, 0), (0, 0, -1), (0, 0, 1)]
+            ]
+            for neighbor in neighbors:
+                if neighbor not in visited and self.index_within_bounds(neighbor):
+                    neighbor_dist = np.linalg.norm(np.array(neighbor) - np.array(start_index))
+                    heapq.heappush(queue, (neighbor_dist, neighbor))
+
+        print("No free voxel found.")
+        return None
 
     @classmethod
     def from_saved_files(cls, input_dir):

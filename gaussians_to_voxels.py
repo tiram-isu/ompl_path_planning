@@ -199,12 +199,7 @@ def save_gaussians_as_voxels(gaussian_data, output_path, scale_factor, manual_vo
     o3d.io.write_triangle_mesh(ply_filename_ground, voxel_mesh_ground)
     
 
-
-
-
-
 if __name__ == '__main__':
-    ckpt_path = "/app/models/alameda_v3.ckpt"
     ply_path = "/app/models/stonehenge_colmap_aligned.ply"
     output_path = "/app/voxel_models/stonehenge/"
     device = "cuda"
@@ -216,6 +211,5 @@ if __name__ == '__main__':
     scale_factor = 0.001  # nerfstudio - 0.01 for vanilla 3DGS
     enable_logging = True
 
-    # gaussian_data = importer.load_gaussians_from_nerfstudio_ckpt(ckpt_path, device=device)
     gaussian_data = importer.load_gaussians_from_ply(ply_path)
     save_gaussians_as_voxels(gaussian_data, output_path, scale_factor, manual_voxel_resolution, voxel_resolution_factor, opacity_threshold, scale_threshold, enable_logging)

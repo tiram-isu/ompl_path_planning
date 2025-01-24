@@ -135,8 +135,8 @@ if __name__ == "__main__":
     visualization_mesh_path = "/app/voxel_models/stonehenge/voxels_115x110x24_0.9_0/voxels.ply"
 
     # Example start and goal configurations
-    start = np.array([-0.33, 0.10, -0.46])
-    goal = np.array([0.22, -0.16, -0.46])
+    start = np.array([-0.33, 0.10, -0.41])
+    goal = np.array([0.22, -0.16, -0.4])
 
     planner_settings = {
         "planner_range": 0.1,

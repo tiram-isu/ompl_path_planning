@@ -36,7 +36,7 @@ class PathPlanner:
 
         self.csi = ob.SpaceInformation(self.rvss)
         self.validity_checker = StateValidityChecker(self.csi, voxel_grid, agent_dims)
-        self.csi.setStateValidityChecker(ob.StateValidityCheckerFn(self.validity_checker.isValid))
+        self.csi.setStateValidityChecker(ob.StateValidityCheckerFn(self.validity_checker.is_valid))
         self.csi.setStateValidityCheckingResolution(state_validity_resolution)
 
         self.planner = self._initialize_planner(planner_type, range)
@@ -95,6 +95,14 @@ class PathPlanner:
         for i in range(3):
             start_state[i] = start[i]
             goal_state[i] = goal[i]
+
+        if not self.validity_checker.is_valid(start_state):
+            start_state = self.validity_checker.find_valid_state(start_state)
+            logging.info(f"Start state {start} is invalid. Found new valid start state: {start_state[0], start_state[1], start_state[2]}")
+
+        if not self.validity_checker.is_valid(goal_state):
+            goal_state = self.validity_checker.find_valid_state(goal_state)
+            logging.info(f"Goal state {goal} is invalid. Found new valid goal state: {goal_state[0], goal_state[1], goal_state[2]}")
 
         return start_state, goal_state
 

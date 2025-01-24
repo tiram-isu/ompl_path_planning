@@ -1,0 +1,85 @@
+{
+    "model": {
+        "name": "km",
+        "camera_dims": [
+            0.001,
+            0.002
+        ],
+        "start_point": [
+            -0.33,
+            0.1,
+            -0.41
+        ],
+        "goal_point": [
+            0.22,
+            -0.16,
+            -0.4
+        ],
+        "max_time_per_path": 5
+    },
+    "planners": {
+        "PRM": {
+            "status": "Successful",
+            "total_time_taken": 0,
+            "num_paths": 10,
+            "average_path_length": 0.724,
+            "shortest_path_length": 0.63,
+            "longest_path_length": 0.86,
+            "path_length_std_dev": 0.08002499609497023,
+            "average_time_per_path": 0.12800000000000003,
+            "time_per_path_std_dev": 0.046861498055439925,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.86,
+                    "duration": 0.26
+                },
+                {
+                    "id": 1,
+                    "length": 0.66,
+                    "duration": 0.11
+                },
+                {
+                    "id": 2,
+                    "length": 0.63,
+                    "duration": 0.16
+                },
+                {
+                    "id": 3,
+                    "length": 0.7,
+                    "duration": 0.11
+                },
+                {
+                    "id": 4,
+                    "length": 0.63,
+                    "duration": 0.11
+                },
+                {
+                    "id": 5,
+                    "length": 0.8,
+                    "duration": 0.1
+                },
+                {
+                    "id": 6,
+                    "length": 0.77,
+                    "duration": 0.11
+                },
+                {
+                    "id": 7,
+                    "length": 0.77,
+                    "duration": 0.11
+                },
+                {
+                    "id": 8,
+                    "length": 0.79,
+                    "duration": 0.11
+                },
+                {
+                    "id": 9,
+                    "length": 0.63,
+                    "duration": 0.1
+                }
+            ]
+        }
+    }
+}

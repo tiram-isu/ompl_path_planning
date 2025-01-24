@@ -25,7 +25,7 @@ class StateValidityChecker(ob.StateValidityChecker):
 
         self.prev_state = None
 
-    def isValid(self, state):
+    def is_valid(self, state):
         """
         Check if a state is valid (no collision) using the voxel grid.
 
@@ -66,5 +66,14 @@ class StateValidityChecker(ob.StateValidityChecker):
         
     def set_prev_state(self, state):
         self.prev_state = state
+
+    def find_valid_state(self, state):
+        x, y, z = state[0], state[1], state[2]
+
+        free_coords = self.voxel_grid.find_closest_free_voxel(x, y, z)
+        for i in range(3):
+            state[i] = free_coords[i]
+            
+        return state
 
 
