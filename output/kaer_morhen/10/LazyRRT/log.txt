@@ -1,0 +1,16 @@
+2025-01-24 22:46:36,556 - INFO - Initialized LazyRRT planner with range 0.1
+2025-01-24 22:46:36,557 - INFO - Planning 10 paths with max time 5 seconds per path...
+2025-01-24 22:46:41,663 - ERROR - No solution found for attempt 0.
+2025-01-24 22:46:46,703 - ERROR - No solution found for attempt 1.
+2025-01-24 22:46:51,706 - ERROR - No solution found for attempt 2.
+2025-01-24 22:46:56,807 - ERROR - No solution found for attempt 3.
+2025-01-24 22:47:01,892 - ERROR - No solution found for attempt 4.
+2025-01-24 22:47:06,364 - INFO - Path 5 added. Length: 0.45 units. Duration: 4.47 seconds.
+2025-01-24 22:47:11,411 - ERROR - No solution found for attempt 6.
+2025-01-24 22:47:14,486 - INFO - Path 7 added. Length: 0.42 units. Duration: 3.07 seconds.
+2025-01-24 22:47:19,499 - ERROR - No solution found for attempt 8.
+2025-01-24 22:47:24,578 - ERROR - No solution found for attempt 9.
+2025-01-24 22:47:24,579 - INFO - Completed planning 2 paths in 48.02 seconds.
+2025-01-24 22:47:24,579 - INFO - Average path length: 0.43 units.
+2025-01-24 22:47:24,579 - INFO - Shortest path length: 0.42 units.
+2025-01-24 22:47:24,579 - INFO - Longest path length: 0.45 units.

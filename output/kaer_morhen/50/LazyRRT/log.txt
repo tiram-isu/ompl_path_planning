@@ -1,0 +1,56 @@
+2025-01-24 23:20:58,543 - INFO - Initialized LazyRRT planner with range 0.1
+2025-01-24 23:20:58,545 - INFO - Planning 50 paths with max time 5 seconds per path...
+2025-01-24 23:21:03,602 - ERROR - No solution found for attempt 0.
+2025-01-24 23:21:08,633 - ERROR - No solution found for attempt 1.
+2025-01-24 23:21:13,962 - ERROR - No solution found for attempt 2.
+2025-01-24 23:21:14,785 - INFO - Path 3 added. Length: 0.45 units. Duration: 0.82 seconds.
+2025-01-24 23:21:19,823 - ERROR - No solution found for attempt 4.
+2025-01-24 23:21:22,647 - INFO - Path 5 added. Length: 0.42 units. Duration: 2.82 seconds.
+2025-01-24 23:21:27,678 - ERROR - No solution found for attempt 6.
+2025-01-24 23:21:32,720 - ERROR - No solution found for attempt 7.
+2025-01-24 23:21:36,237 - INFO - Path 8 added. Length: 0.43 units. Duration: 3.52 seconds.
+2025-01-24 23:21:41,291 - ERROR - No solution found for attempt 9.
+2025-01-24 23:21:46,338 - ERROR - No solution found for attempt 10.
+2025-01-24 23:21:51,399 - ERROR - No solution found for attempt 11.
+2025-01-24 23:21:56,403 - ERROR - No solution found for attempt 12.
+2025-01-24 23:22:01,449 - ERROR - No solution found for attempt 13.
+2025-01-24 23:22:06,483 - ERROR - No solution found for attempt 14.
+2025-01-24 23:22:11,672 - ERROR - No solution found for attempt 15.
+2025-01-24 23:22:16,684 - ERROR - No solution found for attempt 16.
+2025-01-24 23:22:21,715 - ERROR - No solution found for attempt 17.
+2025-01-24 23:22:26,739 - ERROR - No solution found for attempt 18.
+2025-01-24 23:22:31,785 - ERROR - No solution found for attempt 19.
+2025-01-24 23:22:33,474 - INFO - Path 20 added. Length: 0.42 units. Duration: 1.69 seconds.
+2025-01-24 23:22:38,496 - ERROR - No solution found for attempt 21.
+2025-01-24 23:22:43,527 - ERROR - No solution found for attempt 22.
+2025-01-24 23:22:48,540 - ERROR - No solution found for attempt 23.
+2025-01-24 23:22:50,775 - INFO - Path 24 added. Length: 0.45 units. Duration: 2.23 seconds.
+2025-01-24 23:22:55,862 - ERROR - No solution found for attempt 25.
+2025-01-24 23:23:00,902 - ERROR - No solution found for attempt 26.
+2025-01-24 23:23:05,943 - ERROR - No solution found for attempt 27.
+2025-01-24 23:23:09,567 - INFO - Path 28 added. Length: 0.44 units. Duration: 3.62 seconds.
+2025-01-24 23:23:14,578 - ERROR - No solution found for attempt 29.
+2025-01-24 23:23:19,608 - ERROR - No solution found for attempt 30.
+2025-01-24 23:23:27,788 - ERROR - No solution found for attempt 31.
+2025-01-24 23:23:32,824 - ERROR - No solution found for attempt 32.
+2025-01-24 23:23:37,878 - ERROR - No solution found for attempt 33.
+2025-01-24 23:23:42,921 - ERROR - No solution found for attempt 34.
+2025-01-24 23:23:48,060 - ERROR - No solution found for attempt 35.
+2025-01-24 23:23:53,067 - ERROR - No solution found for attempt 36.
+2025-01-24 23:23:58,430 - ERROR - No solution found for attempt 37.
+2025-01-24 23:24:03,462 - ERROR - No solution found for attempt 38.
+2025-01-24 23:24:08,488 - ERROR - No solution found for attempt 39.
+2025-01-24 23:24:11,694 - INFO - Path 40 added. Length: 0.44 units. Duration: 3.21 seconds.
+2025-01-24 23:24:16,744 - ERROR - No solution found for attempt 41.
+2025-01-24 23:24:21,764 - ERROR - No solution found for attempt 42.
+2025-01-24 23:24:26,806 - ERROR - No solution found for attempt 43.
+2025-01-24 23:24:31,837 - ERROR - No solution found for attempt 44.
+2025-01-24 23:24:36,853 - ERROR - No solution found for attempt 45.
+2025-01-24 23:24:41,867 - ERROR - No solution found for attempt 46.
+2025-01-24 23:24:42,521 - INFO - Path 47 added. Length: 0.41 units. Duration: 0.65 seconds.
+2025-01-24 23:24:47,574 - ERROR - No solution found for attempt 48.
+2025-01-24 23:24:52,636 - ERROR - No solution found for attempt 49.
+2025-01-24 23:24:52,636 - INFO - Completed planning 8 paths in 234.09 seconds.
+2025-01-24 23:24:52,636 - INFO - Average path length: 0.43 units.
+2025-01-24 23:24:52,636 - INFO - Shortest path length: 0.41 units.
+2025-01-24 23:24:52,636 - INFO - Longest path length: 0.45 units.

@@ -1,0 +1,4 @@
+2025-01-24 22:39:52,950 - INFO - Initialized SPARS planner with range 0.1
+2025-01-24 22:39:52,951 - INFO - Planning 1 paths with max time 5 seconds per path...
+2025-01-24 22:39:58,421 - ERROR - No solution found for attempt 0.
+2025-01-24 22:39:58,421 - INFO - Completed planning 0 paths in 5.47 seconds.

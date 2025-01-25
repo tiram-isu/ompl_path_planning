@@ -139,12 +139,18 @@ if __name__ == "__main__":
     # planners = ['PRM']  # Example planner list
 
     model_name = "stonehenge"
-    voxel_grid = VoxelGrid.from_saved_files("/app/voxel_models/stonehenge/voxels_115x110x24_0.9_0/ground/")
-    visualization_mesh_path = "/app/voxel_models/stonehenge/voxels_115x110x24_0.9_0/voxels.ply"
+    voxel_grid = VoxelGrid.from_saved_files("/app/voxel_models/kaer_morhen/voxels_255x257x150_0.9_0/ground/")
+    visualization_mesh_path = "/app/voxel_models/kaer_morhen/voxels_255x257x150_0.9_0/voxels.ply"
 
     # Example start and goal configurations
-    start = np.array([-0.33, 0.10, -0.38])
-    goal = np.array([0.22, -0.16, -0.38])
+    # start = np.array([-0.33, 0.10, -0.38])
+    # goal = np.array([0.22, -0.16, -0.38])
+
+    # kaer_morhen
+    # start = np.array([0.15, 0.08, -0.24])
+    # goal = np.array([0.03, 0.01, -0.19])
+    start = np.array([0.15, -0.01, -0.16])
+    goal = np.array([-0.24, 0.04, -0.15])
 
     planner_settings = {
         "planner_range": 0.1,

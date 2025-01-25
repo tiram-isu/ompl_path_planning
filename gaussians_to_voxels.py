@@ -190,7 +190,7 @@ def save_gaussians_as_voxels(gaussian_data, output_path, scale_factor, manual_vo
     ground_output_dir = output_dir + "ground"
     os.makedirs(ground_output_dir, exist_ok=True)
 
-    voxel_grid_ground = voxel_grid_padding.mark_voxels_without_support(9) # padding in indices
+    voxel_grid_ground = voxel_grid_padding.mark_voxels_without_support(4) # padding in indices
     voxel_grid_ground.save_voxel_grid_as_numpy(ground_output_dir)
     voxel_grid_ground.save_metadata(ground_output_dir)
     # save as ply
@@ -200,8 +200,8 @@ def save_gaussians_as_voxels(gaussian_data, output_path, scale_factor, manual_vo
     
 
 if __name__ == '__main__':
-    ply_path = "/app/models/stonehenge_colmap_aligned.ply"
-    output_path = "/app/voxel_models/stonehenge/"
+    ply_path = "/app/models/kaer_morhen.ply"
+    output_path = "/app/voxel_models/kaer_morhen/"
     device = "cuda"
 
     opacity_threshold = 0.9

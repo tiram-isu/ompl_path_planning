@@ -1,0 +1,1 @@
+2025-01-24 20:00:52,261 - ERROR - Error occurred for planner SPQRstar: Planner type SPQRstar is not valid.

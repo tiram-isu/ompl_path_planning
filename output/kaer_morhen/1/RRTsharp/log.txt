@@ -1,0 +1,7 @@
+2025-01-24 22:40:15,717 - INFO - Initialized RRTsharp planner with range 0.1
+2025-01-24 22:40:15,718 - INFO - Planning 1 paths with max time 5 seconds per path...
+2025-01-24 22:40:20,740 - INFO - Path 0 added. Length: 0.42 units. Duration: 5.02 seconds.
+2025-01-24 22:40:20,740 - INFO - Completed planning 1 paths in 5.02 seconds.
+2025-01-24 22:40:20,740 - INFO - Average path length: 0.42 units.
+2025-01-24 22:40:20,740 - INFO - Shortest path length: 0.42 units.
+2025-01-24 22:40:20,740 - INFO - Longest path length: 0.42 units.

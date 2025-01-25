@@ -1,0 +1,7 @@
+2025-01-24 22:40:20,895 - INFO - Initialized InformedRRTstar planner with range 0.1
+2025-01-24 22:40:20,896 - INFO - Planning 1 paths with max time 5 seconds per path...
+2025-01-24 22:40:25,958 - INFO - Path 0 added. Length: 0.40 units. Duration: 5.06 seconds.
+2025-01-24 22:40:25,958 - INFO - Completed planning 1 paths in 5.06 seconds.
+2025-01-24 22:40:25,958 - INFO - Average path length: 0.40 units.
+2025-01-24 22:40:25,958 - INFO - Shortest path length: 0.40 units.
+2025-01-24 22:40:25,958 - INFO - Longest path length: 0.40 units.

@@ -1,0 +1,7 @@
+2025-01-24 22:40:14,780 - INFO - Initialized STRIDE planner with range 0.1
+2025-01-24 22:40:14,781 - INFO - Planning 1 paths with max time 5 seconds per path...
+2025-01-24 22:40:15,393 - INFO - Path 0 added. Length: 0.64 units. Duration: 0.61 seconds.
+2025-01-24 22:40:15,394 - INFO - Completed planning 1 paths in 0.61 seconds.
+2025-01-24 22:40:15,394 - INFO - Average path length: 0.64 units.
+2025-01-24 22:40:15,394 - INFO - Shortest path length: 0.64 units.
+2025-01-24 22:40:15,394 - INFO - Longest path length: 0.64 units.
