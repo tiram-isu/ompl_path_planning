@@ -3,26 +3,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 import logging
 import time
+from typing import List, Tuple
 
 class Visualizer:
     """
-    Class to visualize a 3D mesh and paths in Open3D, with options for enabling or disabling visualization and adjusting the camera view.
-
-    Attributes:
-        mesh (open3d.geometry.TriangleMesh): The mesh to visualize.
-        tube_width (float): Width of the path tube.
-        tube_height (float): Height of the path tube.
-        enable_visualization (bool): Flag to enable or disable the visualization window.
+    Class to visualize a 3D mesh and paths in Open3D.
     """
 
-    def __init__(self, mesh, enable_visualization, camera_dims):
+    def __init__(self, mesh: o3d.geometry.TriangleMesh, enable_visualization: bool, camera_dims: Tuple[float, float]):
         """
         Initializes the Visualizer class with mesh, visualization options, and camera dimensions.
-
-        Args:
-            mesh (open3d.geometry.TriangleMesh): The mesh to visualize.
-            enable_visualization (bool): Flag to enable or disable the visualization window.
-            camera_dims (tuple): Dimensions of the camera view (width, height).
         """
         self.mesh = mesh
         self.tube_width = camera_dims[0]  # Width of the path tube
@@ -30,15 +20,10 @@ class Visualizer:
         logging.getLogger('matplotlib').setLevel(logging.WARNING)  # Suppress matplotlib logging
         self.enable_visualization = enable_visualization
 
-    def visualize_o3d(self, output_path, path_list, start_point, end_point):
+    def visualize_o3d(self, output_path: str, path_list: List['Path'], start_point: Tuple[float, float, float], end_point: Tuple[float, float, float]):
         """
         Visualizes the mesh and paths in Open3D, capturing a screenshot and saving the result.
-
-        Args:
-            output_path (str): The directory where the screenshot will be saved.
-            path_list (list): List of path objects to be visualized.
-            start_point (tuple): Coordinates of the start point marker.
-            end_point (tuple): Coordinates of the end point marker.
+        If enable_visualization is True, an interactive window will open to display the visualization.
         """
         vis = o3d.visualization.Visualizer()
 
@@ -89,20 +74,14 @@ class Visualizer:
             vis.destroy_window()
 
         # Combine geometries (start, end markers, and path geometries)
-        combined_paths = self.combine_geometries([start_marker, end_marker] + path_geometries)
+        # combined_paths = self.combine_geometries([start_marker, end_marker] + path_geometries)
 
-        # Optionally save combined mesh (commented out)
+        # Optionally save combined mesh
         # o3d.io.write_triangle_mesh(output_path + "paths.obj", combined_paths, write_triangle_uvs=True, write_vertex_colors=True)
 
-    def combine_geometries(self, geometries):
+    def combine_geometries(self, geometries: List[o3d.geometry.TriangleMesh]) -> o3d.geometry.TriangleMesh:
         """
         Combines multiple geometries into a single TriangleMesh.
-
-        Args:
-            geometries (list): List of geometries to combine.
-
-        Returns:
-            open3d.geometry.TriangleMesh: The combined mesh.
         """
         combined_mesh = o3d.geometry.TriangleMesh()
 
@@ -138,16 +117,9 @@ class Visualizer:
 
         return combined_mesh
 
-    def create_marker(self, position, color=[1.0, 0.0, 0.0]):
+    def create_marker(self, position: Tuple[float, float, float], color: List[float] = [1.0, 0.0, 0.0]) -> o3d.geometry.TriangleMesh:
         """
         Creates a sphere marker at a given position with a specified color.
-
-        Args:
-            position (tuple): The (x, y, z) position to place the marker.
-            color (list, optional): The RGB color of the marker. Defaults to red.
-
-        Returns:
-            open3d.geometry.TriangleMesh: The created sphere marker.
         """
         marker = o3d.geometry.TriangleMesh.create_sphere(radius=1)
         marker.vertices = o3d.utility.Vector3dVector(np.asarray(marker.vertices) * np.array([self.tube_width, self.tube_width, self.tube_height]))
@@ -155,15 +127,9 @@ class Visualizer:
         marker.translate(position)
         return marker
 
-    def create_path_tube(self, path):
+    def create_path_tube(self, path: 'Path') -> o3d.geometry.TriangleMesh:
         """
-        Creates a tube for a given path by connecting consecutive points with cylinders.
-
-        Args:
-            path (Path): The path object containing the path points.
-
-        Returns:
-            open3d.geometry.TriangleMesh: The created tube mesh representing the path.
+        Creates a tube following a given path by connecting consecutive points with cylinders.
         """
         tube_mesh = o3d.geometry.TriangleMesh()
         tube_mesh.paint_uniform_color([1.0, 0.0, 0.0])  # Color the path red
@@ -181,16 +147,9 @@ class Visualizer:
 
         return tube_mesh
 
-    def create_cylinder_between_points(self, start, end):
+    def create_cylinder_between_points(self, start: np.ndarray, end: np.ndarray) -> o3d.geometry.TriangleMesh:
         """
         Creates a cylinder connecting two points to represent a tube segment in the path.
-
-        Args:
-            start (tuple): The starting point (x, y, z).
-            end (tuple): The ending point (x, y, z).
-
-        Returns:
-            open3d.geometry.TriangleMesh: The created cylinder mesh.
         """
         vector = end - start
         length = np.linalg.norm(vector)

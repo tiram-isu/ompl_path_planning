@@ -1,8 +1,9 @@
 import torch
 import struct
 import numpy as np
+from typing import Dict, Optional
 
-def load_gaussians_from_nerfstudio_ckpt(ckpt_path, device="cuda"):
+def load_gaussians_from_nerfstudio_ckpt(ckpt_path: str, device: str = "cuda") -> Dict:
     """
     Load Gaussian parameters from a Nerfstudio Gsplat checkpoint.
     """
@@ -25,12 +26,12 @@ def load_gaussians_from_nerfstudio_ckpt(ckpt_path, device="cuda"):
         raise KeyError(f"Missing keys in pipeline: {', '.join(missing_keys)}")
     return gaussian_data
 
-def load_gaussians_from_ply(input_ply_file):
+def load_gaussians_from_ply(input_ply_path: str) -> Optional[Dict]:
     """
     Extract Gaussian parameters from a binary or ASCII .ply file.
     """
     try:
-        with open(input_ply_file, 'rb') as ply_file:
+        with open(input_ply_path, 'rb') as ply_file:
             content = ply_file.read()
 
         header_end = content.find(b'end_header\n')
@@ -65,7 +66,7 @@ def load_gaussians_from_ply(input_ply_file):
         print(f"Error loading .ply file: {e}")
         return None
 
-def parse_ply_header(header):
+def parse_ply_header(header: str) -> tuple:
     """
     Parse the header of a .ply file to extract vertex properties and counts.
     """
@@ -79,7 +80,7 @@ def parse_ply_header(header):
             vertex_properties.append(line.split()[2])
     return vertex_properties, vertex_count
 
-def property_format_and_size(property_name, endian_char):
+def property_format_and_size(property_name: str, endian_char: str) -> Optional[tuple]:
     """
     Get the struct format and size for a given .ply property name.
     Returns None for unsupported properties.
@@ -88,7 +89,7 @@ def property_format_and_size(property_name, endian_char):
         return f"{endian_char}f", 4  # All are floats
     return None, 4  # Skip unsupported properties with size 4 bytes
 
-def structure_gaussian_data(data):
+def structure_gaussian_data(data: Dict) -> Optional[Dict]:
     """
     Structure raw .ply data into a dictionary of Gaussian parameters.
     """
@@ -104,7 +105,7 @@ def structure_gaussian_data(data):
         print(f"Error structuring Gaussian data: {e}")
         return None
 
-def convert_checkpoint_to_txt(checkpoint_path, output_txt_path):
+def convert_checkpoint_to_txt(checkpoint_path: str, output_txt_path: str) -> None:
     """
     Convert a PyTorch checkpoint to a human-readable text file.
     """
@@ -122,12 +123,12 @@ def convert_checkpoint_to_txt(checkpoint_path, output_txt_path):
                 f.write(f"  Values:\n{param.cpu().numpy()}\n")
     print(f"Checkpoint written to {output_txt_path}")
 
-def convert_ply_to_readable_txt(input_ply_file, output_txt_file):
+def convert_ply_to_readable_txt(input_ply_path: str, output_txt_path: str) -> None:
     """
     Convert a .ply file (binary or ASCII) into a readable text format.
     """
     try:
-        with open(input_ply_file, 'rb') as ply_file:
+        with open(input_ply_path, 'rb') as ply_file:
             content = ply_file.read()
 
         header_end = content.find(b'end_header\n')
@@ -138,17 +139,17 @@ def convert_ply_to_readable_txt(input_ply_file, output_txt_file):
         body = content[header_end + len(b'end_header\n'):]
         readable_body = parse_binary_ply(header, body) if "binary" in header else body.decode('utf-8')
 
-        with open(output_txt_file, 'w') as txt_file:
+        with open(output_txt_path, 'w') as txt_file:
             txt_file.write("# Converted .ply file to .txt\n")
             txt_file.write(header)
             txt_file.write(readable_body)
 
-        print(f"Successfully converted '{input_ply_file}' to '{output_txt_file}'.")
+        print(f"Successfully converted '{input_ply_path}' to '{output_txt_path}'.")
 
     except Exception as e:
         print(f"Error converting .ply to text: {e}")
 
-def parse_binary_ply(header, body):
+def parse_binary_ply(header: str, body: bytes) -> str:
     """
     Parse the binary section of a .ply file.
     """

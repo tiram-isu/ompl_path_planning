@@ -7,26 +7,25 @@ import os
 import matplotlib.pyplot as plt
 import importer
 from voxel_grid import VoxelGrid
+from typing import Dict
 
 # Helper Functions
-def normalize_colors(features_dc):
-    """Normalize feature values to [0, 1] range."""
+def normalize_colors(features_dc: np.ndarray) -> np.ndarray:
+    """
+    Normalize feature values to [0, 1] range.
+    """
     min_val, max_val = np.min(features_dc), np.max(features_dc)
     return np.clip((features_dc - min_val) / (max_val - min_val), 0, 1)
 
-def sigmoid(x):
-    """Compute the sigmoid of an array."""
+def sigmoid(x: np.ndarray) -> np.ndarray:
+    """
+    Compute the sigmoid of an array.
+    """
     return 1 / (1 + np.exp(-x))
 
-def create_histogram(data, threshold, output_path, x_label, title):
+def create_histogram(data: np.ndarray, threshold: float, output_path: str, x_label: str, title: str) -> None:
     """
     Create and save a histogram with a vertical line indicating the threshold.
-
-    :param data: The data to plot in the histogram.
-    :param threshold: The threshold value to indicate on the histogram.
-    :param output_path: Path to save the histogram image.
-    :param x_label: Label for the x-axis.
-    :param title: Title of the histogram.
     """
     plt.hist(
         data,
@@ -50,8 +49,10 @@ def create_histogram(data, threshold, output_path, x_label, title):
     plt.close()
 
 
-def save_screenshots(mesh, output_path):
-    """Save screenshots of the mesh from top and 45-degree angles."""
+def save_screenshots(mesh: o3d.geometry.TriangleMesh, output_path: str) -> None:
+    """
+    Save screenshots of the mesh from top and 45-degree angles.
+    """
     vis = o3d.visualization.Visualizer()
     vis.create_window(visible=False, width=2560, height=1440)
     render_options = vis.get_render_option()
@@ -79,26 +80,27 @@ def save_screenshots(mesh, output_path):
     vis.destroy_window()
     print(f"Screenshots saved to {output_path}")
 
-def write_log_file(output_path, data):
-    """Write data to a log file."""
-    with open(output_path + "log.txt", "w") as f:
-        json.dump(data, f, indent=4)
-
-def calculate_bounding_box(means):
-    """Calculate the bounding box of the Gaussian means."""
+def calculate_bounding_box(means: np.ndarray) -> np.ndarray:
+    """
+    Calculate the bounding box of the Gaussian means.
+    """
     means_array = np.array(means)  # Ensure means are in a numpy array
     min_point = np.min(means_array, axis=0)  # Minimum x, y, z
     max_point = np.max(means_array, axis=0)  # Maximum x, y, z
     return min_point, max_point
 
-def calculate_scene_dimensions(means):
-    """Calculate the scene dimensions based on the Gaussian means."""
+def calculate_scene_dimensions(means: np.ndarray) -> np.ndarray:
+    """
+    Calculate the scene dimensions based on the Gaussian means.
+    """
     min_point, max_point = calculate_bounding_box(means)
     scene_dimensions = max_point - min_point
     return scene_dimensions
 
-def calculate_average_scale(scales, scale_factor):
-    """Calculate the average scale of all Gaussians."""
+def calculate_average_scale(scales: np.ndarray, scale_factor: float) -> float:
+    """
+    Calculate the average scale of all Gaussians.
+    """
     volumes = []
     for scale in scales:
         # Calculate the volume of each Gaussian (ellipsoid)
@@ -111,7 +113,19 @@ def calculate_average_scale(scales, scale_factor):
     average_scale = np.cbrt(average_volume)  # Average side length of the ellipsoid
     return average_scale
 
-def save_gaussians_as_voxels(gaussian_data, output_path, scale_factor, manual_voxel_resolution=None, voxel_resolution_factor=1, opacity_threshold=0, scale_threshold=0, enable_logging=True):
+def save_gaussians_as_voxels(
+    gaussian_data: Dict,
+    output_path: str,
+    scale_factor: float,
+    manual_voxel_resolution: int = None,
+    voxel_resolution_factor: float = 1,
+    opacity_threshold: float = 0,
+    scale_threshold: float = 0,
+    enable_logging: bool = True
+    ) -> None:
+    """
+    Save Gaussian data as a voxel grid and optionally log results.
+    """
     # Get Gaussian data
     means = gaussian_data["means"]
     scales = gaussian_data["scales"]

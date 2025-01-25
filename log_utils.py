@@ -7,9 +7,12 @@ import hashlib
 import colorsys
 import random
 import matplotlib.pyplot as plt
+from typing import Dict, Any, List, Tuple
 
-def parse_log_file(log_file_path):
-    """Parse a single planner's log file to extract information for the summary."""
+def parse_log_file(log_file_path: str) -> Dict[str, Any]:
+    """
+    Parse a single planner's log file to extract information for the summary.
+    """
     result = {
         'success': False,
         'error_message': None,
@@ -37,8 +40,10 @@ def parse_log_file(log_file_path):
         logging.error(f"Failed to parse log file {log_file_path}: {e}")
     return result
 
-def generate_summary_log(planners, output_path, model, path_settings):
-    """Save a summary log consolidating all planners' results in JSON format."""
+def generate_summary_log(planners: List[str], output_path: str, model: Dict[str, Any], path_settings: Dict[str, Any]):
+    """
+    Save a summary log consolidating all planners' results in JSON format.
+    """
     summary_json_path = os.path.join(output_path, "summary_log.json")
 
     # Initialize the summary dictionary
@@ -89,15 +94,19 @@ def generate_summary_log(planners, output_path, model, path_settings):
     with open(summary_json_path, "w") as f:
         json.dump(summary_data, f, indent=4)
 
-def save_paths_to_json(paths, output_path):
-    """Save paths to a JSON file."""
+def save_paths_to_json(paths: List[Any], output_path: str) -> None:
+    """
+    Save paths to a JSON file.
+    """
     if paths:
         serializable_paths = [[[float(coord) for coord in line.split()] for line in path.printAsMatrix().strip().split("\n")] for path in paths]
         with open(os.path.join(output_path, "paths.json"), 'w') as f:
             json.dump(serializable_paths, f, indent=4)
 
-def setup_logging(output_path, enable_logging):
-    """Initialize logging for the given output path."""
+def setup_logging(output_path: str, enable_logging: bool) -> None:
+    """
+    Initialize logging for the given output path. If logging is disabled, suppress all logging.
+    """
     if enable_logging:
         os.makedirs(output_path, exist_ok=True)
 
@@ -117,8 +126,10 @@ def setup_logging(output_path, enable_logging):
         logging.disable(logging.CRITICAL)
 
 
-def extract_log_data(json_path):
-    """Extract data from the summary JSON file."""
+def extract_log_data(json_path: str) -> Dict[str, Any]:
+    """
+    Extract data from the summary JSON file.
+    """
     with open(json_path, 'r') as file:
         summary_data = json.load(file)
     
@@ -150,11 +161,15 @@ def extract_log_data(json_path):
         parsed_data[planner_name] = planner_data
     return parsed_data
 
-def generate_plots(data_dict, log_file_name, output_dir, planner_color_map):
-    """Create plots based on the extracted data."""
+def generate_plots(data_dict: Dict[str, Any], log_file_name: str, output_dir: str, planner_color_map: Dict[str, Any]) -> None:
+    """
+    Create plots based on the extracted data per number of paths:
+    Average Time Per Path vs Average Path Length,
+    Path Lengths (Boxplot),
+    Path Durations (Boxplot).
+    """
     planners = list(data_dict.keys())
     
-    # Safely access the data for each planner using `.get()` to handle potential missing values
     average_path_lengths = [data_dict[planner].get("average_path_length", 0) for planner in planners]
     average_times_per_path = [data_dict[planner].get("average_time_per_path", 0) for planner in planners]
     number_of_paths = [data_dict[planner].get("num_paths", 0) for planner in planners]
@@ -240,8 +255,12 @@ def generate_plots(data_dict, log_file_name, output_dir, planner_color_map):
         plt.savefig(f'{output_dir}/path_durations_{log_file_name}.png')
         plt.close()
 
-def generate_log_reports(json_file_paths, output_dir):
-    """Process multiple JSON log files and generate plots."""
+def generate_log_reports(json_file_paths: List[str], output_dir: str) -> None:
+    """
+    Process multiple JSON log files and generate plots containing all planner data:
+    Number of Paths vs Average Path Length,
+    Number of Paths vs Average Path Duration.
+    """
     os.makedirs(output_dir, exist_ok=True)
 
     all_data = []
@@ -254,7 +273,10 @@ def generate_log_reports(json_file_paths, output_dir):
 
     num_planners = len(unique_planners)
 
-    def get_unique_color(planner, num_planners):
+    def get_unique_color(planner: str, num_planners: int) -> Tuple[float, float, float]:
+        """
+        Generate a unique color for each planner based on the planner name.
+        """
         hash_value = int(hashlib.md5(planner.encode()).hexdigest(), 16)
         random.seed(hash_value)
         hue = (hash_value % 360) / 360  # Ensure hue is between 0 and 1

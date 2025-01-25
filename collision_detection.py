@@ -9,12 +9,9 @@ import math
 from collections import defaultdict
 
 class StateValidityChecker(ob.StateValidityChecker):
-    def __init__(self, si, voxel_grid, agent_dims):
+    def __init__(self, si: ob.SpaceInformation, voxel_grid: VoxelGrid, agent_dims: list) -> None:
         """
         Initialize the StateValidityChecker with a voxel grid for collision checking.
-
-        :param voxel_grid: An instance of VoxelGrid used to check for collisions.
-        :param agent_dims: A tuple (width, height) representing the agent's dimensions.
         """
         super().__init__(si)
 
@@ -25,12 +22,9 @@ class StateValidityChecker(ob.StateValidityChecker):
 
         self.prev_state = None
 
-    def is_valid(self, state):
+    def is_valid(self, state: ob.State) -> bool:
         """
         Check if a state is valid (no collision) using the voxel grid.
-
-        :param state: The state to check, which consists of (x, y, z) world coordinates.
-        :return: True if the state is valid, False otherwise.
         """
         x, y, z = state[0], state[1], state[2]
 
@@ -40,7 +34,10 @@ class StateValidityChecker(ob.StateValidityChecker):
         index = self.voxel_grid.world_to_index(x, y, z)
         return not self.voxel_grid.is_voxel_occupied(index)
     
-    def is_slope_valid(self, state):
+    def is_slope_valid(self, state: ob.State) -> bool:
+        """
+        Check if the slope between the previous state and the current state is valid.
+        """
         if self.prev_state is None:
             return True
         
@@ -64,10 +61,16 @@ class StateValidityChecker(ob.StateValidityChecker):
         return slope_degrees <= 45
 
         
-    def set_prev_state(self, state):
+    def set_prev_state(self, state: ob.State) -> None:
+        """
+        Set the previous state for slope checking.
+        """
         self.prev_state = state
 
-    def find_valid_state(self, state):
+    def find_valid_state(self, state: ob.State) -> ob.State:
+        """
+        Find a valid state closest to the given state.
+        """
         x, y, z = state[0], state[1], state[2]
 
         free_coords = self.voxel_grid.find_closest_free_voxel(x, y, z)

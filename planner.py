@@ -17,15 +17,7 @@ class PathPlanner:
         enable_logging: bool = False
     ) -> None:
         """
-        Initialize the PathPlanner with voxel grid, agent dimensions, planner type, and other settings.
-
-        Args:
-            voxel_grid: The voxel grid representing the environment.
-            agent_dims: The dimensions of the agent.
-            planner_type (str): The planner type to use.
-            range (float): The range parameter for the planner.
-            state_validity_resolution (float): Resolution for state validity checking.
-            enable_logging (bool, optional): Whether to enable logging. Defaults to False.
+        Initialize the PathPlanner with settings and perform necessary setup for OMPL.
         """
         self.enable_logging = enable_logging
 
@@ -43,7 +35,7 @@ class PathPlanner:
 
     def _initialize_bounds(self) -> None:
         """
-        Initialize the bounds for the state space based on the voxel grid.
+        Initialize the bounds for the state space based on the voxel grid dimensions.
         """
         scene_dimensions = self.voxel_grid.scene_dimensions
         bounding_box_min = self.voxel_grid.bounding_box_min
@@ -57,14 +49,7 @@ class PathPlanner:
 
     def _initialize_planner(self, planner_type: str, range: float) -> Any:
         """
-        Initialize the planner based on the specified type.
-
-        Args:
-            planner_type (str): The planner type to use.
-            range (float): The range parameter for the planner.
-
-        Returns:
-            Any: The initialized planner.
+        Initialize and return the planner based on the specified type.
         """
         planner_class = getattr(og, planner_type, None)
         if not planner_class:
@@ -80,14 +65,8 @@ class PathPlanner:
 
     def _initialize_start_and_goal(self, start: np.ndarray, goal: np.ndarray):
         """
-        Initialize the start and goal states for the planner.
-
-        Args:
-            start (np.ndarray): The start position.
-            goal (np.ndarray): The goal position.
-
-        Returns:
-            tuple: The start and goal states.
+        Initialize the start and goal states for the planner. If the given start or goal states are invalid,
+        new valid states closest to the ones given are found.
         """
         start_state = ob.State(self.rvss)
         goal_state = ob.State(self.rvss)
@@ -108,10 +87,7 @@ class PathPlanner:
 
     def _simplify_path(self, path: og.PathGeometric) -> None:
         """
-        Simplify the planned path using various techniques.
-
-        Args:
-            path (og.PathGeometric): The path to simplify.
+        Simplify and smooth the planned path.
         """
         path_simplifier = og.PathSimplifier(self.csi)
         path_simplifier.reduceVertices(path)
@@ -121,14 +97,6 @@ class PathPlanner:
     def plan_path(self, start_state: ob.State, goal_state: ob.State, max_time: float):
         """
         Plan a single path from start to goal within a specified time limit.
-
-        Args:
-            start_state (ob.State): The start state.
-            goal_state (ob.State): The goal state.
-            max_time (float): The maximum time allowed for planning.
-
-        Returns:
-            og.PathGeometric: The planned path or None if no solution is found.
         """
         self.validity_checker.set_prev_state(None)
         self.planner.clear()
@@ -145,13 +113,6 @@ class PathPlanner:
     def plan_multiple_paths(self, num_paths: int, path_settings: Dict) -> List[og.PathGeometric]:
         """
         Plan multiple paths and return a list of successfully planned paths.
-
-        Args:
-            num_paths (int): Number of paths to plan.
-            path_settings (Dict): Configuration for the paths.
-
-        Returns:
-            List[og.PathGeometric]: List of planned paths.
         """
         max_time = path_settings['max_time_per_path']
         all_paths = []

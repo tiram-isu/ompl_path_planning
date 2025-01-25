@@ -11,15 +11,7 @@ from typing import List, Dict, Optional
 
 def setup_visualizer(enable_visualization: bool, visualization_mesh_path: str, camera_dims: List[float]) -> Optional[Visualizer]:
     """
-    Setup the visualizer if visualization is enabled.
-
-    Args:
-        enable_visualization (bool): Whether to enable visualization.
-        visualization_mesh_path (str): Path to the visualization mesh file.
-        camera_dims (List[float]): Camera dimensions for visualization.
-
-    Returns:
-        Optional[Visualizer]: The initialized Visualizer object or None.
+    Load visualization mesh and setup the visualizer if visualization is enabled. Otherwise, return None.
     """
     if enable_visualization:
         visualization_mesh = o3d.io.read_triangle_mesh(visualization_mesh_path)
@@ -36,16 +28,7 @@ def plan_paths_for_planner(
     enable_logging: bool
 ) -> None:
     """
-    Plan paths for a specific planner and optionally visualize or log results.
-
-    Args:
-        model (Dict): Model details including name and voxel grid.
-        planner (str): Planner type.
-        planner_settings (Dict): Settings for the planner.
-        num_paths (int): Number of paths to plan.
-        path_settings (Dict): Path configuration.
-        visualizer (Optional[Visualizer]): Visualizer object for rendering.
-        enable_logging (bool): Whether to enable logging.
+    Plan and save paths for a specific planner and optionally visualize or log results.
     """
     output_path = f"/app/output/{model['name']}/{num_paths}/{planner}"
     log_utils.setup_logging(output_path, enable_logging)
@@ -69,7 +52,6 @@ def plan_paths_for_planner(
 
     except Exception as e:
         logging.error(f"Error occurred for planner {planner}: {e}")
-        print(f"Error occurred for planner {planner}: {e}")
 
 def run_planners_for_paths(
     model: Dict,
@@ -80,13 +62,6 @@ def run_planners_for_paths(
 ) -> None:
     """
     Run multiple planners in parallel and handle visualization and logging as per settings.
-
-    Args:
-        model (Dict): Model details including name and voxel grid.
-        planners (List[str]): List of planner types.
-        planner_settings (Dict): Settings for all planners.
-        path_settings (Dict): Configuration for path planning.
-        debugging_settings (Dict): Debugging settings including visualization and logging.
     """
     camera_dims = path_settings['camera_dims']
     enable_visualization = debugging_settings['enable_visualization']
@@ -136,7 +111,7 @@ if __name__ == "__main__":
         'BITstar', 'ABITstar', 'AITstar', 'LBTRRT'
     ]
 
-    # planners = ['PRM']  # Example planner list
+    planners = ['PDST']
 
     model_name = "stonehenge"
     voxel_grid = VoxelGrid.from_saved_files("/app/voxel_models/kaer_morhen/voxels_255x257x150_0.9_0/ground/")
@@ -158,7 +133,7 @@ if __name__ == "__main__":
     }
 
     path_settings = {
-        "num_paths": [1, 10, 50, 100],
+        "num_paths": [10],
         "start": start,
         "goal": goal,
         "camera_dims": [0.001, 0.002],
@@ -167,7 +142,7 @@ if __name__ == "__main__":
     }
 
     debugging_settings = {
-        "enable_visualization": False,
+        "enable_visualization": True,
         "visualization_mesh": visualization_mesh_path,
         "enable_logging": True
     }
