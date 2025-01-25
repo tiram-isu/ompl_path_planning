@@ -8,6 +8,8 @@ from visualization import Visualizer
 import log_utils
 from voxel_grid import VoxelGrid
 from typing import List, Dict, Optional
+import requests
+
 
 def setup_visualizer(enable_visualization: bool, visualization_mesh_path: str, camera_dims: List[float]) -> Optional[Visualizer]:
     """
@@ -101,6 +103,19 @@ def run_planners_for_paths(
     if enable_logging:
         log_utils.generate_log_reports(summary_log_paths, f"/app/output/{model['name']}/plots")
 
+
+def send_to_frontend(frontend_url, data):
+    """
+    Sendet eine Nachricht an das Frontend via HTTP.
+    """
+    try:
+        response = requests.post(frontend_url, json=data)
+        response.raise_for_status()  # Löst eine Ausnahme aus, falls der Statuscode nicht 2xx ist
+        print(f"Nachricht erfolgreich an das Frontend gesendet: {data}")
+    except requests.exceptions.RequestException as e:
+        print(f"Fehler beim Senden der Nachricht an das Frontend: {e}")
+
+
 if __name__ == "__main__":
     # Configuration
     planners = [
@@ -113,19 +128,19 @@ if __name__ == "__main__":
 
     planners = ['PDST']
 
-    model_name = "stonehenge"
-    voxel_grid = VoxelGrid.from_saved_files("/app/voxel_models/kaer_morhen/voxels_255x257x150_0.9_0/ground/")
-    visualization_mesh_path = "/app/voxel_models/kaer_morhen/voxels_255x257x150_0.9_0/voxels.ply"
+    model_name = "kaer_morhen"
+    voxel_grid = VoxelGrid.from_saved_files("/app/voxel_models/stonehenge/voxels_115x110x24_0.9_0/ground/")
+    visualization_mesh_path = "/app/voxel_models/stonehenge/voxels_115x110x24_0.9_0/voxels.ply"
 
     # Example start and goal configurations
-    # start = np.array([-0.33, 0.10, -0.38])
-    # goal = np.array([0.22, -0.16, -0.38])
+    start = np.array([-0.33, 0.10, -0.45])
+    goal = np.array([0.22, -0.16, -0.45])
 
     # kaer_morhen
     # start = np.array([0.15, 0.08, -0.24])
     # goal = np.array([0.03, 0.01, -0.19])
-    start = np.array([0.15, -0.01, -0.16])
-    goal = np.array([-0.24, 0.04, -0.15])
+    # start = np.array([0.15, -0.01, -0.16])
+    # goal = np.array([-0.24, 0.04, -0.15])
 
     planner_settings = {
         "planner_range": 0.1,
@@ -142,11 +157,15 @@ if __name__ == "__main__":
     }
 
     debugging_settings = {
-        "enable_visualization": True,
+        "enable_visualization": False,
         "visualization_mesh": visualization_mesh_path,
-        "enable_logging": True
+        "enable_logging": False
     }
 
     model = {"name": model_name, "voxel_grid": voxel_grid}
-
-    run_planners_for_paths(model, planners, planner_settings, path_settings, debugging_settings)
+    try:
+        frontend_url = "http://host.docker.internal:5005/api/status"
+        run_planners_for_paths(model, planners, planner_settings, path_settings, debugging_settings)
+        send_to_frontend(frontend_url, {"status": "completed", "message": "Planner execution finished. Frontend can proceed."})
+    except Exception as e:
+        send_to_frontend(frontend_url, {"status": "error", "message": str(e)})
