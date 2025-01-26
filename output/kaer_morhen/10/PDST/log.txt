@@ -1,16 +1,3 @@
-2025-01-24 22:47:40,595 - INFO - Initialized PDST planner with range 0.1
-2025-01-24 22:47:40,596 - INFO - Planning 10 paths with max time 5 seconds per path...
-2025-01-24 22:47:40,673 - INFO - Path 0 added. Length: 0.44 units. Duration: 0.08 seconds.
-2025-01-24 22:47:40,708 - INFO - Path 1 added. Length: 0.42 units. Duration: 0.03 seconds.
-2025-01-24 22:47:40,792 - INFO - Path 2 added. Length: 0.49 units. Duration: 0.08 seconds.
-2025-01-24 22:47:40,843 - INFO - Path 3 added. Length: 0.43 units. Duration: 0.05 seconds.
-2025-01-24 22:47:40,946 - INFO - Path 4 added. Length: 0.42 units. Duration: 0.10 seconds.
-2025-01-24 22:47:41,010 - INFO - Path 5 added. Length: 0.42 units. Duration: 0.06 seconds.
-2025-01-24 22:47:41,102 - INFO - Path 6 added. Length: 0.42 units. Duration: 0.09 seconds.
-2025-01-24 22:47:41,156 - INFO - Path 7 added. Length: 0.43 units. Duration: 0.05 seconds.
-2025-01-24 22:47:41,239 - INFO - Path 8 added. Length: 0.42 units. Duration: 0.08 seconds.
-2025-01-24 22:47:41,262 - INFO - Path 9 added. Length: 0.43 units. Duration: 0.02 seconds.
-2025-01-24 22:47:41,263 - INFO - Completed planning 10 paths in 0.67 seconds.
-2025-01-24 22:47:41,263 - INFO - Average path length: 0.43 units.
-2025-01-24 22:47:41,263 - INFO - Shortest path length: 0.42 units.
-2025-01-24 22:47:41,263 - INFO - Longest path length: 0.49 units.
+2025-01-26 16:06:07,745 - INFO - Initialized PDST planner with range 0.1
+2025-01-26 16:06:07,746 - INFO - Planning 10 paths with max time 5 seconds per path...
+2025-01-26 16:06:07,758 - ERROR - Error occurred for planner PDST: 'PathPlanner' object has no attribute '_simplify_path'

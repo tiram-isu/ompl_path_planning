@@ -85,7 +85,7 @@ class PathPlanner:
 
         return start_state, goal_state
 
-    def _simplify_path(self, path: og.PathGeometric) -> None:
+    def _smooth_path(self, path: og.PathGeometric) -> None:
         """
         Simplify and smooth the planned path.
         """
@@ -133,7 +133,7 @@ class PathPlanner:
             path = self.plan_path(start_state, goal_state, max_time)
 
             if path:
-                self._simplify_path(path)
+                self._smooth_path(path)
                 all_paths.append(path)
 
                 path_duration = time.time() - path_start_time
