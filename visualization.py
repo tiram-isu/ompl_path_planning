@@ -10,15 +10,16 @@ class Visualizer:
     Class to visualize a 3D mesh and paths in Open3D.
     """
 
-    def __init__(self, mesh: o3d.geometry.TriangleMesh, enable_visualization: bool, camera_dims: Tuple[float, float]):
+    def __init__(self, mesh_path: str, enable_visualization: bool, save_screenshot: bool, camera_dims: Tuple[float, float]):
         """
         Initializes the Visualizer class with mesh, visualization options, and camera dimensions.
         """
-        self.mesh = mesh
+        self.mesh = o3d.io.read_triangle_mesh(mesh_path)  # Load the mesh
         self.tube_width = camera_dims[0]  # Width of the path tube
         self.tube_height = camera_dims[1]  # Height of the path tube
         logging.getLogger('matplotlib').setLevel(logging.WARNING)  # Suppress matplotlib logging
         self.enable_visualization = enable_visualization
+        self.save_screenshot = save_screenshot
 
     def visualize_o3d(self, output_path: str, path_list: List['Path'], start_point: Tuple[float, float, float], end_point: Tuple[float, float, float]):
         """
@@ -30,54 +31,49 @@ class Visualizer:
         # Set window visibility
         if self.enable_visualization:
             vis.create_window(width=2560, height=1440)
-        else:
+        elif self.save_screenshot:
             vis.create_window(visible=False, width=2560, height=1440)
 
-        # Add the mesh to the visualizer
-        vis.add_geometry(self.mesh)
+        if self.enable_visualization or self.save_screenshot:
+            # Add the mesh to the visualizer
+            vis.add_geometry(self.mesh)
 
-        if len(path_list) > 0:
-            # Create and add path tubes
-            path_geometries = [self.create_path_tube(path) for path in path_list]
-            for path_geometry in path_geometries:
-                vis.add_geometry(path_geometry)
+            if len(path_list) > 0:
+                # Create and add path tubes
+                path_geometries = [self.create_path_tube(path) for path in path_list]
+                for path_geometry in path_geometries:
+                    vis.add_geometry(path_geometry)
 
-        # Create and add start and end point markers
-        start_marker = self.create_marker(start_point, color=[0.0, 1.0, 0.0])  # Green for start
-        end_marker = self.create_marker(end_point, color=[0.0, 0.0, 1.0])      # Blue for end
-        vis.add_geometry(start_marker)
-        vis.add_geometry(end_marker)
+            # Create and add start and end point markers
+            start_marker = self.create_marker(start_point, color=[0.0, 1.0, 0.0])  # Green for start
+            end_marker = self.create_marker(end_point, color=[0.0, 0.0, 1.0])      # Blue for end
+            vis.add_geometry(start_marker)
+            vis.add_geometry(end_marker)
 
-        # Adjust camera view
-        if self.enable_visualization:
             camera = vis.get_view_control()
             camera.set_zoom(0.5)  # Set zoom level (lower is closer)
 
-        # Enable back face rendering
-        vis.get_render_option().mesh_show_back_face = True  
+            # Enable back face rendering
+            vis.get_render_option().mesh_show_back_face = True  
 
-        # Render and take a screenshot
-        vis.poll_events()
-        vis.update_geometry(self.mesh)
-        vis.update_renderer()
+            # Render and take a screenshot
+            vis.poll_events()
+            vis.update_geometry(self.mesh)
+            vis.update_renderer()
 
-        # Capture and save screenshot
-        screenshot_path = output_path + "/visualization.png"
-        image = vis.capture_screen_float_buffer(do_render=True)
-        image = (np.asarray(image) * 255).astype(np.uint8)
-        o3d.io.write_image(screenshot_path, o3d.geometry.Image(image))
-        print(f"Screenshot saved as {screenshot_path}")
+        if self.save_screenshot:
+            # Capture and save screenshot
+            screenshot_path = output_path + "/visualization.png"
+            image = vis.capture_screen_float_buffer(do_render=True)
+            image = (np.asarray(image) * 255).astype(np.uint8)
+            o3d.io.write_image(screenshot_path, o3d.geometry.Image(image))
+            print(f"Screenshot saved as {screenshot_path}")
 
         # Keep the window open if enabled
-        if self.enable_visualization:
+        if self.enable_visualization or self.save_screenshot:
+            print("running")
             vis.run()
             vis.destroy_window()
-
-        # Combine geometries (start, end markers, and path geometries)
-        # combined_paths = self.combine_geometries([start_marker, end_marker] + path_geometries)
-
-        # Optionally save combined mesh
-        # o3d.io.write_triangle_mesh(output_path + "paths.obj", combined_paths, write_triangle_uvs=True, write_vertex_colors=True)
 
     def combine_geometries(self, geometries: List[o3d.geometry.TriangleMesh]) -> o3d.geometry.TriangleMesh:
         """

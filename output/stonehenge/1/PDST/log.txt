@@ -1,9 +1,7 @@
-2025-01-26 21:09:22,047 - INFO - Initialized PDST planner with range 0.1
-2025-01-26 21:09:22,047 - INFO - Planning 1 paths with max time 5 seconds per path...
-2025-01-26 21:09:22,067 - INFO - Path 0 added. Length: 0.80 units. Duration: 0.02 seconds.
-2025-01-26 21:09:22,067 - INFO - Completed planning 1 paths in 0.02 seconds.
-2025-01-26 21:09:22,067 - INFO - Average path length: 0.80 units.
-2025-01-26 21:09:22,067 - INFO - Shortest path length: 0.80 units.
-2025-01-26 21:09:22,067 - INFO - Longest path length: 0.80 units.
-2025-01-26 21:09:22,083 - DEBUG - Starting new HTTP connection (1): host.docker.internal:5005
-2025-01-26 21:09:36,965 - DEBUG - http://host.docker.internal:5005 "POST /api/path_render HTTP/11" 200 22
+2025-01-28 17:16:54,654 - INFO - Initialized PDST planner with range 0.1
+2025-01-28 17:16:54,654 - INFO - Planning 1 paths with max time 5 seconds per path...
+2025-01-28 17:16:54,676 - INFO - Path 0 added. Length: 0.81 units. Duration: 0.02 seconds.
+2025-01-28 17:16:54,677 - INFO - Completed planning 1 paths in 0.02 seconds.
+2025-01-28 17:16:54,677 - INFO - Average path length: 0.81 units.
+2025-01-28 17:16:54,677 - INFO - Shortest path length: 0.81 units.
+2025-01-28 17:16:54,677 - INFO - Longest path length: 0.81 units.

@@ -4,7 +4,13 @@ import time
 from ompl import base as ob
 from ompl import geometric as og
 from collision_detection import StateValidityChecker
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
+import requests
+from multiprocessing import Process
+from visualization import Visualizer
+import log_utils
+import path_utils
+
 
 class PathPlanner:
     def __init__(
@@ -154,3 +160,147 @@ class PathPlanner:
             logging.info(f"Longest path length: {max(path_lengths):.2f} units.")
 
         return all_paths
+
+class PathPlanningManager:
+    def __init__(
+        self,
+        model: Dict,
+        planners: List[str],
+        planner_settings: Dict,
+        path_settings: Dict,
+        debugging_settings: Dict,
+        nerfstudio_paths: Dict,
+    ):
+        self.model = model
+        self.planners = planners
+        self.planner_settings = planner_settings
+        self.path_settings = path_settings
+        self.debugging_settings = debugging_settings
+        self.nerfstudio_paths = nerfstudio_paths
+
+
+        self.visualizer = (
+            Visualizer(
+                debugging_settings['visualization_mesh'],
+                debugging_settings['enable_visualization'],
+                debugging_settings['save_screenshot'],
+                path_settings['camera_dims'],
+            )
+            if debugging_settings['enable_visualization'] or debugging_settings['save_screenshot']
+            else None
+        )
+
+    def plan_paths_for_planner(
+        self,
+        planner: str,
+        num_paths: int,
+    ) -> Optional[List[str]]:
+        """
+        Plan and save paths for a specific planner and optionally visualize or log results.
+        """
+        enable_logging = self.debugging_settings['enable_logging']
+
+        output_path = f"/app/output/{self.model['name']}/{num_paths}/{planner}"
+        log_utils.setup_logging(output_path, enable_logging)
+
+        try:
+            # Initialize the path planner
+            path_planner = PathPlanner(
+                self.model["voxel_grid"],
+                self.path_settings["camera_dims"],
+                planner_type=planner,
+                range=self.planner_settings["planner_range"],
+                state_validity_resolution=self.planner_settings["state_validity_resolution"],
+                enable_logging=enable_logging,
+            )
+
+            # Generate paths
+            all_paths = path_planner.plan_multiple_paths(num_paths, self.path_settings)
+
+            # Process and save paths
+            paths_dir = f"/app/paths/{self.model['name']}/"
+            output_paths = path_utils.process_paths(
+                all_paths, paths_dir, planner, fps=30, distance=0.01
+            )
+
+            # Optionally render videos for Nerfstudio
+            if self.debugging_settings['render_nerfstudio_video']:
+                for path in output_paths:
+                    url = "http://host.docker.internal:5005/api/path_render"
+                    self.send_to_frontend(
+                        url,
+                        {
+                            "status": "success",
+                            "path": self.nerfstudio_paths['paths_dir'] + path,
+                            "nerfstudio_paths": self.nerfstudio_paths,
+                        },
+                    )
+
+            # Optionally visualize paths
+            if self.visualizer:
+                self.visualizer.visualize_o3d(
+                    output_path,
+                    all_paths,
+                    self.path_settings['start'],
+                    self.path_settings['goal'],
+                )
+            return output_paths
+
+        except Exception as e:
+            logging.error(f"Error occurred for planner {planner}: {e}")
+            return None
+
+    def run_planners_for_paths(self):
+        """
+        Run multiple planners in parallel and handle visualization and logging as per settings.
+        """
+        processes = []
+        summary_log_paths = []
+
+        for num_paths in self.path_settings['num_paths']:
+            log_root = f"/app/output/{self.model['name']}/{num_paths}"
+
+            for planner in self.planners:
+                # Run each planner in a separate process
+                process = Process(
+                    target=self.plan_paths_for_planner,
+                    args=(planner, num_paths),
+                )
+                processes.append(process)
+                process.start()
+
+                if not self.debugging_settings['enable_visualization']:
+                    # Handle timeout for each process
+                    process.join(
+                        (self.path_settings['max_time_per_path'] * 2) * num_paths
+                    )
+                    if process.is_alive():
+                        process.terminate()
+                        process.join()
+                        logging.warning(f"Terminating planner {planner} due to timeout.")
+
+            # Wait for all processes to finish
+            for process in processes:
+                process.join()
+
+            # Log summaries
+            if self.debugging_settings['enable_logging']:
+                log_utils.generate_summary_log(self.planners, log_root, self.model, self.path_settings)
+                summary_log_paths.append(f"{log_root}/summary_log.json")
+
+        # Generate aggregated log reports
+        if self.debugging_settings['enable_logging']:
+            log_utils.generate_log_reports(
+                summary_log_paths, f"/app/output/{self.model['name']}/plots"
+            )
+
+    def send_to_frontend(self, frontend_url, data):
+        """
+        Sends a message to the frontend via HTTP.
+        """
+        try:
+            response = requests.post(frontend_url, json=data)
+            response.raise_for_status()
+            print(f"Message successfully sent to the frontend: {data}")
+        except requests.exceptions.RequestException as e:
+            print(f"Error sending message to the frontend: {e}")
