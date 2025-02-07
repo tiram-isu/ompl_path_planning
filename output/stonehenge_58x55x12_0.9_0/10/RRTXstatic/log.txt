@@ -1,0 +1,16 @@
+2025-02-05 14:44:11,952 - INFO - Initialized RRTXstatic planner with range 0.1
+2025-02-05 14:44:11,952 - INFO - Planning 10 paths with max time 5 seconds per path...
+2025-02-05 14:44:16,982 - INFO - Path 0 added. Length: 0.78 units. Duration: 5.03 seconds.
+2025-02-05 14:44:22,049 - INFO - Path 1 added. Length: 0.78 units. Duration: 5.07 seconds.
+2025-02-05 14:44:27,086 - INFO - Path 2 added. Length: 0.78 units. Duration: 5.04 seconds.
+2025-02-05 14:44:32,148 - INFO - Path 3 added. Length: 0.78 units. Duration: 5.06 seconds.
+2025-02-05 14:44:37,216 - INFO - Path 4 added. Length: 0.78 units. Duration: 5.07 seconds.
+2025-02-05 14:44:42,250 - INFO - Path 5 added. Length: 0.78 units. Duration: 5.03 seconds.
+2025-02-05 14:44:47,289 - INFO - Path 6 added. Length: 0.78 units. Duration: 5.04 seconds.
+2025-02-05 14:44:52,303 - INFO - Path 7 added. Length: 0.78 units. Duration: 5.01 seconds.
+2025-02-05 14:44:57,333 - INFO - Path 8 added. Length: 0.78 units. Duration: 5.03 seconds.
+2025-02-05 14:45:02,364 - INFO - Path 9 added. Length: 0.78 units. Duration: 5.03 seconds.
+2025-02-05 14:45:02,364 - INFO - Completed planning 10 paths in 50.41 seconds.
+2025-02-05 14:45:02,364 - INFO - Average path length: 0.78 units.
+2025-02-05 14:45:02,364 - INFO - Shortest path length: 0.78 units.
+2025-02-05 14:45:02,364 - INFO - Longest path length: 0.78 units.

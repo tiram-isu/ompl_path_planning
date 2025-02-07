@@ -3,6 +3,7 @@ import logging
 import time
 from ompl import base as ob
 from ompl import geometric as og
+from ompl import control as oc
 from collision_detection import StateValidityChecker
 from typing import Any, Dict, List, Optional
 import requests
@@ -32,10 +33,10 @@ class PathPlanner:
 
         self._initialize_bounds()
 
-        self.csi = ob.SpaceInformation(self.rvss)
-        self.validity_checker = StateValidityChecker(self.csi, voxel_grid, agent_dims)
-        self.csi.setStateValidityChecker(ob.StateValidityCheckerFn(self.validity_checker.is_valid))
-        self.csi.setStateValidityCheckingResolution(state_validity_resolution)
+        self.si = ob.SpaceInformation(self.rvss)
+        self.validity_checker = StateValidityChecker(self.si, voxel_grid, agent_dims)
+        self.si.setStateValidityChecker(ob.StateValidityCheckerFn(self.validity_checker.is_valid))
+        self.si.setStateValidityCheckingResolution(state_validity_resolution)
 
         self.planner = self._initialize_planner(planner_type, range)
 
@@ -59,9 +60,12 @@ class PathPlanner:
         """
         planner_class = getattr(og, planner_type, None)
         if not planner_class:
+            planner_class = getattr(oc, planner_type, None)
+        if not planner_class:
+            planner_class = getattr(om, planner_type, None)
             raise ValueError(f"Planner type {planner_type} is not valid.")
 
-        planner = planner_class(self.csi)
+        planner = planner_class(self.si)
         if hasattr(planner, "setRange"):
             planner.setRange(range)
 
@@ -95,7 +99,7 @@ class PathPlanner:
         """
         Simplify and smooth the planned path.
         """
-        path_simplifier = og.PathSimplifier(self.csi)
+        path_simplifier = og.PathSimplifier(self.si)
         path_simplifier.reduceVertices(path)
         path_simplifier.shortcutPath(path)
         path_simplifier.smoothBSpline(path, 3)
@@ -107,7 +111,7 @@ class PathPlanner:
         self.validity_checker.set_prev_state(None)
         self.planner.clear()
 
-        pdef = ob.ProblemDefinition(self.csi)
+        pdef = ob.ProblemDefinition(self.si)
         pdef.setStartAndGoalStates(start_state, goal_state)
         self.planner.setProblemDefinition(pdef)
 

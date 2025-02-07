@@ -1,5 +1,0 @@
-2025-01-24 19:16:07,423 - ERROR - Error occurred for planner QRRT: Python argument types in
-    QRRT.__init__(QRRT, SpaceInformation)
-did not match C++ signature:
-    __init__(_object*, std::vector<std::shared_ptr<ompl::base::SpaceInformation>, std::allocator<std::shared_ptr<ompl::base::SpaceInformation> > > {lvalue} siVec)
-    __init__(_object*, std::vector<std::shared_ptr<ompl::base::SpaceInformation>, std::allocator<std::shared_ptr<ompl::base::SpaceInformation> > > {lvalue} siVec, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > type='QuotientPlanner')

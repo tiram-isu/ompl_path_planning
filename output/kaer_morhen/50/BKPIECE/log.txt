@@ -1,1 +1,0 @@
-2025-01-24 23:25:10,467 - ERROR - Error occurred for planner BKPIECE: Planner type BKPIECE is not valid.

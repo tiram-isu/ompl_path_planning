@@ -1,0 +1,16 @@
+2025-02-04 20:39:08,893 - INFO - Initialized RRTstar planner with range 0.1
+2025-02-04 20:39:08,894 - INFO - Planning 10 paths with max time 5 seconds per path...
+2025-02-04 20:39:13,946 - INFO - Path 0 added. Length: 0.62 units. Duration: 5.05 seconds.
+2025-02-04 20:39:18,970 - INFO - Path 1 added. Length: 0.62 units. Duration: 5.02 seconds.
+2025-02-04 20:39:23,995 - INFO - Path 2 added. Length: 0.62 units. Duration: 5.03 seconds.
+2025-02-04 20:39:29,032 - INFO - Path 3 added. Length: 0.62 units. Duration: 5.04 seconds.
+2025-02-04 20:39:34,074 - INFO - Path 4 added. Length: 0.62 units. Duration: 5.04 seconds.
+2025-02-04 20:39:39,133 - INFO - Path 5 added. Length: 0.62 units. Duration: 5.06 seconds.
+2025-02-04 20:39:44,166 - INFO - Path 6 added. Length: 0.62 units. Duration: 5.03 seconds.
+2025-02-04 20:39:49,182 - INFO - Path 7 added. Length: 0.62 units. Duration: 5.02 seconds.
+2025-02-04 20:39:54,198 - INFO - Path 8 added. Length: 0.62 units. Duration: 5.02 seconds.
+2025-02-04 20:39:59,243 - INFO - Path 9 added. Length: 0.62 units. Duration: 5.04 seconds.
+2025-02-04 20:39:59,243 - INFO - Completed planning 10 paths in 50.35 seconds.
+2025-02-04 20:39:59,243 - INFO - Average path length: 0.62 units.
+2025-02-04 20:39:59,243 - INFO - Shortest path length: 0.62 units.
+2025-02-04 20:39:59,243 - INFO - Longest path length: 0.62 units.

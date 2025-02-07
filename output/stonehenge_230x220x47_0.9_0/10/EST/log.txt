@@ -1,0 +1,18 @@
+2025-02-07 01:44:21,695 - INFO - Initialized EST planner with range 0.1
+2025-02-07 01:44:21,733 - INFO - Start state [-0.33  0.1  -0.45] is invalid. Found new valid start state: (-0.3311038289490857, 0.09958053333627048, -0.4739693598045978)
+2025-02-07 01:44:21,786 - INFO - Goal state [ 0.22 -0.16 -0.45] is invalid. Found new valid goal state: (0.21980098821145777, -0.1613743800555659, -0.4739693598045978)
+2025-02-07 01:44:21,786 - INFO - Planning 10 paths with max time 5 seconds per path...
+2025-02-07 01:44:22,564 - INFO - Path 0 added. Length: 0.86 units. Duration: 0.78 seconds.
+2025-02-07 01:44:23,173 - INFO - Path 1 added. Length: 0.92 units. Duration: 0.61 seconds.
+2025-02-07 01:44:23,565 - INFO - Path 2 added. Length: 0.87 units. Duration: 0.39 seconds.
+2025-02-07 01:44:24,149 - INFO - Path 3 added. Length: 0.93 units. Duration: 0.58 seconds.
+2025-02-07 01:44:24,716 - INFO - Path 4 added. Length: 0.88 units. Duration: 0.57 seconds.
+2025-02-07 01:44:25,950 - INFO - Path 5 added. Length: 1.17 units. Duration: 1.23 seconds.
+2025-02-07 01:44:26,472 - INFO - Path 6 added. Length: 0.87 units. Duration: 0.52 seconds.
+2025-02-07 01:44:26,738 - INFO - Path 7 added. Length: 0.87 units. Duration: 0.27 seconds.
+2025-02-07 01:44:27,446 - INFO - Path 8 added. Length: 0.92 units. Duration: 0.71 seconds.
+2025-02-07 01:44:27,748 - INFO - Path 9 added. Length: 0.89 units. Duration: 0.30 seconds.
+2025-02-07 01:44:27,748 - INFO - Completed planning 10 paths in 5.96 seconds.
+2025-02-07 01:44:27,748 - INFO - Average path length: 0.92 units.
+2025-02-07 01:44:27,748 - INFO - Shortest path length: 0.86 units.
+2025-02-07 01:44:27,748 - INFO - Longest path length: 1.17 units.

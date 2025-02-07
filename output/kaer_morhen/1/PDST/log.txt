@@ -1,7 +1,0 @@
-2025-01-24 22:40:15,429 - INFO - Initialized PDST planner with range 0.1
-2025-01-24 22:40:15,429 - INFO - Planning 1 paths with max time 5 seconds per path...
-2025-01-24 22:40:15,474 - INFO - Path 0 added. Length: 0.41 units. Duration: 0.04 seconds.
-2025-01-24 22:40:15,475 - INFO - Completed planning 1 paths in 0.05 seconds.
-2025-01-24 22:40:15,475 - INFO - Average path length: 0.41 units.
-2025-01-24 22:40:15,475 - INFO - Shortest path length: 0.41 units.
-2025-01-24 22:40:15,475 - INFO - Longest path length: 0.41 units.

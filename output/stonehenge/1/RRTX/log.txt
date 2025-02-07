@@ -1,1 +1,0 @@
-2025-01-24 19:11:52,495 - ERROR - Error occurred for planner RRTX: Planner type RRTX is not valid.

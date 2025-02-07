@@ -4,18 +4,26 @@ from planner import PathPlanningManager  # Import the new class
 
 if __name__ == "__main__":
     # Configuration
-    planners = [
-        'PRM', 'LazyPRM', 'PRMstar', 'LazyPRMstar', 'SPARS', 'SPARS2', 'RRT', 'RRTConnect',
-        'RRTstar', 'SST', 'T-RRT', 'VF-RRT', 'pRRT', 'LazyRRT', 'TSRRT', 'EST', 
-        'KPIECE', 'BKPIECE', 'LBKPIECE', 'STRIDE', 'PDST', 'FMTstar', 'BMFTstar', 'QRRT', 
-        'QRRTstar', 'QMP', 'QMPstar', 'RRTsharp', 'RRTX', 'InformedRRTstar', 
-        'BITstar', 'ABITstar', 'AITstar', 'LBTRRT'
-    ]
+    # planners = [
+    #     'PRM', 'LazyPRM', 'PRMstar', 'LazyPRMstar', 'SPARS', 'SPARS2', 'RRT', 'RRTConnect',
+    #     'RRTstar', 'SST', 'T-RRT', 'VF-RRT', 'pRRT', 'LazyRRT', 'TSRRT', 'EST', 
+    #     'KPIECE', 'BKPIECE', 'LBKPIECE', 'STRIDE', 'PDST', 'FMTstar', 'BMFTstar', 'QRRT', 
+    #     'QRRTstar', 'QMP', 'QMPstar', 'RRTsharp', 'RRTX', 'InformedRRTstar', 
+    #     'BITstar', 'ABITstar', 'AITstar', 'LBTRRT'
+    # ]
 
-    planners = ['PDST']
-    model_name = "stonehenge"
-    voxel_grid = VoxelGrid.from_saved_files("/app/voxel_models/stonehenge/voxels_115x110x24_0.9_0/ground/")
-    visualization_mesh_path = "/app/voxel_models/stonehenge/voxels_115x110x24_0.9_0/voxels.ply"
+    planners = ['EST', 'KPIECE1', 'LTLPlanner', 'PDST', 'RRT', 'SST', 'Syclop', 'AITstar',
+                'AnytimePathShortening', 'BFMT', 'BiEST', 'BiTRRT', 'BITstar', 'BKPIECE1',
+                'CForest', 'EST', 'FMT', 'KPIECE1', 'LazyLBTRRT', 'LazyPRM', 'LazyRRT',
+                'LBKPIECE1', 'LBTRRT', 'LightningRetrieveRepair', 'PDST', 'PRM', 'ProjEST',
+                'pRRT', 'pSBL', 'RLRT', 'RRT', 'RRTConnect', 'RRTstar', 'RRTXstatic', 'SBL',
+                'SPARS', 'SPARSdb', 'SPARStwo', 'SST', 'STRIDE', 'STRRTstar', 'ThunderRetrieveRepair',
+                'TRRT', 'TSRRT', 'XXL']
+
+    # planners = ['PDST']
+    model_name = "stonehenge_230x220x47_0.9_0"
+    voxel_grid = VoxelGrid.from_saved_files("/app/voxel_models/testing/stonehenge2/voxels_230x220x47_0.9_0/ground/")
+    visualization_mesh_path = "/app/voxel_models/testing/stonehenge2/voxels_230x220x47_0.9_0/voxels.ply"
 
     start = np.array([-0.33, 0.10, -0.45])
     goal = np.array([0.22, -0.16, -0.45])
@@ -26,7 +34,7 @@ if __name__ == "__main__":
     }
 
     path_settings = {
-        "num_paths": [1],
+        "num_paths": [1, 10, 50, 100],
         "start": start,
         "goal": goal,
         "camera_dims": [0.001, 0.002],

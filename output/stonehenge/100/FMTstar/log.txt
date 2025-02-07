@@ -1,1 +1,0 @@
-2025-01-24 20:37:09,576 - ERROR - Error occurred for planner FMTstar: Planner type FMTstar is not valid.

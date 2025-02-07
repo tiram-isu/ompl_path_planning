@@ -1,0 +1,7 @@
+2025-02-04 20:03:43,265 - INFO - Initialized PRM planner with range 0.1
+2025-02-04 20:03:43,266 - INFO - Planning 1 paths with max time 5 seconds per path...
+2025-02-04 20:03:43,375 - INFO - Path 0 added. Length: 0.62 units. Duration: 0.11 seconds.
+2025-02-04 20:03:43,375 - INFO - Completed planning 1 paths in 0.11 seconds.
+2025-02-04 20:03:43,375 - INFO - Average path length: 0.62 units.
+2025-02-04 20:03:43,375 - INFO - Shortest path length: 0.62 units.
+2025-02-04 20:03:43,375 - INFO - Longest path length: 0.62 units.

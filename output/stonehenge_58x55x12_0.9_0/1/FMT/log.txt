@@ -1,0 +1,8 @@
+2025-02-05 14:05:46,636 - INFO - Initialized FMT planner with range 0.1
+2025-02-05 14:05:46,637 - INFO - Planning 1 paths with max time 5 seconds per path...
+2025-02-05 14:05:46,842 - INFO - Path 0 added. Length: 0.61 units. Duration: 0.20 seconds.
+2025-02-05 14:05:46,842 - INFO - Completed planning 1 paths in 0.21 seconds.
+2025-02-05 14:05:46,843 - INFO - Average path length: 0.61 units.
+2025-02-05 14:05:46,843 - INFO - Shortest path length: 0.61 units.
+2025-02-05 14:05:46,843 - INFO - Longest path length: 0.61 units.
+2025-02-05 14:05:46,843 - ERROR - Error occurred for planner FMT: could not broadcast input array from shape (0,) into shape (3,)

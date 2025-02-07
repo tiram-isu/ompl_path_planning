@@ -1,0 +1,13 @@
+2025-02-06 14:13:38,408 - INFO - Initialized SST planner with range 0.1
+2025-02-06 14:13:38,409 - INFO - Planning 10 paths with max time 5 seconds per path...
+2025-02-06 14:13:43,430 - ERROR - No solution found for attempt 0.
+2025-02-06 14:13:48,447 - ERROR - No solution found for attempt 1.
+2025-02-06 14:13:53,462 - ERROR - No solution found for attempt 2.
+2025-02-06 14:13:58,476 - ERROR - No solution found for attempt 3.
+2025-02-06 14:14:03,485 - ERROR - No solution found for attempt 4.
+2025-02-06 14:14:08,496 - ERROR - No solution found for attempt 5.
+2025-02-06 14:14:13,518 - ERROR - No solution found for attempt 6.
+2025-02-06 14:14:18,536 - ERROR - No solution found for attempt 7.
+2025-02-06 14:14:23,548 - ERROR - No solution found for attempt 8.
+2025-02-06 14:14:28,563 - ERROR - No solution found for attempt 9.
+2025-02-06 14:14:28,563 - INFO - Completed planning 0 paths in 50.15 seconds.

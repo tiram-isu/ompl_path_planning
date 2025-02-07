@@ -1,0 +1,8 @@
+2025-02-06 13:31:10,012 - INFO - Initialized BFMT planner with range 0.1
+2025-02-06 13:31:10,014 - INFO - Planning 1 paths with max time 5 seconds per path...
+2025-02-06 13:31:10,165 - INFO - Path 0 added. Length: 0.61 units. Duration: 0.15 seconds.
+2025-02-06 13:31:10,165 - INFO - Completed planning 1 paths in 0.15 seconds.
+2025-02-06 13:31:10,165 - INFO - Average path length: 0.61 units.
+2025-02-06 13:31:10,165 - INFO - Shortest path length: 0.61 units.
+2025-02-06 13:31:10,165 - INFO - Longest path length: 0.61 units.
+2025-02-06 13:31:10,165 - ERROR - Error occurred for planner BFMT: could not broadcast input array from shape (0,) into shape (3,)

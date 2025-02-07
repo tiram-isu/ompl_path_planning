@@ -1,0 +1,58 @@
+2025-02-07 03:55:43,065 - INFO - Initialized LazyRRT planner with range 0.1
+2025-02-07 03:55:43,103 - INFO - Start state [-0.33  0.1  -0.45] is invalid. Found new valid start state: (-0.3311038289490857, 0.09958053333627048, -0.4739693598045978)
+2025-02-07 03:55:43,153 - INFO - Goal state [ 0.22 -0.16 -0.45] is invalid. Found new valid goal state: (0.21980098821145777, -0.1613743800555659, -0.4739693598045978)
+2025-02-07 03:55:43,153 - INFO - Planning 50 paths with max time 5 seconds per path...
+2025-02-07 03:55:48,175 - ERROR - No solution found for attempt 0.
+2025-02-07 03:55:53,182 - ERROR - No solution found for attempt 1.
+2025-02-07 03:55:55,661 - INFO - Path 2 added. Length: 0.88 units. Duration: 2.48 seconds.
+2025-02-07 03:56:00,684 - ERROR - No solution found for attempt 3.
+2025-02-07 03:56:05,735 - ERROR - No solution found for attempt 4.
+2025-02-07 03:56:10,757 - ERROR - No solution found for attempt 5.
+2025-02-07 03:56:15,772 - ERROR - No solution found for attempt 6.
+2025-02-07 03:56:19,489 - INFO - Path 7 added. Length: 0.86 units. Duration: 3.72 seconds.
+2025-02-07 03:56:24,501 - ERROR - No solution found for attempt 8.
+2025-02-07 03:56:29,516 - ERROR - No solution found for attempt 9.
+2025-02-07 03:56:34,565 - ERROR - No solution found for attempt 10.
+2025-02-07 03:56:39,594 - ERROR - No solution found for attempt 11.
+2025-02-07 03:56:44,613 - ERROR - No solution found for attempt 12.
+2025-02-07 03:56:49,626 - ERROR - No solution found for attempt 13.
+2025-02-07 03:56:54,644 - ERROR - No solution found for attempt 14.
+2025-02-07 03:56:58,006 - INFO - Path 15 added. Length: 0.88 units. Duration: 3.36 seconds.
+2025-02-07 03:57:00,286 - INFO - Path 16 added. Length: 0.91 units. Duration: 2.28 seconds.
+2025-02-07 03:57:03,989 - INFO - Path 17 added. Length: 0.87 units. Duration: 3.70 seconds.
+2025-02-07 03:57:09,013 - ERROR - No solution found for attempt 18.
+2025-02-07 03:57:14,037 - ERROR - No solution found for attempt 19.
+2025-02-07 03:57:19,055 - ERROR - No solution found for attempt 20.
+2025-02-07 03:57:24,117 - ERROR - No solution found for attempt 21.
+2025-02-07 03:57:29,130 - ERROR - No solution found for attempt 22.
+2025-02-07 03:57:34,175 - ERROR - No solution found for attempt 23.
+2025-02-07 03:57:39,194 - ERROR - No solution found for attempt 24.
+2025-02-07 03:57:44,216 - ERROR - No solution found for attempt 25.
+2025-02-07 03:57:49,243 - ERROR - No solution found for attempt 26.
+2025-02-07 03:57:54,251 - ERROR - No solution found for attempt 27.
+2025-02-07 03:57:58,866 - INFO - Path 28 added. Length: 0.87 units. Duration: 4.62 seconds.
+2025-02-07 03:58:02,136 - INFO - Path 29 added. Length: 0.86 units. Duration: 3.27 seconds.
+2025-02-07 03:58:03,882 - INFO - Path 30 added. Length: 0.86 units. Duration: 1.75 seconds.
+2025-02-07 03:58:08,904 - ERROR - No solution found for attempt 31.
+2025-02-07 03:58:13,929 - ERROR - No solution found for attempt 32.
+2025-02-07 03:58:18,948 - ERROR - No solution found for attempt 33.
+2025-02-07 03:58:23,960 - ERROR - No solution found for attempt 34.
+2025-02-07 03:58:28,964 - ERROR - No solution found for attempt 35.
+2025-02-07 03:58:32,182 - INFO - Path 36 added. Length: 0.86 units. Duration: 3.22 seconds.
+2025-02-07 03:58:37,246 - ERROR - No solution found for attempt 37.
+2025-02-07 03:58:42,266 - ERROR - No solution found for attempt 38.
+2025-02-07 03:58:47,295 - ERROR - No solution found for attempt 39.
+2025-02-07 03:58:52,314 - ERROR - No solution found for attempt 40.
+2025-02-07 03:58:53,766 - INFO - Path 41 added. Length: 0.85 units. Duration: 1.45 seconds.
+2025-02-07 03:58:58,778 - ERROR - No solution found for attempt 42.
+2025-02-07 03:59:02,922 - INFO - Path 43 added. Length: 0.87 units. Duration: 4.14 seconds.
+2025-02-07 03:59:07,975 - ERROR - No solution found for attempt 44.
+2025-02-07 03:59:12,996 - ERROR - No solution found for attempt 45.
+2025-02-07 03:59:13,586 - INFO - Path 46 added. Length: 0.86 units. Duration: 0.59 seconds.
+2025-02-07 03:59:18,598 - ERROR - No solution found for attempt 47.
+2025-02-07 03:59:23,615 - ERROR - No solution found for attempt 48.
+2025-02-07 03:59:28,273 - INFO - Path 49 added. Length: 0.86 units. Duration: 4.66 seconds.
+2025-02-07 03:59:28,273 - INFO - Completed planning 13 paths in 225.12 seconds.
+2025-02-07 03:59:28,273 - INFO - Average path length: 0.87 units.
+2025-02-07 03:59:28,273 - INFO - Shortest path length: 0.85 units.
+2025-02-07 03:59:28,273 - INFO - Longest path length: 0.91 units.

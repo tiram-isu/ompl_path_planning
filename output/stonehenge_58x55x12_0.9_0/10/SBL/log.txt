@@ -1,0 +1,16 @@
+2025-02-05 14:45:52,513 - INFO - Initialized SBL planner with range 0.1
+2025-02-05 14:45:52,514 - INFO - Planning 10 paths with max time 5 seconds per path...
+2025-02-05 14:45:52,678 - INFO - Path 0 added. Length: 1.02 units. Duration: 0.16 seconds.
+2025-02-05 14:45:52,767 - INFO - Path 1 added. Length: 0.87 units. Duration: 0.09 seconds.
+2025-02-05 14:45:52,870 - INFO - Path 2 added. Length: 0.82 units. Duration: 0.10 seconds.
+2025-02-05 14:45:52,972 - INFO - Path 3 added. Length: 0.90 units. Duration: 0.10 seconds.
+2025-02-05 14:45:53,253 - INFO - Path 4 added. Length: 0.93 units. Duration: 0.28 seconds.
+2025-02-05 14:45:53,367 - INFO - Path 5 added. Length: 0.98 units. Duration: 0.11 seconds.
+2025-02-05 14:45:53,463 - INFO - Path 6 added. Length: 0.78 units. Duration: 0.10 seconds.
+2025-02-05 14:45:53,648 - INFO - Path 7 added. Length: 0.91 units. Duration: 0.19 seconds.
+2025-02-05 14:45:53,743 - INFO - Path 8 added. Length: 0.82 units. Duration: 0.09 seconds.
+2025-02-05 14:45:53,859 - INFO - Path 9 added. Length: 0.92 units. Duration: 0.12 seconds.
+2025-02-05 14:45:53,859 - INFO - Completed planning 10 paths in 1.35 seconds.
+2025-02-05 14:45:53,859 - INFO - Average path length: 0.90 units.
+2025-02-05 14:45:53,860 - INFO - Shortest path length: 0.78 units.
+2025-02-05 14:45:53,860 - INFO - Longest path length: 1.02 units.

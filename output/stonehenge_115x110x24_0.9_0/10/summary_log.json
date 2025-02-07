@@ -1,0 +1,1362 @@
+{
+    "model": {
+        "name": "stonehenge",
+        "camera_dims": [
+            0.001,
+            0.002
+        ],
+        "start_point": [
+            -0.33,
+            0.1,
+            -0.45
+        ],
+        "goal_point": [
+            0.22,
+            -0.16,
+            -0.45
+        ],
+        "max_time_per_path": 5
+    },
+    "planners": {
+        "EST": {
+            "status": "Successful",
+            "total_time_taken": 0,
+            "num_paths": 10,
+            "average_path_length": 0.8009999999999999,
+            "shortest_path_length": 0.7,
+            "longest_path_length": 0.95,
+            "path_length_std_dev": 0.06818357573492313,
+            "average_time_per_path": 0.048999999999999995,
+            "time_per_path_std_dev": 0.027730849247724097,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.79,
+                    "duration": 0.09
+                },
+                {
+                    "id": 1,
+                    "length": 0.79,
+                    "duration": 0.04
+                },
+                {
+                    "id": 2,
+                    "length": 0.8,
+                    "duration": 0.03
+                },
+                {
+                    "id": 3,
+                    "length": 0.8,
+                    "duration": 0.03
+                },
+                {
+                    "id": 4,
+                    "length": 0.88,
+                    "duration": 0.11
+                },
+                {
+                    "id": 5,
+                    "length": 0.77,
+                    "duration": 0.04
+                },
+                {
+                    "id": 6,
+                    "length": 0.72,
+                    "duration": 0.02
+                },
+                {
+                    "id": 7,
+                    "length": 0.95,
+                    "duration": 0.06
+                },
+                {
+                    "id": 8,
+                    "length": 0.7,
+                    "duration": 0.03
+                },
+                {
+                    "id": 9,
+                    "length": 0.81,
+                    "duration": 0.04
+                }
+            ]
+        },
+        "KPIECE1": {
+            "status": "Successful",
+            "total_time_taken": 0,
+            "num_paths": 10,
+            "average_path_length": 0.7710000000000001,
+            "shortest_path_length": 0.63,
+            "longest_path_length": 0.93,
+            "path_length_std_dev": 0.0898276126811795,
+            "average_time_per_path": 0.03,
+            "time_per_path_std_dev": 0.007745966692414835,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.77,
+                    "duration": 0.03
+                },
+                {
+                    "id": 1,
+                    "length": 0.68,
+                    "duration": 0.04
+                },
+                {
+                    "id": 2,
+                    "length": 0.93,
+                    "duration": 0.02
+                },
+                {
+                    "id": 3,
+                    "length": 0.79,
+                    "duration": 0.03
+                },
+                {
+                    "id": 4,
+                    "length": 0.88,
+                    "duration": 0.04
+                },
+                {
+                    "id": 5,
+                    "length": 0.63,
+                    "duration": 0.02
+                },
+                {
+                    "id": 6,
+                    "length": 0.67,
+                    "duration": 0.03
+                },
+                {
+                    "id": 7,
+                    "length": 0.79,
+                    "duration": 0.02
+                },
+                {
+                    "id": 8,
+                    "length": 0.74,
+                    "duration": 0.03
+                },
+                {
+                    "id": 9,
+                    "length": 0.83,
+                    "duration": 0.04
+                }
+            ]
+        },
+        "LTLPlanner": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner LTLPlanner: name 'om' is not defined"
+        },
+        "PDST": {
+            "status": "Successful",
+            "total_time_taken": 0,
+            "num_paths": 10,
+            "average_path_length": 0.733,
+            "shortest_path_length": 0.64,
+            "longest_path_length": 1.01,
+            "path_length_std_dev": 0.10198529305738156,
+            "average_time_per_path": 0.037,
+            "time_per_path_std_dev": 0.01676305461424021,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.7,
+                    "duration": 0.04
+                },
+                {
+                    "id": 1,
+                    "length": 0.68,
+                    "duration": 0.07
+                },
+                {
+                    "id": 2,
+                    "length": 0.7,
+                    "duration": 0.05
+                },
+                {
+                    "id": 3,
+                    "length": 0.78,
+                    "duration": 0.03
+                },
+                {
+                    "id": 4,
+                    "length": 0.75,
+                    "duration": 0.02
+                },
+                {
+                    "id": 5,
+                    "length": 0.64,
+                    "duration": 0.02
+                },
+                {
+                    "id": 6,
+                    "length": 0.75,
+                    "duration": 0.03
+                },
+                {
+                    "id": 7,
+                    "length": 1.01,
+                    "duration": 0.06
+                },
+                {
+                    "id": 8,
+                    "length": 0.67,
+                    "duration": 0.02
+                },
+                {
+                    "id": 9,
+                    "length": 0.65,
+                    "duration": 0.03
+                }
+            ]
+        },
+        "RRT": {
+            "status": "Successful",
+            "total_time_taken": 0,
+            "num_paths": 10,
+            "average_path_length": 0.74,
+            "shortest_path_length": 0.67,
+            "longest_path_length": 0.78,
+            "path_length_std_dev": 0.044045431091090485,
+            "average_time_per_path": 0.019999999999999997,
+            "time_per_path_std_dev": 0.006324555320336759,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.69,
+                    "duration": 0.02
+                },
+                {
+                    "id": 1,
+                    "length": 0.67,
+                    "duration": 0.01
+                },
+                {
+                    "id": 2,
+                    "length": 0.77,
+                    "duration": 0.02
+                },
+                {
+                    "id": 3,
+                    "length": 0.67,
+                    "duration": 0.01
+                },
+                {
+                    "id": 4,
+                    "length": 0.78,
+                    "duration": 0.02
+                },
+                {
+                    "id": 5,
+                    "length": 0.77,
+                    "duration": 0.02
+                },
+                {
+                    "id": 6,
+                    "length": 0.78,
+                    "duration": 0.03
+                },
+                {
+                    "id": 7,
+                    "length": 0.76,
+                    "duration": 0.02
+                },
+                {
+                    "id": 8,
+                    "length": 0.73,
+                    "duration": 0.02
+                },
+                {
+                    "id": 9,
+                    "length": 0.78,
+                    "duration": 0.03
+                }
+            ]
+        },
+        "SST": {
+            "status": "Failed",
+            "error_message": "No solution found for attempt 9."
+        },
+        "Syclop": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner Syclop: Python argument types in"
+        },
+        "AITstar": {
+            "status": "Failed",
+            "error_message": null
+        },
+        "AnytimePathShorteing": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner AnytimePathShorteing: name 'om' is not defined"
+        },
+        "BFMT": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner BFMT: could not broadcast input array from shape (0,) into shape (3,)"
+        },
+        "BiEST": {
+            "status": "Successful",
+            "total_time_taken": 0,
+            "num_paths": 10,
+            "average_path_length": 0.764,
+            "shortest_path_length": 0.64,
+            "longest_path_length": 0.95,
+            "path_length_std_dev": 0.09178235124467012,
+            "average_time_per_path": 0.047,
+            "time_per_path_std_dev": 0.011874342087037918,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.77,
+                    "duration": 0.05
+                },
+                {
+                    "id": 1,
+                    "length": 0.64,
+                    "duration": 0.05
+                },
+                {
+                    "id": 2,
+                    "length": 0.95,
+                    "duration": 0.07
+                },
+                {
+                    "id": 3,
+                    "length": 0.77,
+                    "duration": 0.03
+                },
+                {
+                    "id": 4,
+                    "length": 0.66,
+                    "duration": 0.03
+                },
+                {
+                    "id": 5,
+                    "length": 0.72,
+                    "duration": 0.06
+                },
+                {
+                    "id": 6,
+                    "length": 0.86,
+                    "duration": 0.05
+                },
+                {
+                    "id": 7,
+                    "length": 0.82,
+                    "duration": 0.04
+                },
+                {
+                    "id": 8,
+                    "length": 0.67,
+                    "duration": 0.05
+                },
+                {
+                    "id": 9,
+                    "length": 0.78,
+                    "duration": 0.04
+                }
+            ]
+        },
+        "BiTRRT": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner BiTRRT: name 'om' is not defined"
+        },
+        "BITstar": {
+            "status": "Successful",
+            "total_time_taken": 0,
+            "num_paths": 10,
+            "average_path_length": 0.62,
+            "shortest_path_length": 0.62,
+            "longest_path_length": 0.62,
+            "path_length_std_dev": 0.0,
+            "average_time_per_path": 5.2909999999999995,
+            "time_per_path_std_dev": 0.4236850245170342,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.62,
+                    "duration": 5.03
+                },
+                {
+                    "id": 1,
+                    "length": 0.62,
+                    "duration": 5.02
+                },
+                {
+                    "id": 2,
+                    "length": 0.62,
+                    "duration": 5.04
+                },
+                {
+                    "id": 3,
+                    "length": 0.62,
+                    "duration": 5.05
+                },
+                {
+                    "id": 4,
+                    "length": 0.62,
+                    "duration": 5.03
+                },
+                {
+                    "id": 5,
+                    "length": 0.62,
+                    "duration": 6.26
+                },
+                {
+                    "id": 6,
+                    "length": 0.62,
+                    "duration": 5.04
+                },
+                {
+                    "id": 7,
+                    "length": 0.62,
+                    "duration": 5.88
+                },
+                {
+                    "id": 8,
+                    "length": 0.62,
+                    "duration": 5.04
+                },
+                {
+                    "id": 9,
+                    "length": 0.62,
+                    "duration": 5.52
+                }
+            ]
+        },
+        "BKPIECE1": {
+            "status": "Successful",
+            "total_time_taken": 0,
+            "num_paths": 10,
+            "average_path_length": 0.859,
+            "shortest_path_length": 0.62,
+            "longest_path_length": 1.0,
+            "path_length_std_dev": 0.12061923561356207,
+            "average_time_per_path": 0.041,
+            "time_per_path_std_dev": 0.0157797338380595,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.92,
+                    "duration": 0.04
+                },
+                {
+                    "id": 1,
+                    "length": 0.84,
+                    "duration": 0.05
+                },
+                {
+                    "id": 2,
+                    "length": 0.85,
+                    "duration": 0.05
+                },
+                {
+                    "id": 3,
+                    "length": 0.62,
+                    "duration": 0.02
+                },
+                {
+                    "id": 4,
+                    "length": 0.96,
+                    "duration": 0.06
+                },
+                {
+                    "id": 5,
+                    "length": 0.9,
+                    "duration": 0.07
+                },
+                {
+                    "id": 6,
+                    "length": 0.92,
+                    "duration": 0.03
+                },
+                {
+                    "id": 7,
+                    "length": 1.0,
+                    "duration": 0.04
+                },
+                {
+                    "id": 8,
+                    "length": 0.65,
+                    "duration": 0.02
+                },
+                {
+                    "id": 9,
+                    "length": 0.93,
+                    "duration": 0.03
+                }
+            ]
+        },
+        "CForest": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner CForest: name 'om' is not defined"
+        },
+        "FMT": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner FMT: could not broadcast input array from shape (0,) into shape (3,)"
+        },
+        "LazyLBTRRT": {
+            "status": "Successful",
+            "total_time_taken": 0,
+            "num_paths": 10,
+            "average_path_length": 0.7310000000000001,
+            "shortest_path_length": 0.64,
+            "longest_path_length": 0.78,
+            "path_length_std_dev": 0.05337602458033008,
+            "average_time_per_path": 5.08,
+            "time_per_path_std_dev": 0.017320508075688863,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.69,
+                    "duration": 5.06
+                },
+                {
+                    "id": 1,
+                    "length": 0.64,
+                    "duration": 5.08
+                },
+                {
+                    "id": 2,
+                    "length": 0.76,
+                    "duration": 5.08
+                },
+                {
+                    "id": 3,
+                    "length": 0.67,
+                    "duration": 5.06
+                },
+                {
+                    "id": 4,
+                    "length": 0.78,
+                    "duration": 5.06
+                },
+                {
+                    "id": 5,
+                    "length": 0.77,
+                    "duration": 5.1
+                },
+                {
+                    "id": 6,
+                    "length": 0.78,
+                    "duration": 5.07
+                },
+                {
+                    "id": 7,
+                    "length": 0.78,
+                    "duration": 5.11
+                },
+                {
+                    "id": 8,
+                    "length": 0.67,
+                    "duration": 5.1
+                },
+                {
+                    "id": 9,
+                    "length": 0.77,
+                    "duration": 5.08
+                }
+            ]
+        },
+        "LazyPRM": {
+            "status": "Successful",
+            "total_time_taken": 0,
+            "num_paths": 10,
+            "average_path_length": 0.818,
+            "shortest_path_length": 0.69,
+            "longest_path_length": 0.99,
+            "path_length_std_dev": 0.09053176238205023,
+            "average_time_per_path": 0.087,
+            "time_per_path_std_dev": 0.07170076708097342,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.72,
+                    "duration": 0.03
+                },
+                {
+                    "id": 1,
+                    "length": 0.86,
+                    "duration": 0.11
+                },
+                {
+                    "id": 2,
+                    "length": 0.78,
+                    "duration": 0.06
+                },
+                {
+                    "id": 3,
+                    "length": 0.77,
+                    "duration": 0.08
+                },
+                {
+                    "id": 4,
+                    "length": 0.9,
+                    "duration": 0.12
+                },
+                {
+                    "id": 5,
+                    "length": 0.92,
+                    "duration": 0.03
+                },
+                {
+                    "id": 6,
+                    "length": 0.69,
+                    "duration": 0.02
+                },
+                {
+                    "id": 7,
+                    "length": 0.77,
+                    "duration": 0.28
+                },
+                {
+                    "id": 8,
+                    "length": 0.99,
+                    "duration": 0.06
+                },
+                {
+                    "id": 9,
+                    "length": 0.78,
+                    "duration": 0.08
+                }
+            ]
+        },
+        "LazyRRT": {
+            "status": "Successful",
+            "total_time_taken": 0,
+            "num_paths": 10,
+            "average_path_length": 0.784,
+            "shortest_path_length": 0.77,
+            "longest_path_length": 0.8,
+            "path_length_std_dev": 0.011135528725660053,
+            "average_time_per_path": 0.11400000000000002,
+            "time_per_path_std_dev": 0.07838367176906169,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.78,
+                    "duration": 0.07
+                },
+                {
+                    "id": 1,
+                    "length": 0.79,
+                    "duration": 0.08
+                },
+                {
+                    "id": 2,
+                    "length": 0.77,
+                    "duration": 0.05
+                },
+                {
+                    "id": 3,
+                    "length": 0.8,
+                    "duration": 0.29
+                },
+                {
+                    "id": 4,
+                    "length": 0.77,
+                    "duration": 0.08
+                },
+                {
+                    "id": 5,
+                    "length": 0.77,
+                    "duration": 0.2
+                },
+                {
+                    "id": 6,
+                    "length": 0.78,
+                    "duration": 0.07
+                },
+                {
+                    "id": 7,
+                    "length": 0.79,
+                    "duration": 0.19
+                },
+                {
+                    "id": 8,
+                    "length": 0.79,
+                    "duration": 0.05
+                },
+                {
+                    "id": 9,
+                    "length": 0.8,
+                    "duration": 0.06
+                }
+            ]
+        },
+        "LBKPIECE1": {
+            "status": "Successful",
+            "total_time_taken": 0,
+            "num_paths": 10,
+            "average_path_length": 0.9269999999999999,
+            "shortest_path_length": 0.69,
+            "longest_path_length": 1.12,
+            "path_length_std_dev": 0.10080178569846869,
+            "average_time_per_path": 0.07999999999999999,
+            "time_per_path_std_dev": 0.01414213562373095,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.92,
+                    "duration": 0.09
+                },
+                {
+                    "id": 1,
+                    "length": 0.88,
+                    "duration": 0.06
+                },
+                {
+                    "id": 2,
+                    "length": 0.92,
+                    "duration": 0.06
+                },
+                {
+                    "id": 3,
+                    "length": 0.94,
+                    "duration": 0.09
+                },
+                {
+                    "id": 4,
+                    "length": 0.69,
+                    "duration": 0.08
+                },
+                {
+                    "id": 5,
+                    "length": 1.0,
+                    "duration": 0.09
+                },
+                {
+                    "id": 6,
+                    "length": 0.94,
+                    "duration": 0.09
+                },
+                {
+                    "id": 7,
+                    "length": 0.94,
+                    "duration": 0.08
+                },
+                {
+                    "id": 8,
+                    "length": 0.92,
+                    "duration": 0.06
+                },
+                {
+                    "id": 9,
+                    "length": 1.12,
+                    "duration": 0.1
+                }
+            ]
+        },
+        "LBTRRT": {
+            "status": "Successful",
+            "total_time_taken": 0,
+            "num_paths": 10,
+            "average_path_length": 0.678,
+            "shortest_path_length": 0.62,
+            "longest_path_length": 0.78,
+            "path_length_std_dev": 0.050950956811427986,
+            "average_time_per_path": 5.045999999999999,
+            "time_per_path_std_dev": 0.01624807680927198,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.65,
+                    "duration": 5.02
+                },
+                {
+                    "id": 1,
+                    "length": 0.62,
+                    "duration": 5.04
+                },
+                {
+                    "id": 2,
+                    "length": 0.77,
+                    "duration": 5.07
+                },
+                {
+                    "id": 3,
+                    "length": 0.67,
+                    "duration": 5.07
+                },
+                {
+                    "id": 4,
+                    "length": 0.68,
+                    "duration": 5.03
+                },
+                {
+                    "id": 5,
+                    "length": 0.65,
+                    "duration": 5.03
+                },
+                {
+                    "id": 6,
+                    "length": 0.66,
+                    "duration": 5.04
+                },
+                {
+                    "id": 7,
+                    "length": 0.78,
+                    "duration": 5.06
+                },
+                {
+                    "id": 8,
+                    "length": 0.66,
+                    "duration": 5.05
+                },
+                {
+                    "id": 9,
+                    "length": 0.64,
+                    "duration": 5.05
+                }
+            ]
+        },
+        "LightningRetrieveRepair": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner LightningRetrieveRepair: name 'om' is not defined"
+        },
+        "PRM": {
+            "status": "Successful",
+            "total_time_taken": 0,
+            "num_paths": 10,
+            "average_path_length": 0.768,
+            "shortest_path_length": 0.62,
+            "longest_path_length": 1.0,
+            "path_length_std_dev": 0.0980612053770501,
+            "average_time_per_path": 0.14900000000000002,
+            "time_per_path_std_dev": 0.07063285354564121,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.63,
+                    "duration": 0.11
+                },
+                {
+                    "id": 1,
+                    "length": 0.8,
+                    "duration": 0.1
+                },
+                {
+                    "id": 2,
+                    "length": 0.62,
+                    "duration": 0.16
+                },
+                {
+                    "id": 3,
+                    "length": 1.0,
+                    "duration": 0.31
+                },
+                {
+                    "id": 4,
+                    "length": 0.78,
+                    "duration": 0.11
+                },
+                {
+                    "id": 5,
+                    "length": 0.76,
+                    "duration": 0.11
+                },
+                {
+                    "id": 6,
+                    "length": 0.77,
+                    "duration": 0.11
+                },
+                {
+                    "id": 7,
+                    "length": 0.78,
+                    "duration": 0.26
+                },
+                {
+                    "id": 8,
+                    "length": 0.77,
+                    "duration": 0.11
+                },
+                {
+                    "id": 9,
+                    "length": 0.77,
+                    "duration": 0.11
+                }
+            ]
+        },
+        "ProjEST": {
+            "status": "Successful",
+            "total_time_taken": 0,
+            "num_paths": 10,
+            "average_path_length": 0.798,
+            "shortest_path_length": 0.69,
+            "longest_path_length": 0.98,
+            "path_length_std_dev": 0.08400000000000002,
+            "average_time_per_path": 0.038,
+            "time_per_path_std_dev": 0.02135415650406262,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.91,
+                    "duration": 0.05
+                },
+                {
+                    "id": 1,
+                    "length": 0.79,
+                    "duration": 0.05
+                },
+                {
+                    "id": 2,
+                    "length": 0.69,
+                    "duration": 0.03
+                },
+                {
+                    "id": 3,
+                    "length": 0.78,
+                    "duration": 0.02
+                },
+                {
+                    "id": 4,
+                    "length": 0.69,
+                    "duration": 0.05
+                },
+                {
+                    "id": 5,
+                    "length": 0.79,
+                    "duration": 0.02
+                },
+                {
+                    "id": 6,
+                    "length": 0.98,
+                    "duration": 0.09
+                },
+                {
+                    "id": 7,
+                    "length": 0.78,
+                    "duration": 0.02
+                },
+                {
+                    "id": 8,
+                    "length": 0.8,
+                    "duration": 0.03
+                },
+                {
+                    "id": 9,
+                    "length": 0.77,
+                    "duration": 0.02
+                }
+            ]
+        },
+        "pRRT": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner pRRT: name 'om' is not defined"
+        },
+        "pSBL": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner pSBL: name 'om' is not defined"
+        },
+        "RLRT": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner RLRT: name 'om' is not defined"
+        },
+        "RRTConnect": {
+            "status": "Successful",
+            "total_time_taken": 0,
+            "num_paths": 10,
+            "average_path_length": 0.761,
+            "shortest_path_length": 0.66,
+            "longest_path_length": 0.9,
+            "path_length_std_dev": 0.0790506166958867,
+            "average_time_per_path": 0.017,
+            "time_per_path_std_dev": 0.0045825756949558405,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.69,
+                    "duration": 0.02
+                },
+                {
+                    "id": 1,
+                    "length": 0.66,
+                    "duration": 0.01
+                },
+                {
+                    "id": 2,
+                    "length": 0.88,
+                    "duration": 0.02
+                },
+                {
+                    "id": 3,
+                    "length": 0.9,
+                    "duration": 0.02
+                },
+                {
+                    "id": 4,
+                    "length": 0.78,
+                    "duration": 0.02
+                },
+                {
+                    "id": 5,
+                    "length": 0.76,
+                    "duration": 0.02
+                },
+                {
+                    "id": 6,
+                    "length": 0.76,
+                    "duration": 0.02
+                },
+                {
+                    "id": 7,
+                    "length": 0.72,
+                    "duration": 0.01
+                },
+                {
+                    "id": 8,
+                    "length": 0.66,
+                    "duration": 0.01
+                },
+                {
+                    "id": 9,
+                    "length": 0.8,
+                    "duration": 0.02
+                }
+            ]
+        },
+        "RRTstar": {
+            "status": "Successful",
+            "total_time_taken": 0,
+            "num_paths": 10,
+            "average_path_length": 0.62,
+            "shortest_path_length": 0.62,
+            "longest_path_length": 0.62,
+            "path_length_std_dev": 0.0,
+            "average_time_per_path": 5.035,
+            "time_per_path_std_dev": 0.012845232578665168,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.62,
+                    "duration": 5.05
+                },
+                {
+                    "id": 1,
+                    "length": 0.62,
+                    "duration": 5.02
+                },
+                {
+                    "id": 2,
+                    "length": 0.62,
+                    "duration": 5.03
+                },
+                {
+                    "id": 3,
+                    "length": 0.62,
+                    "duration": 5.04
+                },
+                {
+                    "id": 4,
+                    "length": 0.62,
+                    "duration": 5.04
+                },
+                {
+                    "id": 5,
+                    "length": 0.62,
+                    "duration": 5.06
+                },
+                {
+                    "id": 6,
+                    "length": 0.62,
+                    "duration": 5.03
+                },
+                {
+                    "id": 7,
+                    "length": 0.62,
+                    "duration": 5.02
+                },
+                {
+                    "id": 8,
+                    "length": 0.62,
+                    "duration": 5.02
+                },
+                {
+                    "id": 9,
+                    "length": 0.62,
+                    "duration": 5.04
+                }
+            ]
+        },
+        "RRTXstatic": {
+            "status": "Successful",
+            "total_time_taken": 0,
+            "num_paths": 10,
+            "average_path_length": 0.62,
+            "shortest_path_length": 0.62,
+            "longest_path_length": 0.62,
+            "path_length_std_dev": 0.0,
+            "average_time_per_path": 5.048,
+            "time_per_path_std_dev": 0.015999999999999993,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.62,
+                    "duration": 5.05
+                },
+                {
+                    "id": 1,
+                    "length": 0.62,
+                    "duration": 5.06
+                },
+                {
+                    "id": 2,
+                    "length": 0.62,
+                    "duration": 5.05
+                },
+                {
+                    "id": 3,
+                    "length": 0.62,
+                    "duration": 5.05
+                },
+                {
+                    "id": 4,
+                    "length": 0.62,
+                    "duration": 5.07
+                },
+                {
+                    "id": 5,
+                    "length": 0.62,
+                    "duration": 5.05
+                },
+                {
+                    "id": 6,
+                    "length": 0.62,
+                    "duration": 5.05
+                },
+                {
+                    "id": 7,
+                    "length": 0.62,
+                    "duration": 5.01
+                },
+                {
+                    "id": 8,
+                    "length": 0.62,
+                    "duration": 5.06
+                },
+                {
+                    "id": 9,
+                    "length": 0.62,
+                    "duration": 5.03
+                }
+            ]
+        },
+        "SBL": {
+            "status": "Successful",
+            "total_time_taken": 0,
+            "num_paths": 10,
+            "average_path_length": 0.898,
+            "shortest_path_length": 0.64,
+            "longest_path_length": 1.05,
+            "path_length_std_dev": 0.11889491158161479,
+            "average_time_per_path": 0.07699999999999999,
+            "time_per_path_std_dev": 0.02147091055358389,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.92,
+                    "duration": 0.08
+                },
+                {
+                    "id": 1,
+                    "length": 0.81,
+                    "duration": 0.09
+                },
+                {
+                    "id": 2,
+                    "length": 0.97,
+                    "duration": 0.11
+                },
+                {
+                    "id": 3,
+                    "length": 0.8,
+                    "duration": 0.06
+                },
+                {
+                    "id": 4,
+                    "length": 0.99,
+                    "duration": 0.11
+                },
+                {
+                    "id": 5,
+                    "length": 0.85,
+                    "duration": 0.06
+                },
+                {
+                    "id": 6,
+                    "length": 0.92,
+                    "duration": 0.08
+                },
+                {
+                    "id": 7,
+                    "length": 1.05,
+                    "duration": 0.06
+                },
+                {
+                    "id": 8,
+                    "length": 1.03,
+                    "duration": 0.08
+                },
+                {
+                    "id": 9,
+                    "length": 0.64,
+                    "duration": 0.04
+                }
+            ]
+        },
+        "SPARS": {
+            "status": "Failed",
+            "error_message": null
+        },
+        "SPARSdb": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner SPARSdb: name 'om' is not defined"
+        },
+        "SPARStwo": {
+            "status": "Failed",
+            "error_message": null
+        },
+        "STRIDE": {
+            "status": "Successful",
+            "total_time_taken": 0,
+            "num_paths": 10,
+            "average_path_length": 0.826,
+            "shortest_path_length": 0.69,
+            "longest_path_length": 1.08,
+            "path_length_std_dev": 0.10403845442911965,
+            "average_time_per_path": 0.036,
+            "time_per_path_std_dev": 0.01854723699099141,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.93,
+                    "duration": 0.05
+                },
+                {
+                    "id": 1,
+                    "length": 0.77,
+                    "duration": 0.04
+                },
+                {
+                    "id": 2,
+                    "length": 0.78,
+                    "duration": 0.07
+                },
+                {
+                    "id": 3,
+                    "length": 0.77,
+                    "duration": 0.02
+                },
+                {
+                    "id": 4,
+                    "length": 0.85,
+                    "duration": 0.04
+                },
+                {
+                    "id": 5,
+                    "length": 1.08,
+                    "duration": 0.06
+                },
+                {
+                    "id": 6,
+                    "length": 0.78,
+                    "duration": 0.02
+                },
+                {
+                    "id": 7,
+                    "length": 0.84,
+                    "duration": 0.02
+                },
+                {
+                    "id": 8,
+                    "length": 0.77,
+                    "duration": 0.01
+                },
+                {
+                    "id": 9,
+                    "length": 0.69,
+                    "duration": 0.03
+                }
+            ]
+        },
+        "STRRTstar": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner STRRTstar: name 'om' is not defined"
+        },
+        "ThunderRetrieveRepair": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner ThunderRetrieveRepair: name 'om' is not defined"
+        },
+        "TRRT": {
+            "status": "Successful",
+            "total_time_taken": 0,
+            "num_paths": 10,
+            "average_path_length": 0.775,
+            "shortest_path_length": 0.66,
+            "longest_path_length": 0.85,
+            "path_length_std_dev": 0.05004997502496878,
+            "average_time_per_path": 0.016,
+            "time_per_path_std_dev": 0.004898979485566357,
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.78,
+                    "duration": 0.01
+                },
+                {
+                    "id": 1,
+                    "length": 0.76,
+                    "duration": 0.02
+                },
+                {
+                    "id": 2,
+                    "length": 0.66,
+                    "duration": 0.01
+                },
+                {
+                    "id": 3,
+                    "length": 0.78,
+                    "duration": 0.01
+                },
+                {
+                    "id": 4,
+                    "length": 0.83,
+                    "duration": 0.02
+                },
+                {
+                    "id": 5,
+                    "length": 0.79,
+                    "duration": 0.02
+                },
+                {
+                    "id": 6,
+                    "length": 0.77,
+                    "duration": 0.01
+                },
+                {
+                    "id": 7,
+                    "length": 0.8,
+                    "duration": 0.02
+                },
+                {
+                    "id": 8,
+                    "length": 0.85,
+                    "duration": 0.02
+                },
+                {
+                    "id": 9,
+                    "length": 0.73,
+                    "duration": 0.02
+                }
+            ]
+        },
+        "TSRRT": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner TSRRT: name 'om' is not defined"
+        },
+        "XXL": {
+            "status": "Failed",
+            "error_message": "Error occurred for planner XXL: name 'om' is not defined"
+        }
+    }
+}

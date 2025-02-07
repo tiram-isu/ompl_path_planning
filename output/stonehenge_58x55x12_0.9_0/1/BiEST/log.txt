@@ -1,0 +1,7 @@
+2025-02-05 14:05:06,208 - INFO - Initialized BiEST planner with range 0.1
+2025-02-05 14:05:06,209 - INFO - Planning 1 paths with max time 5 seconds per path...
+2025-02-05 14:05:06,273 - INFO - Path 0 added. Length: 0.94 units. Duration: 0.06 seconds.
+2025-02-05 14:05:06,273 - INFO - Completed planning 1 paths in 0.06 seconds.
+2025-02-05 14:05:06,273 - INFO - Average path length: 0.94 units.
+2025-02-05 14:05:06,273 - INFO - Shortest path length: 0.94 units.
+2025-02-05 14:05:06,273 - INFO - Longest path length: 0.94 units.

@@ -1,0 +1,9 @@
+2025-02-07 01:28:11,171 - INFO - Initialized LazyRRT planner with range 0.1
+2025-02-07 01:28:11,209 - INFO - Start state [-0.33  0.1  -0.45] is invalid. Found new valid start state: (-0.3311038289490857, 0.09958053333627048, -0.4739693598045978)
+2025-02-07 01:28:11,261 - INFO - Goal state [ 0.22 -0.16 -0.45] is invalid. Found new valid goal state: (0.21980098821145777, -0.1613743800555659, -0.4739693598045978)
+2025-02-07 01:28:11,261 - INFO - Planning 1 paths with max time 5 seconds per path...
+2025-02-07 01:28:15,760 - INFO - Path 0 added. Length: 0.86 units. Duration: 4.50 seconds.
+2025-02-07 01:28:15,760 - INFO - Completed planning 1 paths in 4.50 seconds.
+2025-02-07 01:28:15,760 - INFO - Average path length: 0.86 units.
+2025-02-07 01:28:15,760 - INFO - Shortest path length: 0.86 units.
+2025-02-07 01:28:15,760 - INFO - Longest path length: 0.86 units.

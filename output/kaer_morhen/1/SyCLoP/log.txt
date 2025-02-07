@@ -1,1 +1,0 @@
-2025-01-24 19:12:20,107 - ERROR - Error occurred for planner SyCLoP: Planner type SyCLoP is not valid.

@@ -1,1 +1,0 @@
-2025-01-24 20:37:09,595 - ERROR - Error occurred for planner BMFTstar: Planner type BMFTstar is not valid.

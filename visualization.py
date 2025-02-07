@@ -71,7 +71,6 @@ class Visualizer:
 
         # Keep the window open if enabled
         if self.enable_visualization or self.save_screenshot:
-            print("running")
             vis.run()
             vis.destroy_window()
 

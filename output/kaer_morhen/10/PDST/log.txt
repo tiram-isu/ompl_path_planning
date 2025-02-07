@@ -1,3 +1,0 @@
-2025-01-26 16:06:07,745 - INFO - Initialized PDST planner with range 0.1
-2025-01-26 16:06:07,746 - INFO - Planning 10 paths with max time 5 seconds per path...
-2025-01-26 16:06:07,758 - ERROR - Error occurred for planner PDST: 'PathPlanner' object has no attribute '_simplify_path'

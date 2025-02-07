@@ -1,0 +1,17 @@
+2025-02-04 20:14:03,938 - INFO - Initialized BFMT planner with range 0.1
+2025-02-04 20:14:03,939 - INFO - Planning 10 paths with max time 5 seconds per path...
+2025-02-04 20:14:04,045 - INFO - Path 0 added. Length: 0.61 units. Duration: 0.11 seconds.
+2025-02-04 20:14:04,139 - INFO - Path 1 added. Length: 0.61 units. Duration: 0.09 seconds.
+2025-02-04 20:14:04,236 - INFO - Path 2 added. Length: 0.61 units. Duration: 0.10 seconds.
+2025-02-04 20:14:04,329 - INFO - Path 3 added. Length: 0.61 units. Duration: 0.09 seconds.
+2025-02-04 20:14:04,424 - INFO - Path 4 added. Length: 0.61 units. Duration: 0.10 seconds.
+2025-02-04 20:14:04,517 - INFO - Path 5 added. Length: 0.61 units. Duration: 0.09 seconds.
+2025-02-04 20:14:04,605 - INFO - Path 6 added. Length: 0.61 units. Duration: 0.09 seconds.
+2025-02-04 20:14:04,692 - INFO - Path 7 added. Length: 0.61 units. Duration: 0.09 seconds.
+2025-02-04 20:14:04,778 - INFO - Path 8 added. Length: 0.61 units. Duration: 0.09 seconds.
+2025-02-04 20:14:04,870 - INFO - Path 9 added. Length: 0.61 units. Duration: 0.09 seconds.
+2025-02-04 20:14:04,871 - INFO - Completed planning 10 paths in 0.93 seconds.
+2025-02-04 20:14:04,871 - INFO - Average path length: 0.61 units.
+2025-02-04 20:14:04,871 - INFO - Shortest path length: 0.61 units.
+2025-02-04 20:14:04,871 - INFO - Longest path length: 0.61 units.
+2025-02-04 20:14:04,871 - ERROR - Error occurred for planner BFMT: could not broadcast input array from shape (0,) into shape (3,)

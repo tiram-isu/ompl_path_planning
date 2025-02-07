@@ -172,21 +172,21 @@ def save_gaussians_as_voxels(
     voxel_grid.save_voxel_grid_as_numpy(output_dir)
     voxel_grid.save_metadata(output_dir)
 
-    if enable_logging:
-        # Create histograms of opacity and volume values TODO: add threshold
-        create_histogram(opacities, opacity_threshold, os.path.join(output_dir, "opacities_histogram.png"), "Opacity Value", "Histogram of Opacity Values")
-        create_histogram(volumes, volume_threshold, os.path.join(output_dir, "volumes_histogram.png"), "Volume Value", "Histogram of Volume Values")
+    # if enable_logging:
+    # Create histograms of opacity and volume values TODO: add threshold
+    create_histogram(opacities, opacity_threshold, os.path.join(output_dir, "opacities_histogram.png"), "Opacity Value", "Histogram of Opacity Values")
+    create_histogram(volumes, volume_threshold, os.path.join(output_dir, "volumes_histogram.png"), "Volume Value", "Histogram of Volume Values")
 
-        # Save the voxel grid as a .ply file
-        voxel_mesh = voxel_grid.voxel_to_ply(voxel_colors)  # Pass voxel_colors with RGB values
+    # Save the voxel grid as a .ply file
+    voxel_mesh = voxel_grid.voxel_to_ply(voxel_colors)  # Pass voxel_colors with RGB values
 
-        # Save the combined mesh
-        ply_filename = os.path.join(output_dir, "voxels.ply")
-        o3d.io.write_triangle_mesh(ply_filename, voxel_mesh)
-        print(f"Voxel grid saved to {ply_filename}")
+    # Save the combined mesh
+    ply_filename = os.path.join(output_dir, "voxels.ply")
+    o3d.io.write_triangle_mesh(ply_filename, voxel_mesh)
+    print(f"Voxel grid saved to {ply_filename}")
 
-        # Save screenshots of the voxel grid
-        save_screenshots(voxel_mesh, output_dir) # TODO: currently broken
+    # Save screenshots of the voxel grid
+    save_screenshots(voxel_mesh, output_dir) # TODO: currently broken
 
     # Padding
     padding_output_dir = output_dir + "padding"
@@ -198,7 +198,7 @@ def save_gaussians_as_voxels(
     # save as ply
     voxel_mesh_padding = voxel_grid_padding.voxel_to_ply(None)
     ply_filename_padding = os.path.join(padding_output_dir, "voxels_padding.ply")
-    o3d.io.write_triangle_mesh(ply_filename_padding, voxel_mesh_padding)
+    # o3d.io.write_triangle_mesh(ply_filename_padding, voxel_mesh_padding)
 
     # Ground
     ground_output_dir = output_dir + "ground"
@@ -210,18 +210,18 @@ def save_gaussians_as_voxels(
     # save as ply
     voxel_mesh_ground = voxel_grid_ground.voxel_to_ply(None)
     ply_filename_ground = os.path.join(ground_output_dir, "voxels_ground.ply")
-    o3d.io.write_triangle_mesh(ply_filename_ground, voxel_mesh_ground)
+    # o3d.io.write_triangle_mesh(ply_filename_ground, voxel_mesh_ground)
     
 
 if __name__ == '__main__':
-    ply_path = "/app/models/kaer_morhen.ply"
-    output_path = "/app/voxel_models/kaer_morhen/"
+    ply_path = "/app/models/stonehenge_colmap_aligned.ply"
+    output_path = "/app/voxel_models/testing/stonehenge2/"
     device = "cuda"
 
     opacity_threshold = 0.9
     scale_threshold = 0
     manual_voxel_resolution = None  # Set a number to use manual resolution, or None for dynamic resolution
-    voxel_resolution_factor = 1.5  # Increase this value to increase the voxel resolution
+    voxel_resolution_factor = 3  # Increase this value to increase the voxel resolution
     scale_factor = 0.001  # nerfstudio - 0.01 for vanilla 3DGS
     enable_logging = True
 

@@ -1,1 +1,0 @@
-2025-01-24 20:00:52,244 - ERROR - Error occurred for planner LTLPlanner: Planner type LTLPlanner is not valid.

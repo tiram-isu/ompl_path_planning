@@ -22,17 +22,17 @@
             "status": "Successful",
             "total_time_taken": 0,
             "num_paths": 1,
-            "average_path_length": 0.81,
-            "shortest_path_length": 0.81,
-            "longest_path_length": 0.81,
+            "average_path_length": 0.78,
+            "shortest_path_length": 0.78,
+            "longest_path_length": 0.78,
             "path_length_std_dev": 0.0,
-            "average_time_per_path": 0.02,
+            "average_time_per_path": 0.03,
             "time_per_path_std_dev": 0.0,
             "paths": [
                 {
                     "id": 0,
-                    "length": 0.81,
-                    "duration": 0.02
+                    "length": 0.78,
+                    "duration": 0.03
                 }
             ]
         }

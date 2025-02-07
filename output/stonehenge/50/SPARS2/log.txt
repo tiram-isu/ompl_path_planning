@@ -1,1 +1,0 @@
-2025-01-24 19:29:41,740 - ERROR - Error occurred for planner SPARS2: Planner type SPARS2 is not valid.
