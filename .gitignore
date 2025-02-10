@@ -1,2 +1,7 @@
-__pycache__
-test
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.ply
+*.npy
+paths

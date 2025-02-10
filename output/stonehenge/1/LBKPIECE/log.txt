@@ -1,3 +1,0 @@
-2024-11-01 18:11:58,727 - INFO - Bounds set with padding of 0.01
-2024-11-01 18:11:58,800 - ERROR - Planner type LBKPIECE is not available in OMPL.
-2024-11-01 18:11:58,800 - ERROR - Error occurred for planner LBKPIECE: Planner type LBKPIECE is not supported.

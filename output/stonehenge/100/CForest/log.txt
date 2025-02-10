@@ -1,3 +1,0 @@
-2024-11-02 18:34:48,625 - INFO - Bounds set with padding of 0.01
-2024-11-02 18:34:48,700 - ERROR - Planner type CForest is not available in OMPL.
-2024-11-02 18:34:48,700 - ERROR - Error occurred for planner CForest: Planner type CForest is not supported.

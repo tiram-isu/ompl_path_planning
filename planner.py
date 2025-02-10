@@ -1,165 +1,310 @@
 import numpy as np
 import logging
-import time  # Import time to measure elapsed time
-import open3d as o3d  # Import Open3D
+import time
 from ompl import base as ob
 from ompl import geometric as og
+from ompl import control as oc
 from collision_detection import StateValidityChecker
+from typing import Any, Dict, List, Optional
+import requests
+from multiprocessing import Process
+from visualization import Visualizer
+import log_utils
+import path_utils
+
 
 class PathPlanner:
-    def __init__(self, mesh, ellipsoid_dimensions, planner_type, range=0.1, state_validity_resolution=0.001, bounds_padding=0.01):
-        # Load mesh using Open3D
-        self.mesh = mesh
-        self.ellipsoid_dimensions = ellipsoid_dimensions
-        self.space = ob.RealVectorStateSpace(3)  # 3D space
-        self.bounds_padding = bounds_padding  # Padding to ensure space around mesh bounds
-        self.setup_bounds()
+    def __init__(
+        self,
+        voxel_grid,
+        agent_dims,
+        planner_type: str,
+        range: float,
+        state_validity_resolution: float,
+        enable_logging: bool = False
+    ) -> None:
+        """
+        Initialize the PathPlanner with settings and perform necessary setup for OMPL.
+        """
+        self.enable_logging = enable_logging
 
-        # Setup Space Information
-        self.si = ob.SpaceInformation(self.space)
+        self.voxel_grid = voxel_grid
+        self.rvss = ob.RealVectorStateSpace(3)
+
+        self._initialize_bounds()
+
+        self.si = ob.SpaceInformation(self.rvss)
+        self.validity_checker = StateValidityChecker(self.si, voxel_grid, agent_dims)
+        self.si.setStateValidityChecker(ob.StateValidityCheckerFn(self.validity_checker.is_valid))
         self.si.setStateValidityCheckingResolution(state_validity_resolution)
 
-        # Initialize the validity checker
-        self.validity_checker = StateValidityChecker(self.si, self.mesh, self.ellipsoid_dimensions)
+        self.planner = self._initialize_planner(planner_type, range)
 
-        # Set the planner type dynamically
-        self.planner = self.initialize_planner(planner_type, range)
+    def _initialize_bounds(self) -> None:
+        """
+        Initialize the bounds for the state space based on the voxel grid dimensions.
+        """
+        scene_dimensions = self.voxel_grid.scene_dimensions
+        bounding_box_min = self.voxel_grid.bounding_box_min
 
-    def setup_bounds(self):
         bounds = ob.RealVectorBounds(3)
+        for i in range(3):
+            bounds.setLow(i, bounding_box_min[i])
+            bounds.setHigh(i, bounding_box_min[i] + scene_dimensions[i])
 
-        # Extract mesh bounds from the Open3D mesh
-        min_bounds = self.mesh.get_min_bound()  # Returns the minimum point of bounding box
-        max_bounds = self.mesh.get_max_bound()  # Returns the maximum point of bounding box
+        self.rvss.setBounds(bounds)
 
-        # Add padding to avoid boundary sampling issues
-        for i in range(3):  # For x, y, z axes
-            bounds.setLow(i, min_bounds[i] - self.bounds_padding)
-            bounds.setHigh(i, max_bounds[i] + self.bounds_padding)
-
-        self.space.setBounds(bounds)
-        logging.info(f"Bounds set with padding of {self.bounds_padding}")
-
-    def initialize_planner(self, planner_type, range):
+    def _initialize_planner(self, planner_type: str, range: float) -> Any:
+        """
+        Initialize and return the planner based on the specified type.
+        """
         planner_class = getattr(og, planner_type, None)
-        if planner_class is None:
-            logging.error(f"Planner type {planner_type} is not available in OMPL.")
-            raise ValueError(f"Planner type {planner_type} is not supported.")
+        if not planner_class:
+            planner_class = getattr(oc, planner_type, None)
+        if not planner_class:
+            planner_class = getattr(om, planner_type, None)
+            raise ValueError(f"Planner type {planner_type} is not valid.")
 
-        # Initialize planner with Space Information
         planner = planner_class(self.si)
-
-        # Set range if the planner supports it
-        if hasattr(planner, 'setRange'):
+        if hasattr(planner, "setRange"):
             planner.setRange(range)
 
-        logging.info(f"Planner {planner_type} initialized with range {range}.")
+        if self.enable_logging:
+            logging.info(f"Initialized {planner_type} planner with range {range}")
         return planner
 
-    def plan_multiple_paths(self, start, goal, num_paths=5, max_time=5.0):
+    def _initialize_start_and_goal(self, start: np.ndarray, goal: np.ndarray):
+        """
+        Initialize the start and goal states for the planner. If the given start or goal states are invalid,
+        new valid states closest to the ones given are found.
+        """
+        start_state = ob.State(self.rvss)
+        goal_state = ob.State(self.rvss)
+
+        for i in range(3):
+            start_state[i] = start[i]
+            goal_state[i] = goal[i]
+
+        if not self.validity_checker.is_valid(start_state):
+            start_state = self.validity_checker.find_valid_state(start_state)
+            logging.info(f"Start state {start} is invalid. Found new valid start state: {start_state[0], start_state[1], start_state[2]}")
+
+        if not self.validity_checker.is_valid(goal_state):
+            goal_state = self.validity_checker.find_valid_state(goal_state)
+            logging.info(f"Goal state {goal} is invalid. Found new valid goal state: {goal_state[0], goal_state[1], goal_state[2]}")
+
+        return start_state, goal_state
+
+    def _smooth_path(self, path: og.PathGeometric) -> None:
+        """
+        Simplify and smooth the planned path.
+        """
+        path_simplifier = og.PathSimplifier(self.si)
+        path_simplifier.reduceVertices(path)
+        path_simplifier.shortcutPath(path)
+        path_simplifier.smoothBSpline(path, 3)
+
+    def plan_path(self, start_state: ob.State, goal_state: ob.State, max_time: float):
+        """
+        Plan a single path from start to goal within a specified time limit.
+        """
+        self.validity_checker.set_prev_state(None)
+        self.planner.clear()
+
+        pdef = ob.ProblemDefinition(self.si)
+        pdef.setStartAndGoalStates(start_state, goal_state)
+        self.planner.setProblemDefinition(pdef)
+
+        if self.planner.solve(max_time):
+            return pdef.getSolutionPath()
+
+        return None
+
+    def plan_multiple_paths(self, num_paths: int, path_settings: Dict) -> List[og.PathGeometric]:
+        """
+        Plan multiple paths and return a list of successfully planned paths.
+        """
+        max_time = path_settings['max_time_per_path']
         all_paths = []
 
-        # Ensure the validity checker respects bounds
-        self.si.setStateValidityChecker(self.validity_checker)
+        start_state, goal_state = self._initialize_start_and_goal(path_settings['start'], path_settings['goal'])
 
-        # Create and validate start and goal states
-        start_state = self.create_state(start)
-        goal_state = self.create_state(goal)
+        if start_state is None or goal_state is None:
+            logging.error("Invalid start or goal states.")
+            return []
 
-        # Log start and goal state positions
-        logging.info(f"Start state: {start}, Goal state: {goal}")
+        total_start_time = time.time()
+        logging.info(f"Planning {num_paths} paths with max time {max_time} seconds per path...")
 
-        # Check that both start and goal are valid and within bounds
-        if not (self.is_within_bounds(start) and self.is_within_bounds(goal) and
-                self.validity_checker.isValid(start_state, check_containment=True) and self.validity_checker.isValid(goal_state, check_containment=True)):
-            logging.warning("Start or Goal state is invalid or out of bounds!")
-            return None
+        path_lengths = []
 
-        total_start_time = time.time()  # Start timing total planning duration
-        logging.info(f"Planning {num_paths} paths in {max_time} seconds...")
+        for i in range(num_paths):
+            path_start_time = time.time()
+            path = self.plan_path(start_state, goal_state, max_time)
 
-        # Loop until we find the desired number of unique paths
-        while len(all_paths) < num_paths:
-            # Clear and reset the planner before each planning attempt
-            self.planner.clear()
+            if path:
+                self._smooth_path(path)
+                all_paths.append(path)
 
-            # Set up a new problem definition for each path attempt
-            pdef = ob.ProblemDefinition(self.si)
-            pdef.setStartAndGoalStates(start_state, goal_state)
-            self.planner.setProblemDefinition(pdef)
-            self.planner.setup()  # Ensures clean setup for each path
+                path_duration = time.time() - path_start_time
+                path_length = path.length()
+                path_lengths.append(path_length)
 
-            path_start_time = time.time()  # Start timing for this path
-            if self.planner.solve(max_time):  # 5.0 seconds to find a solution
-                path = pdef.getSolutionPath()
-
-                # Check for uniqueness and bounding box constraint before adding the path
-                if path and path not in all_paths:
-                    smoothed_path = self.smooth_path(path)  # Smooth the path
-                    all_paths.append(smoothed_path)
-
-                    path_length = self.calculate_path_length(smoothed_path)
-                    path_duration = time.time() - path_start_time
-
-                    logging.info(f"Path {len(all_paths)} added. Length: {path_length:.2f} units. Duration: {path_duration:.2f} seconds.")
+                logging.info(f"Path {i} added. Length: {path_length:.2f} units. Duration: {path_duration:.2f} seconds.")
             else:
-                print("No solution found for this attempt.")
-                logging.error("No solution found for this attempt.")
+                logging.error(f"No solution found for attempt {i}.")
 
-        total_duration = time.time() - total_start_time  # Calculate total duration
-        logging.info(f"All paths planning completed. Total duration: {total_duration:.2f} seconds.")
-        logging.info(f"Average time per path: {total_duration / num_paths:.2f} seconds.")
+        total_duration = time.time() - total_start_time
+        logging.info(f"Completed planning {len(all_paths)} paths in {total_duration:.2f} seconds.")
 
-        # Calculate and log average path length, shortest and longest path lengths if paths were found
         if all_paths:
-            path_lengths = [self.calculate_path_length(path) for path in all_paths]
             average_length = sum(path_lengths) / len(path_lengths)
-            shortest_length = min(path_lengths)
-            longest_length = max(path_lengths)
-
-            logging.info(f"Average path length of all paths: {average_length:.2f} units.")
-            logging.info(f"Shortest path length: {shortest_length:.2f} units.")
-            logging.info(f"Longest path length: {longest_length:.2f} units.")
-
-            # Log the total number of paths found
-            logging.info(f"Total number of unique paths found: {len(all_paths)}.")
+            logging.info(f"Average path length: {average_length:.2f} units.")
+            logging.info(f"Shortest path length: {min(path_lengths):.2f} units.")
+            logging.info(f"Longest path length: {max(path_lengths):.2f} units.")
 
         return all_paths
 
-    def calculate_path_length(self, path):
-        """Calculates the length of a given path."""
-        length = 0.0
-        for i in range(path.getStateCount() - 1):
-            state1 = path.getState(i)
-            state2 = path.getState(i + 1)
-            # Calculate Euclidean distance between consecutive states
-            distance = np.linalg.norm(np.array([state1[0], state1[1], state1[2]]) - np.array([state2[0], state2[1], state2[2]]))
-            length += distance
-        return length
+class PathPlanningManager:
+    def __init__(
+        self,
+        model: Dict,
+        planners: List[str],
+        planner_settings: Dict,
+        path_settings: Dict,
+        debugging_settings: Dict,
+        nerfstudio_paths: Dict,
+    ):
+        self.model = model
+        self.planners = planners
+        self.planner_settings = planner_settings
+        self.path_settings = path_settings
+        self.debugging_settings = debugging_settings
+        self.nerfstudio_paths = nerfstudio_paths
 
-    def smooth_path(self, path):
-        """Smooths the given path using OMPL's PathSimplifier."""
-        # No need to convert, as path is already a PathGeometric object
-        path_simplifier = og.PathSimplifier(self.si)
 
-        # Apply smoothing techniques
-        max_steps = 3  # Adjust as needed for your application
-        path_simplifier.smoothBSpline(path, max_steps)  # Smooth directly on the path
+        self.visualizer = (
+            Visualizer(
+                debugging_settings['visualization_mesh'],
+                debugging_settings['enable_visualization'],
+                debugging_settings['save_screenshot'],
+                path_settings['camera_dims'],
+            )
+            if debugging_settings['enable_visualization'] or debugging_settings['save_screenshot']
+            else None
+        )
 
-        return path  # Return the smoothed path
+    def plan_paths_for_planner(
+        self,
+        planner: str,
+        num_paths: int,
+    ) -> Optional[List[str]]:
+        """
+        Plan and save paths for a specific planner and optionally visualize or log results.
+        """
+        enable_logging = self.debugging_settings['enable_logging']
 
-    def create_state(self, coordinates):
-        state = ob.State(self.space)
-        state[0], state[1], state[2] = float(coordinates[0]), float(coordinates[1]), float(coordinates[2])
-        return state
+        output_path = f"/app/output/{self.model['name']}/{num_paths}/{planner}"
+        log_utils.setup_logging(output_path, enable_logging)
 
-    def is_within_bounds(self, coordinates):
-        bounds = self.space.getBounds()
-        for i in range(3):
-            if not (bounds.low[i] <= coordinates[i] <= bounds.high[i]):
-                logging.debug(f"Coordinate {coordinates[i]} for axis {i} is out of bounds: ({bounds.low[i]}, {bounds.high[i]})")
-                return False
-        return True
+        try:
+            # Initialize the path planner
+            path_planner = PathPlanner(
+                self.model["voxel_grid"],
+                self.path_settings["camera_dims"],
+                planner_type=planner,
+                range=self.planner_settings["planner_range"],
+                state_validity_resolution=self.planner_settings["state_validity_resolution"],
+                enable_logging=enable_logging,
+            )
 
-    def return_state_validity_checker(self):
-        return self.validity_checker
+            # Generate paths
+            all_paths = path_planner.plan_multiple_paths(num_paths, self.path_settings)
+
+            # Process and save paths
+            paths_dir = f"/app/paths/{self.model['name']}/"
+            output_paths = path_utils.process_paths(
+                all_paths, paths_dir, planner, fps=30, distance=0.01
+            )
+
+            # Optionally render videos for Nerfstudio
+            if self.debugging_settings['render_nerfstudio_video']:
+                for path in output_paths:
+                    url = "http://host.docker.internal:5005/api/path_render"
+                    self.send_to_frontend(
+                        url,
+                        {
+                            "status": "success",
+                            "path": self.nerfstudio_paths['paths_dir'] + path,
+                            "nerfstudio_paths": self.nerfstudio_paths,
+                        },
+                    )
+
+            # Optionally visualize paths
+            if self.visualizer:
+                self.visualizer.visualize_o3d(
+                    output_path,
+                    all_paths,
+                    self.path_settings['start'],
+                    self.path_settings['goal'],
+                )
+            return output_paths
+
+        except Exception as e:
+            logging.error(f"Error occurred for planner {planner}: {e}")
+            return None
+
+    def run_planners_for_paths(self):
+        """
+        Run multiple planners in parallel and handle visualization and logging as per settings.
+        """
+        processes = []
+        summary_log_paths = []
+
+        for num_paths in self.path_settings['num_paths']:
+            log_root = f"/app/output/{self.model['name']}/{num_paths}"
+
+            for planner in self.planners:
+                # Run each planner in a separate process
+                process = Process(
+                    target=self.plan_paths_for_planner,
+                    args=(planner, num_paths),
+                )
+                processes.append(process)
+                process.start()
+
+                if not self.debugging_settings['enable_visualization']:
+                    # Handle timeout for each process
+                    process.join(
+                        (self.path_settings['max_time_per_path'] * 2) * num_paths
+                    )
+                    if process.is_alive():
+                        process.terminate()
+                        process.join()
+                        logging.warning(f"Terminating planner {planner} due to timeout.")
+
+            # Wait for all processes to finish
+            for process in processes:
+                process.join()
+
+            # Log summaries
+            if self.debugging_settings['enable_logging']:
+                log_utils.generate_summary_log(self.planners, log_root, self.model, self.path_settings)
+                summary_log_paths.append(f"{log_root}/summary_log.json")
+
+        # Generate aggregated log reports
+        if self.debugging_settings['enable_logging']:
+            log_utils.generate_log_reports(
+                summary_log_paths, f"/app/output/{self.model['name']}/plots"
+            )
+
+    def send_to_frontend(self, frontend_url, data):
+        """
+        Sends a message to the frontend via HTTP.
+        """
+        try:
+            response = requests.post(frontend_url, json=data)
+            response.raise_for_status()
+            print(f"Message successfully sent to the frontend: {data}")
+        except requests.exceptions.RequestException as e:
+            print(f"Error sending message to the frontend: {e}")

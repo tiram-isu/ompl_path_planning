@@ -3,82 +3,88 @@ import numpy as np
 import matplotlib.pyplot as plt
 import logging
 import time
+from typing import List, Tuple
 
 class Visualizer:
-    def __init__(self, mesh, output_path, enable_visualization=True):
-        self.mesh = mesh
-        self.output_path = output_path  # Output path to save mesh with path
+    """
+    Class to visualize a 3D mesh and paths in Open3D.
+    """
+
+    def __init__(self, mesh_path: str, enable_visualization: bool, save_screenshot: bool, camera_dims: Tuple[float, float]):
+        """
+        Initializes the Visualizer class with mesh, visualization options, and camera dimensions.
+        """
+        self.mesh = o3d.io.read_triangle_mesh(mesh_path)  # Load the mesh
+        self.tube_width = camera_dims[0]  # Width of the path tube
+        self.tube_height = camera_dims[1]  # Height of the path tube
         logging.getLogger('matplotlib').setLevel(logging.WARNING)  # Suppress matplotlib logging
         self.enable_visualization = enable_visualization
+        self.save_screenshot = save_screenshot
 
-    def visualize_o3d(self, path_list, start_point, end_point):
+    def visualize_o3d(self, output_path: str, path_list: List['Path'], start_point: Tuple[float, float, float], end_point: Tuple[float, float, float]):
+        """
+        Visualizes the mesh and paths in Open3D, capturing a screenshot and saving the result.
+        If enable_visualization is True, an interactive window will open to display the visualization.
+        """
         vis = o3d.visualization.Visualizer()
 
+        # Set window visibility
         if self.enable_visualization:
             vis.create_window(width=2560, height=1440)
-        else:
+        elif self.save_screenshot:
             vis.create_window(visible=False, width=2560, height=1440)
 
-        # Add the mesh to the visualizer
-        vis.add_geometry(self.mesh)
+        if self.enable_visualization or self.save_screenshot:
+            # Add the mesh to the visualizer
+            vis.add_geometry(self.mesh)
 
-        # Path tubes
-        path_geometries = [self.create_path_tube(path) for path in path_list]
+            if len(path_list) > 0:
+                # Create and add path tubes
+                path_geometries = [self.create_path_tube(path) for path in path_list]
+                for path_geometry in path_geometries:
+                    vis.add_geometry(path_geometry)
 
-        # Add path geometries to the visualizer
-        for i, path_geometry in enumerate(path_geometries):
-            vis.add_geometry(path_geometry)
+            # Create and add start and end point markers
+            start_marker = self.create_marker(start_point, color=[0.0, 1.0, 0.0])  # Green for start
+            end_marker = self.create_marker(end_point, color=[0.0, 0.0, 1.0])      # Blue for end
+            vis.add_geometry(start_marker)
+            vis.add_geometry(end_marker)
 
-        # Start and end point markers
-        start_marker = self.create_marker(start_point, color=[0.0, 1.0, 0.0])  # Green for start
-        end_marker = self.create_marker(end_point, color=[0.0, 0.0, 1.0])      # Blue for end
-        vis.add_geometry(start_marker)
-        vis.add_geometry(end_marker)
-
-        # Adjust the camera view
-        if self.enable_visualization:
             camera = vis.get_view_control()
             camera.set_zoom(0.5)  # Set zoom level (lower is closer)
 
-        # Set render options to show back faces
-        vis.get_render_option().mesh_show_back_face = True  # Enable back face rendering
+            # Enable back face rendering
+            vis.get_render_option().mesh_show_back_face = True  
 
-        # Render the scene and wait for a moment before taking the screenshot
-        vis.poll_events()  # Process any events like window resize
-        vis.update_geometry(self.mesh)  # Update geometry if any changes
-        vis.update_renderer()  # Update the renderer
-        
-        # Capture the screenshot
-        screenshot_path = self.output_path + "visualization.png"
-        # Capture the image
-        image = vis.capture_screen_float_buffer(do_render=True)
-        image = (np.asarray(image) * 255).astype(np.uint8)
+            # Render and take a screenshot
+            vis.poll_events()
+            vis.update_geometry(self.mesh)
+            vis.update_renderer()
 
-        # Save the image
-        o3d.io.write_image(screenshot_path, o3d.geometry.Image(image))
-        print(f"Screenshot saved as {screenshot_path}")
+        if self.save_screenshot:
+            # Capture and save screenshot
+            screenshot_path = output_path + "/visualization.png"
+            image = vis.capture_screen_float_buffer(do_render=True)
+            image = (np.asarray(image) * 255).astype(np.uint8)
+            o3d.io.write_image(screenshot_path, o3d.geometry.Image(image))
+            print(f"Screenshot saved as {screenshot_path}")
 
-        if self.enable_visualization:
-            # Keep the window open until manually closed
-            vis.run()  # This will keep the window open and responsive
+        # Keep the window open if enabled
+        if self.enable_visualization or self.save_screenshot:
+            vis.run()
             vis.destroy_window()
 
-        # Combine all geometries into one mesh for saving
-        combined_paths = self.combine_geometries([start_marker, end_marker] + path_geometries)
-
-        # Save combined mesh with paths
-        o3d.io.write_triangle_mesh(self.output_path + "paths.obj", combined_paths, write_triangle_uvs=True, write_vertex_colors=True)
-        print(f"Scene saved as {self.output_path}paths.obj")
-
-    def combine_geometries(self, geometries):
-        """ Combine multiple geometries into a single TriangleMesh. """
+    def combine_geometries(self, geometries: List[o3d.geometry.TriangleMesh]) -> o3d.geometry.TriangleMesh:
+        """
+        Combines multiple geometries into a single TriangleMesh.
+        """
         combined_mesh = o3d.geometry.TriangleMesh()
 
-        # Store vertex, triangle, color, and UV data for the combined mesh
+        # Store data for the combined mesh
         all_vertices = []
         all_triangles = []
         all_vertex_colors = []
-        all_uvs = []  # New list for storing UVs
+        all_uvs = []
 
         for geom in geometries:
             if isinstance(geom, o3d.geometry.TriangleMesh):
@@ -106,44 +112,55 @@ class Visualizer:
 
         return combined_mesh
 
-    def create_marker(self, position, color=[1.0, 0.0, 0.0], radius=0.02):
-        """Creates a sphere marker at the given position with the specified color."""
-        marker = o3d.geometry.TriangleMesh.create_sphere(radius=radius)
+    def create_marker(self, position: Tuple[float, float, float], color: List[float] = [1.0, 0.0, 0.0]) -> o3d.geometry.TriangleMesh:
+        """
+        Creates a sphere marker at a given position with a specified color.
+        """
+        marker = o3d.geometry.TriangleMesh.create_sphere(radius=1)
+        marker.vertices = o3d.utility.Vector3dVector(np.asarray(marker.vertices) * np.array([self.tube_width, self.tube_width, self.tube_height]))
         marker.paint_uniform_color(color)
         marker.translate(position)
         return marker
 
-    def create_path_tube(self, path, radius=0.005):
-        """Creates a tube for the path by connecting consecutive path points with cylinders."""
+    def create_path_tube(self, path: 'Path') -> o3d.geometry.TriangleMesh:
+        """
+        Creates a tube following a given path by connecting consecutive points with cylinders.
+        """
         tube_mesh = o3d.geometry.TriangleMesh()
         tube_mesh.paint_uniform_color([1.0, 0.0, 0.0])  # Color the path red
 
-        # Get states from the path
+        # Extract states from the path
         states = path.getStates()
         path_points = np.array([[state[0], state[1], state[2]] for state in states])
         
-        # Create cylinders to connect consecutive points in the path
+        # Create cylinders connecting consecutive points
         for i in range(len(path_points) - 1):
             start = path_points[i]
             end = path_points[i + 1]
-            cylinder = self.create_cylinder_between_points(start, end, radius)
+            cylinder = self.create_cylinder_between_points(start, end)
             tube_mesh += cylinder
 
         return tube_mesh
 
-    def create_cylinder_between_points(self, start, end, radius):
-        """Creates a cylinder connecting two points to represent a tube segment in the path."""
-        # Compute vector and length between points
+    def create_cylinder_between_points(self, start: np.ndarray, end: np.ndarray) -> o3d.geometry.TriangleMesh:
+        """
+        Creates a cylinder connecting two points to represent a tube segment in the path.
+        """
         vector = end - start
         length = np.linalg.norm(vector)
 
-        # Create cylinder and scale it to the computed length
-        cylinder = o3d.geometry.TriangleMesh.create_cylinder(radius=radius, height=length)
+        # Create and scale cylinder
+        cylinder = o3d.geometry.TriangleMesh.create_cylinder(radius=1.0, height=1.0)
+        cylinder.vertices = o3d.utility.Vector3dVector(np.asarray(cylinder.vertices) * np.array([self.tube_height, self.tube_width, length]))
         cylinder.paint_uniform_color([1.0, 0.0, 0.0])  # Color the cylinder red
 
-        # Rotate the cylinder to align with the vector direction
-        axis = np.array([0, 0, 1])  # Default cylinder direction
-        if length > 1e-6:  # Check if length is not negligible
+        # Rotate cylinder to align with the vector direction
+        R = o3d.geometry.get_rotation_matrix_from_xyz((0, np.pi / 2, 0))
+        cylinder.rotate(R, center=(0, 0, 0))
+
+        # Rotate the cylinder to match the path direction
+        axis = np.array([1, 0, 0])  # Default direction for the cylinder
+        if length > 1e-6:  # Avoid issues with negligible length
             rotation_vector = np.cross(axis, vector)
             if np.linalg.norm(rotation_vector) > 1e-6:
                 rotation_vector /= np.linalg.norm(rotation_vector)
@@ -151,46 +168,8 @@ class Visualizer:
                 R = o3d.geometry.get_rotation_matrix_from_axis_angle(rotation_vector * angle)
                 cylinder.rotate(R, center=(0, 0, 0))
 
-        # Translate the cylinder to the midpoint between start and end
+        # Translate cylinder to midpoint
         midpoint = (start + end) / 2
         cylinder.translate(midpoint)
 
         return cylinder
-    
-    def visualize_mpl(self, path_list, start_point, end_point):
-        fig = plt.figure()
-        ax = fig.add_subplot(111, projection='3d')
-
-        # Plot the specified start and end points
-        ax.scatter(start_point[0], start_point[1], start_point[2], color='green', s=50, label='Start')
-        ax.scatter(end_point[0], end_point[1], end_point[2], color='blue', s=50, label='End')
-
-        # Plot each path
-        if path_list:
-            for path in path_list:
-                states = path.getStates()
-                path_points = np.array([[state[0], state[1], state[2]] for state in states])
-                ax.plot(path_points[:, 0], path_points[:, 1], path_points[:, 2], color='red', linewidth=2, label='Path')
-
-        # Get mesh vertices and faces from the Open3D mesh
-        mesh_vertices = np.asarray(self.mesh.vertices)
-        mesh_faces = np.asarray(self.mesh.triangles)
-
-        ax.plot_trisurf(mesh_vertices[:, 0], mesh_vertices[:, 1], mesh_vertices[:, 2],
-                        triangles=mesh_faces, color='cyan', alpha=0.3, edgecolor='black')
-
-        ax.set_xlim(self.mesh.get_axis_aligned_bounding_box().min_bound[0], self.mesh.get_axis_aligned_bounding_box().max_bound[0])
-        ax.set_ylim(self.mesh.get_axis_aligned_bounding_box().min_bound[1], self.mesh.get_axis_aligned_bounding_box().max_bound[1])
-        ax.set_zlim(self.mesh.get_axis_aligned_bounding_box().min_bound[2], self.mesh.get_axis_aligned_bounding_box().max_bound[2])
-        ax.set_xlabel('X')
-        ax.set_ylabel('Y')
-        ax.set_zlabel('Z')
-        ax.set_title('Path Planning Visualization')
-
-        # Avoid duplicate labels in the legend
-        handles, labels = ax.get_legend_handles_labels()
-        unique_labels = dict(zip(labels, handles))
-        ax.legend(unique_labels.values(), unique_labels.keys())
-
-        plt.savefig(self.output_path + "mpl_visualization.png")
-        plt.close(fig)

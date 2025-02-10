@@ -1,6 +1,0 @@
-2024-12-04 15:50:37,164 - INFO - Bounds set with padding of 0.01
-2024-12-04 15:50:37,241 - INFO - Planner RRTConnect initialized with range 0.1.
-2024-12-04 15:50:37,242 - INFO - Start state: [-0.89  0.36  0.  ], Goal state: [ 0.59 -0.57  0.  ]
-2024-12-04 15:50:37,385 - DEBUG - contains_points executed in 0.1427 seconds.
-2024-12-04 15:50:37,386 - WARNING - Start or Goal state is invalid or out of bounds!
-2024-12-04 15:50:54,480 - ERROR - Error occurred for planner RRTConnect: local variable 'path_geometries' referenced before assignment

@@ -1,3 +1,0 @@
-2024-12-16 02:33:23,586 - INFO - Bounds set with padding of 0.01
-2024-12-16 02:33:23,586 - INFO - Bounds: -0.36, -0.34, -0.53 to 0.36, 0.34, -0.34
-2024-12-16 02:33:25,025 - ERROR - Error occurred for planner FMTstar: 'NoneType' object is not callable

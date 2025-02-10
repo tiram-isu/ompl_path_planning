@@ -1,2 +1,0 @@
-2024-12-15 21:12:34,960 - INFO - Bounds set with padding of 0.01
-2024-12-15 21:12:37,568 - ERROR - Error occurred for planner SPQRstar: 'NoneType' object is not callable

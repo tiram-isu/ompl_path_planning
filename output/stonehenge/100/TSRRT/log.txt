@@ -1,3 +1,0 @@
-2024-11-02 17:46:29,015 - INFO - Bounds set with padding of 0.01
-2024-11-02 17:46:29,084 - ERROR - Planner type TSRRT is not available in OMPL.
-2024-11-02 17:46:29,085 - ERROR - Error occurred for planner TSRRT: Planner type TSRRT is not supported.

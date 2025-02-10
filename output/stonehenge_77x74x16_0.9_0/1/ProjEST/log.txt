@@ -1,0 +1,7 @@
+2025-02-06 13:33:10,834 - INFO - Initialized ProjEST planner with range 0.1
+2025-02-06 13:33:10,835 - INFO - Planning 1 paths with max time 5 seconds per path...
+2025-02-06 13:33:10,910 - INFO - Path 0 added. Length: 1.01 units. Duration: 0.08 seconds.
+2025-02-06 13:33:10,910 - INFO - Completed planning 1 paths in 0.08 seconds.
+2025-02-06 13:33:10,910 - INFO - Average path length: 1.01 units.
+2025-02-06 13:33:10,910 - INFO - Shortest path length: 1.01 units.
+2025-02-06 13:33:10,910 - INFO - Longest path length: 1.01 units.

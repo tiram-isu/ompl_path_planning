@@ -1,2 +1,0 @@
-2024-12-15 22:28:04,201 - INFO - Bounds set with padding of 0.01
-2024-12-15 22:28:06,845 - ERROR - Error occurred for planner QMP: 'NoneType' object is not callable

@@ -1,6 +1,0 @@
-2024-11-01 18:12:45,511 - INFO - Bounds set with padding of 0.01
-2024-11-01 18:12:45,585 - INFO - Planner AITstar initialized with range 0.1.
-2024-11-01 18:12:45,586 - INFO - Start state: [-1.24  0.31  0.08], Goal state: [ 0.46 -0.79  0.08]
-2024-11-01 18:12:45,714 - DEBUG - contains_points executed in 0.1272 seconds.
-2024-11-01 18:12:45,715 - DEBUG - contains_points executed in 0.0008 seconds.
-2024-11-01 18:12:45,715 - INFO - Planning 1 paths in 5 seconds...

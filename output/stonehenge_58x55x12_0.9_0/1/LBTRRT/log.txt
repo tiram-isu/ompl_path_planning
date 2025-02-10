@@ -1,0 +1,7 @@
+2025-02-05 14:06:37,151 - INFO - Initialized LBTRRT planner with range 0.1
+2025-02-05 14:06:37,151 - INFO - Planning 1 paths with max time 5 seconds per path...
+2025-02-05 14:06:42,205 - INFO - Path 0 added. Length: 0.80 units. Duration: 5.05 seconds.
+2025-02-05 14:06:42,205 - INFO - Completed planning 1 paths in 5.05 seconds.
+2025-02-05 14:06:42,205 - INFO - Average path length: 0.80 units.
+2025-02-05 14:06:42,205 - INFO - Shortest path length: 0.80 units.
+2025-02-05 14:06:42,205 - INFO - Longest path length: 0.80 units.

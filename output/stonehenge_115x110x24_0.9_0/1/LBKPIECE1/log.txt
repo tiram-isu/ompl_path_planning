@@ -1,0 +1,7 @@
+2025-02-04 20:03:13,142 - INFO - Initialized LBKPIECE1 planner with range 0.1
+2025-02-04 20:03:13,143 - INFO - Planning 1 paths with max time 5 seconds per path...
+2025-02-04 20:03:13,219 - INFO - Path 0 added. Length: 1.06 units. Duration: 0.08 seconds.
+2025-02-04 20:03:13,220 - INFO - Completed planning 1 paths in 0.08 seconds.
+2025-02-04 20:03:13,220 - INFO - Average path length: 1.06 units.
+2025-02-04 20:03:13,220 - INFO - Shortest path length: 1.06 units.
+2025-02-04 20:03:13,220 - INFO - Longest path length: 1.06 units.

@@ -1,2 +1,0 @@
-2024-12-15 21:16:59,672 - INFO - Bounds set with padding of 0.01
-2024-12-15 21:17:02,321 - ERROR - Error occurred for planner QRRTstar: 'NoneType' object is not callable

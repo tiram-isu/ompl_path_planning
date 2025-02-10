@@ -1,3 +1,0 @@
-2024-11-02 18:34:48,882 - INFO - Bounds set with padding of 0.01
-2024-11-02 18:34:48,951 - ERROR - Planner type LTLPlanner is not available in OMPL.
-2024-11-02 18:34:48,951 - ERROR - Error occurred for planner LTLPlanner: Planner type LTLPlanner is not supported.

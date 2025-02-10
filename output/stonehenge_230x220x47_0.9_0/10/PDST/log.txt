@@ -1,0 +1,18 @@
+2025-02-07 01:56:07,978 - INFO - Initialized PDST planner with range 0.1
+2025-02-07 01:56:08,016 - INFO - Start state [-0.33  0.1  -0.45] is invalid. Found new valid start state: (-0.3311038289490857, 0.09958053333627048, -0.4739693598045978)
+2025-02-07 01:56:08,067 - INFO - Goal state [ 0.22 -0.16 -0.45] is invalid. Found new valid goal state: (0.21980098821145777, -0.1613743800555659, -0.4739693598045978)
+2025-02-07 01:56:08,067 - INFO - Planning 10 paths with max time 5 seconds per path...
+2025-02-07 01:56:08,666 - INFO - Path 0 added. Length: 0.89 units. Duration: 0.60 seconds.
+2025-02-07 01:56:09,967 - INFO - Path 1 added. Length: 1.06 units. Duration: 1.30 seconds.
+2025-02-07 01:56:11,767 - INFO - Path 2 added. Length: 1.02 units. Duration: 1.80 seconds.
+2025-02-07 01:56:12,365 - INFO - Path 3 added. Length: 0.97 units. Duration: 0.60 seconds.
+2025-02-07 01:56:13,822 - INFO - Path 4 added. Length: 1.19 units. Duration: 1.46 seconds.
+2025-02-07 01:56:15,231 - INFO - Path 5 added. Length: 0.83 units. Duration: 1.41 seconds.
+2025-02-07 01:56:15,569 - INFO - Path 6 added. Length: 0.86 units. Duration: 0.34 seconds.
+2025-02-07 01:56:16,533 - INFO - Path 7 added. Length: 0.75 units. Duration: 0.96 seconds.
+2025-02-07 01:56:16,808 - INFO - Path 8 added. Length: 0.82 units. Duration: 0.27 seconds.
+2025-02-07 01:56:17,532 - INFO - Path 9 added. Length: 1.19 units. Duration: 0.72 seconds.
+2025-02-07 01:56:17,532 - INFO - Completed planning 10 paths in 9.46 seconds.
+2025-02-07 01:56:17,532 - INFO - Average path length: 0.96 units.
+2025-02-07 01:56:17,532 - INFO - Shortest path length: 0.75 units.
+2025-02-07 01:56:17,532 - INFO - Longest path length: 1.19 units.

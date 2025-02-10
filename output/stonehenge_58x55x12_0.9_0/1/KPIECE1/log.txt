@@ -1,0 +1,7 @@
+2025-02-05 14:05:46,858 - INFO - Initialized KPIECE1 planner with range 0.1
+2025-02-05 14:05:46,859 - INFO - Planning 1 paths with max time 5 seconds per path...
+2025-02-05 14:05:46,891 - INFO - Path 0 added. Length: 0.81 units. Duration: 0.03 seconds.
+2025-02-05 14:05:46,891 - INFO - Completed planning 1 paths in 0.03 seconds.
+2025-02-05 14:05:46,891 - INFO - Average path length: 0.81 units.
+2025-02-05 14:05:46,891 - INFO - Shortest path length: 0.81 units.
+2025-02-05 14:05:46,891 - INFO - Longest path length: 0.81 units.

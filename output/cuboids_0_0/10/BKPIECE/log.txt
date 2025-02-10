@@ -1,2 +1,0 @@
-2024-12-15 21:16:37,177 - INFO - Bounds set with padding of 0.01
-2024-12-15 21:16:40,640 - ERROR - Error occurred for planner BKPIECE: 'NoneType' object is not callable

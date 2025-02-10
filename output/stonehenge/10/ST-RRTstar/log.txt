@@ -1,3 +1,0 @@
-2024-11-02 16:56:18,637 - INFO - Bounds set with padding of 0.01
-2024-11-02 16:56:18,706 - ERROR - Planner type ST-RRTstar is not available in OMPL.
-2024-11-02 16:56:18,706 - ERROR - Error occurred for planner ST-RRTstar: Planner type ST-RRTstar is not supported.

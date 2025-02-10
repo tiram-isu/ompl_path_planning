@@ -1,3 +1,0 @@
-2024-11-02 16:56:18,895 - INFO - Bounds set with padding of 0.01
-2024-11-02 16:56:18,966 - ERROR - Planner type SyCLoP is not available in OMPL.
-2024-11-02 16:56:18,966 - ERROR - Error occurred for planner SyCLoP: Planner type SyCLoP is not supported.

@@ -1,2 +1,0 @@
-2024-12-15 21:10:44,538 - INFO - Bounds set with padding of 0.01
-2024-12-15 21:10:47,134 - ERROR - Error occurred for planner KPIECE: 'NoneType' object is not callable

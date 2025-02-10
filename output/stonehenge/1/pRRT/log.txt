@@ -1,3 +1,0 @@
-2024-11-01 18:11:47,170 - INFO - Bounds set with padding of 0.01
-2024-11-01 18:11:47,242 - ERROR - Planner type pRRT is not available in OMPL.
-2024-11-01 18:11:47,242 - ERROR - Error occurred for planner pRRT: Planner type pRRT is not supported.

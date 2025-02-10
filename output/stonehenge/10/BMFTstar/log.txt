@@ -1,3 +1,0 @@
-2024-11-02 16:51:10,265 - INFO - Bounds set with padding of 0.01
-2024-11-02 16:51:10,334 - ERROR - Planner type BMFTstar is not available in OMPL.
-2024-11-02 16:51:10,334 - ERROR - Error occurred for planner BMFTstar: Planner type BMFTstar is not supported.

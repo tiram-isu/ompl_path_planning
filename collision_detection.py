@@ -1,71 +1,82 @@
 import numpy as np
-import fcl
-import open3d as o3d  # Import Open3D
+import open3d as o3d
+import ompl
 from ompl import base as ob
-import trimesh
-
-class CollisionDetector:
-    def __init__(self, open3d_mesh, trimesh_mesh, ellipsoid_dimensions=(0.5, 0.5, 1.0)):
-        self.mesh = open3d_mesh  # Load the mesh file using Open3D
-        self.trimesh_mesh = trimesh_mesh
-        self.ellipsoid_dimensions = ellipsoid_dimensions
-        self.ellipsoid_collision_object, self.mesh_collision_object = self.setup_collision_objects()
-
-    def setup_collision_objects(self):
-        # Convert the Open3D mesh to FCL-compatible mesh
-        mesh_collision_object = self.create_fcl_mesh_collision_object()
-
-        # Define the ellipsoid
-        ellipsoid = fcl.Ellipsoid(*self.ellipsoid_dimensions)
-        ellipsoid_collision_object = fcl.CollisionObject(ellipsoid, fcl.Transform())
-
-        return ellipsoid_collision_object, mesh_collision_object
-
-    def create_fcl_mesh_collision_object(self):
-        """Convert the Open3D mesh into an FCL-compatible collision object."""
-        # Extract vertices and triangles from the Open3D mesh
-        vertices = np.asarray(self.mesh.vertices)
-        triangles = np.asarray(self.mesh.triangles)
-
-        # Create an FCL mesh
-        fcl_mesh = fcl.BVHModel()
-        fcl_mesh.beginModel(len(vertices), len(triangles))
-        fcl_mesh.addSubModel(vertices, triangles)
-        fcl_mesh.endModel()
-
-        # Create the FCL collision object
-        return fcl.CollisionObject(fcl_mesh, fcl.Transform())
-
-    def is_contained(self, position):
-        self.ellipsoid_collision_object.setTranslation(position)
-        ellipsoid_center = self.ellipsoid_collision_object.getTransform().getTranslation()
-
-        return self.trimesh_mesh.contains(ellipsoid_center[None, :])[0]  # Check if the ellipsoid center is within the mesh
-
-    def is_colliding(self, position):
-        self.ellipsoid_collision_object.setTranslation(position)
-        request = fcl.CollisionRequest()
-        result = fcl.CollisionResult()
-        fcl.collide(self.ellipsoid_collision_object, self.mesh_collision_object, request, result)
-        return result.is_collision
+from voxel_grid import VoxelGrid
+from ompl import geometric as og
+from visualization import Visualizer
+import math
+from collections import defaultdict
 
 class StateValidityChecker(ob.StateValidityChecker):
-    def __init__(self, si, open3d_mesh, ellipsoid_dimensions):
-        super(StateValidityChecker, self).__init__(si)
+    def __init__(self, si: ob.SpaceInformation, voxel_grid: VoxelGrid, agent_dims: list) -> None:
+        """
+        Initialize the StateValidityChecker with a voxel grid for collision checking.
+        """
+        super().__init__(si)
 
-        # convert Open3D mesh to Trimesh
-        vertices = np.asarray(open3d_mesh.vertices)  # Nx3 array of vertex positions
-        triangles = np.asarray(open3d_mesh.triangles)  # Mx3 array of triangle indices
-        trimesh_mesh = trimesh.Trimesh(vertices=vertices, faces=triangles)
+        self.voxel_grid = voxel_grid
+        self.agent_radius = agent_dims[0] / 2
+        self.agent_height = agent_dims[1]
+        self.padding = 1
 
-        self.collision_detector = CollisionDetector(open3d_mesh, trimesh_mesh, ellipsoid_dimensions)
+        self.prev_state = None
+
+    def is_valid(self, state: ob.State) -> bool:
+        """
+        Check if a state is valid (no collision) using the voxel grid.
+        """
+        x, y, z = state[0], state[1], state[2]
+
+        if not self.is_slope_valid(state):
+            return False
+
+        index = self.voxel_grid.world_to_index(x, y, z)
+        return not self.voxel_grid.is_voxel_occupied(index)
+    
+    def is_slope_valid(self, state: ob.State) -> bool:
+        """
+        Check if the slope between the previous state and the current state is valid.
+        """
+        if self.prev_state is None:
+            return True
+        
+        x, y, z = state[0], state[1], state[2]
+        prev_x, prev_y, prev_z = self.prev_state[0], self.prev_state[1], self.prev_state[2]
+        delta_x = x - prev_x
+        delta_y = y - prev_y
+        delta_z = z - prev_z
+
+        # Horizontal distance in the x-y plane
+        horizontal_distance = math.sqrt(delta_x**2 + delta_y**2)
+
+        # Avoid division by zero
+        if horizontal_distance == 0:
+            return False  # Vertical line; slope is undefined or infinite
+
+        # Calculate slope in degrees
+        slope_degrees = math.degrees(math.atan(abs(delta_z) / horizontal_distance))
+
+        # Return False if slope is greater than 45°, otherwise True
+        return slope_degrees <= 45
+
+        
+    def set_prev_state(self, state: ob.State) -> None:
+        """
+        Set the previous state for slope checking.
+        """
+        self.prev_state = state
+
+    def find_valid_state(self, state: ob.State) -> ob.State:
+        """
+        Find a valid state closest to the given state.
+        """
+        x, y, z = state[0], state[1], state[2]
+
+        free_coords = self.voxel_grid.find_closest_free_voxel(x, y, z)
+        for i in range(3):
+            state[i] = free_coords[i]
+            
+        return state
 
 
-    def isValid(self, state, check_containment=False):
-        ellipsoid_center = np.array([state[0], state[1], state[2]])
-        is_colliding = self.collision_detector.is_colliding(ellipsoid_center)
-        if check_containment: # only check start and end points for containment
-            is_contained = self.collision_detector.is_contained(ellipsoid_center)
-        else:
-            is_contained = False 
-        return not (is_colliding or is_contained)
