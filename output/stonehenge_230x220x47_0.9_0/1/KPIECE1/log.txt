@@ -1,9 +1,0 @@
-2025-02-07 01:27:41,010 - INFO - Initialized KPIECE1 planner with range 0.1
-2025-02-07 01:27:41,047 - INFO - Start state [-0.33  0.1  -0.45] is invalid. Found new valid start state: (-0.3311038289490857, 0.09958053333627048, -0.4739693598045978)
-2025-02-07 01:27:41,101 - INFO - Goal state [ 0.22 -0.16 -0.45] is invalid. Found new valid goal state: (0.21980098821145777, -0.1613743800555659, -0.4739693598045978)
-2025-02-07 01:27:41,101 - INFO - Planning 1 paths with max time 5 seconds per path...
-2025-02-07 01:27:46,142 - INFO - Path 0 added. Length: 1.18 units. Duration: 5.04 seconds.
-2025-02-07 01:27:46,142 - INFO - Completed planning 1 paths in 5.04 seconds.
-2025-02-07 01:27:46,142 - INFO - Average path length: 1.18 units.
-2025-02-07 01:27:46,142 - INFO - Shortest path length: 1.18 units.
-2025-02-07 01:27:46,142 - INFO - Longest path length: 1.18 units.

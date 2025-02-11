@@ -1,7 +1,0 @@
-2025-02-04 20:05:25,916 - INFO - Initialized TRRT planner with range 0.1
-2025-02-04 20:05:25,917 - INFO - Planning 1 paths with max time 5 seconds per path...
-2025-02-04 20:05:25,932 - INFO - Path 0 added. Length: 0.77 units. Duration: 0.01 seconds.
-2025-02-04 20:05:25,932 - INFO - Completed planning 1 paths in 0.01 seconds.
-2025-02-04 20:05:25,932 - INFO - Average path length: 0.77 units.
-2025-02-04 20:05:25,932 - INFO - Shortest path length: 0.77 units.
-2025-02-04 20:05:25,932 - INFO - Longest path length: 0.77 units.

@@ -1,7 +1,0 @@
-2025-02-04 20:02:53,062 - INFO - Initialized LazyPRM planner with range 0.1
-2025-02-04 20:02:53,062 - INFO - Planning 1 paths with max time 5 seconds per path...
-2025-02-04 20:02:53,222 - INFO - Path 0 added. Length: 0.89 units. Duration: 0.16 seconds.
-2025-02-04 20:02:53,222 - INFO - Completed planning 1 paths in 0.16 seconds.
-2025-02-04 20:02:53,222 - INFO - Average path length: 0.89 units.
-2025-02-04 20:02:53,222 - INFO - Shortest path length: 0.89 units.
-2025-02-04 20:02:53,222 - INFO - Longest path length: 0.89 units.

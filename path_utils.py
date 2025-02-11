@@ -5,7 +5,7 @@ import os
 from datetime import datetime
 
 
-def calculate_rotation(from_point, to_point):
+def __calculate_rotation(from_point, to_point):
     """Calculate the quaternion for the camera to look at the next point, with Z as the up vector."""
     from_point = np.array(from_point)
     to_point = np.array(to_point)
@@ -61,7 +61,7 @@ def calculate_rotation(from_point, to_point):
     return [qw, qx, qy, qz]
 
 
-def resample_path(path, distance=0.05):
+def __resample_path(path, distance=0.05):
     """Resample the path to have more evenly spaced points for smoother animation."""
     new_path = [path[0]]
     accumulated_distance = 0.0
@@ -84,9 +84,9 @@ def resample_path(path, distance=0.05):
     return new_path
 
 
-def transform_to_nerfstudio_format(path, fps=30, distance=0.05):
+def __transform_to_nerfstudio_format(path, fps=30, distance=0.05):
     """Transform a single path to Nerfstudio format with more keyframes."""
-    resampled_path = resample_path(path, distance)
+    resampled_path = __resample_path(path, distance)
 
     camera_path_data = {
         "default_fov": 75.0,
@@ -113,7 +113,7 @@ def transform_to_nerfstudio_format(path, fps=30, distance=0.05):
         if i < len(resampled_path) - 1:
             next_position = np.array(resampled_path[i + 1])
             # Calculate the quaternion rotation
-            rotation = calculate_rotation(position, next_position)
+            rotation = __calculate_rotation(position, next_position)
             previous_rotation = rotation  # Update the previous rotation
         else:
             # If this is the last point, retain the previous rotation
@@ -150,14 +150,14 @@ def transform_to_nerfstudio_format(path, fps=30, distance=0.05):
     return camera_path_data
 
 
-def save_to_json(data, output_path):
+def __save_to_json(data, output_path):
     """Save the Nerfstudio-compatible data to a JSON file."""
     with open(output_path, 'w') as f:
         json.dump(data, f, indent=4)
     print(f"Data saved to {output_path}")
 
 
-def process_paths(paths, output_dir, planner, fps=30, distance=0.1):
+def save_in_nerfstudio_format(paths, output_dir, planner, fps=30, distance=0.1):
     """Process each path and save the result as a separate JSON file."""
     serializable_paths = [[[float(coord) for coord in line.split()] for line in path.printAsMatrix().strip().split("\n")] for path in paths]
     
@@ -165,10 +165,10 @@ def process_paths(paths, output_dir, planner, fps=30, distance=0.1):
     
     output_paths = []
     for _, path in enumerate(serializable_paths):
-        nerfstudio_data = transform_to_nerfstudio_format(path, fps=fps, distance=distance)
+        nerfstudio_data = __transform_to_nerfstudio_format(path, fps=fps, distance=distance)
         formatted_date = datetime.now().strftime("%Y-%m-%d_%H-%M-%S-%f")[:-3]
         output_path = os.path.join(output_dir, f"{planner}_{formatted_date}.json")
-        save_to_json(nerfstudio_data, output_path)
+        __save_to_json(nerfstudio_data, output_path)
         output_paths.append(output_path.replace("/app", "", 1))
     
     return output_paths

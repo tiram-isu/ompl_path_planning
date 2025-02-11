@@ -1,7 +1,0 @@
-2025-02-06 13:32:20,649 - INFO - Initialized LazyRRT planner with range 0.1
-2025-02-06 13:32:20,650 - INFO - Planning 1 paths with max time 5 seconds per path...
-2025-02-06 13:32:20,806 - INFO - Path 0 added. Length: 0.79 units. Duration: 0.16 seconds.
-2025-02-06 13:32:20,806 - INFO - Completed planning 1 paths in 0.16 seconds.
-2025-02-06 13:32:20,806 - INFO - Average path length: 0.79 units.
-2025-02-06 13:32:20,806 - INFO - Shortest path length: 0.79 units.
-2025-02-06 13:32:20,806 - INFO - Longest path length: 0.79 units.

@@ -1,1 +1,0 @@
-2025-02-06 17:47:39,774 - ERROR - Error occurred for planner STRRTstar: name 'om' is not defined

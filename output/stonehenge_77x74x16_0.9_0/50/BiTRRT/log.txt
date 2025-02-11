@@ -1,1 +1,0 @@
-2025-02-06 15:08:53,128 - ERROR - Error occurred for planner BiTRRT: name 'om' is not defined

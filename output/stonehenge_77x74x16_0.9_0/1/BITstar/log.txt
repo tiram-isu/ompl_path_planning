@@ -1,7 +1,0 @@
-2025-02-06 13:31:20,226 - INFO - Initialized BITstar planner with range 0.1
-2025-02-06 13:31:20,227 - INFO - Planning 1 paths with max time 5 seconds per path...
-2025-02-06 13:31:25,252 - INFO - Path 0 added. Length: 0.77 units. Duration: 5.02 seconds.
-2025-02-06 13:31:25,252 - INFO - Completed planning 1 paths in 5.03 seconds.
-2025-02-06 13:31:25,252 - INFO - Average path length: 0.77 units.
-2025-02-06 13:31:25,252 - INFO - Shortest path length: 0.77 units.
-2025-02-06 13:31:25,252 - INFO - Longest path length: 0.77 units.

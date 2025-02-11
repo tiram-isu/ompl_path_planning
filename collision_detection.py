@@ -9,15 +9,13 @@ import math
 from collections import defaultdict
 
 class StateValidityChecker(ob.StateValidityChecker):
-    def __init__(self, si: ob.SpaceInformation, voxel_grid: VoxelGrid, agent_dims: list) -> None:
+    def __init__(self, si: ob.SpaceInformation, voxel_grid: VoxelGrid) -> None:
         """
         Initialize the StateValidityChecker with a voxel grid for collision checking.
         """
         super().__init__(si)
 
         self.voxel_grid = voxel_grid
-        self.agent_radius = agent_dims[0] / 2
-        self.agent_height = agent_dims[1]
         self.padding = 1
 
         self.prev_state = None

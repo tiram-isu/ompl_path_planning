@@ -1,1 +1,0 @@
-2025-02-05 23:31:44,687 - ERROR - Error occurred for planner pRRT: name 'om' is not defined

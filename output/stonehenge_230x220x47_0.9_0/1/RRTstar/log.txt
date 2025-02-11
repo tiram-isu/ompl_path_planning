@@ -1,9 +1,0 @@
-2025-02-07 01:29:31,709 - INFO - Initialized RRTstar planner with range 0.1
-2025-02-07 01:29:31,751 - INFO - Start state [-0.33  0.1  -0.45] is invalid. Found new valid start state: (-0.3311038289490857, 0.09958053333627048, -0.4739693598045978)
-2025-02-07 01:29:31,808 - INFO - Goal state [ 0.22 -0.16 -0.45] is invalid. Found new valid goal state: (0.21980098821145777, -0.1613743800555659, -0.4739693598045978)
-2025-02-07 01:29:31,808 - INFO - Planning 1 paths with max time 5 seconds per path...
-2025-02-07 01:29:36,877 - INFO - Path 0 added. Length: 0.71 units. Duration: 5.07 seconds.
-2025-02-07 01:29:36,877 - INFO - Completed planning 1 paths in 5.07 seconds.
-2025-02-07 01:29:36,877 - INFO - Average path length: 0.71 units.
-2025-02-07 01:29:36,878 - INFO - Shortest path length: 0.71 units.
-2025-02-07 01:29:36,878 - INFO - Longest path length: 0.71 units.

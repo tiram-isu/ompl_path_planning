@@ -1,1 +1,0 @@
-2025-02-06 17:30:53,783 - ERROR - Error occurred for planner SPARSdb: name 'om' is not defined

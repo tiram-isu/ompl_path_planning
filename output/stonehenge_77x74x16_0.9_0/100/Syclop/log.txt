@@ -1,4 +1,0 @@
-2025-02-06 19:19:23,647 - ERROR - Error occurred for planner Syclop: Python argument types in
-    Syclop.__init__(Syclop, SpaceInformation)
-did not match C++ signature:
-    __init__(_object*, std::shared_ptr<ompl::control::SpaceInformation> si, std::shared_ptr<ompl::control::Decomposition> d, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > plannerName)

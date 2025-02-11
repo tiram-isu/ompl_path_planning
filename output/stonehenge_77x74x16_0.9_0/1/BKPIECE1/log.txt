@@ -1,7 +1,0 @@
-2025-02-06 13:31:30,260 - INFO - Initialized BKPIECE1 planner with range 0.1
-2025-02-06 13:31:30,260 - INFO - Planning 1 paths with max time 5 seconds per path...
-2025-02-06 13:31:30,335 - INFO - Path 0 added. Length: 0.92 units. Duration: 0.07 seconds.
-2025-02-06 13:31:30,335 - INFO - Completed planning 1 paths in 0.08 seconds.
-2025-02-06 13:31:30,336 - INFO - Average path length: 0.92 units.
-2025-02-06 13:31:30,336 - INFO - Shortest path length: 0.92 units.
-2025-02-06 13:31:30,336 - INFO - Longest path length: 0.92 units.

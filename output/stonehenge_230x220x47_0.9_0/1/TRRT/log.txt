@@ -1,9 +1,0 @@
-2025-02-07 01:30:39,581 - INFO - Initialized TRRT planner with range 0.1
-2025-02-07 01:30:39,621 - INFO - Start state [-0.33  0.1  -0.45] is invalid. Found new valid start state: (-0.3311038289490857, 0.09958053333627048, -0.4739693598045978)
-2025-02-07 01:30:39,674 - INFO - Goal state [ 0.22 -0.16 -0.45] is invalid. Found new valid goal state: (0.21980098821145777, -0.1613743800555659, -0.4739693598045978)
-2025-02-07 01:30:39,675 - INFO - Planning 1 paths with max time 5 seconds per path...
-2025-02-07 01:30:44,686 - INFO - Path 0 added. Length: 0.88 units. Duration: 5.01 seconds.
-2025-02-07 01:30:44,687 - INFO - Completed planning 1 paths in 5.01 seconds.
-2025-02-07 01:30:44,687 - INFO - Average path length: 0.88 units.
-2025-02-07 01:30:44,687 - INFO - Shortest path length: 0.88 units.
-2025-02-07 01:30:44,687 - INFO - Longest path length: 0.88 units.

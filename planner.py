@@ -174,6 +174,7 @@ class PathPlanningManager:
         path_settings: Dict,
         debugging_settings: Dict,
         nerfstudio_paths: Dict,
+        visualizer: Optional[Visualizer] = None
     ):
         self.model = model
         self.planners = planners
@@ -182,17 +183,7 @@ class PathPlanningManager:
         self.debugging_settings = debugging_settings
         self.nerfstudio_paths = nerfstudio_paths
 
-
-        self.visualizer = (
-            Visualizer(
-                debugging_settings['visualization_mesh'],
-                debugging_settings['enable_visualization'],
-                debugging_settings['save_screenshot'],
-                path_settings['camera_dims'],
-            )
-            if debugging_settings['enable_visualization'] or debugging_settings['save_screenshot']
-            else None
-        )
+        self.visualizer = visualizer
 
     def plan_paths_for_planner(
         self,
@@ -223,7 +214,7 @@ class PathPlanningManager:
 
             # Process and save paths
             paths_dir = f"/app/paths/{self.model['name']}/"
-            output_paths = path_utils.process_paths(
+            output_paths = path_utils.save_in_nerfstudio_format(
                 all_paths, paths_dir, planner, fps=30, distance=0.01
             )
 
@@ -254,7 +245,7 @@ class PathPlanningManager:
             logging.error(f"Error occurred for planner {planner}: {e}")
             return None
 
-    def run_planners_for_paths(self):
+    def run_planners(self):
         """
         Run multiple planners in parallel and handle visualization and logging as per settings.
         """
