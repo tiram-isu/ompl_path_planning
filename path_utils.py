@@ -4,34 +4,47 @@ import math
 import os
 from datetime import datetime
 
+def resample_path(path, distance=0.05):
+    """Resample the path to have more evenly spaced points for smoother animation."""
+    new_path = [path[0]]
+    accumulated_distance = 0.0
+
+    for i in range(1, len(path)):
+        start = np.array(path[i - 1])
+        end = np.array(path[i])
+        segment_length = np.linalg.norm(end - start)
+
+        while accumulated_distance + segment_length >= distance:
+            t = (distance - accumulated_distance) / segment_length
+            new_point = (1 - t) * start + t * end
+            new_path.append(new_point.tolist())
+            accumulated_distance = 0.0
+            start = new_point
+            segment_length = np.linalg.norm(end - start)
+
+        accumulated_distance += segment_length
+
+    return new_path
 
 def __calculate_rotation(from_point, to_point):
     """Calculate the quaternion for the camera to look at the next point, with Z as the up vector."""
     from_point = np.array(from_point)
     to_point = np.array(to_point)
 
-    # Calculate the forward vector (direction from from_point to to_point)
     forward = from_point - to_point
-    forward /= np.linalg.norm(forward)  # Normalize the vector
+    forward /= np.linalg.norm(forward)
 
-    # Define the Z-axis as the up vector
     up = np.array([0, 0, 1])
 
-    # Check if forward and up are collinear
-    if np.abs(np.dot(forward, up)) > 0.999:  # Close to 1 or -1
-        # Choose a different up vector to break collinearity
+    if np.abs(np.dot(forward, up)) > 0.999: 
         up = np.array([1, 0, 0])
 
-    # Compute the right, up, and forward vectors
     right = np.cross(up, forward)
-    right /= np.linalg.norm(right)  # Normalize the right vector
-
+    right /= np.linalg.norm(right)
     recalculated_up = np.cross(forward, right)
 
-    # Build the rotation matrix with the corrected basis
     rotation_matrix = np.array([right, recalculated_up, forward]).T
 
-    # Convert the rotation matrix to a quaternion
     trace = np.trace(rotation_matrix)
     if trace > 0:
         s = 2.0 * math.sqrt(trace + 1.0)
@@ -60,31 +73,7 @@ def __calculate_rotation(from_point, to_point):
 
     return [qw, qx, qy, qz]
 
-
-def resample_path(path, distance=0.05):
-    """Resample the path to have more evenly spaced points for smoother animation."""
-    new_path = [path[0]]
-    accumulated_distance = 0.0
-
-    for i in range(1, len(path)):
-        start = np.array(path[i - 1])
-        end = np.array(path[i])
-        segment_length = np.linalg.norm(end - start)
-
-        while accumulated_distance + segment_length >= distance:
-            t = (distance - accumulated_distance) / segment_length
-            new_point = (1 - t) * start + t * end
-            new_path.append(new_point.tolist())
-            accumulated_distance = 0.0
-            start = new_point
-            segment_length = np.linalg.norm(end - start)
-
-        accumulated_distance += segment_length
-
-    return new_path
-
-
-def __transform_to_nerfstudio_format(path, fps=30, distance=0.05):
+def __transform_to_nerfstudio_format(path, fps=30, distance=0.05):  #TODO: fix this
     """Transform a single path to Nerfstudio format with more keyframes."""
     resampled_path = resample_path(path, distance)
 
@@ -102,59 +91,42 @@ def __transform_to_nerfstudio_format(path, fps=30, distance=0.05):
         "camera_path": []
     }
 
-    previous_rotation = None  # Store the previous rotation
+    previous_rotation = None
 
     for i, point in enumerate(resampled_path):
-        # Calculate time per frame
-        time = i / fps
-
-        # Define camera_to_world matrix
         position = np.array(point)
         if i < len(resampled_path) - 1:
             next_position = np.array(resampled_path[i + 1])
-            # Calculate the quaternion rotation
             rotation = __calculate_rotation(position, next_position)
-            previous_rotation = rotation  # Update the previous rotation
+            previous_rotation = rotation 
         else:
-            # If this is the last point, retain the previous rotation
             rotation = previous_rotation
 
-        # Camera to world 4x4 matrix
         camera_to_world = np.eye(4)
-        camera_to_world[:3, 3] = position  # Set position
+        camera_to_world[:3, 3] = position
         camera_to_world[:3, :3] = np.array([
             [1 - 2 * (rotation[2]**2 + rotation[3]**2), 2 * (rotation[1] * rotation[2] - rotation[0] * rotation[3]), 2 * (rotation[1] * rotation[3] + rotation[0] * rotation[2])],
             [2 * (rotation[1] * rotation[2] + rotation[0] * rotation[3]), 1 - 2 * (rotation[1]**2 + rotation[3]**2), 2 * (rotation[2] * rotation[3] - rotation[0] * rotation[1])],
             [2 * (rotation[1] * rotation[3] - rotation[0] * rotation[2]), 2 * (rotation[2] * rotation[3] + rotation[0] * rotation[1]), 1 - 2 * (rotation[1]**2 + rotation[2]**2)]
-        ])  # Convert quaternion to rotation matrix
+        ]) 
 
-        # Flatten matrix for storage
         flattened_matrix = camera_to_world.flatten().tolist()
 
-        # Append to camera_path
         camera_path_data["camera_path"].append({
             "camera_to_world": flattened_matrix,
             "fov": 75.0,
-            "aspect": 16 / 9  # Default aspect ratio (16:9)
+            "aspect": 16 / 9
         })
 
-        # Append to keyframes
         camera_path_data["keyframes"].append({
             "matrix": flattened_matrix,
             "fov": 75.0,
-            "aspect": 1.5,  # Example aspect ratio (can be adjusted if needed)
+            "aspect": 1.5,
             "override_transition_enabled": False,
             "override_transition_sec": None
         })
 
     return camera_path_data
-
-
-def __save_to_json(data, output_path):
-    """Save the Nerfstudio-compatible data to a JSON file."""
-    with open(output_path, 'w') as f:
-        json.dump(data, f, indent=4)
-    print(f"Data saved to {output_path}")
 
 
 def save_in_nerfstudio_format(paths, output_dir, planner, fps=30, distance=0.1):
@@ -163,14 +135,12 @@ def save_in_nerfstudio_format(paths, output_dir, planner, fps=30, distance=0.1):
     
     os.makedirs(output_dir, exist_ok=True)
     
-    output_paths = []
     for _, path in enumerate(serializable_paths):
         nerfstudio_data = __transform_to_nerfstudio_format(path, fps=fps, distance=distance)
         formatted_date = datetime.now().strftime("%Y-%m-%d_%H-%M-%S-%f")[:-3]
         output_path = os.path.join(output_dir, f"{planner}_{formatted_date}.json")
-        __save_to_json(nerfstudio_data, output_path)
-        output_paths.append(output_path.replace("/app", "", 1))
-    
-    return output_paths
+        with open(output_path, 'w') as f:
+            json.dump(nerfstudio_data, f, indent=4)
+
 
 

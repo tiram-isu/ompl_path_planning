@@ -2,7 +2,7 @@ from voxel_grid import VoxelGrid
 import numpy as np
 # from planner import PathPlanningManager  # Import the new class
 from visualization import Visualizer
-from planner_new import PathPlanningManager
+from planner import PathPlanningManager
 
 if __name__ == "__main__":
     # Configuration

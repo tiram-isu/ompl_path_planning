@@ -1,8 +1,5 @@
 import open3d as o3d
 import numpy as np
-import matplotlib.pyplot as plt
-import logging
-import time
 from typing import List, Tuple
 from path_utils import resample_path
 
@@ -17,7 +14,7 @@ class Visualizer:
         self.enable_interactive_visualization = enable_interactive_visualization
         self.save_screenshot = save_screenshot
 
-    def visualize_paths(self, path_list: List['Path'], output_path: str=None):
+    def visualize_paths(self, path_list: List, output_path: str=None):
         vis = o3d.visualization.Visualizer()
 
         start_color = [0, 0, 1]

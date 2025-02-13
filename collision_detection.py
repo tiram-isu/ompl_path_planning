@@ -45,17 +45,14 @@ class StateValidityChecker(ob.StateValidityChecker):
         delta_y = y - prev_y
         delta_z = z - prev_z
 
-        # Horizontal distance in the x-y plane
         horizontal_distance = math.sqrt(delta_x**2 + delta_y**2)
 
         # Avoid division by zero
         if horizontal_distance == 0:
-            return False  # Vertical line; slope is undefined or infinite
+            return False
 
-        # Calculate slope in degrees
         slope_degrees = math.degrees(math.atan(abs(delta_z) / horizontal_distance))
 
-        # Return False if slope is greater than 45°, otherwise True
         return slope_degrees <= 45
 
         
