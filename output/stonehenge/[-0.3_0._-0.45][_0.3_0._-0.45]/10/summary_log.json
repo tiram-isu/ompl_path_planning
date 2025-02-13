@@ -1,0 +1,157 @@
+{
+    "model": {
+        "name": "stonehenge",
+        "start_point": [
+            -0.28,
+            0.12,
+            -0.45
+        ],
+        "goal_point": [
+            0.28,
+            -0.12,
+            -0.45
+        ],
+        "max_time_per_path": 5,
+        "num_paths": 10
+    },
+    "planners": {
+        "PDST": {
+            "status": "Successful",
+            "num_paths_found": 10,
+            "success_rate": 100.0,
+            "length_stats": {
+                "average": 0.7608,
+                "min": 0.5982,
+                "max": 1.2932,
+                "std_dev": 0.20994343047592604
+            },
+            "duration_stats": {
+                "average": 0.09007000000000001,
+                "min": 0.0217,
+                "max": 0.1286,
+                "std_dev": 0.040763293537200845
+            },
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.704,
+                    "duration": 0.1286
+                },
+                {
+                    "id": 1,
+                    "length": 0.6047,
+                    "duration": 0.0472
+                },
+                {
+                    "id": 2,
+                    "length": 0.5982,
+                    "duration": 0.0264
+                },
+                {
+                    "id": 3,
+                    "length": 0.8392,
+                    "duration": 0.1277
+                },
+                {
+                    "id": 4,
+                    "length": 0.6599,
+                    "duration": 0.1279
+                },
+                {
+                    "id": 5,
+                    "length": 1.2932,
+                    "duration": 0.0931
+                },
+                {
+                    "id": 6,
+                    "length": 0.5985,
+                    "duration": 0.1269
+                },
+                {
+                    "id": 7,
+                    "length": 0.7317,
+                    "duration": 0.1087
+                },
+                {
+                    "id": 8,
+                    "length": 0.9598,
+                    "duration": 0.0925
+                },
+                {
+                    "id": 9,
+                    "length": 0.6188,
+                    "duration": 0.0217
+                }
+            ]
+        },
+        "PRM": {
+            "status": "Successful",
+            "num_paths_found": 10,
+            "success_rate": 100.0,
+            "length_stats": {
+                "average": 0.67633,
+                "min": 0.6096,
+                "max": 0.8519,
+                "std_dev": 0.07082153697852087
+            },
+            "duration_stats": {
+                "average": 0.12977,
+                "min": 0.1035,
+                "max": 0.2545,
+                "std_dev": 0.045992913584594744
+            },
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.7144,
+                    "duration": 0.1065
+                },
+                {
+                    "id": 1,
+                    "length": 0.6096,
+                    "duration": 0.1556
+                },
+                {
+                    "id": 2,
+                    "length": 0.8519,
+                    "duration": 0.1055
+                },
+                {
+                    "id": 3,
+                    "length": 0.6114,
+                    "duration": 0.1537
+                },
+                {
+                    "id": 4,
+                    "length": 0.6812,
+                    "duration": 0.1055
+                },
+                {
+                    "id": 5,
+                    "length": 0.691,
+                    "duration": 0.1045
+                },
+                {
+                    "id": 6,
+                    "length": 0.6261,
+                    "duration": 0.1035
+                },
+                {
+                    "id": 7,
+                    "length": 0.6439,
+                    "duration": 0.1045
+                },
+                {
+                    "id": 8,
+                    "length": 0.6158,
+                    "duration": 0.1039
+                },
+                {
+                    "id": 9,
+                    "length": 0.718,
+                    "duration": 0.2545
+                }
+            ]
+        }
+    }
+}

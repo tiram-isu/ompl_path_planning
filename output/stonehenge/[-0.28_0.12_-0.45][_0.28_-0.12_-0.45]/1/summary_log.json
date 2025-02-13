@@ -1,0 +1,67 @@
+{
+    "model": {
+        "name": "stonehenge",
+        "start_point": [
+            -0.28,
+            0.12,
+            -0.45
+        ],
+        "goal_point": [
+            0.28,
+            -0.12,
+            -0.45
+        ],
+        "max_time_per_path": 5,
+        "num_paths": 1
+    },
+    "planners": {
+        "PDST": {
+            "status": "Successful",
+            "num_paths_found": 1,
+            "success_rate": 100.0,
+            "length_stats": {
+                "average": 0.8717,
+                "min": 0.8717,
+                "max": 0.8717,
+                "std_dev": 0.0
+            },
+            "duration_stats": {
+                "average": 0.0277,
+                "min": 0.0277,
+                "max": 0.0277,
+                "std_dev": 0.0
+            },
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.8717,
+                    "duration": 0.0277
+                }
+            ]
+        },
+        "PRM": {
+            "status": "Successful",
+            "num_paths_found": 1,
+            "success_rate": 100.0,
+            "length_stats": {
+                "average": 0.8737,
+                "min": 0.8737,
+                "max": 0.8737,
+                "std_dev": 0.0
+            },
+            "duration_stats": {
+                "average": 0.3105,
+                "min": 0.3105,
+                "max": 0.3105,
+                "std_dev": 0.0
+            },
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.8737,
+                    "duration": 0.3105
+                }
+            ]
+        }
+    }
+}

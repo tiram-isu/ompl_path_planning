@@ -11,6 +11,7 @@ from multiprocessing import Process
 from visualization import Visualizer
 import log_utils
 import path_utils
+import re
 
 class PathPlanner:
     def __init__(
@@ -26,8 +27,8 @@ class PathPlanner:
 
         self.rvss = self.__init_state_space()
         self.si = ob.SpaceInformation(self.rvss)
-        self.si.setup()
         self.validity_checker = self.__init_validity_checker(planner_settings["state_validity_resolution"])
+        self.si.setup()
 
         self.planner = self.__init_planner(planner_name, planner_settings["planner_range"])
         self.path_simplifier = og.PathSimplifier(self.si)
@@ -84,6 +85,13 @@ class PathPlanner:
 
         return start_state, goal_state
 
+    def __is_distance_within_threshold(self, state1, state2):
+        threshold = 0.001
+        for i in range(3):
+            if abs(state1[i] - state2[i]) > threshold:
+                return False
+        return True
+
     def __plan_path(self, start_state: ob.State, goal_state: ob.State, max_time: float, max_smoothing_steps):
         self.validity_checker.set_prev_state(None)
         self.planner.clear()
@@ -92,16 +100,16 @@ class PathPlanner:
         pdef.setStartAndGoalStates(start_state, goal_state)
         self.planner.setProblemDefinition(pdef)
 
-        self.planner.setup()
-
         if self.planner.solve(max_time):
             path = pdef.getSolutionPath()
 
-            self.path_simplifier.reduceVertices(path)
-            self.path_simplifier.shortcutPath(path)
-            self.path_simplifier.smoothBSpline(path, max_smoothing_steps)
+            # Check if last state is goal state, since OMPL sometimes returns paths that never reach the goal
+            if self.__is_distance_within_threshold(goal_state, path.getStates()[-1]):
+                self.path_simplifier.reduceVertices(path)
+                self.path_simplifier.shortcutPath(path)
+                self.path_simplifier.smoothBSpline(path, max_smoothing_steps)
 
-            return path
+                return path
         return None
 
     def plan_and_log_paths(self, num_paths: int, start_and_end_pair: tuple, max_time: float, max_smoothing_steps: int):
@@ -128,15 +136,9 @@ class PathPlanner:
                 path_length = path.length()
                 path_lengths.append(path_length)
 
-                logging.info(f"Path {i} added. Length: {path_length:.2f} units. Duration: {path_duration:.2f} seconds.")
+                logging.info(f"Path {i} added. Length: {path_length:.4f} units. Duration: {path_duration:.4f} seconds.")
             else:
                 logging.error(f"No solution found for attempt {i}.")
-
-        if all_paths:
-            average_length = sum(path_lengths) / len(path_lengths)
-            logging.info(f"Average path length: {average_length:.2f} units.")
-            logging.info(f"Shortest path length: {min(path_lengths):.2f} units.")
-            logging.info(f"Longest path length: {max(path_lengths):.2f} units.\n")
 
         paths_dir = f"/app/paths/{self.model_name}/"
         path_utils.save_in_nerfstudio_format(
@@ -162,27 +164,41 @@ class PathPlanningManager:
         self.nerfstudio_paths = nerfstudio_paths
         self.visualizer = visualizer
         self.enable_logging = debugging_settings["enable_logging"]
+        self.max_time_per_path = path_settings["max_time_per_path"]
+        self.max_smoothing_steps = path_settings["max_smoothing_steps"]
 
     def run_planners(self):
+        processes = []
+        log_roots = []
+
         for planner_name in self.planner_settings["planners"]:
             planner = self.__init_planner(planner_name)
-            max_time_per_path = self.path_settings["max_time_per_path"]
-            max_smoothing_steps = self.path_settings["max_smoothing_steps"]
 
-            for num_paths in self.path_settings["num_paths"]:
-                for coordinate_pair in self.path_settings["start_and_end_pairs"]:
+            for coordinate_pair in self.path_settings["start_and_end_pairs"]:
+                for num_paths in self.path_settings["num_paths"]:
                     log_root = f"/app/output/{self.model['name']}/{coordinate_pair[0]}{coordinate_pair[1]}/{num_paths}/{planner_name}"
+                    log_root = re.sub(r'\s+', '_', log_root)
                     log_utils.setup_logging(log_root, self.enable_logging)
-                    process = Process(target=planner.plan_and_log_paths, args=(num_paths, coordinate_pair, max_time_per_path, max_smoothing_steps))
+
+                    process = Process(target=planner.plan_and_log_paths, args=(num_paths, coordinate_pair, self.max_time_per_path, self.max_smoothing_steps))
                     process.start()
 
-                    self.__handle_timeout(self.path_settings["max_time_per_path"], process, planner_name)
+                    processes.append(process)
+                    log_roots.append(log_root)
 
-    # def __create_summary_and_plots(self):
+                    self.__handle_timeout(self.max_time_per_path, process, planner_name)
 
-        
+        # Wait for all processes to finish
+        for process in processes:
+            process.join()
 
-    # def __visualize_paths(self):
+        if self.enable_logging:
+            for log_root in log_roots:
+                log_utils.generate_summary_log(log_root, self.model['name'], self.max_time_per_path, coordinate_pair)
+
+            # for coordinate_pair in self.path_settings["start_and_end_pairs"]:
+            #     root_dir = f"/app/output/{self.model['name']}/{coordinate_pair[0]}{coordinate_pair[1]}"
+            #     log_utils.test(root_dir, self.planner_settings["planners"])
 
     def __init_planner(self, planner_name):
         planner =  PathPlanner(

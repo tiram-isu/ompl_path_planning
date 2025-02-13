@@ -1,0 +1,13 @@
+2025-02-13 00:22:07,319 - INFO - Start state [-0.3   0.   -0.45] is invalid. Found new valid start state: (-0.302108838572215, -0.004801432020464069, -0.4623713636538495)
+2025-02-13 00:22:07,320 - INFO - Goal state [ 0.3   0.   -0.45] is invalid. Found new valid goal state: (0.29518796319132157, -0.004801432020464069, -0.4623713636538495)
+2025-02-13 00:22:07,320 - INFO - Planning 10 paths with max time 5 seconds per path...
+2025-02-13 00:22:07,427 - INFO - Path 0 added. Length: 0.7144 units. Duration: 0.1065 seconds.
+2025-02-13 00:22:07,583 - INFO - Path 1 added. Length: 0.6096 units. Duration: 0.1556 seconds.
+2025-02-13 00:22:07,689 - INFO - Path 2 added. Length: 0.8519 units. Duration: 0.1055 seconds.
+2025-02-13 00:22:07,842 - INFO - Path 3 added. Length: 0.6114 units. Duration: 0.1537 seconds.
+2025-02-13 00:22:07,948 - INFO - Path 4 added. Length: 0.6812 units. Duration: 0.1055 seconds.
+2025-02-13 00:22:08,053 - INFO - Path 5 added. Length: 0.6910 units. Duration: 0.1045 seconds.
+2025-02-13 00:22:08,156 - INFO - Path 6 added. Length: 0.6261 units. Duration: 0.1035 seconds.
+2025-02-13 00:22:08,261 - INFO - Path 7 added. Length: 0.6439 units. Duration: 0.1045 seconds.
+2025-02-13 00:22:08,365 - INFO - Path 8 added. Length: 0.6158 units. Duration: 0.1039 seconds.
+2025-02-13 00:22:08,620 - INFO - Path 9 added. Length: 0.7180 units. Duration: 0.2545 seconds.
