@@ -233,7 +233,7 @@ class PathPlanningManager:
 
             # Optionally visualize paths
             if self.visualizer:
-                self.visualizer.visualize_o3d(
+                self.visualizer.visualize_paths(
                     output_path,
                     all_paths,
                     self.path_settings['start'],

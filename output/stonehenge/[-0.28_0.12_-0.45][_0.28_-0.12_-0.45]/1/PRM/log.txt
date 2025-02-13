@@ -1,6 +1,0 @@
-2025-02-13 20:37:06,688 - INFO - Start state [-0.28  0.12 -0.45] is invalid. Found new valid start state: (-0.28471184434609254, 0.11697752756239288, -0.45657236557847536)
-2025-02-13 20:37:06,691 - INFO - Goal state [ 0.28 -0.12 -0.45] is invalid. Found new valid goal state: (0.27199197088982496, -0.11498239545257277, -0.4623713636538495)
-2025-02-13 20:37:06,691 - INFO - Planning 1 paths with max time 5 seconds per path...
-2025-02-13 20:37:06,855 - INFO - Path 0 added. Length: 0.8134 units. Duration: 0.1637 seconds.
-2025-02-13 20:37:06,886 - INFO - Initialized planner <ompl.geometric._geometric.PDST object at 0x7f2e7c9b8cb0> with range 0.1
-2025-02-13 20:37:06,886 - INFO - Initialized planner PDST

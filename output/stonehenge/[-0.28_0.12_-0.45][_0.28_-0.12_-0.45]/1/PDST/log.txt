@@ -1,6 +1,0 @@
-2025-02-13 20:37:06,973 - INFO - Start state [-0.28  0.12 -0.45] is invalid. Found new valid start state: (-0.28471184434609254, 0.11697752756239288, -0.45657236557847536)
-2025-02-13 20:37:06,976 - INFO - Goal state [ 0.28 -0.12 -0.45] is invalid. Found new valid goal state: (0.27199197088982496, -0.11498239545257277, -0.4623713636538495)
-2025-02-13 20:37:06,976 - INFO - Planning 1 paths with max time 5 seconds per path...
-2025-02-13 20:37:07,030 - INFO - Path 0 added. Length: 0.6411 units. Duration: 0.0534 seconds.
-2025-02-13 20:37:07,057 - INFO - Initialized planner <ompl.geometric._geometric.BITstar object at 0x7f2e7c9b8c30> with range 0.1
-2025-02-13 20:37:07,057 - INFO - Initialized planner BITstar

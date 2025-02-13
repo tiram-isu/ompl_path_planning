@@ -61,7 +61,7 @@ def __calculate_rotation(from_point, to_point):
     return [qw, qx, qy, qz]
 
 
-def __resample_path(path, distance=0.05):
+def resample_path(path, distance=0.05):
     """Resample the path to have more evenly spaced points for smoother animation."""
     new_path = [path[0]]
     accumulated_distance = 0.0
@@ -86,7 +86,7 @@ def __resample_path(path, distance=0.05):
 
 def __transform_to_nerfstudio_format(path, fps=30, distance=0.05):
     """Transform a single path to Nerfstudio format with more keyframes."""
-    resampled_path = __resample_path(path, distance)
+    resampled_path = resample_path(path, distance)
 
     camera_path_data = {
         "default_fov": 75.0,

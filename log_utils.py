@@ -65,18 +65,23 @@ def __parse_log_file(log_file_path: str) -> Dict[str, Any]:
     return result
 
 
-def generate_summary_log(log_dir, model_name, max_time_per_path, coordinate_pair):
+def generate_summary_log(log_dir, model_name, max_time_per_path):
     "Generates a log file summarizing the results of all planners for a given model, start and end points, and number of paths."
 
     root_dir = Path(log_dir).parent
     summary_json_path = root_dir / "summary_log.json"
 
+    coordinate_pair = [
+    [float(x) if x else 0.0 for x in m.split("_") if x]
+    for m in re.findall(r"\[([^\]]+)\]", str(root_dir))
+]
+    
     # Initialize summary dictionary
     summary_data = {
         "model": {
             "name": model_name,
-            "start_point": coordinate_pair[0].tolist(),
-            "goal_point": coordinate_pair[1].tolist(),
+            "start_point": coordinate_pair[0],
+            "goal_point": coordinate_pair[1],
             "max_time_per_path": max_time_per_path,
             "num_paths": int(os.path.basename(root_dir))
         },

@@ -1,4 +1,0 @@
-2025-02-13 20:37:17,214 - INFO - Start state [-0.3   0.   -0.45] is invalid. Found new valid start state: (-0.302108838572215, -0.004801432020464069, -0.4623713636538495)
-2025-02-13 20:37:17,215 - INFO - Goal state [ 0.3   0.   -0.45] is invalid. Found new valid goal state: (0.29518796319132157, -0.004801432020464069, -0.4623713636538495)
-2025-02-13 20:37:17,216 - INFO - Planning 1 paths with max time 5 seconds per path...
-2025-02-13 20:37:22,230 - INFO - Path 0 added. Length: 0.5981 units. Duration: 5.0140 seconds.

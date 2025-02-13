@@ -145,6 +145,8 @@ class PathPlanner:
                 all_paths, paths_dir, self.planner_name, fps=30, distance=0.01
             )
         
+        return all_paths
+        
 
 class PathPlanningManager:
     def __init__(
@@ -166,6 +168,7 @@ class PathPlanningManager:
         self.enable_logging = debugging_settings["enable_logging"]
         self.max_time_per_path = path_settings["max_time_per_path"]
         self.max_smoothing_steps = path_settings["max_smoothing_steps"]
+        self.enable_visualization = debugging_settings["enable_visualization"]
 
     def run_planners(self):
         processes = []
@@ -180,28 +183,36 @@ class PathPlanningManager:
                     log_root = re.sub(r'\s+', '_', log_root)
                     log_utils.setup_logging(log_root, self.enable_logging)
 
-                    process = Process(target=planner.plan_and_log_paths, args=(num_paths, coordinate_pair, self.max_time_per_path, self.max_smoothing_steps))
+                    process = Process(target=self.__plan_and_visualize_paths, args=(planner, num_paths, coordinate_pair, self.max_time_per_path, self.max_smoothing_steps))
                     process.start()
 
                     processes.append(process)
                     log_roots.append(log_root)
 
-                    self.__handle_timeout(self.max_time_per_path * num_paths * 1.2, process, planner_name)
+                    if not self.enable_visualization:
+                        self.__handle_timeout(self.max_time_per_path * num_paths * 1.2, process, planner_name)
 
         # Wait for all processes to finish
         for process in processes:
             process.join()
 
         if self.enable_logging:
-            # TODO: fix issue with plots dir
-            for log_root in log_roots:
-                log_utils.generate_summary_log(log_root, self.model['name'], self.max_time_per_path, coordinate_pair)
+            self.__create_logs_and_plots(log_roots)
 
-            for coordinate_pair in self.path_settings["start_and_end_pairs"]:
-                for num_paths in self.path_settings["num_paths"]:
-                    root_dir = f"/app/output/{self.model['name']}/{coordinate_pair[0]}{coordinate_pair[1]}/{num_paths}"
-                    root_dir = re.sub(r'\s+', '_', root_dir)
-                    log_utils.create_boxplots(root_dir)
+    def __plan_and_visualize_paths(self, planner, num_paths, coordinate_pair, max_time_per_path, max_smoothing_steps):
+        paths = planner.plan_and_log_paths(num_paths, coordinate_pair, max_time_per_path, max_smoothing_steps)
+        if self.visualizer:
+            self.visualizer.visualize_paths(paths)
+                    
+    def __create_logs_and_plots(self, log_roots):
+        for log_root in log_roots:
+            log_utils.generate_summary_log(log_root, self.model['name'], self.max_time_per_path)
+
+        for coordinate_pair in self.path_settings["start_and_end_pairs"]:
+            for num_paths in self.path_settings["num_paths"]:
+                root_dir = f"/app/output/{self.model['name']}/{coordinate_pair[0]}{coordinate_pair[1]}/{num_paths}"
+                root_dir = re.sub(r'\s+', '_', root_dir)
+                log_utils.create_boxplots(root_dir)
 
     def __init_planner(self, planner_name):
         planner =  PathPlanner(

@@ -12,7 +12,7 @@ if __name__ == "__main__":
         'RRTConnect', 'RRTstar', 'RRTXstatic', 'RRT', 'SBL', 
         'STRIDE', 'TRRT']
 
-    planners = ['PRM', 'PDST','BITstar', 'RRTstar']
+    planners = ['PRM']
     model_name = "stonehenge"
     voxel_grid = VoxelGrid.from_saved_files("/app/voxel_models/stonehenge/voxels_115x110x24_0.9_0/ground/")
     visualization_mesh_path = "/app/voxel_models/stonehenge/voxels_115x110x24_0.9_0/voxels.ply"
@@ -22,7 +22,7 @@ if __name__ == "__main__":
 
     start_end_pairs = [
         (np.array([-0.30, 0, -0.45]), np.array([0.30, 0, -0.45])),
-        (np.array([-0.28, 0.12, -0.45]), np.array([0.28, -0.12, -0.45]))
+        # (np.array([-0.28, 0.12, -0.45]), np.array([0.28, -0.12, -0.45]))
     ]
 
     planner_settings = {
@@ -32,15 +32,15 @@ if __name__ == "__main__":
     }
 
     path_settings = {
-        "num_paths": [10],
+        "num_paths": [2],
         "start_and_end_pairs": start_end_pairs,
         "max_time_per_path": 5,
         "max_smoothing_steps": 1,
     }
 
     debugging_settings = {
-        "enable_visualization": True,
-        "save_screenshot": True,
+        "enable_visualization": True, # TODO: rename
+        "save_screenshot": False,
         "visualization_mesh": visualization_mesh_path,
         "enable_logging": True,
         "render_nerfstudio_video": False,
@@ -55,7 +55,7 @@ if __name__ == "__main__":
         "output_dir": "renders/",
     }
 
-    # visualizer = Visualizer(visualization_mesh_path, debugging_settings["enable_visualization"], debugging_settings["save_screenshot"], path_settings["camera_dims"])
+    visualizer = Visualizer(visualization_mesh_path, debugging_settings["enable_visualization"], debugging_settings["save_screenshot"])
 
     # Initialize the manager and run planners
     manager = PathPlanningManager(
@@ -64,6 +64,6 @@ if __name__ == "__main__":
         path_settings,
         debugging_settings,
         nerfstudio_paths,
-        # visualizer
+        visualizer
     )
     manager.run_planners()
