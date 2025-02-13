@@ -15,27 +15,75 @@
         "num_paths": 1
     },
     "planners": {
-        "PDST": {
+        "BITstar": {
             "status": "Successful",
             "num_paths_found": 1,
             "success_rate": 100.0,
             "length_stats": {
-                "average": 0.8717,
-                "min": 0.8717,
-                "max": 0.8717,
+                "average": 0.6375,
+                "min": 0.6375,
+                "max": 0.6375,
                 "std_dev": 0.0
             },
             "duration_stats": {
-                "average": 0.0277,
-                "min": 0.0277,
-                "max": 0.0277,
+                "average": 5.0464,
+                "min": 5.0464,
+                "max": 5.0464,
                 "std_dev": 0.0
             },
             "paths": [
                 {
                     "id": 0,
-                    "length": 0.8717,
-                    "duration": 0.0277
+                    "length": 0.6375,
+                    "duration": 5.0464
+                }
+            ]
+        },
+        "PDST": {
+            "status": "Successful",
+            "num_paths_found": 1,
+            "success_rate": 100.0,
+            "length_stats": {
+                "average": 0.6411,
+                "min": 0.6411,
+                "max": 0.6411,
+                "std_dev": 0.0
+            },
+            "duration_stats": {
+                "average": 0.0534,
+                "min": 0.0534,
+                "max": 0.0534,
+                "std_dev": 0.0
+            },
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.6411,
+                    "duration": 0.0534
+                }
+            ]
+        },
+        "RRTstar": {
+            "status": "Successful",
+            "num_paths_found": 1,
+            "success_rate": 100.0,
+            "length_stats": {
+                "average": 0.639,
+                "min": 0.639,
+                "max": 0.639,
+                "std_dev": 0.0
+            },
+            "duration_stats": {
+                "average": 5.0132,
+                "min": 5.0132,
+                "max": 5.0132,
+                "std_dev": 0.0
+            },
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 0.639,
+                    "duration": 5.0132
                 }
             ]
         },
@@ -44,22 +92,22 @@
             "num_paths_found": 1,
             "success_rate": 100.0,
             "length_stats": {
-                "average": 0.8737,
-                "min": 0.8737,
-                "max": 0.8737,
+                "average": 0.8134,
+                "min": 0.8134,
+                "max": 0.8134,
                 "std_dev": 0.0
             },
             "duration_stats": {
-                "average": 0.3105,
-                "min": 0.3105,
-                "max": 0.3105,
+                "average": 0.1637,
+                "min": 0.1637,
+                "max": 0.1637,
                 "std_dev": 0.0
             },
             "paths": [
                 {
                     "id": 0,
-                    "length": 0.8737,
-                    "duration": 0.3105
+                    "length": 0.8134,
+                    "duration": 0.1637
                 }
             ]
         }

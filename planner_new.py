@@ -186,19 +186,22 @@ class PathPlanningManager:
                     processes.append(process)
                     log_roots.append(log_root)
 
-                    self.__handle_timeout(self.max_time_per_path, process, planner_name)
+                    self.__handle_timeout(self.max_time_per_path * num_paths * 1.2, process, planner_name)
 
         # Wait for all processes to finish
         for process in processes:
             process.join()
 
         if self.enable_logging:
+            # TODO: fix issue with plots dir
             for log_root in log_roots:
                 log_utils.generate_summary_log(log_root, self.model['name'], self.max_time_per_path, coordinate_pair)
 
-            # for coordinate_pair in self.path_settings["start_and_end_pairs"]:
-            #     root_dir = f"/app/output/{self.model['name']}/{coordinate_pair[0]}{coordinate_pair[1]}"
-            #     log_utils.test(root_dir, self.planner_settings["planners"])
+            for coordinate_pair in self.path_settings["start_and_end_pairs"]:
+                for num_paths in self.path_settings["num_paths"]:
+                    root_dir = f"/app/output/{self.model['name']}/{coordinate_pair[0]}{coordinate_pair[1]}/{num_paths}"
+                    root_dir = re.sub(r'\s+', '_', root_dir)
+                    log_utils.create_boxplots(root_dir)
 
     def __init_planner(self, planner_name):
         planner =  PathPlanner(

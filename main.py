@@ -12,7 +12,7 @@ if __name__ == "__main__":
         'RRTConnect', 'RRTstar', 'RRTXstatic', 'RRT', 'SBL', 
         'STRIDE', 'TRRT']
 
-    planners = ['PRM', 'PDST']
+    planners = ['PRM', 'PDST','BITstar', 'RRTstar']
     model_name = "stonehenge"
     voxel_grid = VoxelGrid.from_saved_files("/app/voxel_models/stonehenge/voxels_115x110x24_0.9_0/ground/")
     visualization_mesh_path = "/app/voxel_models/stonehenge/voxels_115x110x24_0.9_0/voxels.ply"
@@ -32,7 +32,7 @@ if __name__ == "__main__":
     }
 
     path_settings = {
-        "num_paths": [1, 10],
+        "num_paths": [10],
         "start_and_end_pairs": start_end_pairs,
         "max_time_per_path": 5,
         "max_smoothing_steps": 1,

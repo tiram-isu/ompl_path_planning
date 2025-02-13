@@ -9,6 +9,8 @@ import random
 import matplotlib.pyplot as plt
 from typing import Dict, Any, List, Tuple
 from pathlib import Path
+import math
+
 
 def setup_logging(output_path: str, enable_logging: bool) -> None:
     """
@@ -32,6 +34,7 @@ def setup_logging(output_path: str, enable_logging: bool) -> None:
         # Disable logging
         logging.disable(logging.CRITICAL)
 
+
 def __parse_log_file(log_file_path: str) -> Dict[str, Any]:
     result = {
         'success': False,
@@ -46,11 +49,13 @@ def __parse_log_file(log_file_path: str) -> Dict[str, Any]:
                 if "ERROR" in line:
                     result['error_message'] = line.strip().split(" - ")[-1]
                 elif "Path" in line and "added" in line:
-                    length = float(re.search(r'Length: (\d+\.\d+)', line).group(1))
+                    length = float(
+                        re.search(r'Length: (\d+\.\d+)', line).group(1))
                     if length == 0:
                         result['error_message'] = "Path length is 0."
                         continue
-                    duration = float(re.search(r'Duration: (\d+\.\d+)', line).group(1))
+                    duration = float(
+                        re.search(r'Duration: (\d+\.\d+)', line).group(1))
                     result['path_lengths'].append(length)
                     result['path_durations'].append(duration)
                     result['num_paths_found'] += 1
@@ -58,6 +63,7 @@ def __parse_log_file(log_file_path: str) -> Dict[str, Any]:
     except (FileNotFoundError, ValueError, AttributeError) as e:
         print(f"Failed to parse log file {log_file_path}: {e}")
     return result
+
 
 def generate_summary_log(log_dir, model_name, max_time_per_path, coordinate_pair):
     "Generates a log file summarizing the results of all planners for a given model, start and end points, and number of paths."
@@ -78,7 +84,8 @@ def generate_summary_log(log_dir, model_name, max_time_per_path, coordinate_pair
     }
 
     # Get planner directories efficiently
-    planners = [p for p in root_dir.iterdir() if p.is_dir()]
+    planners = [p for p in root_dir.iterdir() if p.is_dir()
+                and p.name != "plots"]
 
     # Gather data for each planner
     for planner_path in planners:
@@ -93,22 +100,22 @@ def generate_summary_log(log_dir, model_name, max_time_per_path, coordinate_pair
                 "status": "Successful",
                 "num_paths_found": result["num_paths_found"],
                 "success_rate": result["num_paths_found"] / summary_data["model"]["num_paths"] * 100,
-                    "length_stats": {
-                        "average": path_lengths.mean(),
-                        "min": path_lengths.min(),
-                        "max": path_lengths.max(),
-                        "std_dev": path_lengths.std()
-                    },
-                    "duration_stats": {
-                        "average": path_durations.mean(),
-                        "min": path_durations.min(),
-                        "max": path_durations.max(),
-                        "std_dev": path_durations.std()
-                    },
-                    "paths": [
-                            {"id": i, "length": length, "duration": duration}
-                            for i, (length, duration) in enumerate(zip(path_lengths, path_durations))
-                        ],
+                "length_stats": {
+                    "average": path_lengths.mean(),
+                    "min": path_lengths.min(),
+                    "max": path_lengths.max(),
+                    "std_dev": path_lengths.std()
+                },
+                "duration_stats": {
+                    "average": path_durations.mean(),
+                    "min": path_durations.min(),
+                    "max": path_durations.max(),
+                    "std_dev": path_durations.std()
+                },
+                "paths": [
+                    {"id": i, "length": length, "duration": duration}
+                    for i, (length, duration) in enumerate(zip(path_lengths, path_durations))
+                ],
             }
         else:
             planner_data = {
@@ -120,166 +127,207 @@ def generate_summary_log(log_dir, model_name, max_time_per_path, coordinate_pair
 
     summary_json_path.write_text(json.dumps(summary_data, indent=4))
 
-def __get_unique_color(planner: str, num_planners: int) -> Tuple[float, float, float]:
-        """
-        Generate a unique color for each planner based on the planner name.
-        """
-        hash_value = int(hashlib.md5(planner.encode()).hexdigest(), 16)
-        random.seed(hash_value)
-        hue = (hash_value % 360) / 360  # Ensure hue is between 0 and 1
-        hue += (hash_value % num_planners) / num_planners
-        hue = hue % 1
-        saturation = random.uniform(0.3, 0.6)  # Random saturation between 0.3 and 0.6
-        lightness = random.uniform(0.4, 0.7)   # Random lightness between 0.4 and 0.7
-        rgb = colorsys.hls_to_rgb(hue, lightness, saturation)
-        return rgb
 
-def __create_plot_summary(root_dir, num_paths, planners, planner_color_map, y_data, y_label, plot_title, save_path):
-    """
-    Creates a scatter plot for the given y_data (either average_path_length or average_time_per_path).
-    """
-    plt.figure(figsize=(19.20, 10.80))
-    for num_path in num_paths:
-        for planner in planners:
-            with open(f"{root_dir}/{num_path}/summary_log.json", 'r') as file:
-                planner_data = json.load(file)
-            
-            value = planner_data["planners"][planner][y_data]
+def __get_unique_color(planner, num_planners):
+    hash_value = int(hashlib.md5(planner.encode()).hexdigest(), 16)
+    index = hash_value % num_planners
+    hue_offset = 0.1
+    hue = (index / num_planners + hue_offset) % 1
 
-            plt.scatter(num_path, value, color=planner_color_map[planner])
-            plt.annotate(planner, 
-                         (num_path, value), 
-                         textcoords="offset points", 
-                         xytext=(5, 0),  
-                         ha='left',  
-                         fontsize=9)
+    if 0.2 < hue < 0.4:
+        hue += 0.3
+        hue %= 1
+
+    random.seed(hash_value)
+    saturation = random.uniform(0.5, 0.8)
+    lightness = random.uniform(0.4, 0.7)
+
+    return colorsys.hls_to_rgb(hue, lightness, saturation)
+
+
+def create_boxplots(root_dir):
+    non_optimizing_planners_order = ["RRT", "LazyRRT", "RRTConnect", "TRRT", "PDST", "SBL", "STRIDE", "EST", "BiEST", "ProjEST",
+                                     "KPIECE1", "BKPIECE1", "LBKPIECE1", "PRM", "LazyPRM"]
+    optimizing_planners_order = [
+        "RRTstar", "RRTXstatic", "LBTRRT", "LazyLBTRRT", "BITstar"]
+
+    planner_name_map = {
+        "TRRT": "T-RRT",
+        "RRTstar": "RRT*",
+        "RRT*": "RRT*",
+        "RRTXstatic": "RRTX",
+        "BITstar": "BIT*"
+    }
+
+    with open(root_dir + "/summary_log.json", 'r') as file:
+        summary_data = json.load(file)
+
+    non_optimizing_planners, optimizing_planners, path_lengths, computation_times = [], [], [], []
+    for planner_name in non_optimizing_planners_order + optimizing_planners_order:
+        if planner_name in summary_data['planners'] and summary_data['planners'][planner_name]['status'] == "Successful":
+            if planner_name in non_optimizing_planners_order:
+                non_optimizing_planners.append(planner_name)
+            else:
+                optimizing_planners.append(planner_name)
+            path_lengths.append(
+                [path['length'] for path in summary_data['planners'][planner_name]['paths']])
+            computation_times.append(
+                [path['duration'] for path in summary_data['planners'][planner_name]['paths']])
+
+    planners = non_optimizing_planners + optimizing_planners
+    updated_planners = [planner_name_map.get(
+        planner, planner) for planner in planners]
+    colors = [__get_unique_color(planner, len(planners))
+              for planner in planners]
+
+    output_dir = root_dir + "/plots"
+    os.makedirs(output_dir, exist_ok=True)
+
+    fig_lengths = __create_boxplot_path_lengths(
+        non_optimizing_planners, optimizing_planners, path_lengths, colors, updated_planners)
+    fig_lengths.savefig(output_dir + "/boxplot_path_lengths.png")
+
+    fig_times = __create_boxplot_computation_times(
+        non_optimizing_planners, optimizing_planners, computation_times, colors, updated_planners)
+    fig_times.savefig(output_dir + "/boxplot_computation_times.png")
+
+
+def __create_boxplot_path_lengths(non_optimizing_planners, optimizing_planners, path_lengths, colors, updated_planners):
+    fig, ax = plt.subplots(figsize=(19.20, 10.80))
+    bplot = ax.boxplot(path_lengths, showfliers=False, notch=False, patch_artist=True,
+                       boxprops=dict(color='black'),
+                       whiskerprops=dict(color='black'),
+                       capprops=dict(color='black'),
+                       medianprops=dict(color='black'))
+
+    for patch, color in zip(bplot['boxes'], colors):
+        patch.set_facecolor(color)
+
+    min_length = min([min(planner_lengths)
+                     for planner_lengths in path_lengths]) * 0.9
+    max_length = max([max(planner_lengths)
+                     for planner_lengths in path_lengths]) * 1.1
+    ax.set_ylim(min_length, max_length)
+
+    __add_labels_to_plot(ax,
+                 updated_planners, non_optimizing_planners, optimizing_planners, 0.965)
+    ax.set_title("Path Lengths per Planner")
+    ax.set_ylabel("Path Length")
+    return fig
+
+
+def __create_boxplot_computation_times(non_optimizing_planners, optimizing_planners, computation_times, colors, updated_planners):
+    fig = plt.figure(figsize=(19.20, 10.80))
     
-    plt.title(plot_title)
-    plt.xlabel('Number of Paths')
-    plt.ylabel(y_label)
-    plt.xlim(left=0)
-    plt.grid()
-    plt.savefig(save_path)
-    plt.close()
+    if len(non_optimizing_planners) != 0 and len(optimizing_planners) != 0:
+        # Split-axis case
+        padding = min([min(planner_times) for planner_times in computation_times[:len(non_optimizing_planners)]]) * 2
+        min_non_optimizing = 0
+        max_non_optimizing = max([max(planner_times) for planner_times in computation_times[:len(non_optimizing_planners)]]) + padding
 
-def __create_boxplot(root_dir, num_path, planners, data_key, plot_title, save_path):
-    """
-    Creates a boxplot for path lengths or durations per planner for a specific num_path.
-    """
-    data = {planner: [] for planner in planners}
+        min_optimizing = min([min(planner_times) for planner_times in computation_times[len(non_optimizing_planners):]]) - padding
+        min_optimizing = math.floor(min_optimizing * 20) / 20
+        max_optimizing = max([max(planner_times) for planner_times in computation_times[len(non_optimizing_planners):]]) + padding
+
+        non_optimizing_range = max_non_optimizing - min_non_optimizing
+        optimizing_range = max_optimizing - min_optimizing
+
+        non_optimizing_ratio = non_optimizing_range / (non_optimizing_range + optimizing_range)
+        optimizing_ratio = optimizing_range / (non_optimizing_range + optimizing_range)
+
+        gs = fig.add_gridspec(2, 1, height_ratios=[optimizing_ratio, non_optimizing_ratio], hspace=0.1)
+        ax_top = fig.add_subplot(gs[0])
+        ax_bottom = fig.add_subplot(gs[1])
+
+        ax_top.spines['bottom'].set_visible(False)
+        ax_bottom.spines['top'].set_visible(False)
+        ax_top.set_xticklabels([])
+        ax_top.tick_params(bottom=False, labelbottom=False)
+
+        bplot_top = ax_top.boxplot(computation_times, showfliers=False, notch=False, patch_artist=True,
+                                   boxprops=dict(color='black'),
+                                   whiskerprops=dict(color='black'),
+                                   capprops=dict(color='black'),
+                                   medianprops=dict(color='black'))
+        
+        bplot_bottom = ax_bottom.boxplot(computation_times, showfliers=False, notch=False, patch_artist=True,
+                                         boxprops=dict(color='black'),
+                                         whiskerprops=dict(color='black'),
+                                         capprops=dict(color='black'),
+                                         medianprops=dict(color='black'))
+        
+        for patch_top, patch_bottom, color in zip(bplot_top['boxes'], bplot_bottom['boxes'], colors):
+            patch_top.set_facecolor(color)
+            patch_bottom.set_facecolor(color)
+
+        __add_labels_to_plot(ax_bottom, updated_planners, non_optimizing_planners, optimizing_planners, -1)
+        ax_bottom.set_ylabel("Computation Time (s)", y=0.9)
+
+        __add_labels_to_plot(ax_top, updated_planners, non_optimizing_planners, optimizing_planners, 0.9)
+        ax_top.set_title("Computation Times per Planner")
+
+        ax_bottom.set_ylim(min_non_optimizing, max_non_optimizing)
+        ax_top.set_ylim(min_optimizing, max_optimizing)
+
+        # Add slanted cut-out lines to indicate y-axis break
+        kwargs = dict(marker=[(-1, -0.5), (1, 0.5)], markersize=12,
+                      linestyle="none", color='k', mec='k', mew=1, clip_on=False)
+        ax_top.plot([0, 1], [0, 0], transform=ax_top.transAxes, **kwargs)
+        ax_bottom.plot([0, 1], [1, 1], transform=ax_bottom.transAxes, **kwargs)
+
+        tick_spacing = 0.05
+        ax_top.set_yticks(np.arange(min_optimizing, max_optimizing, tick_spacing))
+        ax_bottom.set_yticks(np.arange(min_non_optimizing, max_non_optimizing, tick_spacing))
     
-    # Collect data for each planner for this specific num_path
-    with open(f"{root_dir}/{num_path}/summary_log.json", 'r') as file:
-        planner_data = json.load(file)
-        for planner in planners:
-            value = planner_data["planners"][planner][data_key]
-            data[planner].append(value)
+    else:
+        # Single-axis case
+        ax = fig.add_subplot(111)
+        bplot = ax.boxplot(computation_times, showfliers=False, notch=False, patch_artist=True,
+                            boxprops=dict(color='black'),
+                            whiskerprops=dict(color='black'),
+                            capprops=dict(color='black'),
+                            medianprops=dict(color='black'))
+        
+        for patch, color in zip(bplot['boxes'], colors):
+            patch.set_facecolor(color)
+        
+        __add_labels_to_plot(ax, updated_planners, non_optimizing_planners, optimizing_planners, 0.965)
+        ax.set_ylabel("Computation Time (s)")
+        ax.set_title("Computation Times per Planner")
+
+        padding = min([min(planner_times) for planner_times in computation_times[:len(non_optimizing_planners)]]) * 2
+        min_value = min([min(planner_times) for planner_times in computation_times]) - padding
+        min_value = math.floor(min_value * 20) / 20
+        min_value = max(min_value, 0)
+        max_value = max([max(planner_times) for planner_times in computation_times]) + padding
+        ax.set_ylim(min_value, max_value)
+        
+        tick_spacing = 0.05
+        ax.set_yticks(np.arange(min_value, max_value, tick_spacing))
     
-    # Prepare data for boxplot
-    boxplot_data = [data[planner] for planner in planners]
-    
-    plt.figure(figsize=(19.20, 10.80))
-    plt.boxplot(boxplot_data, labels=planners)
-    
-    plt.title(plot_title)
-    plt.xlabel('Planners')
-    plt.ylabel('Value')
-    plt.grid(True)
-    plt.savefig(save_path)
-    plt.close()
+    return fig
 
-def __create_scatter_plot(root_dir, num_path, planners, planner_color_map, save_path):
-    """
-    Creates a scatter plot for average time per path vs average path length for a specific num_path.
-    """
-    plt.figure(figsize=(19.20, 10.80))
-    
-    with open(f"{root_dir}/{num_path}/summary_log.json", 'r') as file:
-        planner_data = json.load(file)
-        for planner in planners:
-            average_path_length = planner_data["planners"][planner]["average_path_length"]
-            average_time_per_path = planner_data["planners"][planner]["average_time_per_path"]
-            
-            plt.scatter(average_path_length, average_time_per_path, 
-                        color=planner_color_map[planner], label=planner)
-            plt.annotate(planner, 
-                         (average_path_length, average_time_per_path), 
-                         textcoords="offset points", 
-                         xytext=(5, 0),  
-                         ha='left',  
-                         fontsize=9)
 
-    plt.title(f'Average Time per Path vs Average Path Length for {num_path}')
-    plt.xlabel('Average Path Length')
-    plt.ylabel('Average Time per Path')
-    plt.grid(True)
-    plt.legend(loc='upper left', fontsize=9)
-    plt.savefig(save_path)
-    plt.close()
+def __add_labels_to_plot(ax, updated_planners, non_optimizing_planners, optimizing_planners, label_height):
+    ax.set_xticks(range(1, len(updated_planners) + 1))
+    ax.set_xticklabels(updated_planners, rotation=90)
 
-def test(root_dir, planners):
-    root_dir = Path(root_dir)
-    num_paths = [entry.name for entry in root_dir.iterdir() if entry.is_dir() and entry.name.isdigit()]
-    num_paths = sorted(num_paths, key=lambda x: int(x))
+    num_optimizing = len(optimizing_planners)
+    num_non_optimizing = len(non_optimizing_planners)
 
-    # Create the color map for consistent colors across plots
-    planner_color_map = {planner: __get_unique_color(planner, len(planners)) for planner in planners}
+    # Add divider between non-optimizing and optimizing planners
+    if num_optimizing == 0:
+        ax.text(0.5, label_height, 'optimizing planners', ha='center',
+                va='center', fontsize=10, color='black', transform=ax.transAxes)
+    elif num_non_optimizing == 0:
+        ax.text(0.5, label_height, 'non-optimizing planners', ha='center',
+                va='center', fontsize=10, color='black', transform=ax.transAxes)
+    else:
+        num_total = num_optimizing + num_non_optimizing
 
-    plot_dir = root_dir / "plots"
-    os.makedirs(plot_dir, exist_ok=True)
-
-    # Generate plots for each num_path
-    for num_path in num_paths:
-        # Path Lengths Boxplot for the current num_path
-        __create_boxplot(
-            root_dir=root_dir, 
-            num_path=num_path, 
-            planners=planners, 
-            data_key="average_path_length", 
-            plot_title=f'Path Lengths for {num_path}', 
-            save_path=f'{plot_dir}/{num_path}_boxplot_path_lengths.png'
-        )
-
-        # Path Durations Boxplot for the current num_path
-        __create_boxplot(
-            root_dir=root_dir, 
-            num_path=num_path, 
-            planners=planners, 
-            data_key="average_time_per_path", 
-            plot_title=f'Path Durations for {num_path}', 
-            save_path=f'{plot_dir}/{num_path}_boxplot_path_durations.png'
-        )
-
-        # Scatter Plot for Average Time per Path vs Average Path Length for the current num_path
-        __create_scatter_plot(
-            root_dir=root_dir, 
-            num_path=num_path, 
-            planners=planners, 
-            planner_color_map=planner_color_map, 
-            save_path=f'{plot_dir}/{num_path}_scatter_avg_time_vs_avg_length.png'
-        )
-
-    # Also create the combined plots as before
-    # First plot: Average Path Length
-    __create_plot_summary(
-        root_dir=root_dir, 
-        num_paths=num_paths, 
-        planners=planners, 
-        planner_color_map=planner_color_map, 
-        y_data="average_path_length", 
-        y_label="Average Path Length", 
-        plot_title="Number of Paths vs Average Path Length (All Log Files)", 
-        save_path=f'{plot_dir}/combined_number_of_paths_vs_average_length.png'
-    )
-
-    # Second plot: Average Path Duration
-    __create_plot_summary(
-        root_dir=root_dir, 
-        num_paths=num_paths, 
-        planners=planners, 
-        planner_color_map=planner_color_map, 
-        y_data="average_time_per_path", 
-        y_label="Average Path Duration", 
-        plot_title="Number of Paths vs Average Path Duration (All Log Files)", 
-        save_path=f'{plot_dir}/combined_number_of_paths_vs_average_duration.png'
-    )
+        divider_x_position = len(non_optimizing_planners) + 0.5
+        ax.axvline(x=divider_x_position, color='black', linestyle='--')
+        ax.text(num_non_optimizing / num_total / 2, label_height, 'non-optimizing planners',
+                ha='center', va='center', fontsize=10, color='black', transform=ax.transAxes)
+        ax.text(1 - (num_optimizing / num_total / 2), label_height, 'optimizing planners',
+                ha='center', va='center', fontsize=10, color='black', transform=ax.transAxes)
