@@ -43,6 +43,7 @@ class Visualizer:
         vis.update_geometry(self.mesh)
         vis.update_renderer()
 
+
         if self.save_screenshot:
             screenshot_path = output_path + "/visualization.png"
             image = vis.capture_screen_float_buffer(do_render=True)
@@ -50,8 +51,9 @@ class Visualizer:
             o3d.io.write_image(screenshot_path, o3d.geometry.Image(image))
             print(f"Screenshot saved as {screenshot_path}")
 
-        vis.run()
-        vis.destroy_window()
+        if self.enable_interactive_visualization:
+            vis.run()
+            vis.destroy_window()
 
     def __create_marker(self, position: Tuple[float, float, float], color: List[float] = [1.0, 0.0, 0.0]) -> o3d.geometry.TriangleMesh:
         """

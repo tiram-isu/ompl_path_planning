@@ -1,6 +1,5 @@
 from voxel_grid import VoxelGrid
 import numpy as np
-# from planner import PathPlanningManager  # Import the new class
 from visualization import Visualizer
 from planner import PathPlanningManager
 
@@ -32,18 +31,18 @@ if __name__ == "__main__":
     }
 
     path_settings = {
-        "num_paths": [2],
+        "num_paths": [1],
         "start_and_end_pairs": start_end_pairs,
         "max_time_per_path": 5,
         "max_smoothing_steps": 1,
     }
 
     debugging_settings = {
-        "enable_visualization": True, # TODO: rename
-        "save_screenshot": False,
+        "enable_interactive_visualization": False,
+        "save_screenshot": True,
         "visualization_mesh": visualization_mesh_path,
         "enable_logging": True,
-        "render_nerfstudio_video": False,
+        "render_nerfstudio_video": True,
     }
 
     model = {"name": model_name, "voxel_grid": voxel_grid}
@@ -51,11 +50,11 @@ if __name__ == "__main__":
     nerfstudio_paths = {
         "nerfstudio_base_dir": "D:/Thesis/Stonehenge_new/stonehenge/",
         "checkpoint_path": "nerfstudio_output/trained_model/colmap_data/splatfacto/2024-12-01_175414/config.yml",
-        "paths_dir": "//wsl.localhost/Ubuntu/home/marit/path_planning/ompl_path_planning/",
+        "paths_dir": "//wsl.localhost/Ubuntu/home/marit/path_planning/ompl_path_planning-2",
         "output_dir": "renders/",
     }
 
-    visualizer = Visualizer(visualization_mesh_path, debugging_settings["enable_visualization"], debugging_settings["save_screenshot"])
+    visualizer = Visualizer(visualization_mesh_path, debugging_settings["enable_interactive_visualization"], debugging_settings["save_screenshot"])
 
     # Initialize the manager and run planners
     manager = PathPlanningManager(

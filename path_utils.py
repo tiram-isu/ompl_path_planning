@@ -135,12 +135,16 @@ def save_in_nerfstudio_format(paths, output_dir, planner, fps=30, distance=0.1):
     
     os.makedirs(output_dir, exist_ok=True)
     
+    output_paths = []
     for _, path in enumerate(serializable_paths):
         nerfstudio_data = __transform_to_nerfstudio_format(path, fps=fps, distance=distance)
         formatted_date = datetime.now().strftime("%Y-%m-%d_%H-%M-%S-%f")[:-3]
         output_path = os.path.join(output_dir, f"{planner}_{formatted_date}.json")
         with open(output_path, 'w') as f:
             json.dump(nerfstudio_data, f, indent=4)
+        output_paths.append(output_path.replace("/app", "", 1))
+
+    return output_paths
 
 
 
