@@ -13,14 +13,8 @@ class VoxelGrid:
         self.scene_dimensions = np.array(scene_dimensions)
         self.voxel_size = voxel_size
         self.bounding_box_min = np.array(bounding_box_min)
-        self.grid_dims = self.calculate_grid_dimensions()
-        self.grid: Dict[Tuple[int, int, int], bool] = {}  # Sparse representation as a dictionary
-
-    def calculate_grid_dimensions(self) -> Tuple[int, int, int]:
-        """
-        Calculate the voxel grid dimensions based on the scene dimensions and voxel size.
-        """
-        return tuple(np.ceil(self.scene_dimensions / self.voxel_size).astype(int))
+        self.grid_dims = tuple(np.ceil(self.scene_dimensions / self.voxel_size).astype(int))
+        self.grid: Dict[Tuple[int, int, int], bool] = {}
 
     def world_to_index(self, x: float, y: float, z: float) -> Optional[Tuple[int, int, int]]:
         """
@@ -77,45 +71,15 @@ class VoxelGrid:
                     cube.paint_uniform_color(colors[x, y, z])
                 mesh += cube
         return mesh
-
-    def save_voxel_grid_as_numpy(self, output_dir: str) -> None:
-        """
-        Save the voxel grid as a .npy file.
-        """
-        output_file = os.path.join(output_dir, "voxel_grid.npy")
-        np.save(output_file, self.grid)
-        print(f"Voxel grid saved as {output_file}")
-
-    def save_metadata(self, output_dir: str) -> None:
-        """
-        Save metadata (scene dimensions, voxel size, bounding box min) as a separate .npy file.
-        """
-        metadata = {
+    
+    def save(self, output_dir: str) -> None:
+        np.save(os.path.join(output_dir, "voxel_grid.npy"), self.grid)
+        np.save(os.path.join(output_dir, "metadata.npy"), {
             'scene_dimensions': self.scene_dimensions,
             'voxel_size': self.voxel_size,
             'bounding_box_min': self.bounding_box_min
-        }
-        metadata_file = os.path.join(output_dir, 'metadata.npy')
-        np.save(metadata_file, metadata)
-        print(f"Metadata saved as {metadata_file}")
-
-    def load_voxel_grid_and_metadata(self, input_dir: str) -> None:
-        """
-        Load the voxel grid and metadata from files in the given directory.
-        """
-        voxel_grid_file = os.path.join(input_dir, 'voxel_grid.npy')
-        metadata_file = os.path.join(input_dir, 'metadata.npy')
-
-        if os.path.exists(voxel_grid_file) and os.path.exists(metadata_file):
-            metadata = np.load(metadata_file, allow_pickle=True).item()
-            self.scene_dimensions = metadata['scene_dimensions']
-            self.voxel_size = metadata['voxel_size']
-            self.bounding_box_min = metadata['bounding_box_min']
-            self.grid_dims = self.calculate_grid_dimensions()
-            self.grid = np.load(voxel_grid_file, allow_pickle=True).item()
-            print(f"Voxel grid and metadata loaded from {input_dir}")
-        else:
-            print(f"Files not found in {input_dir}. Please check the directory.")
+        })
+        print(f"Voxel grid and metadata saved to {output_dir}")
 
     def index_within_bounds(self, index: Tuple[int, int, int]) -> bool:
         """
