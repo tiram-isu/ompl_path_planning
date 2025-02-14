@@ -36,7 +36,6 @@ def setup_logging(output_path: str, enable_logging: bool) -> None:
         # Disable logging
         logging.disable(logging.CRITICAL)
 
-
 def __parse_log_file(log_file_path: str) -> Dict[str, Any]:
     result = {
         'success': False,
@@ -135,12 +134,12 @@ def generate_summary_log(log_dir, model_name, max_time_per_path):
 
     summary_json_path.write_text(json.dumps(summary_data, indent=4))
 
-
-def __get_unique_color(planner, num_planners):
+def __get_unique_color(planner):
+    max_num_planners = 20
     hash_value = int(hashlib.md5(planner.encode()).hexdigest(), 16)
-    index = hash_value % num_planners
+    index = hash_value % max_num_planners
     hue_offset = 0.1
-    hue = (index / num_planners + hue_offset) % 1
+    hue = (index / max_num_planners + hue_offset) % 1
 
     if 0.2 < hue < 0.4:
         hue += 0.3
@@ -185,7 +184,7 @@ def create_boxplots(root_dir):
     planners = non_optimizing_planners + optimizing_planners
     updated_planners = [planner_name_map.get(
         planner, planner) for planner in planners]
-    colors = [__get_unique_color(planner, len(planners))
+    colors = [__get_unique_color(planner)
               for planner in planners]
 
     output_dir = root_dir + "/plots"
@@ -211,14 +210,8 @@ def __create_boxplot_path_lengths(non_optimizing_planners, optimizing_planners, 
     for patch, color in zip(bplot['boxes'], colors):
         patch.set_facecolor(color)
 
-    min_length = min([min(planner_lengths)
-                     for planner_lengths in path_lengths]) * 0.9
-    max_length = max([max(planner_lengths)
-                     for planner_lengths in path_lengths]) * 1.1
-    ax.set_ylim(min_length, max_length)
-
     __add_labels_to_plot(ax,
-                 updated_planners, non_optimizing_planners, optimizing_planners, 0.965)
+                 updated_planners, non_optimizing_planners, optimizing_planners)
     ax.set_title("Path Lengths per Planner")
     ax.set_ylabel("Path Length")
     return fig
@@ -233,9 +226,9 @@ def __create_boxplot_computation_times(non_optimizing_planners, optimizing_plann
         min_non_optimizing = 0
         max_non_optimizing = max([max(planner_times) for planner_times in computation_times[:len(non_optimizing_planners)]]) + padding
 
-        min_optimizing = min([min(planner_times) for planner_times in computation_times[len(non_optimizing_planners):]]) - padding
+        min_optimizing = min([min(planner_times) for planner_times in computation_times[len(non_optimizing_planners):]]) * 0.95
         min_optimizing = math.floor(min_optimizing * 20) / 20
-        max_optimizing = max([max(planner_times) for planner_times in computation_times[len(non_optimizing_planners):]]) + padding
+        max_optimizing = max([max(planner_times) for planner_times in computation_times[len(non_optimizing_planners):]]) * 1.05
 
         non_optimizing_range = max_non_optimizing - min_non_optimizing
         optimizing_range = max_optimizing - min_optimizing
@@ -268,10 +261,13 @@ def __create_boxplot_computation_times(non_optimizing_planners, optimizing_plann
             patch_top.set_facecolor(color)
             patch_bottom.set_facecolor(color)
 
-        __add_labels_to_plot(ax_bottom, updated_planners, non_optimizing_planners, optimizing_planners, -1)
-        ax_bottom.set_ylabel("Computation Time (s)", y=0.9)
+        __add_labels_to_plot(ax_bottom, updated_planners, non_optimizing_planners, optimizing_planners)
+        ax_bottom.annotate("Computation Time (s)", xy=(0, 0.5), xycoords='axes fraction',
+            xytext=(-40, 0), textcoords='offset points',
+            fontsize=12, rotation=90, ha='right', va='center')
 
-        __add_labels_to_plot(ax_top, updated_planners, non_optimizing_planners, optimizing_planners, 0.9)
+
+        __add_labels_to_plot(ax_top, updated_planners, non_optimizing_planners, optimizing_planners)
         ax_top.set_title("Computation Times per Planner")
 
         ax_bottom.set_ylim(min_non_optimizing, max_non_optimizing)
@@ -283,7 +279,7 @@ def __create_boxplot_computation_times(non_optimizing_planners, optimizing_plann
         ax_top.plot([0, 1], [0, 0], transform=ax_top.transAxes, **kwargs)
         ax_bottom.plot([0, 1], [1, 1], transform=ax_bottom.transAxes, **kwargs)
 
-        tick_spacing = 0.05
+        tick_spacing = 0.1
         ax_top.set_yticks(np.arange(min_optimizing, max_optimizing, tick_spacing))
         ax_bottom.set_yticks(np.arange(min_non_optimizing, max_non_optimizing, tick_spacing))
     
@@ -299,7 +295,7 @@ def __create_boxplot_computation_times(non_optimizing_planners, optimizing_plann
         for patch, color in zip(bplot['boxes'], colors):
             patch.set_facecolor(color)
         
-        __add_labels_to_plot(ax, updated_planners, non_optimizing_planners, optimizing_planners, 0.965)
+        __add_labels_to_plot(ax, updated_planners, non_optimizing_planners, optimizing_planners)
         ax.set_ylabel("Computation Time (s)")
         ax.set_title("Computation Times per Planner")
 
@@ -310,13 +306,13 @@ def __create_boxplot_computation_times(non_optimizing_planners, optimizing_plann
         max_value = max([max(planner_times) for planner_times in computation_times]) + padding
         ax.set_ylim(min_value, max_value)
         
-        tick_spacing = 0.05
+        tick_spacing = 0.1
         ax.set_yticks(np.arange(min_value, max_value, tick_spacing))
     
     return fig
 
 
-def __add_labels_to_plot(ax, updated_planners, non_optimizing_planners, optimizing_planners, label_height):
+def __add_labels_to_plot(ax, updated_planners, non_optimizing_planners, optimizing_planners):
     ax.set_xticks(range(1, len(updated_planners) + 1))
     ax.set_xticklabels(updated_planners, rotation=90)
 
@@ -325,17 +321,15 @@ def __add_labels_to_plot(ax, updated_planners, non_optimizing_planners, optimizi
 
     # Add divider between non-optimizing and optimizing planners
     if num_optimizing == 0:
-        ax.text(0.5, label_height, 'optimizing planners', ha='center',
-                va='center', fontsize=10, color='black', transform=ax.transAxes)
+        ax.annotate("optimizing planners", xy = (0.5, 0), xycoords='axes fraction', horizontalalignment='center', verticalalignment='center', xytext=(0, 500), textcoords='offset points')
     elif num_non_optimizing == 0:
-        ax.text(0.5, label_height, 'non-optimizing planners', ha='center',
-                va='center', fontsize=10, color='black', transform=ax.transAxes)
+        ax.annotate("non-optimizing planners", xy = (0.5, 0), xycoords='axes fraction', horizontalalignment='center', verticalalignment='center', xytext=(0, 550), textcoords='offset points')
     else:
         num_total = num_optimizing + num_non_optimizing
 
         divider_x_position = len(non_optimizing_planners) + 0.5
         ax.axvline(x=divider_x_position, color='black', linestyle='--')
-        ax.text(num_non_optimizing / num_total / 2, label_height, 'non-optimizing planners',
-                ha='center', va='center', fontsize=10, color='black', transform=ax.transAxes)
-        ax.text(1 - (num_optimizing / num_total / 2), label_height, 'optimizing planners',
-                ha='center', va='center', fontsize=10, color='black', transform=ax.transAxes)
+        
+        ax.annotate("non-optimizing planners", xy = (num_non_optimizing / num_total / 2, 0), xycoords='axes fraction', horizontalalignment='center', verticalalignment='center', xytext=(0, 575), textcoords='offset points')
+
+        ax.annotate("optimizing planners", xy = (1 - (num_optimizing / num_total / 2), 0), xycoords='axes fraction', horizontalalignment='center', verticalalignment='center', xytext=(0, 575), textcoords='offset points')
