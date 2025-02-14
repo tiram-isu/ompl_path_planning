@@ -131,7 +131,7 @@ def get_output_paths(root_dir, output_name, voxel_grid_config):
     if manual_voxel_resolution:
         output_path = root_dir + f"/voxel_models/{output_name}/res_{manual_voxel_resolution}/"
     else:
-        output_path = root_dir + f"/voxel_models/{output_name}/{voxel_grid_config['voxel_resolution_factor']}/"
+        output_path = root_dir + f"/voxel_models/{output_name}/res_factor{voxel_grid_config['voxel_resolution_factor']}/"
 
     output_path += f"voxels_{voxel_grid_config['opacity_threshold']}_{voxel_grid_config['scale_threshold']}/"
 

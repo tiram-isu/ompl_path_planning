@@ -16,6 +16,8 @@ def setup_logging(output_path: str, enable_logging: bool) -> None:
     """
     Initialize logging for the given output path. If logging is disabled, suppress all logging.
     """
+    logging.getLogger('matplotlib').setLevel(logging.WARNING)
+    
     if enable_logging:
         os.makedirs(output_path, exist_ok=True)
 
@@ -40,57 +42,60 @@ def __parse_log_file(log_file_path: str) -> Dict[str, Any]:
         'success': False,
         'error_message': None,
         'num_paths_found': 0,
-        'path_lengths': [],
-        'path_durations': []
+        'total_paths': 0,
+        'paths': []
     }
     try:
         with open(log_file_path, 'r') as f:
+            start_point = None
+            goal_point = None
             for line in f:
                 if "ERROR" in line:
                     result['error_message'] = line.strip().split(" - ")[-1]
+                elif "Planning" in line and "total paths" in line:
+                    match = re.search(r'Planning (\d+) total paths', line)
+                    if match:
+                        result['total_paths'] = int(match.group(1))
+                elif "Planning" in line and "paths from" in line:
+                    match = re.search(r'from \[([\d\s\.-]+)\] to \[([\d\s\.-]+)\]', line)
+                    if match:
+                        start_point = [float(x) for x in match.group(1).split()]
+                        goal_point = [float(x) for x in match.group(2).split()]
                 elif "Path" in line and "added" in line:
-                    length = float(
-                        re.search(r'Length: (\d+\.\d+)', line).group(1))
+                    length = float(re.search(r'Length: (\d+\.\d+)', line).group(1))
                     if length == 0:
                         result['error_message'] = "Path length is 0."
                         continue
-                    duration = float(
-                        re.search(r'Duration: (\d+\.\d+)', line).group(1))
-                    result['path_lengths'].append(length)
-                    result['path_durations'].append(duration)
+                    duration = float(re.search(r'Duration: (\d+\.\d+)', line).group(1))
+                    result['paths'].append({
+                        "id": result['num_paths_found'],
+                        "length": length,
+                        "duration": duration,
+                        "start_point": start_point,
+                        "goal_point": goal_point
+                    })
                     result['num_paths_found'] += 1
                     result['success'] = True
     except (FileNotFoundError, ValueError, AttributeError) as e:
         print(f"Failed to parse log file {log_file_path}: {e}")
     return result
 
-
 def generate_summary_log(log_dir, model_name, max_time_per_path):
-    "Generates a log file summarizing the results of all planners for a given model, start and end points, and number of paths."
-
+    """Generates a log file summarizing the results of all planners for a given model, start and end points, and number of paths."""
     root_dir = Path(log_dir).parent
     summary_json_path = root_dir / "summary_log.json"
-
-    coordinate_pair = [
-    [float(x) if x else 0.0 for x in m.split("_") if x]
-    for m in re.findall(r"\[([^\]]+)\]", str(root_dir))
-]
     
     # Initialize summary dictionary
     summary_data = {
         "model": {
             "name": model_name,
-            "start_point": coordinate_pair[0],
-            "goal_point": coordinate_pair[1],
             "max_time_per_path": max_time_per_path,
-            "num_paths": int(os.path.basename(root_dir))
         },
         "planners": {},
     }
 
     # Get planner directories efficiently
-    planners = [p for p in root_dir.iterdir() if p.is_dir()
-                and p.name != "plots"]
+    planners = [p for p in root_dir.iterdir() if p.is_dir() and p.name != "plots"]
 
     # Gather data for each planner
     for planner_path in planners:
@@ -98,13 +103,14 @@ def generate_summary_log(log_dir, model_name, max_time_per_path):
         result = __parse_log_file(log_file)
 
         if result["success"]:
-            path_lengths = np.array(result["path_lengths"], dtype=float)
-            path_durations = np.array(result["path_durations"], dtype=float)
+            path_lengths = np.array([p['length'] for p in result['paths']], dtype=float)
+            path_durations = np.array([p['duration'] for p in result['paths']], dtype=float)
 
             planner_data = {
                 "status": "Successful",
                 "num_paths_found": result["num_paths_found"],
-                "success_rate": result["num_paths_found"] / summary_data["model"]["num_paths"] * 100,
+                "total_paths": result["total_paths"],
+                "success_rate": (result["num_paths_found"] / result["total_paths"] * 100) if result["total_paths"] > 0 else 0,
                 "length_stats": {
                     "average": path_lengths.mean(),
                     "min": path_lengths.min(),
@@ -117,10 +123,7 @@ def generate_summary_log(log_dir, model_name, max_time_per_path):
                     "max": path_durations.max(),
                     "std_dev": path_durations.std()
                 },
-                "paths": [
-                    {"id": i, "length": length, "duration": duration}
-                    for i, (length, duration) in enumerate(zip(path_lengths, path_durations))
-                ],
+                "paths": result['paths']
             }
         else:
             planner_data = {

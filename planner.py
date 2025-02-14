@@ -113,35 +113,36 @@ class PathPlanner:
                 return path
         return None
 
-    def plan_and_log_paths(self, num_paths: int, start_and_end_pair: tuple, max_time: float, max_smoothing_steps: int):
-        start, goal = start_and_end_pair
-        start_state, goal_state = self.__init_start_and_goal(start, goal)
-
-        if start_state is None or goal_state is None:
-            logging.warning("Failed to find valid start or goal state.")
-            return []
-
-        logging.info(f"Planning {num_paths} paths with max time {max_time} seconds per path...")
-
+    def plan_and_log_paths(self, num_paths: int, coordinates_list: list, max_time: float, max_smoothing_steps: int):
         all_paths = []
         path_lengths = []
 
-        for i in range(num_paths):
-            path_start_time = time.time()
-            path = self.__plan_path(start_state, goal_state, max_time, max_smoothing_steps)
+        logging.info(f"Planning {num_paths * len(coordinates_list)} total paths with max time {max_time} seconds per path...")
 
-            if path:
-                all_paths.append(path)
+        for coordinates in coordinates_list:
+            start, goal = coordinates
+            start_state, goal_state = self.__init_start_and_goal(start, goal)
 
-                path_duration = time.time() - path_start_time
-                path_length = path.length()
-                path_lengths.append(path_length)
+            if start_state is None or goal_state is None:
+                logging.warning("Failed to find valid start or goal state.")
+                return []
 
-                logging.info(f"Path {i} added. Length: {path_length:.4f} units. Duration: {path_duration:.4f} seconds.")
-            else:
-                logging.error(f"No solution found for attempt {i}.")
+            logging.info(f"Planning {num_paths} paths from {coordinates[0]} to {coordinates[1]}.")
 
-        
+            for i in range(num_paths):
+                path_start_time = time.time()
+                path = self.__plan_path(start_state, goal_state, max_time, max_smoothing_steps)
+
+                if path:
+                    all_paths.append(path)
+
+                    path_duration = time.time() - path_start_time
+                    path_length = path.length()
+                    path_lengths.append(path_length)
+
+                    logging.info(f"Path {i} added. Length: {path_length:.4f} units. Duration: {path_duration:.4f} seconds.")
+                else:
+                    logging.error(f"No solution found for attempt {i}.")
         
         return all_paths
         
