@@ -214,21 +214,52 @@ def __create_boxplot_path_lengths(non_optimizing_planners, optimizing_planners, 
                  updated_planners, non_optimizing_planners, optimizing_planners)
     ax.set_title("Path Lengths per Planner")
     ax.set_ylabel("Path Length")
+
+    whisker_values = [whisker.get_ydata()[1] for whisker in bplot['whiskers']]
+    
+    lower_bound = min(whisker_values)
+    upper_bound = max(whisker_values)
+
+    padding = 0.1 * (upper_bound - lower_bound)
+    ax.set_ylim(lower_bound - padding, upper_bound + padding)
+
     return fig
 
+def __calculate_whiskers(data):
+    q1_list = []
+    q3_list = []
+    for list in data:
+        sorted_data = np.sort(list)
+        
+        q1_list.append(np.percentile(sorted_data, 25))
+        q3_list.append(np.percentile(sorted_data, 75))
+
+    Q1 = min(q1_list)
+    Q3 = max(q3_list)
+    
+    IQR = Q3 - Q1
+    
+    lower_whisker_bound = Q1 - 1.5 * IQR
+    upper_whisker_bound = Q3 + 1.5 * IQR
+    
+    return lower_whisker_bound, upper_whisker_bound
 
 def __create_boxplot_computation_times(non_optimizing_planners, optimizing_planners, computation_times, colors, updated_planners):
     fig = plt.figure(figsize=(19.20, 10.80))
     
     if len(non_optimizing_planners) != 0 and len(optimizing_planners) != 0:
-        # Split-axis case
-        padding = min([min(planner_times) for planner_times in computation_times[:len(non_optimizing_planners)]]) * 2
-        min_non_optimizing = 0
-        max_non_optimizing = max([max(planner_times) for planner_times in computation_times[:len(non_optimizing_planners)]]) + padding
+        whiskers_optimizing = __calculate_whiskers(computation_times[len(non_optimizing_planners):])
+        whiskers_non_optimizing = __calculate_whiskers(computation_times[:len(non_optimizing_planners)])
 
-        min_optimizing = min([min(planner_times) for planner_times in computation_times[len(non_optimizing_planners):]]) * 0.95
+
+        padding = whiskers_non_optimizing[1] * 0.1
+        min_non_optimizing = 0
+        max_non_optimizing = whiskers_non_optimizing[1] + padding
+
+        min_optimizing = whiskers_optimizing[0] - padding
         min_optimizing = math.floor(min_optimizing * 20) / 20
-        max_optimizing = max([max(planner_times) for planner_times in computation_times[len(non_optimizing_planners):]]) * 1.05
+        max_optimizing = whiskers_optimizing[1] + padding
+
 
         non_optimizing_range = max_non_optimizing - min_non_optimizing
         optimizing_range = max_optimizing - min_optimizing
@@ -299,15 +330,16 @@ def __create_boxplot_computation_times(non_optimizing_planners, optimizing_plann
         ax.set_ylabel("Computation Time (s)")
         ax.set_title("Computation Times per Planner")
 
-        padding = min([min(planner_times) for planner_times in computation_times[:len(non_optimizing_planners)]]) * 2
-        min_value = min([min(planner_times) for planner_times in computation_times]) - padding
-        min_value = math.floor(min_value * 20) / 20
-        min_value = max(min_value, 0)
-        max_value = max([max(planner_times) for planner_times in computation_times]) + padding
-        ax.set_ylim(min_value, max_value)
+        whisker_values = [whisker.get_ydata()[1] for whisker in bplot['whiskers']]
+    
+        lower_bound = min(whisker_values)
+        upper_bound = max(whisker_values)
+
+        padding = 0.1 * (upper_bound - lower_bound)
+        ax.set_ylim(lower_bound - padding, upper_bound + padding)
         
         tick_spacing = 0.1
-        ax.set_yticks(np.arange(min_value, max_value, tick_spacing))
+        ax.set_yticks(np.arange(lower_bound, upper_bound, tick_spacing))
     
     return fig
 

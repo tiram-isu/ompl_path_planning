@@ -6,13 +6,6 @@ from ompl import geometric as og
 from ompl import control as oc
 from collision_detection import StateValidityChecker
 from typing import Any, Dict, List, Optional
-import requests
-from multiprocessing import Process
-from visualization import Visualizer
-import log_utils
-import path_utils
-import re
-import os
 
 class PathPlanner:
     def __init__(
@@ -120,14 +113,14 @@ class PathPlanner:
         logging.info(f"Planning {num_paths * len(coordinates_list)} total paths with max time {max_time} seconds per path...")
 
         for coordinates in coordinates_list:
+            logging.info(f"Planning {num_paths} paths from {coordinates[0]} to {coordinates[1]}.")
             start, goal = coordinates
             start_state, goal_state = self.__init_start_and_goal(start, goal)
+            logging.info(f"Actual start state: {start_state[0], start_state[1], start_state[2]}. Actual goal state: {goal_state[0], goal_state[1], goal_state[2]}")
 
             if start_state is None or goal_state is None:
                 logging.warning("Failed to find valid start or goal state.")
                 return []
-
-            logging.info(f"Planning {num_paths} paths from {coordinates[0]} to {coordinates[1]}.")
 
             for i in range(num_paths):
                 path_start_time = time.time()
@@ -137,7 +130,7 @@ class PathPlanner:
                     all_paths.append(path)
 
                     path_duration = time.time() - path_start_time
-                    path_length = path.length()
+                    path_length = path.length() * 52.63
                     path_lengths.append(path_length)
 
                     logging.info(f"Path {i} added. Length: {path_length:.4f} units. Duration: {path_duration:.4f} seconds.")

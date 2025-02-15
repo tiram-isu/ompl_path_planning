@@ -38,16 +38,16 @@ class PathPlanningManager:
             for num_paths in self.path_settings["num_paths"]:
                 log_root = f"{self.file_dir}/output/{self.model['name']}/{num_paths}/{planner_name}"
                 log_root = re.sub(r'\s+', '_', log_root)
-                log_utils.setup_logging(log_root, self.debugging_settings["enable_logging"])
 
-                process = Process(target=self.__plan_and_visualize_paths, args=(planner, num_paths, self.path_settings["start_and_end_pairs"], self.path_settings["max_time_per_path"], self.path_settings["max_smoothing_steps"], log_root))
+                process = Process(target=self.__plan_and_visualize_paths, args=(log_root, planner, num_paths, self.path_settings["start_and_end_pairs"], self.path_settings["max_time_per_path"], self.path_settings["max_smoothing_steps"], log_root))
                 process.start()
 
                 processes.append(process)
                 log_roots.append(log_root)
 
                 if not self.debugging_settings["enable_interactive_visualization"]:
-                    self.__handle_timeout(self.path_settings["max_time_per_path"] * num_paths * 1.2, process, planner_name)
+                    max_time = self.path_settings["max_time_per_path"] * num_paths * len(self.path_settings["start_and_end_pairs"]) * 1.2
+                    self.__handle_timeout(max_time, process, planner_name)
 
         # Wait for all processes to finish
         for process in processes:
@@ -56,7 +56,9 @@ class PathPlanningManager:
         if self.debugging_settings["enable_logging"]:
             self.__create_logs_and_plots(log_roots)
 
-    def __plan_and_visualize_paths(self, planner, num_paths, coordinates_list, max_time_per_path, max_smoothing_steps, output_dir):
+    def __plan_and_visualize_paths(self, log_root, planner, num_paths, coordinates_list, max_time_per_path, max_smoothing_steps, output_dir):
+        log_utils.setup_logging(log_root, self.debugging_settings["enable_logging"])
+        
         paths = planner.plan_and_log_paths(num_paths, coordinates_list, max_time_per_path, max_smoothing_steps)
 
         if self.visualizer and self.debugging_settings["enable_interactive_visualization"] or self.debugging_settings["save_screenshot"]:

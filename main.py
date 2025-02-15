@@ -8,7 +8,7 @@ from gaussians_to_voxels import get_output_paths, convert_to_voxel_grid
 if __name__ == "__main__":
     # Settings for path planning
     model_name = "stonehenge_colmap_aligned" # .ply or Nerfstudio .ckpt file to be used for path planning
-    output_name = "stonehenge" # Output folder name
+    output_name = "stonehenge2" # Output folder name
     custom_visualization_mesh_path = None # Mesh to be used for visualization - voxel grid if None
 
     voxel_grid_config = {
@@ -23,7 +23,9 @@ if __name__ == "__main__":
     }
 
     # Planners to be used for path planning
-    planners = ['PRM']
+    planners = ['RRT', 'LazyRRT', 'RRTConnect', 'TRRT', 'PDST', 'SBL', 'STRIDE',
+    'EST', 'BiEST', 'ProjEST', 'KPIECE1', 'BKPIECE1', 'LBKPIECE1', 'PRM', 'LazyPRM',
+    'RRTstar', 'RRTXstatic', 'LBTRRT', 'LazyLBTRRT', 'BITstar']
     # available planners: ['RRT', 'LazyRRT', 'RRTConnect', 'TRRT', 'PDST', 'SBL', 'STRIDE',
     # 'EST', 'BiEST', 'ProjEST', 'KPIECE1', 'BKPIECE1', 'LBKPIECE1', 'PRM', 'LazyPRM',
     # 'RRTstar', 'RRTXstatic', 'LBTRRT', 'LazyLBTRRT', 'BITstar']
@@ -55,7 +57,7 @@ if __name__ == "__main__":
     }
 
     debugging_settings = {
-        "enable_interactive_visualization": True, # Open interactive visualization showing generated paths after planning
+        "enable_interactive_visualization": False, # Open interactive visualization showing generated paths after planning
         "save_screenshot": True, # Save screenshot of the visualization
         "enable_logging": True, # Log path planning
         "render_nerfstudio_video": False, # Send generated paths to Nerfstudio for rendering - requires running Flask server and Nerfstudio
