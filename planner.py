@@ -7,6 +7,8 @@ from ompl import control as oc
 from collision_detection import StateValidityChecker
 from typing import Any, Dict, List, Optional
 
+from path_utils import resample_path
+
 class PathPlanner:
     def __init__(
         self,
@@ -103,8 +105,37 @@ class PathPlanner:
                 self.path_simplifier.shortcutPath(path)
                 self.path_simplifier.smoothBSpline(path, max_smoothing_steps)
 
+                states = path.getStates()
+                path_points = np.array([[state[0], state[1], state[2]] for state in states])
+                self.__log_path_smoothness(path_points)
+
                 return path
         return None
+
+    def __log_path_smoothness(self, path):
+        curvatures = []
+
+        for i in range(1, len(path) - 1):
+            p_minus = path[i - 1]
+            p = path[i]
+            p_plus = path[i + 1]
+            
+            v = p - p_minus
+            a = p_plus - 2 * p + p_minus
+            cross_product = np.cross(v, a)
+            v_magnitude = np.linalg.norm(v)
+            
+            if v_magnitude != 0:
+                curvature = np.linalg.norm(cross_product) / (v_magnitude ** 3)
+            else:
+                curvature = 0 
+
+            curvatures.append(curvature)
+
+        total_curvature = sum(curvatures)
+        avg_curvature = total_curvature / len(curvatures)
+
+        logging.info(f"Path Smoothness - Avg Curvature: {avg_curvature:.4f}")
 
     def plan_and_log_paths(self, num_paths: int, coordinates_list: list, max_time: float, max_smoothing_steps: int):
         all_paths = []

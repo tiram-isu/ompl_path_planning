@@ -4,7 +4,7 @@ import math
 import os
 from datetime import datetime
 
-def resample_path(path, distance=0.05):
+def resample_path(path, distance=0.01):
     """Resample the path to have more evenly spaced points for smoother animation."""
     new_path = [path[0]]
     accumulated_distance = 0.0

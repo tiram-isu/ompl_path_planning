@@ -42,7 +42,10 @@ def __parse_log_file(log_file_path: str) -> Dict[str, Any]:
         'error_message': None,
         'num_paths_found': 0,
         'total_paths': 0,
-        'paths': []
+        'paths': [],
+        'smoothness_stats': {
+            'avg_smoothness': [],
+        }
     }
     try:
         with open(log_file_path, 'r') as f:
@@ -60,18 +63,22 @@ def __parse_log_file(log_file_path: str) -> Dict[str, Any]:
                     if match:
                         start_point = [float(x) for x in match.group(1).split()]
                         goal_point = [float(x) for x in match.group(2).split()]
+                elif "Path Smoothness" in line:
+                    avg_curvature = float(re.search(r'Avg Curvature: ([\d\.]+)', line).group(1))
+                    result['smoothness_stats']['avg_smoothness'].append(avg_curvature)
                 elif "Path" in line and "added" in line:
-                    length = float(re.search(r'Length: (\d+\.\d+)', line).group(1))
+                    length = float(re.search(r'Length: ([\d\.]+)', line).group(1))
                     if length == 0:
                         result['error_message'] = "Path length is 0."
                         continue
-                    duration = float(re.search(r'Duration: (\d+\.\d+)', line).group(1))
+                    duration = float(re.search(r'Duration: ([\d\.]+)', line).group(1))
                     result['paths'].append({
                         "id": result['num_paths_found'],
                         "length": length,
                         "duration": duration,
                         "start_point": start_point,
-                        "goal_point": goal_point
+                        "goal_point": goal_point,
+                        "curvature": avg_curvature
                     })
                     result['num_paths_found'] += 1
                     result['success'] = True
@@ -79,12 +86,12 @@ def __parse_log_file(log_file_path: str) -> Dict[str, Any]:
         print(f"Failed to parse log file {log_file_path}: {e}")
     return result
 
-def generate_summary_log(log_dir, model_name, max_time_per_path):
-    """Generates a log file summarizing the results of all planners for a given model, start and end points, and number of paths."""
-    root_dir = Path(log_dir).parent
+def generate_summary_log(root_dir, model_name, max_time_per_path):
+    """Generates a log file summarizing the results of all planners."""
+    # root_dir = Path(log_dir).parent
     summary_json_path = root_dir / "summary_log.json"
+    print(summary_json_path)
     
-    # Initialize summary dictionary
     summary_data = {
         "model": {
             "name": model_name,
@@ -93,10 +100,8 @@ def generate_summary_log(log_dir, model_name, max_time_per_path):
         "planners": {},
     }
 
-    # Get planner directories efficiently
     planners = [p for p in root_dir.iterdir() if p.is_dir() and p.name != "plots"]
 
-    # Gather data for each planner
     for planner_path in planners:
         log_file = planner_path / "log.txt"
         result = __parse_log_file(log_file)
@@ -104,6 +109,7 @@ def generate_summary_log(log_dir, model_name, max_time_per_path):
         if result["success"]:
             path_lengths = np.array([p['length'] for p in result['paths']], dtype=float)
             path_durations = np.array([p['duration'] for p in result['paths']], dtype=float)
+            smoothness_vals = np.array(result['smoothness_stats']['avg_smoothness'], dtype=float)
 
             planner_data = {
                 "status": "Successful",
@@ -122,6 +128,12 @@ def generate_summary_log(log_dir, model_name, max_time_per_path):
                     "max": path_durations.max(),
                     "std_dev": path_durations.std()
                 },
+                "smoothness_stats": {
+                    "average": smoothness_vals.mean(),
+                    "min": smoothness_vals.min(),
+                    "max": smoothness_vals.max(),
+                    "std_dev": smoothness_vals.std()
+                },
                 "paths": result['paths']
             }
         else:
@@ -131,7 +143,7 @@ def generate_summary_log(log_dir, model_name, max_time_per_path):
             }
 
         summary_data["planners"][planner_path.name] = planner_data
-
+        
     summary_json_path.write_text(json.dumps(summary_data, indent=4))
 
 def __get_unique_color(planner):
@@ -153,6 +165,7 @@ def __get_unique_color(planner):
 
 
 def create_boxplots(root_dir):
+    root_dir = str(root_dir)
     non_optimizing_planners_order = ["RRT", "LazyRRT", "RRTConnect", "TRRT", "PDST", "SBL", "STRIDE", "EST", "BiEST", "ProjEST",
                                      "KPIECE1", "BKPIECE1", "LBKPIECE1", "PRM", "LazyPRM"]
     optimizing_planners_order = [
@@ -169,7 +182,8 @@ def create_boxplots(root_dir):
     with open(root_dir + "/summary_log.json", 'r') as file:
         summary_data = json.load(file)
 
-    non_optimizing_planners, optimizing_planners, path_lengths, computation_times = [], [], [], []
+    non_optimizing_planners, optimizing_planners, path_lengths, computation_times, curvature_values = [], [], [], [], []
+
     for planner_name in non_optimizing_planners_order + optimizing_planners_order:
         if planner_name in summary_data['planners'] and summary_data['planners'][planner_name]['status'] == "Successful":
             if planner_name in non_optimizing_planners_order:
@@ -180,6 +194,7 @@ def create_boxplots(root_dir):
                 [path['length'] for path in summary_data['planners'][planner_name]['paths']])
             computation_times.append(
                 [path['duration'] for path in summary_data['planners'][planner_name]['paths']])
+            curvature_values.append([path['curvature'] for path in summary_data['planners'][planner_name]['paths']])
 
     planners = non_optimizing_planners + optimizing_planners
     updated_planners = [planner_name_map.get(
@@ -197,6 +212,9 @@ def create_boxplots(root_dir):
     fig_times = __create_boxplot_computation_times(
         non_optimizing_planners, optimizing_planners, computation_times, colors, updated_planners)
     fig_times.savefig(output_dir + "/boxplot_computation_times.png")
+
+    fig_curvature = __create_boxplot_curvatures(non_optimizing_planners, optimizing_planners, curvature_values, colors, updated_planners)
+    fig_curvature.savefig(output_dir + "/boxplot_curvatures.png")
 
 
 def __create_boxplot_path_lengths(non_optimizing_planners, optimizing_planners, path_lengths, colors, updated_planners):
@@ -226,23 +244,28 @@ def __create_boxplot_path_lengths(non_optimizing_planners, optimizing_planners, 
     return fig
 
 def __calculate_whiskers(data):
-    q1_list = []
-    q3_list = []
-    for list in data:
-        sorted_data = np.sort(list)
+    lower_whiskers = []
+    upper_whiskers = []
+    for planner_data in data:
+        sorted_data = np.sort(planner_data)
         
-        q1_list.append(np.percentile(sorted_data, 25))
-        q3_list.append(np.percentile(sorted_data, 75))
+        Q1 = np.percentile(sorted_data, 25)
+        Q3 = np.percentile(sorted_data, 75)
+        
+        IQR = Q3 - Q1
 
-    Q1 = min(q1_list)
-    Q3 = max(q3_list)
-    
-    IQR = Q3 - Q1
-    
-    lower_whisker_bound = Q1 - 1.5 * IQR
-    upper_whisker_bound = Q3 + 1.5 * IQR
-    
-    return lower_whisker_bound, upper_whisker_bound
+        loval = Q1 - 1.5 * IQR
+        hival = Q3 + 1.5 * IQR
+        
+        wiskhi = np.compress(planner_data <= hival, planner_data)
+        wisklo = np.compress(planner_data >= loval, planner_data)
+        actual_hival = np.max(wiskhi)
+        actual_loval = np.min(wisklo)
+
+        lower_whiskers.append(actual_loval)
+        upper_whiskers.append(actual_hival)
+
+    return min(lower_whiskers), max(upper_whiskers)
 
 def __create_boxplot_computation_times(non_optimizing_planners, optimizing_planners, computation_times, colors, updated_planners):
     fig = plt.figure(figsize=(19.20, 10.80))
@@ -250,7 +273,6 @@ def __create_boxplot_computation_times(non_optimizing_planners, optimizing_plann
     if len(non_optimizing_planners) != 0 and len(optimizing_planners) != 0:
         whiskers_optimizing = __calculate_whiskers(computation_times[len(non_optimizing_planners):])
         whiskers_non_optimizing = __calculate_whiskers(computation_times[:len(non_optimizing_planners)])
-
 
         padding = whiskers_non_optimizing[1] * 0.1
         min_non_optimizing = 0
@@ -365,3 +387,29 @@ def __add_labels_to_plot(ax, updated_planners, non_optimizing_planners, optimizi
         ax.annotate("non-optimizing planners", xy = (num_non_optimizing / num_total / 2, 0), xycoords='axes fraction', horizontalalignment='center', verticalalignment='center', xytext=(0, 575), textcoords='offset points')
 
         ax.annotate("optimizing planners", xy = (1 - (num_optimizing / num_total / 2), 0), xycoords='axes fraction', horizontalalignment='center', verticalalignment='center', xytext=(0, 575), textcoords='offset points')
+
+
+def __create_boxplot_curvatures(non_optimizing_planners, optimizing_planners, curvature_values, colors, updated_planners):
+    fig, ax = plt.subplots(figsize=(19.20, 10.80))
+    bplot = ax.boxplot(curvature_values, showfliers=False, notch=False, patch_artist=True,
+                       boxprops=dict(color='black'),
+                       whiskerprops=dict(color='black'),
+                       capprops=dict(color='black'),
+                       medianprops=dict(color='black'))
+    
+    for patch, color in zip(bplot['boxes'], colors):
+        patch.set_facecolor(color)
+    
+    __add_labels_to_plot(ax, updated_planners, non_optimizing_planners, optimizing_planners)
+    ax.set_title("Path Curvatures per Planner")
+    ax.set_ylabel("Curvature")
+
+    whisker_values = [whisker.get_ydata()[1] for whisker in bplot['whiskers']]
+    
+    lower_bound = min(whisker_values)
+    upper_bound = max(whisker_values)
+
+    padding = 0.1 * (upper_bound - lower_bound)
+    ax.set_ylim(lower_bound - padding, upper_bound + padding)
+
+    return fig

@@ -8,6 +8,9 @@ import path_utils
 import re
 import os
 from planner import PathPlanner
+import numpy as np
+from path_utils import resample_path
+from pathlib import Path
 
 class PathPlanningManager:
     def __init__(
@@ -54,7 +57,7 @@ class PathPlanningManager:
             process.join()
 
         if self.debugging_settings["enable_logging"]:
-            self.__create_logs_and_plots(log_roots)
+            self.__create_logs_and_plots(f"{self.file_dir}/output/{self.model['name']}/{num_paths}")
 
     def __plan_and_visualize_paths(self, log_root, planner, num_paths, coordinates_list, max_time_per_path, max_smoothing_steps, output_dir):
         log_utils.setup_logging(log_root, self.debugging_settings["enable_logging"])
@@ -66,7 +69,7 @@ class PathPlanningManager:
 
         paths_dir = f"{self.file_dir}/paths/{self.model['name']}/"
         output_paths = path_utils.save_in_nerfstudio_format(
-                paths, paths_dir, planner.planner_name, fps=30, distance=0.01
+                paths, paths_dir, planner.planner_name, fps=30, distance=0.01 # TODO: use resampled
             )
         
         if self.debugging_settings["render_nerfstudio_video"]:
@@ -81,15 +84,10 @@ class PathPlanningManager:
                     },
                 )
                     
-    def __create_logs_and_plots(self, log_roots):
-        for log_root in log_roots:
-            log_utils.generate_summary_log(log_root, self.model['name'], self.path_settings["max_time_per_path"])
-
-        for coordinate_pair in self.path_settings["start_and_end_pairs"]:
-            for num_paths in self.path_settings["num_paths"]:
-                root_dir = f"{self.file_dir}/output/{self.model['name']}/{num_paths}"
-                root_dir = re.sub(r'\s+', '_', root_dir)
-                log_utils.create_boxplots(root_dir)
+    def __create_logs_and_plots(self, log_root):
+        log_root = Path(log_root)
+        log_utils.generate_summary_log(log_root, self.model['name'], self.path_settings["max_time_per_path"])
+        log_utils.create_boxplots(log_root)
 
     def __init_planner(self, planner_name):
         planner =  PathPlanner(

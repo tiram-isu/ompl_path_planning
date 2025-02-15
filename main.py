@@ -50,7 +50,7 @@ if __name__ == "__main__":
     }
 
     path_settings = {
-        "num_paths": [1], # Number of paths to be planned for each start-end pair
+        "num_paths": [100], # Number of paths to be planned for each start-end pair
         "start_and_end_pairs": start_end_pairs,
         "max_time_per_path": 5, # Maximum time for path planning in seconds
         "max_smoothing_steps": 1, # Maximum number of path smoothing steps
