@@ -1,0 +1,1819 @@
+2025-02-15 16:28:21,718 - INFO - Planning 900 total paths with max time 5 seconds per path...
+2025-02-15 16:28:21,760 - INFO - Planning 100 paths from [-0.304  0.053 -0.45 ] to [ 0.304 -0.053 -0.45 ].
+2025-02-15 16:28:21,773 - INFO - Actual start state: (-0.304, 0.053, -0.45). Actual goal state: (0.304, -0.053, -0.45)
+2025-02-15 16:28:22,182 - INFO - Path Smoothness - Avg Curvature: 8.1166
+2025-02-15 16:28:22,183 - INFO - Path 0 added. Length: 46.6601 units. Duration: 0.4086 seconds.
+2025-02-15 16:28:22,439 - INFO - Path Smoothness - Avg Curvature: 8.4526
+2025-02-15 16:28:22,440 - INFO - Path 1 added. Length: 45.3583 units. Duration: 0.2568 seconds.
+2025-02-15 16:28:22,695 - INFO - Path Smoothness - Avg Curvature: 7.4095
+2025-02-15 16:28:22,696 - INFO - Path 2 added. Length: 45.2296 units. Duration: 0.2560 seconds.
+2025-02-15 16:28:22,955 - INFO - Path Smoothness - Avg Curvature: 8.7577
+2025-02-15 16:28:22,955 - INFO - Path 3 added. Length: 45.2976 units. Duration: 0.2594 seconds.
+2025-02-15 16:28:23,062 - INFO - Path Smoothness - Avg Curvature: 4.1249
+2025-02-15 16:28:23,062 - INFO - Path 4 added. Length: 45.6217 units. Duration: 0.1067 seconds.
+2025-02-15 16:28:23,169 - INFO - Path Smoothness - Avg Curvature: 4.3725
+2025-02-15 16:28:23,169 - INFO - Path 5 added. Length: 44.8780 units. Duration: 0.1072 seconds.
+2025-02-15 16:28:23,274 - INFO - Path Smoothness - Avg Curvature: 4.5856
+2025-02-15 16:28:23,274 - INFO - Path 6 added. Length: 43.6856 units. Duration: 0.1052 seconds.
+2025-02-15 16:28:23,378 - INFO - Path Smoothness - Avg Curvature: 6.0781
+2025-02-15 16:28:23,379 - INFO - Path 7 added. Length: 43.9215 units. Duration: 0.1041 seconds.
+2025-02-15 16:28:23,482 - INFO - Path Smoothness - Avg Curvature: 12.8891
+2025-02-15 16:28:23,482 - INFO - Path 8 added. Length: 44.8249 units. Duration: 0.1034 seconds.
+2025-02-15 16:28:23,588 - INFO - Path Smoothness - Avg Curvature: 5.0984
+2025-02-15 16:28:23,589 - INFO - Path 9 added. Length: 48.6899 units. Duration: 0.1064 seconds.
+2025-02-15 16:28:23,694 - INFO - Path Smoothness - Avg Curvature: 7.7704
+2025-02-15 16:28:23,694 - INFO - Path 10 added. Length: 45.2681 units. Duration: 0.1054 seconds.
+2025-02-15 16:28:23,800 - INFO - Path Smoothness - Avg Curvature: 3.2851
+2025-02-15 16:28:23,800 - INFO - Path 11 added. Length: 46.1421 units. Duration: 0.1059 seconds.
+2025-02-15 16:28:23,906 - INFO - Path Smoothness - Avg Curvature: 4.4742
+2025-02-15 16:28:23,907 - INFO - Path 12 added. Length: 45.3687 units. Duration: 0.1066 seconds.
+2025-02-15 16:28:24,012 - INFO - Path Smoothness - Avg Curvature: 3.3510
+2025-02-15 16:28:24,012 - INFO - Path 13 added. Length: 45.3204 units. Duration: 0.1057 seconds.
+2025-02-15 16:28:24,119 - INFO - Path Smoothness - Avg Curvature: 6.2573
+2025-02-15 16:28:24,119 - INFO - Path 14 added. Length: 46.3131 units. Duration: 0.1064 seconds.
+2025-02-15 16:28:24,226 - INFO - Path Smoothness - Avg Curvature: 16.7588
+2025-02-15 16:28:24,226 - INFO - Path 15 added. Length: 45.2715 units. Duration: 0.1071 seconds.
+2025-02-15 16:28:24,331 - INFO - Path Smoothness - Avg Curvature: 13.0642
+2025-02-15 16:28:24,331 - INFO - Path 16 added. Length: 44.9869 units. Duration: 0.1047 seconds.
+2025-02-15 16:28:24,438 - INFO - Path Smoothness - Avg Curvature: 8.2286
+2025-02-15 16:28:24,438 - INFO - Path 17 added. Length: 45.5354 units. Duration: 0.1075 seconds.
+2025-02-15 16:28:24,543 - INFO - Path Smoothness - Avg Curvature: 7.7228
+2025-02-15 16:28:24,543 - INFO - Path 18 added. Length: 45.7501 units. Duration: 0.1048 seconds.
+2025-02-15 16:28:24,701 - INFO - Path Smoothness - Avg Curvature: 8.4005
+2025-02-15 16:28:24,702 - INFO - Path 19 added. Length: 49.8437 units. Duration: 0.1585 seconds.
+2025-02-15 16:28:24,807 - INFO - Path Smoothness - Avg Curvature: 4.6464
+2025-02-15 16:28:24,808 - INFO - Path 20 added. Length: 45.7655 units. Duration: 0.1058 seconds.
+2025-02-15 16:28:24,914 - INFO - Path Smoothness - Avg Curvature: 6.1399
+2025-02-15 16:28:24,914 - INFO - Path 21 added. Length: 52.3197 units. Duration: 0.1064 seconds.
+2025-02-15 16:28:25,021 - INFO - Path Smoothness - Avg Curvature: 3.9240
+2025-02-15 16:28:25,022 - INFO - Path 22 added. Length: 47.7728 units. Duration: 0.1075 seconds.
+2025-02-15 16:28:25,127 - INFO - Path Smoothness - Avg Curvature: 8.1008
+2025-02-15 16:28:25,127 - INFO - Path 23 added. Length: 46.1472 units. Duration: 0.1055 seconds.
+2025-02-15 16:28:25,386 - INFO - Path Smoothness - Avg Curvature: 6.2579
+2025-02-15 16:28:25,386 - INFO - Path 24 added. Length: 46.7133 units. Duration: 0.2586 seconds.
+2025-02-15 16:28:25,946 - INFO - Path Smoothness - Avg Curvature: 5.3834
+2025-02-15 16:28:25,947 - INFO - Path 25 added. Length: 44.5673 units. Duration: 0.5612 seconds.
+2025-02-15 16:28:26,054 - INFO - Path Smoothness - Avg Curvature: 6.4153
+2025-02-15 16:28:26,054 - INFO - Path 26 added. Length: 50.2988 units. Duration: 0.1067 seconds.
+2025-02-15 16:28:26,161 - INFO - Path Smoothness - Avg Curvature: 3.5927
+2025-02-15 16:28:26,161 - INFO - Path 27 added. Length: 50.5034 units. Duration: 0.1071 seconds.
+2025-02-15 16:28:26,265 - INFO - Path Smoothness - Avg Curvature: 3.2679
+2025-02-15 16:28:26,265 - INFO - Path 28 added. Length: 45.9014 units. Duration: 0.1040 seconds.
+2025-02-15 16:28:26,370 - INFO - Path Smoothness - Avg Curvature: 3.2089
+2025-02-15 16:28:26,370 - INFO - Path 29 added. Length: 44.5453 units. Duration: 0.1054 seconds.
+2025-02-15 16:28:26,475 - INFO - Path Smoothness - Avg Curvature: 7.9577
+2025-02-15 16:28:26,475 - INFO - Path 30 added. Length: 43.9294 units. Duration: 0.1047 seconds.
+2025-02-15 16:28:26,737 - INFO - Path Smoothness - Avg Curvature: 5.8595
+2025-02-15 16:28:26,737 - INFO - Path 31 added. Length: 48.0492 units. Duration: 0.2619 seconds.
+2025-02-15 16:28:26,846 - INFO - Path Smoothness - Avg Curvature: 8.1469
+2025-02-15 16:28:26,846 - INFO - Path 32 added. Length: 45.1237 units. Duration: 0.1085 seconds.
+2025-02-15 16:28:27,103 - INFO - Path Smoothness - Avg Curvature: 20.4562
+2025-02-15 16:28:27,103 - INFO - Path 33 added. Length: 43.9586 units. Duration: 0.2567 seconds.
+2025-02-15 16:28:27,206 - INFO - Path Smoothness - Avg Curvature: 3.4955
+2025-02-15 16:28:27,206 - INFO - Path 34 added. Length: 45.2018 units. Duration: 0.1034 seconds.
+2025-02-15 16:28:27,463 - INFO - Path Smoothness - Avg Curvature: 6.9518
+2025-02-15 16:28:27,463 - INFO - Path 35 added. Length: 44.1559 units. Duration: 0.2571 seconds.
+2025-02-15 16:28:27,722 - INFO - Path Smoothness - Avg Curvature: 11.9976
+2025-02-15 16:28:27,722 - INFO - Path 36 added. Length: 45.3718 units. Duration: 0.2586 seconds.
+2025-02-15 16:28:27,827 - INFO - Path Smoothness - Avg Curvature: 9.0830
+2025-02-15 16:28:27,827 - INFO - Path 37 added. Length: 45.4354 units. Duration: 0.1048 seconds.
+2025-02-15 16:28:27,930 - INFO - Path Smoothness - Avg Curvature: 6.7270
+2025-02-15 16:28:27,930 - INFO - Path 38 added. Length: 46.8274 units. Duration: 0.1034 seconds.
+2025-02-15 16:28:28,034 - INFO - Path Smoothness - Avg Curvature: 10.7152
+2025-02-15 16:28:28,034 - INFO - Path 39 added. Length: 44.8343 units. Duration: 0.1035 seconds.
+2025-02-15 16:28:28,137 - INFO - Path Smoothness - Avg Curvature: 3.1872
+2025-02-15 16:28:28,137 - INFO - Path 40 added. Length: 51.7740 units. Duration: 0.1027 seconds.
+2025-02-15 16:28:28,244 - INFO - Path Smoothness - Avg Curvature: 6.4964
+2025-02-15 16:28:28,244 - INFO - Path 41 added. Length: 45.6769 units. Duration: 0.1070 seconds.
+2025-02-15 16:28:28,349 - INFO - Path Smoothness - Avg Curvature: 2.7794
+2025-02-15 16:28:28,350 - INFO - Path 42 added. Length: 45.0584 units. Duration: 0.1057 seconds.
+2025-02-15 16:28:28,757 - INFO - Path Smoothness - Avg Curvature: 3.6441
+2025-02-15 16:28:28,758 - INFO - Path 43 added. Length: 45.2903 units. Duration: 0.4078 seconds.
+2025-02-15 16:28:28,863 - INFO - Path Smoothness - Avg Curvature: 5.6978
+2025-02-15 16:28:28,863 - INFO - Path 44 added. Length: 44.5256 units. Duration: 0.1053 seconds.
+2025-02-15 16:28:29,575 - INFO - Path Smoothness - Avg Curvature: 6.8687
+2025-02-15 16:28:29,575 - INFO - Path 45 added. Length: 44.3677 units. Duration: 0.7119 seconds.
+2025-02-15 16:28:29,683 - INFO - Path Smoothness - Avg Curvature: 3.1094
+2025-02-15 16:28:29,683 - INFO - Path 46 added. Length: 45.1298 units. Duration: 0.1083 seconds.
+2025-02-15 16:28:29,788 - INFO - Path Smoothness - Avg Curvature: 11.1260
+2025-02-15 16:28:29,788 - INFO - Path 47 added. Length: 51.5834 units. Duration: 0.1049 seconds.
+2025-02-15 16:28:29,894 - INFO - Path Smoothness - Avg Curvature: 7.5721
+2025-02-15 16:28:29,894 - INFO - Path 48 added. Length: 45.4030 units. Duration: 0.1062 seconds.
+2025-02-15 16:28:30,001 - INFO - Path Smoothness - Avg Curvature: 3.3395
+2025-02-15 16:28:30,002 - INFO - Path 49 added. Length: 43.6753 units. Duration: 0.1071 seconds.
+2025-02-15 16:28:30,260 - INFO - Path Smoothness - Avg Curvature: 5.7484
+2025-02-15 16:28:30,260 - INFO - Path 50 added. Length: 44.2349 units. Duration: 0.2588 seconds.
+2025-02-15 16:28:30,366 - INFO - Path Smoothness - Avg Curvature: 6.3723
+2025-02-15 16:28:30,366 - INFO - Path 51 added. Length: 45.3986 units. Duration: 0.1052 seconds.
+2025-02-15 16:28:30,471 - INFO - Path Smoothness - Avg Curvature: 6.7036
+2025-02-15 16:28:30,471 - INFO - Path 52 added. Length: 47.8388 units. Duration: 0.1051 seconds.
+2025-02-15 16:28:30,575 - INFO - Path Smoothness - Avg Curvature: 4.0244
+2025-02-15 16:28:30,576 - INFO - Path 53 added. Length: 45.2131 units. Duration: 0.1046 seconds.
+2025-02-15 16:28:30,683 - INFO - Path Smoothness - Avg Curvature: 3.2669
+2025-02-15 16:28:30,683 - INFO - Path 54 added. Length: 44.6121 units. Duration: 0.1073 seconds.
+2025-02-15 16:28:30,788 - INFO - Path Smoothness - Avg Curvature: 6.2196
+2025-02-15 16:28:30,788 - INFO - Path 55 added. Length: 44.2873 units. Duration: 0.1054 seconds.
+2025-02-15 16:28:30,894 - INFO - Path Smoothness - Avg Curvature: 3.8387
+2025-02-15 16:28:30,894 - INFO - Path 56 added. Length: 47.6468 units. Duration: 0.1057 seconds.
+2025-02-15 16:28:31,000 - INFO - Path Smoothness - Avg Curvature: 3.2279
+2025-02-15 16:28:31,001 - INFO - Path 57 added. Length: 43.8320 units. Duration: 0.1063 seconds.
+2025-02-15 16:28:31,269 - INFO - Path Smoothness - Avg Curvature: 2.2142
+2025-02-15 16:28:31,269 - INFO - Path 58 added. Length: 43.6615 units. Duration: 0.2683 seconds.
+2025-02-15 16:28:31,678 - INFO - Path Smoothness - Avg Curvature: 5.0711
+2025-02-15 16:28:31,678 - INFO - Path 59 added. Length: 43.5048 units. Duration: 0.4089 seconds.
+2025-02-15 16:28:32,086 - INFO - Path Smoothness - Avg Curvature: 16.5407
+2025-02-15 16:28:32,086 - INFO - Path 60 added. Length: 43.8264 units. Duration: 0.4081 seconds.
+2025-02-15 16:28:32,347 - INFO - Path Smoothness - Avg Curvature: 9.1862
+2025-02-15 16:28:32,348 - INFO - Path 61 added. Length: 45.7341 units. Duration: 0.2615 seconds.
+2025-02-15 16:28:32,454 - INFO - Path Smoothness - Avg Curvature: 10.2645
+2025-02-15 16:28:32,454 - INFO - Path 62 added. Length: 48.4571 units. Duration: 0.1065 seconds.
+2025-02-15 16:28:32,712 - INFO - Path Smoothness - Avg Curvature: 5.4852
+2025-02-15 16:28:32,712 - INFO - Path 63 added. Length: 45.1799 units. Duration: 0.2582 seconds.
+2025-02-15 16:28:32,819 - INFO - Path Smoothness - Avg Curvature: 5.3431
+2025-02-15 16:28:32,819 - INFO - Path 64 added. Length: 44.3321 units. Duration: 0.1069 seconds.
+2025-02-15 16:28:32,924 - INFO - Path Smoothness - Avg Curvature: 5.8258
+2025-02-15 16:28:32,924 - INFO - Path 65 added. Length: 45.3855 units. Duration: 0.1050 seconds.
+2025-02-15 16:28:33,486 - INFO - Path Smoothness - Avg Curvature: 21.2206
+2025-02-15 16:28:33,487 - INFO - Path 66 added. Length: 44.3011 units. Duration: 0.5621 seconds.
+2025-02-15 16:28:33,595 - INFO - Path Smoothness - Avg Curvature: 4.0893
+2025-02-15 16:28:33,595 - INFO - Path 67 added. Length: 46.5076 units. Duration: 0.1086 seconds.
+2025-02-15 16:28:33,701 - INFO - Path Smoothness - Avg Curvature: 4.9724
+2025-02-15 16:28:33,701 - INFO - Path 68 added. Length: 45.6116 units. Duration: 0.1060 seconds.
+2025-02-15 16:28:33,807 - INFO - Path Smoothness - Avg Curvature: 4.1974
+2025-02-15 16:28:33,807 - INFO - Path 69 added. Length: 45.6743 units. Duration: 0.1060 seconds.
+2025-02-15 16:28:33,913 - INFO - Path Smoothness - Avg Curvature: 5.6139
+2025-02-15 16:28:33,913 - INFO - Path 70 added. Length: 48.2175 units. Duration: 0.1054 seconds.
+2025-02-15 16:28:34,017 - INFO - Path Smoothness - Avg Curvature: 16.7770
+2025-02-15 16:28:34,018 - INFO - Path 71 added. Length: 46.4136 units. Duration: 0.1047 seconds.
+2025-02-15 16:28:34,123 - INFO - Path Smoothness - Avg Curvature: 7.4821
+2025-02-15 16:28:34,123 - INFO - Path 72 added. Length: 44.2806 units. Duration: 0.1055 seconds.
+2025-02-15 16:28:34,382 - INFO - Path Smoothness - Avg Curvature: 6.2098
+2025-02-15 16:28:34,382 - INFO - Path 73 added. Length: 44.1604 units. Duration: 0.2587 seconds.
+2025-02-15 16:28:34,638 - INFO - Path Smoothness - Avg Curvature: 3.4038
+2025-02-15 16:28:34,639 - INFO - Path 74 added. Length: 43.8982 units. Duration: 0.2566 seconds.
+2025-02-15 16:28:35,046 - INFO - Path Smoothness - Avg Curvature: 13.7091
+2025-02-15 16:28:35,047 - INFO - Path 75 added. Length: 44.2039 units. Duration: 0.4079 seconds.
+2025-02-15 16:28:35,153 - INFO - Path Smoothness - Avg Curvature: 5.7642
+2025-02-15 16:28:35,153 - INFO - Path 76 added. Length: 44.5468 units. Duration: 0.1061 seconds.
+2025-02-15 16:28:35,259 - INFO - Path Smoothness - Avg Curvature: 7.0394
+2025-02-15 16:28:35,259 - INFO - Path 77 added. Length: 47.9144 units. Duration: 0.1064 seconds.
+2025-02-15 16:28:35,366 - INFO - Path Smoothness - Avg Curvature: 11.5317
+2025-02-15 16:28:35,366 - INFO - Path 78 added. Length: 52.8396 units. Duration: 0.1069 seconds.
+2025-02-15 16:28:35,624 - INFO - Path Smoothness - Avg Curvature: 8.3501
+2025-02-15 16:28:35,624 - INFO - Path 79 added. Length: 44.8759 units. Duration: 0.2576 seconds.
+2025-02-15 16:28:35,731 - INFO - Path Smoothness - Avg Curvature: 5.3030
+2025-02-15 16:28:35,731 - INFO - Path 80 added. Length: 47.0261 units. Duration: 0.1069 seconds.
+2025-02-15 16:28:35,833 - INFO - Path Smoothness - Avg Curvature: 10.5283
+2025-02-15 16:28:35,833 - INFO - Path 81 added. Length: 45.1893 units. Duration: 0.1026 seconds.
+2025-02-15 16:28:35,913 - INFO - Path Smoothness - Avg Curvature: 6.4607
+2025-02-15 16:28:35,913 - INFO - Path 82 added. Length: 45.5946 units. Duration: 0.0798 seconds.
+2025-02-15 16:28:36,321 - INFO - Path Smoothness - Avg Curvature: 8.3569
+2025-02-15 16:28:36,321 - INFO - Path 83 added. Length: 46.0958 units. Duration: 0.4081 seconds.
+2025-02-15 16:28:36,427 - INFO - Path Smoothness - Avg Curvature: 3.5492
+2025-02-15 16:28:36,427 - INFO - Path 84 added. Length: 44.8824 units. Duration: 0.1057 seconds.
+2025-02-15 16:28:36,532 - INFO - Path Smoothness - Avg Curvature: 6.8854
+2025-02-15 16:28:36,532 - INFO - Path 85 added. Length: 45.8123 units. Duration: 0.1050 seconds.
+2025-02-15 16:28:36,639 - INFO - Path Smoothness - Avg Curvature: 4.6891
+2025-02-15 16:28:36,640 - INFO - Path 86 added. Length: 49.0443 units. Duration: 0.1072 seconds.
+2025-02-15 16:28:36,745 - INFO - Path Smoothness - Avg Curvature: 9.2437
+2025-02-15 16:28:36,745 - INFO - Path 87 added. Length: 46.0921 units. Duration: 0.1053 seconds.
+2025-02-15 16:28:37,003 - INFO - Path Smoothness - Avg Curvature: 4.3883
+2025-02-15 16:28:37,003 - INFO - Path 88 added. Length: 45.5461 units. Duration: 0.2578 seconds.
+2025-02-15 16:28:37,110 - INFO - Path Smoothness - Avg Curvature: 5.8079
+2025-02-15 16:28:37,110 - INFO - Path 89 added. Length: 49.0283 units. Duration: 0.1069 seconds.
+2025-02-15 16:28:37,217 - INFO - Path Smoothness - Avg Curvature: 6.5456
+2025-02-15 16:28:37,217 - INFO - Path 90 added. Length: 45.6777 units. Duration: 0.1074 seconds.
+2025-02-15 16:28:37,324 - INFO - Path Smoothness - Avg Curvature: 92.6513
+2025-02-15 16:28:37,324 - INFO - Path 91 added. Length: 43.8625 units. Duration: 0.1065 seconds.
+2025-02-15 16:28:37,429 - INFO - Path Smoothness - Avg Curvature: 6.9864
+2025-02-15 16:28:37,430 - INFO - Path 92 added. Length: 45.5914 units. Duration: 0.1057 seconds.
+2025-02-15 16:28:37,688 - INFO - Path Smoothness - Avg Curvature: 3.4211
+2025-02-15 16:28:37,688 - INFO - Path 93 added. Length: 45.4975 units. Duration: 0.2585 seconds.
+2025-02-15 16:28:37,795 - INFO - Path Smoothness - Avg Curvature: 3.6005
+2025-02-15 16:28:37,795 - INFO - Path 94 added. Length: 45.4690 units. Duration: 0.1066 seconds.
+2025-02-15 16:28:37,899 - INFO - Path Smoothness - Avg Curvature: 4.6126
+2025-02-15 16:28:37,900 - INFO - Path 95 added. Length: 43.8892 units. Duration: 0.1047 seconds.
+2025-02-15 16:28:38,004 - INFO - Path Smoothness - Avg Curvature: 1.9817
+2025-02-15 16:28:38,004 - INFO - Path 96 added. Length: 43.6355 units. Duration: 0.1044 seconds.
+2025-02-15 16:28:38,110 - INFO - Path Smoothness - Avg Curvature: 5.6065
+2025-02-15 16:28:38,110 - INFO - Path 97 added. Length: 44.9364 units. Duration: 0.1059 seconds.
+2025-02-15 16:28:38,518 - INFO - Path Smoothness - Avg Curvature: 9.2591
+2025-02-15 16:28:38,518 - INFO - Path 98 added. Length: 45.5206 units. Duration: 0.4076 seconds.
+2025-02-15 16:28:38,624 - INFO - Path Smoothness - Avg Curvature: 3.2835
+2025-02-15 16:28:38,624 - INFO - Path 99 added. Length: 45.0473 units. Duration: 0.1063 seconds.
+2025-02-15 16:28:38,624 - INFO - Planning 100 paths from [ 0.259 -0.15  -0.45 ] to [-0.267  0.152 -0.45 ].
+2025-02-15 16:28:38,625 - INFO - Actual start state: (0.259, -0.15, -0.45). Actual goal state: (-0.267, 0.152, -0.45)
+2025-02-15 16:28:39,034 - INFO - Path Smoothness - Avg Curvature: 4.5450
+2025-02-15 16:28:39,034 - INFO - Path 0 added. Length: 43.8600 units. Duration: 0.4096 seconds.
+2025-02-15 16:28:39,139 - INFO - Path Smoothness - Avg Curvature: 3.3727
+2025-02-15 16:28:39,140 - INFO - Path 1 added. Length: 46.8888 units. Duration: 0.1053 seconds.
+2025-02-15 16:28:39,245 - INFO - Path Smoothness - Avg Curvature: 5.2702
+2025-02-15 16:28:39,245 - INFO - Path 2 added. Length: 44.7170 units. Duration: 0.1051 seconds.
+2025-02-15 16:28:39,503 - INFO - Path Smoothness - Avg Curvature: 2.0700
+2025-02-15 16:28:39,504 - INFO - Path 3 added. Length: 47.3165 units. Duration: 0.2586 seconds.
+2025-02-15 16:28:39,762 - INFO - Path Smoothness - Avg Curvature: 9.9481
+2025-02-15 16:28:39,762 - INFO - Path 4 added. Length: 44.4553 units. Duration: 0.2582 seconds.
+2025-02-15 16:28:39,866 - INFO - Path Smoothness - Avg Curvature: 11.3991
+2025-02-15 16:28:39,866 - INFO - Path 5 added. Length: 44.8466 units. Duration: 0.1045 seconds.
+2025-02-15 16:28:39,971 - INFO - Path Smoothness - Avg Curvature: 4.4768
+2025-02-15 16:28:39,972 - INFO - Path 6 added. Length: 46.9264 units. Duration: 0.1050 seconds.
+2025-02-15 16:28:40,077 - INFO - Path Smoothness - Avg Curvature: 6.3351
+2025-02-15 16:28:40,078 - INFO - Path 7 added. Length: 48.1283 units. Duration: 0.1060 seconds.
+2025-02-15 16:28:40,183 - INFO - Path Smoothness - Avg Curvature: 4.6008
+2025-02-15 16:28:40,183 - INFO - Path 8 added. Length: 46.8905 units. Duration: 0.1052 seconds.
+2025-02-15 16:28:40,438 - INFO - Path Smoothness - Avg Curvature: 5.3125
+2025-02-15 16:28:40,439 - INFO - Path 9 added. Length: 44.7358 units. Duration: 0.2556 seconds.
+2025-02-15 16:28:40,547 - INFO - Path Smoothness - Avg Curvature: 3.6696
+2025-02-15 16:28:40,547 - INFO - Path 10 added. Length: 44.6066 units. Duration: 0.1084 seconds.
+2025-02-15 16:28:40,707 - INFO - Path Smoothness - Avg Curvature: 76.3062
+2025-02-15 16:28:40,707 - INFO - Path 11 added. Length: 48.5448 units. Duration: 0.1601 seconds.
+2025-02-15 16:28:40,814 - INFO - Path Smoothness - Avg Curvature: 8.1247
+2025-02-15 16:28:40,814 - INFO - Path 12 added. Length: 45.4355 units. Duration: 0.1070 seconds.
+2025-02-15 16:28:41,074 - INFO - Path Smoothness - Avg Curvature: 13.2427
+2025-02-15 16:28:41,074 - INFO - Path 13 added. Length: 43.8033 units. Duration: 0.2596 seconds.
+2025-02-15 16:28:41,181 - INFO - Path Smoothness - Avg Curvature: 4.4194
+2025-02-15 16:28:41,181 - INFO - Path 14 added. Length: 44.5287 units. Duration: 0.1074 seconds.
+2025-02-15 16:28:41,439 - INFO - Path Smoothness - Avg Curvature: 3.3497
+2025-02-15 16:28:41,439 - INFO - Path 15 added. Length: 46.3163 units. Duration: 0.2577 seconds.
+2025-02-15 16:28:41,545 - INFO - Path Smoothness - Avg Curvature: 11.7209
+2025-02-15 16:28:41,545 - INFO - Path 16 added. Length: 48.1230 units. Duration: 0.1062 seconds.
+2025-02-15 16:28:41,650 - INFO - Path Smoothness - Avg Curvature: 5.8927
+2025-02-15 16:28:41,651 - INFO - Path 17 added. Length: 45.1279 units. Duration: 0.1051 seconds.
+2025-02-15 16:28:41,757 - INFO - Path Smoothness - Avg Curvature: 11.2792
+2025-02-15 16:28:41,757 - INFO - Path 18 added. Length: 45.2345 units. Duration: 0.1069 seconds.
+2025-02-15 16:28:42,168 - INFO - Path Smoothness - Avg Curvature: 5.2607
+2025-02-15 16:28:42,168 - INFO - Path 19 added. Length: 44.4474 units. Duration: 0.4106 seconds.
+2025-02-15 16:28:42,273 - INFO - Path Smoothness - Avg Curvature: 2.7620
+2025-02-15 16:28:42,273 - INFO - Path 20 added. Length: 44.4370 units. Duration: 0.1049 seconds.
+2025-02-15 16:28:42,684 - INFO - Path Smoothness - Avg Curvature: 5.0720
+2025-02-15 16:28:42,684 - INFO - Path 21 added. Length: 47.3382 units. Duration: 0.4112 seconds.
+2025-02-15 16:28:42,790 - INFO - Path Smoothness - Avg Curvature: 1.7056
+2025-02-15 16:28:42,790 - INFO - Path 22 added. Length: 46.5886 units. Duration: 0.1058 seconds.
+2025-02-15 16:28:43,199 - INFO - Path Smoothness - Avg Curvature: 11.7232
+2025-02-15 16:28:43,200 - INFO - Path 23 added. Length: 45.4517 units. Duration: 0.4092 seconds.
+2025-02-15 16:28:43,306 - INFO - Path Smoothness - Avg Curvature: 5.9662
+2025-02-15 16:28:43,307 - INFO - Path 24 added. Length: 44.9510 units. Duration: 0.1070 seconds.
+2025-02-15 16:28:43,565 - INFO - Path Smoothness - Avg Curvature: 3.9320
+2025-02-15 16:28:43,565 - INFO - Path 25 added. Length: 46.5662 units. Duration: 0.2582 seconds.
+2025-02-15 16:28:43,669 - INFO - Path Smoothness - Avg Curvature: 1.5258
+2025-02-15 16:28:43,669 - INFO - Path 26 added. Length: 47.9895 units. Duration: 0.1039 seconds.
+2025-02-15 16:28:43,774 - INFO - Path Smoothness - Avg Curvature: 2.3335
+2025-02-15 16:28:43,774 - INFO - Path 27 added. Length: 46.3208 units. Duration: 0.1054 seconds.
+2025-02-15 16:28:43,879 - INFO - Path Smoothness - Avg Curvature: 4.4004
+2025-02-15 16:28:43,879 - INFO - Path 28 added. Length: 46.8173 units. Duration: 0.1047 seconds.
+2025-02-15 16:28:44,135 - INFO - Path Smoothness - Avg Curvature: 3.7319
+2025-02-15 16:28:44,135 - INFO - Path 29 added. Length: 46.6353 units. Duration: 0.2561 seconds.
+2025-02-15 16:28:44,291 - INFO - Path Smoothness - Avg Curvature: 0.9732
+2025-02-15 16:28:44,291 - INFO - Path 30 added. Length: 49.3439 units. Duration: 0.1559 seconds.
+2025-02-15 16:28:44,447 - INFO - Path Smoothness - Avg Curvature: 10.5422
+2025-02-15 16:28:44,447 - INFO - Path 31 added. Length: 46.7155 units. Duration: 0.1561 seconds.
+2025-02-15 16:28:44,604 - INFO - Path Smoothness - Avg Curvature: 4.2767
+2025-02-15 16:28:44,605 - INFO - Path 32 added. Length: 44.7690 units. Duration: 0.1570 seconds.
+2025-02-15 16:28:44,861 - INFO - Path Smoothness - Avg Curvature: 154.1699
+2025-02-15 16:28:44,862 - INFO - Path 33 added. Length: 48.1509 units. Duration: 0.2570 seconds.
+2025-02-15 16:28:44,968 - INFO - Path Smoothness - Avg Curvature: 8.4236
+2025-02-15 16:28:44,968 - INFO - Path 34 added. Length: 45.3908 units. Duration: 0.1067 seconds.
+2025-02-15 16:28:45,074 - INFO - Path Smoothness - Avg Curvature: 11.1199
+2025-02-15 16:28:45,074 - INFO - Path 35 added. Length: 46.6056 units. Duration: 0.1057 seconds.
+2025-02-15 16:28:45,181 - INFO - Path Smoothness - Avg Curvature: 4.8092
+2025-02-15 16:28:45,181 - INFO - Path 36 added. Length: 48.0565 units. Duration: 0.1073 seconds.
+2025-02-15 16:28:45,439 - INFO - Path Smoothness - Avg Curvature: 4.1274
+2025-02-15 16:28:45,439 - INFO - Path 37 added. Length: 46.2843 units. Duration: 0.2577 seconds.
+2025-02-15 16:28:45,546 - INFO - Path Smoothness - Avg Curvature: 3.0217
+2025-02-15 16:28:45,546 - INFO - Path 38 added. Length: 46.9792 units. Duration: 0.1070 seconds.
+2025-02-15 16:28:45,653 - INFO - Path Smoothness - Avg Curvature: 3.1424
+2025-02-15 16:28:45,653 - INFO - Path 39 added. Length: 45.9574 units. Duration: 0.1069 seconds.
+2025-02-15 16:28:45,758 - INFO - Path Smoothness - Avg Curvature: 4.2318
+2025-02-15 16:28:45,758 - INFO - Path 40 added. Length: 47.1062 units. Duration: 0.1049 seconds.
+2025-02-15 16:28:46,014 - INFO - Path Smoothness - Avg Curvature: 3.3507
+2025-02-15 16:28:46,014 - INFO - Path 41 added. Length: 46.4619 units. Duration: 0.2561 seconds.
+2025-02-15 16:28:46,121 - INFO - Path Smoothness - Avg Curvature: 3.0991
+2025-02-15 16:28:46,121 - INFO - Path 42 added. Length: 47.0059 units. Duration: 0.1067 seconds.
+2025-02-15 16:28:46,225 - INFO - Path Smoothness - Avg Curvature: 3.9903
+2025-02-15 16:28:46,225 - INFO - Path 43 added. Length: 47.2556 units. Duration: 0.1043 seconds.
+2025-02-15 16:28:46,330 - INFO - Path Smoothness - Avg Curvature: 6.9313
+2025-02-15 16:28:46,331 - INFO - Path 44 added. Length: 46.6143 units. Duration: 0.1050 seconds.
+2025-02-15 16:28:46,435 - INFO - Path Smoothness - Avg Curvature: 4.5694
+2025-02-15 16:28:46,435 - INFO - Path 45 added. Length: 47.8607 units. Duration: 0.1046 seconds.
+2025-02-15 16:28:46,693 - INFO - Path Smoothness - Avg Curvature: 12.7529
+2025-02-15 16:28:46,693 - INFO - Path 46 added. Length: 46.1169 units. Duration: 0.2575 seconds.
+2025-02-15 16:28:46,796 - INFO - Path Smoothness - Avg Curvature: 11.6312
+2025-02-15 16:28:46,796 - INFO - Path 47 added. Length: 50.7755 units. Duration: 0.1034 seconds.
+2025-02-15 16:28:46,901 - INFO - Path Smoothness - Avg Curvature: 5.4805
+2025-02-15 16:28:46,902 - INFO - Path 48 added. Length: 46.6170 units. Duration: 0.1053 seconds.
+2025-02-15 16:28:47,008 - INFO - Path Smoothness - Avg Curvature: 7.7044
+2025-02-15 16:28:47,008 - INFO - Path 49 added. Length: 46.4145 units. Duration: 0.1066 seconds.
+2025-02-15 16:28:47,113 - INFO - Path Smoothness - Avg Curvature: 4.9866
+2025-02-15 16:28:47,113 - INFO - Path 50 added. Length: 47.4386 units. Duration: 0.1049 seconds.
+2025-02-15 16:28:47,219 - INFO - Path Smoothness - Avg Curvature: 3.0584
+2025-02-15 16:28:47,219 - INFO - Path 51 added. Length: 47.3231 units. Duration: 0.1054 seconds.
+2025-02-15 16:28:47,627 - INFO - Path Smoothness - Avg Curvature: 4.4212
+2025-02-15 16:28:47,627 - INFO - Path 52 added. Length: 45.9667 units. Duration: 0.4085 seconds.
+2025-02-15 16:28:47,882 - INFO - Path Smoothness - Avg Curvature: 4.6068
+2025-02-15 16:28:47,883 - INFO - Path 53 added. Length: 44.7848 units. Duration: 0.2552 seconds.
+2025-02-15 16:28:48,042 - INFO - Path Smoothness - Avg Curvature: 10.2701
+2025-02-15 16:28:48,042 - INFO - Path 54 added. Length: 48.2476 units. Duration: 0.1593 seconds.
+2025-02-15 16:28:48,147 - INFO - Path Smoothness - Avg Curvature: 4.0227
+2025-02-15 16:28:48,147 - INFO - Path 55 added. Length: 47.5641 units. Duration: 0.1048 seconds.
+2025-02-15 16:28:48,253 - INFO - Path Smoothness - Avg Curvature: 7.4077
+2025-02-15 16:28:48,253 - INFO - Path 56 added. Length: 43.7440 units. Duration: 0.1061 seconds.
+2025-02-15 16:28:48,358 - INFO - Path Smoothness - Avg Curvature: 6.9292
+2025-02-15 16:28:48,358 - INFO - Path 57 added. Length: 47.7495 units. Duration: 0.1052 seconds.
+2025-02-15 16:28:48,463 - INFO - Path Smoothness - Avg Curvature: 4.3036
+2025-02-15 16:28:48,463 - INFO - Path 58 added. Length: 50.4314 units. Duration: 0.1048 seconds.
+2025-02-15 16:28:48,720 - INFO - Path Smoothness - Avg Curvature: 2.7580
+2025-02-15 16:28:48,720 - INFO - Path 59 added. Length: 46.9691 units. Duration: 0.2566 seconds.
+2025-02-15 16:28:48,825 - INFO - Path Smoothness - Avg Curvature: 3.5671
+2025-02-15 16:28:48,825 - INFO - Path 60 added. Length: 46.4264 units. Duration: 0.1053 seconds.
+2025-02-15 16:28:48,930 - INFO - Path Smoothness - Avg Curvature: 11.7015
+2025-02-15 16:28:48,930 - INFO - Path 61 added. Length: 47.2468 units. Duration: 0.1045 seconds.
+2025-02-15 16:28:49,035 - INFO - Path Smoothness - Avg Curvature: 2.9114
+2025-02-15 16:28:49,036 - INFO - Path 62 added. Length: 46.7272 units. Duration: 0.1057 seconds.
+2025-02-15 16:28:49,140 - INFO - Path Smoothness - Avg Curvature: 2.2639
+2025-02-15 16:28:49,140 - INFO - Path 63 added. Length: 47.9400 units. Duration: 0.1043 seconds.
+2025-02-15 16:28:49,246 - INFO - Path Smoothness - Avg Curvature: 3.4168
+2025-02-15 16:28:49,246 - INFO - Path 64 added. Length: 44.6459 units. Duration: 0.1065 seconds.
+2025-02-15 16:28:49,352 - INFO - Path Smoothness - Avg Curvature: 2.3489
+2025-02-15 16:28:49,352 - INFO - Path 65 added. Length: 47.5339 units. Duration: 0.1054 seconds.
+2025-02-15 16:28:49,456 - INFO - Path Smoothness - Avg Curvature: 2.3071
+2025-02-15 16:28:49,457 - INFO - Path 66 added. Length: 45.2231 units. Duration: 0.1046 seconds.
+2025-02-15 16:28:49,721 - INFO - Path Smoothness - Avg Curvature: 4.3522
+2025-02-15 16:28:49,722 - INFO - Path 67 added. Length: 47.4942 units. Duration: 0.2650 seconds.
+2025-02-15 16:28:49,826 - INFO - Path Smoothness - Avg Curvature: 7.2122
+2025-02-15 16:28:49,826 - INFO - Path 68 added. Length: 46.5569 units. Duration: 0.1045 seconds.
+2025-02-15 16:28:50,083 - INFO - Path Smoothness - Avg Curvature: 3.9350
+2025-02-15 16:28:50,083 - INFO - Path 69 added. Length: 44.3416 units. Duration: 0.2567 seconds.
+2025-02-15 16:28:50,340 - INFO - Path Smoothness - Avg Curvature: 6.8170
+2025-02-15 16:28:50,340 - INFO - Path 70 added. Length: 46.7198 units. Duration: 0.2566 seconds.
+2025-02-15 16:28:50,746 - INFO - Path Smoothness - Avg Curvature: 2.5041
+2025-02-15 16:28:50,746 - INFO - Path 71 added. Length: 43.6743 units. Duration: 0.4065 seconds.
+2025-02-15 16:28:50,851 - INFO - Path Smoothness - Avg Curvature: 4.2768
+2025-02-15 16:28:50,851 - INFO - Path 72 added. Length: 44.4830 units. Duration: 0.1048 seconds.
+2025-02-15 16:28:50,955 - INFO - Path Smoothness - Avg Curvature: 3.3443
+2025-02-15 16:28:50,955 - INFO - Path 73 added. Length: 47.7213 units. Duration: 0.1042 seconds.
+2025-02-15 16:28:51,061 - INFO - Path Smoothness - Avg Curvature: 4.8628
+2025-02-15 16:28:51,061 - INFO - Path 74 added. Length: 46.5554 units. Duration: 0.1052 seconds.
+2025-02-15 16:28:51,165 - INFO - Path Smoothness - Avg Curvature: 2.1120
+2025-02-15 16:28:51,165 - INFO - Path 75 added. Length: 46.8509 units. Duration: 0.1046 seconds.
+2025-02-15 16:28:51,269 - INFO - Path Smoothness - Avg Curvature: 2.6849
+2025-02-15 16:28:51,269 - INFO - Path 76 added. Length: 43.4818 units. Duration: 0.1041 seconds.
+2025-02-15 16:28:51,678 - INFO - Path Smoothness - Avg Curvature: 4.9805
+2025-02-15 16:28:51,678 - INFO - Path 77 added. Length: 47.6511 units. Duration: 0.4082 seconds.
+2025-02-15 16:28:52,239 - INFO - Path Smoothness - Avg Curvature: 8.7013
+2025-02-15 16:28:52,239 - INFO - Path 78 added. Length: 43.8604 units. Duration: 0.5610 seconds.
+2025-02-15 16:28:52,343 - INFO - Path Smoothness - Avg Curvature: 3.4670
+2025-02-15 16:28:52,343 - INFO - Path 79 added. Length: 44.4020 units. Duration: 0.1046 seconds.
+2025-02-15 16:28:52,448 - INFO - Path Smoothness - Avg Curvature: 6.6612
+2025-02-15 16:28:52,449 - INFO - Path 80 added. Length: 48.0435 units. Duration: 0.1051 seconds.
+2025-02-15 16:28:52,554 - INFO - Path Smoothness - Avg Curvature: 8.6687
+2025-02-15 16:28:52,554 - INFO - Path 81 added. Length: 46.5412 units. Duration: 0.1058 seconds.
+2025-02-15 16:28:52,659 - INFO - Path Smoothness - Avg Curvature: 4.0011
+2025-02-15 16:28:52,659 - INFO - Path 82 added. Length: 46.6380 units. Duration: 0.1044 seconds.
+2025-02-15 16:28:52,917 - INFO - Path Smoothness - Avg Curvature: 8.1448
+2025-02-15 16:28:52,917 - INFO - Path 83 added. Length: 46.0431 units. Duration: 0.2584 seconds.
+2025-02-15 16:28:53,023 - INFO - Path Smoothness - Avg Curvature: 2.8088
+2025-02-15 16:28:53,023 - INFO - Path 84 added. Length: 46.0139 units. Duration: 0.1054 seconds.
+2025-02-15 16:28:53,128 - INFO - Path Smoothness - Avg Curvature: 5.7237
+2025-02-15 16:28:53,129 - INFO - Path 85 added. Length: 48.1473 units. Duration: 0.1058 seconds.
+2025-02-15 16:28:53,235 - INFO - Path Smoothness - Avg Curvature: 5.5515
+2025-02-15 16:28:53,235 - INFO - Path 86 added. Length: 45.0986 units. Duration: 0.1063 seconds.
+2025-02-15 16:28:53,340 - INFO - Path Smoothness - Avg Curvature: 2.8371
+2025-02-15 16:28:53,340 - INFO - Path 87 added. Length: 45.9640 units. Duration: 0.1049 seconds.
+2025-02-15 16:28:53,446 - INFO - Path Smoothness - Avg Curvature: 8.1246
+2025-02-15 16:28:53,446 - INFO - Path 88 added. Length: 44.5481 units. Duration: 0.1060 seconds.
+2025-02-15 16:28:53,552 - INFO - Path Smoothness - Avg Curvature: 5.9565
+2025-02-15 16:28:53,552 - INFO - Path 89 added. Length: 46.6458 units. Duration: 0.1060 seconds.
+2025-02-15 16:28:53,810 - INFO - Path Smoothness - Avg Curvature: 5.3036
+2025-02-15 16:28:53,811 - INFO - Path 90 added. Length: 45.9423 units. Duration: 0.2585 seconds.
+2025-02-15 16:28:53,917 - INFO - Path Smoothness - Avg Curvature: 6.7127
+2025-02-15 16:28:53,917 - INFO - Path 91 added. Length: 45.2952 units. Duration: 0.1061 seconds.
+2025-02-15 16:28:54,325 - INFO - Path Smoothness - Avg Curvature: 7.1491
+2025-02-15 16:28:54,325 - INFO - Path 92 added. Length: 46.5010 units. Duration: 0.4079 seconds.
+2025-02-15 16:28:54,432 - INFO - Path Smoothness - Avg Curvature: 3.5575
+2025-02-15 16:28:54,432 - INFO - Path 93 added. Length: 46.4007 units. Duration: 0.1075 seconds.
+2025-02-15 16:28:54,537 - INFO - Path Smoothness - Avg Curvature: 4.8897
+2025-02-15 16:28:54,537 - INFO - Path 94 added. Length: 48.5859 units. Duration: 0.1047 seconds.
+2025-02-15 16:28:54,643 - INFO - Path Smoothness - Avg Curvature: 6.7915
+2025-02-15 16:28:54,643 - INFO - Path 95 added. Length: 43.6163 units. Duration: 0.1057 seconds.
+2025-02-15 16:28:54,901 - INFO - Path Smoothness - Avg Curvature: 12.5620
+2025-02-15 16:28:54,901 - INFO - Path 96 added. Length: 47.8413 units. Duration: 0.2584 seconds.
+2025-02-15 16:28:55,006 - INFO - Path Smoothness - Avg Curvature: 2.3871
+2025-02-15 16:28:55,006 - INFO - Path 97 added. Length: 47.5799 units. Duration: 0.1050 seconds.
+2025-02-15 16:28:55,111 - INFO - Path Smoothness - Avg Curvature: 3.1526
+2025-02-15 16:28:55,111 - INFO - Path 98 added. Length: 45.4089 units. Duration: 0.1049 seconds.
+2025-02-15 16:28:55,216 - INFO - Path Smoothness - Avg Curvature: 3.3156
+2025-02-15 16:28:55,216 - INFO - Path 99 added. Length: 44.6108 units. Duration: 0.1050 seconds.
+2025-02-15 16:28:55,217 - INFO - Planning 100 paths from [-0.198  0.233 -0.45 ] to [ 0.198 -0.233 -0.45 ].
+2025-02-15 16:28:55,217 - INFO - Actual start state: (-0.198, 0.233, -0.45). Actual goal state: (0.198, -0.233, -0.45)
+2025-02-15 16:28:55,320 - INFO - Path Smoothness - Avg Curvature: 5.8702
+2025-02-15 16:28:55,321 - INFO - Path 0 added. Length: 51.5516 units. Duration: 0.1037 seconds.
+2025-02-15 16:28:55,424 - INFO - Path Smoothness - Avg Curvature: 3.8966
+2025-02-15 16:28:55,425 - INFO - Path 1 added. Length: 42.0429 units. Duration: 0.1039 seconds.
+2025-02-15 16:28:55,529 - INFO - Path Smoothness - Avg Curvature: 4.4734
+2025-02-15 16:28:55,529 - INFO - Path 2 added. Length: 49.3978 units. Duration: 0.1043 seconds.
+2025-02-15 16:28:55,786 - INFO - Path Smoothness - Avg Curvature: 5.5212
+2025-02-15 16:28:55,786 - INFO - Path 3 added. Length: 43.2672 units. Duration: 0.2574 seconds.
+2025-02-15 16:28:55,893 - INFO - Path Smoothness - Avg Curvature: 17.9938
+2025-02-15 16:28:55,893 - INFO - Path 4 added. Length: 43.7273 units. Duration: 0.1067 seconds.
+2025-02-15 16:28:55,999 - INFO - Path Smoothness - Avg Curvature: 3.6880
+2025-02-15 16:28:55,999 - INFO - Path 5 added. Length: 50.6271 units. Duration: 0.1058 seconds.
+2025-02-15 16:28:56,104 - INFO - Path Smoothness - Avg Curvature: 8.7829
+2025-02-15 16:28:56,104 - INFO - Path 6 added. Length: 49.7530 units. Duration: 0.1050 seconds.
+2025-02-15 16:28:56,209 - INFO - Path Smoothness - Avg Curvature: 3.4775
+2025-02-15 16:28:56,209 - INFO - Path 7 added. Length: 51.1418 units. Duration: 0.1051 seconds.
+2025-02-15 16:28:56,314 - INFO - Path Smoothness - Avg Curvature: 5.0987
+2025-02-15 16:28:56,315 - INFO - Path 8 added. Length: 50.3134 units. Duration: 0.1055 seconds.
+2025-02-15 16:28:56,420 - INFO - Path Smoothness - Avg Curvature: 7.2330
+2025-02-15 16:28:56,420 - INFO - Path 9 added. Length: 44.0676 units. Duration: 0.1053 seconds.
+2025-02-15 16:28:56,525 - INFO - Path Smoothness - Avg Curvature: 4.0236
+2025-02-15 16:28:56,525 - INFO - Path 10 added. Length: 49.6652 units. Duration: 0.1052 seconds.
+2025-02-15 16:28:56,631 - INFO - Path Smoothness - Avg Curvature: 5.7278
+2025-02-15 16:28:56,631 - INFO - Path 11 added. Length: 52.2179 units. Duration: 0.1061 seconds.
+2025-02-15 16:28:56,736 - INFO - Path Smoothness - Avg Curvature: 4.3090
+2025-02-15 16:28:56,736 - INFO - Path 12 added. Length: 46.2660 units. Duration: 0.1045 seconds.
+2025-02-15 16:28:56,841 - INFO - Path Smoothness - Avg Curvature: 4.1753
+2025-02-15 16:28:56,841 - INFO - Path 13 added. Length: 46.6040 units. Duration: 0.1052 seconds.
+2025-02-15 16:28:56,946 - INFO - Path Smoothness - Avg Curvature: 5.3376
+2025-02-15 16:28:56,946 - INFO - Path 14 added. Length: 46.1015 units. Duration: 0.1051 seconds.
+2025-02-15 16:28:57,102 - INFO - Path Smoothness - Avg Curvature: 6.2993
+2025-02-15 16:28:57,102 - INFO - Path 15 added. Length: 50.6278 units. Duration: 0.1558 seconds.
+2025-02-15 16:28:57,361 - INFO - Path Smoothness - Avg Curvature: 6.8548
+2025-02-15 16:28:57,361 - INFO - Path 16 added. Length: 42.4011 units. Duration: 0.2591 seconds.
+2025-02-15 16:28:57,466 - INFO - Path Smoothness - Avg Curvature: 8.9880
+2025-02-15 16:28:57,466 - INFO - Path 17 added. Length: 42.2766 units. Duration: 0.1046 seconds.
+2025-02-15 16:28:57,571 - INFO - Path Smoothness - Avg Curvature: 4.2873
+2025-02-15 16:28:57,571 - INFO - Path 18 added. Length: 49.7510 units. Duration: 0.1049 seconds.
+2025-02-15 16:28:57,676 - INFO - Path Smoothness - Avg Curvature: 8.3674
+2025-02-15 16:28:57,676 - INFO - Path 19 added. Length: 42.1465 units. Duration: 0.1048 seconds.
+2025-02-15 16:28:57,932 - INFO - Path Smoothness - Avg Curvature: 16.8991
+2025-02-15 16:28:57,932 - INFO - Path 20 added. Length: 41.7367 units. Duration: 0.2566 seconds.
+2025-02-15 16:28:58,038 - INFO - Path Smoothness - Avg Curvature: 8.4306
+2025-02-15 16:28:58,038 - INFO - Path 21 added. Length: 42.0111 units. Duration: 0.1061 seconds.
+2025-02-15 16:28:58,295 - INFO - Path Smoothness - Avg Curvature: 18.5442
+2025-02-15 16:28:58,295 - INFO - Path 22 added. Length: 41.6388 units. Duration: 0.2567 seconds.
+2025-02-15 16:28:58,401 - INFO - Path Smoothness - Avg Curvature: 2.9733
+2025-02-15 16:28:58,401 - INFO - Path 23 added. Length: 42.7829 units. Duration: 0.1057 seconds.
+2025-02-15 16:28:58,659 - INFO - Path Smoothness - Avg Curvature: 7.5555
+2025-02-15 16:28:58,659 - INFO - Path 24 added. Length: 50.9023 units. Duration: 0.2581 seconds.
+2025-02-15 16:28:58,764 - INFO - Path Smoothness - Avg Curvature: 18.9683
+2025-02-15 16:28:58,764 - INFO - Path 25 added. Length: 48.4063 units. Duration: 0.1050 seconds.
+2025-02-15 16:28:59,023 - INFO - Path Smoothness - Avg Curvature: 30.3694
+2025-02-15 16:28:59,024 - INFO - Path 26 added. Length: 40.8705 units. Duration: 0.2595 seconds.
+2025-02-15 16:28:59,279 - INFO - Path Smoothness - Avg Curvature: 8.1808
+2025-02-15 16:28:59,279 - INFO - Path 27 added. Length: 42.6539 units. Duration: 0.2554 seconds.
+2025-02-15 16:28:59,385 - INFO - Path Smoothness - Avg Curvature: 3.6340
+2025-02-15 16:28:59,385 - INFO - Path 28 added. Length: 50.3836 units. Duration: 0.1060 seconds.
+2025-02-15 16:28:59,642 - INFO - Path Smoothness - Avg Curvature: 5.8563
+2025-02-15 16:28:59,643 - INFO - Path 29 added. Length: 50.5680 units. Duration: 0.2575 seconds.
+2025-02-15 16:28:59,751 - INFO - Path Smoothness - Avg Curvature: 5.1670
+2025-02-15 16:28:59,752 - INFO - Path 30 added. Length: 42.1556 units. Duration: 0.1089 seconds.
+2025-02-15 16:28:59,856 - INFO - Path Smoothness - Avg Curvature: 11.7436
+2025-02-15 16:28:59,857 - INFO - Path 31 added. Length: 46.3345 units. Duration: 0.1050 seconds.
+2025-02-15 16:28:59,962 - INFO - Path Smoothness - Avg Curvature: 4.6661
+2025-02-15 16:28:59,962 - INFO - Path 32 added. Length: 50.1770 units. Duration: 0.1058 seconds.
+2025-02-15 16:29:00,069 - INFO - Path Smoothness - Avg Curvature: 4.8600
+2025-02-15 16:29:00,069 - INFO - Path 33 added. Length: 49.2954 units. Duration: 0.1062 seconds.
+2025-02-15 16:29:00,173 - INFO - Path Smoothness - Avg Curvature: 3.9283
+2025-02-15 16:29:00,173 - INFO - Path 34 added. Length: 42.5986 units. Duration: 0.1045 seconds.
+2025-02-15 16:29:00,280 - INFO - Path Smoothness - Avg Curvature: 6.3194
+2025-02-15 16:29:00,280 - INFO - Path 35 added. Length: 49.5247 units. Duration: 0.1065 seconds.
+2025-02-15 16:29:00,536 - INFO - Path Smoothness - Avg Curvature: 22.5837
+2025-02-15 16:29:00,536 - INFO - Path 36 added. Length: 49.4674 units. Duration: 0.2567 seconds.
+2025-02-15 16:29:00,793 - INFO - Path Smoothness - Avg Curvature: 3.3383
+2025-02-15 16:29:00,794 - INFO - Path 37 added. Length: 50.0473 units. Duration: 0.2570 seconds.
+2025-02-15 16:29:00,900 - INFO - Path Smoothness - Avg Curvature: 7.6570
+2025-02-15 16:29:00,900 - INFO - Path 38 added. Length: 41.8909 units. Duration: 0.1063 seconds.
+2025-02-15 16:29:01,006 - INFO - Path Smoothness - Avg Curvature: 14.8462
+2025-02-15 16:29:01,006 - INFO - Path 39 added. Length: 51.0957 units. Duration: 0.1062 seconds.
+2025-02-15 16:29:01,112 - INFO - Path Smoothness - Avg Curvature: 4.7482
+2025-02-15 16:29:01,112 - INFO - Path 40 added. Length: 49.3422 units. Duration: 0.1058 seconds.
+2025-02-15 16:29:01,218 - INFO - Path Smoothness - Avg Curvature: 6.9580
+2025-02-15 16:29:01,219 - INFO - Path 41 added. Length: 42.8017 units. Duration: 0.1066 seconds.
+2025-02-15 16:29:01,324 - INFO - Path Smoothness - Avg Curvature: 5.1581
+2025-02-15 16:29:01,324 - INFO - Path 42 added. Length: 48.5105 units. Duration: 0.1050 seconds.
+2025-02-15 16:29:01,479 - INFO - Path Smoothness - Avg Curvature: 21.9299
+2025-02-15 16:29:01,480 - INFO - Path 43 added. Length: 49.7591 units. Duration: 0.1557 seconds.
+2025-02-15 16:29:01,584 - INFO - Path Smoothness - Avg Curvature: 5.8850
+2025-02-15 16:29:01,584 - INFO - Path 44 added. Length: 41.4757 units. Duration: 0.1048 seconds.
+2025-02-15 16:29:01,690 - INFO - Path Smoothness - Avg Curvature: 5.3518
+2025-02-15 16:29:01,690 - INFO - Path 45 added. Length: 41.6462 units. Duration: 0.1055 seconds.
+2025-02-15 16:29:01,793 - INFO - Path Smoothness - Avg Curvature: 4.2976
+2025-02-15 16:29:01,794 - INFO - Path 46 added. Length: 44.0769 units. Duration: 0.1036 seconds.
+2025-02-15 16:29:01,899 - INFO - Path Smoothness - Avg Curvature: 4.4402
+2025-02-15 16:29:01,899 - INFO - Path 47 added. Length: 41.6488 units. Duration: 0.1050 seconds.
+2025-02-15 16:29:02,156 - INFO - Path Smoothness - Avg Curvature: 28.0300
+2025-02-15 16:29:02,157 - INFO - Path 48 added. Length: 50.1429 units. Duration: 0.2579 seconds.
+2025-02-15 16:29:02,314 - INFO - Path Smoothness - Avg Curvature: 17.0896
+2025-02-15 16:29:02,314 - INFO - Path 49 added. Length: 43.9351 units. Duration: 0.1571 seconds.
+2025-02-15 16:29:02,420 - INFO - Path Smoothness - Avg Curvature: 10.2062
+2025-02-15 16:29:02,420 - INFO - Path 50 added. Length: 49.5614 units. Duration: 0.1062 seconds.
+2025-02-15 16:29:02,524 - INFO - Path Smoothness - Avg Curvature: 9.2139
+2025-02-15 16:29:02,524 - INFO - Path 51 added. Length: 44.1591 units. Duration: 0.1043 seconds.
+2025-02-15 16:29:02,681 - INFO - Path Smoothness - Avg Curvature: 4.8481
+2025-02-15 16:29:02,681 - INFO - Path 52 added. Length: 49.2932 units. Duration: 0.1565 seconds.
+2025-02-15 16:29:02,788 - INFO - Path Smoothness - Avg Curvature: 5.6741
+2025-02-15 16:29:02,788 - INFO - Path 53 added. Length: 42.6419 units. Duration: 0.1074 seconds.
+2025-02-15 16:29:02,895 - INFO - Path Smoothness - Avg Curvature: 3.2172
+2025-02-15 16:29:02,896 - INFO - Path 54 added. Length: 42.5526 units. Duration: 0.1070 seconds.
+2025-02-15 16:29:03,001 - INFO - Path Smoothness - Avg Curvature: 4.2810
+2025-02-15 16:29:03,002 - INFO - Path 55 added. Length: 42.2163 units. Duration: 0.1060 seconds.
+2025-02-15 16:29:03,105 - INFO - Path Smoothness - Avg Curvature: 7.0210
+2025-02-15 16:29:03,105 - INFO - Path 56 added. Length: 44.4115 units. Duration: 0.1039 seconds.
+2025-02-15 16:29:03,212 - INFO - Path Smoothness - Avg Curvature: 5.2700
+2025-02-15 16:29:03,212 - INFO - Path 57 added. Length: 42.3712 units. Duration: 0.1066 seconds.
+2025-02-15 16:29:03,317 - INFO - Path Smoothness - Avg Curvature: 5.4962
+2025-02-15 16:29:03,318 - INFO - Path 58 added. Length: 50.1580 units. Duration: 0.1055 seconds.
+2025-02-15 16:29:03,574 - INFO - Path Smoothness - Avg Curvature: 16.5820
+2025-02-15 16:29:03,574 - INFO - Path 59 added. Length: 42.0156 units. Duration: 0.2566 seconds.
+2025-02-15 16:29:03,984 - INFO - Path Smoothness - Avg Curvature: 10.0737
+2025-02-15 16:29:03,984 - INFO - Path 60 added. Length: 49.4511 units. Duration: 0.4100 seconds.
+2025-02-15 16:29:04,092 - INFO - Path Smoothness - Avg Curvature: 3.5551
+2025-02-15 16:29:04,092 - INFO - Path 61 added. Length: 48.5305 units. Duration: 0.1073 seconds.
+2025-02-15 16:29:04,251 - INFO - Path Smoothness - Avg Curvature: 7.3160
+2025-02-15 16:29:04,251 - INFO - Path 62 added. Length: 50.0402 units. Duration: 0.1594 seconds.
+2025-02-15 16:29:04,408 - INFO - Path Smoothness - Avg Curvature: 5.5709
+2025-02-15 16:29:04,408 - INFO - Path 63 added. Length: 49.0955 units. Duration: 0.1570 seconds.
+2025-02-15 16:29:04,515 - INFO - Path Smoothness - Avg Curvature: 2.3929
+2025-02-15 16:29:04,515 - INFO - Path 64 added. Length: 49.7634 units. Duration: 0.1071 seconds.
+2025-02-15 16:29:04,772 - INFO - Path Smoothness - Avg Curvature: 7.6967
+2025-02-15 16:29:04,772 - INFO - Path 65 added. Length: 41.0603 units. Duration: 0.2565 seconds.
+2025-02-15 16:29:04,876 - INFO - Path Smoothness - Avg Curvature: 9.7963
+2025-02-15 16:29:04,876 - INFO - Path 66 added. Length: 42.8075 units. Duration: 0.1041 seconds.
+2025-02-15 16:29:05,286 - INFO - Path Smoothness - Avg Curvature: 8.9059
+2025-02-15 16:29:05,287 - INFO - Path 67 added. Length: 49.2785 units. Duration: 0.4104 seconds.
+2025-02-15 16:29:05,394 - INFO - Path Smoothness - Avg Curvature: 5.6002
+2025-02-15 16:29:05,394 - INFO - Path 68 added. Length: 51.7626 units. Duration: 0.1072 seconds.
+2025-02-15 16:29:05,499 - INFO - Path Smoothness - Avg Curvature: 9.4058
+2025-02-15 16:29:05,499 - INFO - Path 69 added. Length: 45.0915 units. Duration: 0.1054 seconds.
+2025-02-15 16:29:05,603 - INFO - Path Smoothness - Avg Curvature: 5.5949
+2025-02-15 16:29:05,604 - INFO - Path 70 added. Length: 51.5263 units. Duration: 0.1042 seconds.
+2025-02-15 16:29:05,711 - INFO - Path Smoothness - Avg Curvature: 373.5902
+2025-02-15 16:29:05,711 - INFO - Path 71 added. Length: 42.6395 units. Duration: 0.1070 seconds.
+2025-02-15 16:29:05,815 - INFO - Path Smoothness - Avg Curvature: 3.6568
+2025-02-15 16:29:05,815 - INFO - Path 72 added. Length: 42.4469 units. Duration: 0.1045 seconds.
+2025-02-15 16:29:05,920 - INFO - Path Smoothness - Avg Curvature: 60.4178
+2025-02-15 16:29:05,920 - INFO - Path 73 added. Length: 44.7638 units. Duration: 0.1049 seconds.
+2025-02-15 16:29:06,025 - INFO - Path Smoothness - Avg Curvature: 5.0446
+2025-02-15 16:29:06,025 - INFO - Path 74 added. Length: 49.3045 units. Duration: 0.1048 seconds.
+2025-02-15 16:29:06,284 - INFO - Path Smoothness - Avg Curvature: 8.6920
+2025-02-15 16:29:06,284 - INFO - Path 75 added. Length: 42.2938 units. Duration: 0.2592 seconds.
+2025-02-15 16:29:06,390 - INFO - Path Smoothness - Avg Curvature: 4.0046
+2025-02-15 16:29:06,391 - INFO - Path 76 added. Length: 49.9341 units. Duration: 0.1062 seconds.
+2025-02-15 16:29:06,496 - INFO - Path Smoothness - Avg Curvature: 4.1139
+2025-02-15 16:29:06,496 - INFO - Path 77 added. Length: 50.6492 units. Duration: 0.1053 seconds.
+2025-02-15 16:29:06,602 - INFO - Path Smoothness - Avg Curvature: 5.9989
+2025-02-15 16:29:06,602 - INFO - Path 78 added. Length: 49.0545 units. Duration: 0.1057 seconds.
+2025-02-15 16:29:06,707 - INFO - Path Smoothness - Avg Curvature: 5.4466
+2025-02-15 16:29:06,707 - INFO - Path 79 added. Length: 42.6229 units. Duration: 0.1048 seconds.
+2025-02-15 16:29:06,810 - INFO - Path Smoothness - Avg Curvature: 5.9800
+2025-02-15 16:29:06,810 - INFO - Path 80 added. Length: 47.2083 units. Duration: 0.1036 seconds.
+2025-02-15 16:29:06,917 - INFO - Path Smoothness - Avg Curvature: 6.5075
+2025-02-15 16:29:06,917 - INFO - Path 81 added. Length: 41.6581 units. Duration: 0.1065 seconds.
+2025-02-15 16:29:07,022 - INFO - Path Smoothness - Avg Curvature: 4.1084
+2025-02-15 16:29:07,022 - INFO - Path 82 added. Length: 51.1351 units. Duration: 0.1049 seconds.
+2025-02-15 16:29:07,130 - INFO - Path Smoothness - Avg Curvature: 14.2632
+2025-02-15 16:29:07,130 - INFO - Path 83 added. Length: 43.6099 units. Duration: 0.1080 seconds.
+2025-02-15 16:29:07,387 - INFO - Path Smoothness - Avg Curvature: 3.9395
+2025-02-15 16:29:07,387 - INFO - Path 84 added. Length: 49.7094 units. Duration: 0.2566 seconds.
+2025-02-15 16:29:07,946 - INFO - Path Smoothness - Avg Curvature: 10.0109
+2025-02-15 16:29:07,946 - INFO - Path 85 added. Length: 42.2534 units. Duration: 0.5591 seconds.
+2025-02-15 16:29:08,051 - INFO - Path Smoothness - Avg Curvature: 35.5981
+2025-02-15 16:29:08,051 - INFO - Path 86 added. Length: 49.2682 units. Duration: 0.1053 seconds.
+2025-02-15 16:29:08,157 - INFO - Path Smoothness - Avg Curvature: 49.5764
+2025-02-15 16:29:08,158 - INFO - Path 87 added. Length: 52.5881 units. Duration: 0.1064 seconds.
+2025-02-15 16:29:08,262 - INFO - Path Smoothness - Avg Curvature: 5.5990
+2025-02-15 16:29:08,263 - INFO - Path 88 added. Length: 41.8868 units. Duration: 0.1050 seconds.
+2025-02-15 16:29:08,368 - INFO - Path Smoothness - Avg Curvature: 8.3772
+2025-02-15 16:29:08,368 - INFO - Path 89 added. Length: 48.6824 units. Duration: 0.1057 seconds.
+2025-02-15 16:29:08,624 - INFO - Path Smoothness - Avg Curvature: 17.4824
+2025-02-15 16:29:08,624 - INFO - Path 90 added. Length: 42.2082 units. Duration: 0.2553 seconds.
+2025-02-15 16:29:08,728 - INFO - Path Smoothness - Avg Curvature: 4.1358
+2025-02-15 16:29:08,728 - INFO - Path 91 added. Length: 42.1867 units. Duration: 0.1045 seconds.
+2025-02-15 16:29:08,834 - INFO - Path Smoothness - Avg Curvature: 4.6548
+2025-02-15 16:29:08,834 - INFO - Path 92 added. Length: 48.9187 units. Duration: 0.1060 seconds.
+2025-02-15 16:29:09,090 - INFO - Path Smoothness - Avg Curvature: 14.0687
+2025-02-15 16:29:09,090 - INFO - Path 93 added. Length: 41.7530 units. Duration: 0.2555 seconds.
+2025-02-15 16:29:09,194 - INFO - Path Smoothness - Avg Curvature: 16.1996
+2025-02-15 16:29:09,195 - INFO - Path 94 added. Length: 52.4123 units. Duration: 0.1045 seconds.
+2025-02-15 16:29:09,300 - INFO - Path Smoothness - Avg Curvature: 4.1083
+2025-02-15 16:29:09,300 - INFO - Path 95 added. Length: 42.0236 units. Duration: 0.1055 seconds.
+2025-02-15 16:29:09,405 - INFO - Path Smoothness - Avg Curvature: 3.2022
+2025-02-15 16:29:09,405 - INFO - Path 96 added. Length: 50.1048 units. Duration: 0.1050 seconds.
+2025-02-15 16:29:09,510 - INFO - Path Smoothness - Avg Curvature: 5.4704
+2025-02-15 16:29:09,511 - INFO - Path 97 added. Length: 42.6605 units. Duration: 0.1054 seconds.
+2025-02-15 16:29:09,616 - INFO - Path Smoothness - Avg Curvature: 6.5803
+2025-02-15 16:29:09,617 - INFO - Path 98 added. Length: 42.5267 units. Duration: 0.1059 seconds.
+2025-02-15 16:29:09,725 - INFO - Path Smoothness - Avg Curvature: 4.0379
+2025-02-15 16:29:09,725 - INFO - Path 99 added. Length: 49.7329 units. Duration: 0.1084 seconds.
+2025-02-15 16:29:09,725 - INFO - Planning 100 paths from [ 0.106 -0.286 -0.45 ] to [-0.106  0.286 -0.45 ].
+2025-02-15 16:29:09,726 - INFO - Actual start state: (0.106, -0.286, -0.45). Actual goal state: (-0.106, 0.286, -0.45)
+2025-02-15 16:29:09,884 - INFO - Path Smoothness - Avg Curvature: 214.0935
+2025-02-15 16:29:09,884 - INFO - Path 0 added. Length: 47.6199 units. Duration: 0.1579 seconds.
+2025-02-15 16:29:09,988 - INFO - Path Smoothness - Avg Curvature: 10.5066
+2025-02-15 16:29:09,988 - INFO - Path 1 added. Length: 41.3237 units. Duration: 0.1046 seconds.
+2025-02-15 16:29:10,094 - INFO - Path Smoothness - Avg Curvature: 8.6797
+2025-02-15 16:29:10,094 - INFO - Path 2 added. Length: 44.8977 units. Duration: 0.1060 seconds.
+2025-02-15 16:29:10,200 - INFO - Path Smoothness - Avg Curvature: 15.2438
+2025-02-15 16:29:10,200 - INFO - Path 3 added. Length: 42.4858 units. Duration: 0.1060 seconds.
+2025-02-15 16:29:10,306 - INFO - Path Smoothness - Avg Curvature: 11.6594
+2025-02-15 16:29:10,307 - INFO - Path 4 added. Length: 52.0482 units. Duration: 0.1061 seconds.
+2025-02-15 16:29:10,413 - INFO - Path Smoothness - Avg Curvature: 5.3935
+2025-02-15 16:29:10,413 - INFO - Path 5 added. Length: 51.0963 units. Duration: 0.1063 seconds.
+2025-02-15 16:29:10,519 - INFO - Path Smoothness - Avg Curvature: 4.5748
+2025-02-15 16:29:10,520 - INFO - Path 6 added. Length: 50.9416 units. Duration: 0.1065 seconds.
+2025-02-15 16:29:10,930 - INFO - Path Smoothness - Avg Curvature: 11.5926
+2025-02-15 16:29:10,931 - INFO - Path 7 added. Length: 38.6595 units. Duration: 0.4110 seconds.
+2025-02-15 16:29:11,038 - INFO - Path Smoothness - Avg Curvature: 4.8308
+2025-02-15 16:29:11,038 - INFO - Path 8 added. Length: 51.3920 units. Duration: 0.1070 seconds.
+2025-02-15 16:29:11,296 - INFO - Path Smoothness - Avg Curvature: 7.7674
+2025-02-15 16:29:11,296 - INFO - Path 9 added. Length: 41.5415 units. Duration: 0.2583 seconds.
+2025-02-15 16:29:11,401 - INFO - Path Smoothness - Avg Curvature: 51.3443
+2025-02-15 16:29:11,401 - INFO - Path 10 added. Length: 45.9206 units. Duration: 0.1054 seconds.
+2025-02-15 16:29:11,506 - INFO - Path Smoothness - Avg Curvature: 45.0020
+2025-02-15 16:29:11,507 - INFO - Path 11 added. Length: 41.0471 units. Duration: 0.1050 seconds.
+2025-02-15 16:29:11,769 - INFO - Path Smoothness - Avg Curvature: 29.1613
+2025-02-15 16:29:11,770 - INFO - Path 12 added. Length: 42.0016 units. Duration: 0.2630 seconds.
+2025-02-15 16:29:11,877 - INFO - Path Smoothness - Avg Curvature: 4.9631
+2025-02-15 16:29:11,877 - INFO - Path 13 added. Length: 52.4653 units. Duration: 0.1076 seconds.
+2025-02-15 16:29:12,137 - INFO - Path Smoothness - Avg Curvature: 9.2783
+2025-02-15 16:29:12,137 - INFO - Path 14 added. Length: 59.3162 units. Duration: 0.2596 seconds.
+2025-02-15 16:29:12,243 - INFO - Path Smoothness - Avg Curvature: 9.8071
+2025-02-15 16:29:12,243 - INFO - Path 15 added. Length: 58.6791 units. Duration: 0.1059 seconds.
+2025-02-15 16:29:12,652 - INFO - Path Smoothness - Avg Curvature: 5.4206
+2025-02-15 16:29:12,652 - INFO - Path 16 added. Length: 50.5725 units. Duration: 0.4092 seconds.
+2025-02-15 16:29:12,759 - INFO - Path Smoothness - Avg Curvature: 11.6238
+2025-02-15 16:29:12,759 - INFO - Path 17 added. Length: 61.6209 units. Duration: 0.1068 seconds.
+2025-02-15 16:29:12,864 - INFO - Path Smoothness - Avg Curvature: 3.6632
+2025-02-15 16:29:12,865 - INFO - Path 18 added. Length: 50.0799 units. Duration: 0.1054 seconds.
+2025-02-15 16:29:13,274 - INFO - Path Smoothness - Avg Curvature: 34.6146
+2025-02-15 16:29:13,274 - INFO - Path 19 added. Length: 39.6617 units. Duration: 0.4091 seconds.
+2025-02-15 16:29:13,431 - INFO - Path Smoothness - Avg Curvature: 18.8345
+2025-02-15 16:29:13,431 - INFO - Path 20 added. Length: 46.9404 units. Duration: 0.1576 seconds.
+2025-02-15 16:29:13,689 - INFO - Path Smoothness - Avg Curvature: 5.1155
+2025-02-15 16:29:13,689 - INFO - Path 21 added. Length: 51.0132 units. Duration: 0.2576 seconds.
+2025-02-15 16:29:13,801 - INFO - Path Smoothness - Avg Curvature: 25.4335
+2025-02-15 16:29:13,801 - INFO - Path 22 added. Length: 40.6872 units. Duration: 0.1122 seconds.
+2025-02-15 16:29:13,909 - INFO - Path Smoothness - Avg Curvature: 17.2143
+2025-02-15 16:29:13,909 - INFO - Path 23 added. Length: 42.4436 units. Duration: 0.1071 seconds.
+2025-02-15 16:29:14,318 - INFO - Path Smoothness - Avg Curvature: 4.7465
+2025-02-15 16:29:14,318 - INFO - Path 24 added. Length: 49.6437 units. Duration: 0.4097 seconds.
+2025-02-15 16:29:14,423 - INFO - Path Smoothness - Avg Curvature: 18.3567
+2025-02-15 16:29:14,423 - INFO - Path 25 added. Length: 41.6251 units. Duration: 0.1051 seconds.
+2025-02-15 16:29:14,531 - INFO - Path Smoothness - Avg Curvature: 8.4663
+2025-02-15 16:29:14,531 - INFO - Path 26 added. Length: 50.7863 units. Duration: 0.1077 seconds.
+2025-02-15 16:29:14,789 - INFO - Path Smoothness - Avg Curvature: 36.5679
+2025-02-15 16:29:14,789 - INFO - Path 27 added. Length: 41.1506 units. Duration: 0.2575 seconds.
+2025-02-15 16:29:14,896 - INFO - Path Smoothness - Avg Curvature: 12.8144
+2025-02-15 16:29:14,896 - INFO - Path 28 added. Length: 39.7428 units. Duration: 0.1070 seconds.
+2025-02-15 16:29:15,154 - INFO - Path Smoothness - Avg Curvature: 5.7875
+2025-02-15 16:29:15,154 - INFO - Path 29 added. Length: 51.4506 units. Duration: 0.2580 seconds.
+2025-02-15 16:29:15,312 - INFO - Path Smoothness - Avg Curvature: 5.2496
+2025-02-15 16:29:15,312 - INFO - Path 30 added. Length: 52.0332 units. Duration: 0.1585 seconds.
+2025-02-15 16:29:15,419 - INFO - Path Smoothness - Avg Curvature: 8.2449
+2025-02-15 16:29:15,419 - INFO - Path 31 added. Length: 42.6170 units. Duration: 0.1067 seconds.
+2025-02-15 16:29:15,527 - INFO - Path Smoothness - Avg Curvature: 18.3610
+2025-02-15 16:29:15,527 - INFO - Path 32 added. Length: 45.6930 units. Duration: 0.1082 seconds.
+2025-02-15 16:29:15,787 - INFO - Path Smoothness - Avg Curvature: 16.2206
+2025-02-15 16:29:15,787 - INFO - Path 33 added. Length: 40.0105 units. Duration: 0.2598 seconds.
+2025-02-15 16:29:15,894 - INFO - Path Smoothness - Avg Curvature: 3.9012
+2025-02-15 16:29:15,894 - INFO - Path 34 added. Length: 52.4699 units. Duration: 0.1068 seconds.
+2025-02-15 16:29:16,151 - INFO - Path Smoothness - Avg Curvature: 14.3138
+2025-02-15 16:29:16,151 - INFO - Path 35 added. Length: 39.9926 units. Duration: 0.2573 seconds.
+2025-02-15 16:29:16,258 - INFO - Path Smoothness - Avg Curvature: 9.6872
+2025-02-15 16:29:16,258 - INFO - Path 36 added. Length: 40.1914 units. Duration: 0.1067 seconds.
+2025-02-15 16:29:16,513 - INFO - Path Smoothness - Avg Curvature: 27.5321
+2025-02-15 16:29:16,513 - INFO - Path 37 added. Length: 41.7451 units. Duration: 0.2548 seconds.
+2025-02-15 16:29:16,620 - INFO - Path Smoothness - Avg Curvature: 21.7791
+2025-02-15 16:29:16,620 - INFO - Path 38 added. Length: 41.3180 units. Duration: 0.1071 seconds.
+2025-02-15 16:29:16,725 - INFO - Path Smoothness - Avg Curvature: 8.0546
+2025-02-15 16:29:16,725 - INFO - Path 39 added. Length: 50.3281 units. Duration: 0.1048 seconds.
+2025-02-15 16:29:17,287 - INFO - Path Smoothness - Avg Curvature: 16.6165
+2025-02-15 16:29:17,287 - INFO - Path 40 added. Length: 39.3148 units. Duration: 0.5617 seconds.
+2025-02-15 16:29:17,395 - INFO - Path Smoothness - Avg Curvature: 10.1321
+2025-02-15 16:29:17,395 - INFO - Path 41 added. Length: 44.8163 units. Duration: 0.1080 seconds.
+2025-02-15 16:29:17,501 - INFO - Path Smoothness - Avg Curvature: 8.1636
+2025-02-15 16:29:17,502 - INFO - Path 42 added. Length: 41.6440 units. Duration: 0.1066 seconds.
+2025-02-15 16:29:17,606 - INFO - Path Smoothness - Avg Curvature: 7.7557
+2025-02-15 16:29:17,606 - INFO - Path 43 added. Length: 53.0972 units. Duration: 0.1043 seconds.
+2025-02-15 16:29:17,712 - INFO - Path Smoothness - Avg Curvature: 4.3215
+2025-02-15 16:29:17,712 - INFO - Path 44 added. Length: 51.4036 units. Duration: 0.1061 seconds.
+2025-02-15 16:29:17,870 - INFO - Path Smoothness - Avg Curvature: 69.3965
+2025-02-15 16:29:17,870 - INFO - Path 45 added. Length: 58.1245 units. Duration: 0.1576 seconds.
+2025-02-15 16:29:17,975 - INFO - Path Smoothness - Avg Curvature: 56.6360
+2025-02-15 16:29:17,975 - INFO - Path 46 added. Length: 44.7082 units. Duration: 0.1055 seconds.
+2025-02-15 16:29:18,233 - INFO - Path Smoothness - Avg Curvature: 6.0065
+2025-02-15 16:29:18,234 - INFO - Path 47 added. Length: 50.1650 units. Duration: 0.2582 seconds.
+2025-02-15 16:29:18,338 - INFO - Path Smoothness - Avg Curvature: 10.5778
+2025-02-15 16:29:18,338 - INFO - Path 48 added. Length: 41.0216 units. Duration: 0.1041 seconds.
+2025-02-15 16:29:18,444 - INFO - Path Smoothness - Avg Curvature: 16.5404
+2025-02-15 16:29:18,445 - INFO - Path 49 added. Length: 41.8588 units. Duration: 0.1068 seconds.
+2025-02-15 16:29:18,703 - INFO - Path Smoothness - Avg Curvature: 5.8650
+2025-02-15 16:29:18,703 - INFO - Path 50 added. Length: 50.9222 units. Duration: 0.2585 seconds.
+2025-02-15 16:29:18,961 - INFO - Path Smoothness - Avg Curvature: 7.7961
+2025-02-15 16:29:18,961 - INFO - Path 51 added. Length: 41.2916 units. Duration: 0.2578 seconds.
+2025-02-15 16:29:19,270 - INFO - Path Smoothness - Avg Curvature: 17.8823
+2025-02-15 16:29:19,270 - INFO - Path 52 added. Length: 38.4200 units. Duration: 0.3094 seconds.
+2025-02-15 16:29:19,375 - INFO - Path Smoothness - Avg Curvature: 4.7172
+2025-02-15 16:29:19,376 - INFO - Path 53 added. Length: 50.1578 units. Duration: 0.1051 seconds.
+2025-02-15 16:29:19,482 - INFO - Path Smoothness - Avg Curvature: 10.0314
+2025-02-15 16:29:19,482 - INFO - Path 54 added. Length: 51.0707 units. Duration: 0.1064 seconds.
+2025-02-15 16:29:19,743 - INFO - Path Smoothness - Avg Curvature: 4.3077
+2025-02-15 16:29:19,743 - INFO - Path 55 added. Length: 51.2592 units. Duration: 0.2612 seconds.
+2025-02-15 16:29:19,999 - INFO - Path Smoothness - Avg Curvature: 8.4291
+2025-02-15 16:29:19,999 - INFO - Path 56 added. Length: 41.0844 units. Duration: 0.2558 seconds.
+2025-02-15 16:29:20,108 - INFO - Path Smoothness - Avg Curvature: 16.2449
+2025-02-15 16:29:20,109 - INFO - Path 57 added. Length: 45.2344 units. Duration: 0.1094 seconds.
+2025-02-15 16:29:20,214 - INFO - Path Smoothness - Avg Curvature: 3.5752
+2025-02-15 16:29:20,214 - INFO - Path 58 added. Length: 51.2538 units. Duration: 0.1054 seconds.
+2025-02-15 16:29:20,320 - INFO - Path Smoothness - Avg Curvature: 8.2559
+2025-02-15 16:29:20,321 - INFO - Path 59 added. Length: 52.5547 units. Duration: 0.1064 seconds.
+2025-02-15 16:29:20,579 - INFO - Path Smoothness - Avg Curvature: 179.4449
+2025-02-15 16:29:20,579 - INFO - Path 60 added. Length: 51.6926 units. Duration: 0.2586 seconds.
+2025-02-15 16:29:20,837 - INFO - Path Smoothness - Avg Curvature: 7.6385
+2025-02-15 16:29:20,837 - INFO - Path 61 added. Length: 40.7916 units. Duration: 0.2581 seconds.
+2025-02-15 16:29:20,943 - INFO - Path Smoothness - Avg Curvature: 6.0225
+2025-02-15 16:29:20,943 - INFO - Path 62 added. Length: 41.6704 units. Duration: 0.1057 seconds.
+2025-02-15 16:29:21,200 - INFO - Path Smoothness - Avg Curvature: 20.7805
+2025-02-15 16:29:21,200 - INFO - Path 63 added. Length: 41.0164 units. Duration: 0.2567 seconds.
+2025-02-15 16:29:21,306 - INFO - Path Smoothness - Avg Curvature: 9.2860
+2025-02-15 16:29:21,306 - INFO - Path 64 added. Length: 46.6113 units. Duration: 0.1059 seconds.
+2025-02-15 16:29:21,411 - INFO - Path Smoothness - Avg Curvature: 10.2269
+2025-02-15 16:29:21,411 - INFO - Path 65 added. Length: 44.1816 units. Duration: 0.1052 seconds.
+2025-02-15 16:29:21,668 - INFO - Path Smoothness - Avg Curvature: 42.0324
+2025-02-15 16:29:21,668 - INFO - Path 66 added. Length: 43.2209 units. Duration: 0.2569 seconds.
+2025-02-15 16:29:22,227 - INFO - Path Smoothness - Avg Curvature: 25.4427
+2025-02-15 16:29:22,227 - INFO - Path 67 added. Length: 40.1767 units. Duration: 0.5594 seconds.
+2025-02-15 16:29:22,333 - INFO - Path Smoothness - Avg Curvature: 2.8163
+2025-02-15 16:29:22,333 - INFO - Path 68 added. Length: 50.9205 units. Duration: 0.1058 seconds.
+2025-02-15 16:29:22,439 - INFO - Path Smoothness - Avg Curvature: 4.0077
+2025-02-15 16:29:22,439 - INFO - Path 69 added. Length: 50.5202 units. Duration: 0.1054 seconds.
+2025-02-15 16:29:22,698 - INFO - Path Smoothness - Avg Curvature: 11.9722
+2025-02-15 16:29:22,698 - INFO - Path 70 added. Length: 41.5148 units. Duration: 0.2593 seconds.
+2025-02-15 16:29:22,804 - INFO - Path Smoothness - Avg Curvature: 5.4079
+2025-02-15 16:29:22,804 - INFO - Path 71 added. Length: 48.3060 units. Duration: 0.1057 seconds.
+2025-02-15 16:29:23,062 - INFO - Path Smoothness - Avg Curvature: 14.4000
+2025-02-15 16:29:23,062 - INFO - Path 72 added. Length: 39.6124 units. Duration: 0.2580 seconds.
+2025-02-15 16:29:23,168 - INFO - Path Smoothness - Avg Curvature: 3.9239
+2025-02-15 16:29:23,168 - INFO - Path 73 added. Length: 51.8567 units. Duration: 0.1063 seconds.
+2025-02-15 16:29:23,578 - INFO - Path Smoothness - Avg Curvature: 16.9803
+2025-02-15 16:29:23,578 - INFO - Path 74 added. Length: 39.3361 units. Duration: 0.4101 seconds.
+2025-02-15 16:29:23,684 - INFO - Path Smoothness - Avg Curvature: 3.5195
+2025-02-15 16:29:23,684 - INFO - Path 75 added. Length: 45.9961 units. Duration: 0.1056 seconds.
+2025-02-15 16:29:23,941 - INFO - Path Smoothness - Avg Curvature: 8.0529
+2025-02-15 16:29:23,941 - INFO - Path 76 added. Length: 39.5091 units. Duration: 0.2572 seconds.
+2025-02-15 16:29:24,048 - INFO - Path Smoothness - Avg Curvature: 12.6141
+2025-02-15 16:29:24,048 - INFO - Path 77 added. Length: 44.0827 units. Duration: 0.1070 seconds.
+2025-02-15 16:29:24,155 - INFO - Path Smoothness - Avg Curvature: 8.7298
+2025-02-15 16:29:24,155 - INFO - Path 78 added. Length: 41.2758 units. Duration: 0.1061 seconds.
+2025-02-15 16:29:24,260 - INFO - Path Smoothness - Avg Curvature: 4.6316
+2025-02-15 16:29:24,260 - INFO - Path 79 added. Length: 51.0943 units. Duration: 0.1052 seconds.
+2025-02-15 16:29:24,366 - INFO - Path Smoothness - Avg Curvature: 10.5231
+2025-02-15 16:29:24,366 - INFO - Path 80 added. Length: 41.3336 units. Duration: 0.1064 seconds.
+2025-02-15 16:29:24,473 - INFO - Path Smoothness - Avg Curvature: 8.8746
+2025-02-15 16:29:24,473 - INFO - Path 81 added. Length: 40.0664 units. Duration: 0.1066 seconds.
+2025-02-15 16:29:24,579 - INFO - Path Smoothness - Avg Curvature: 8.6760
+2025-02-15 16:29:24,579 - INFO - Path 82 added. Length: 42.4528 units. Duration: 0.1057 seconds.
+2025-02-15 16:29:24,683 - INFO - Path Smoothness - Avg Curvature: 18.0298
+2025-02-15 16:29:24,683 - INFO - Path 83 added. Length: 40.2658 units. Duration: 0.1042 seconds.
+2025-02-15 16:29:24,789 - INFO - Path Smoothness - Avg Curvature: 4.2754
+2025-02-15 16:29:24,789 - INFO - Path 84 added. Length: 50.7426 units. Duration: 0.1063 seconds.
+2025-02-15 16:29:24,895 - INFO - Path Smoothness - Avg Curvature: 5.7788
+2025-02-15 16:29:24,896 - INFO - Path 85 added. Length: 41.3806 units. Duration: 0.1062 seconds.
+2025-02-15 16:29:25,000 - INFO - Path Smoothness - Avg Curvature: 13.4372
+2025-02-15 16:29:25,000 - INFO - Path 86 added. Length: 43.4817 units. Duration: 0.1041 seconds.
+2025-02-15 16:29:25,104 - INFO - Path Smoothness - Avg Curvature: 9.1841
+2025-02-15 16:29:25,104 - INFO - Path 87 added. Length: 46.7088 units. Duration: 0.1040 seconds.
+2025-02-15 16:29:25,210 - INFO - Path Smoothness - Avg Curvature: 4.2485
+2025-02-15 16:29:25,210 - INFO - Path 88 added. Length: 51.5745 units. Duration: 0.1057 seconds.
+2025-02-15 16:29:25,469 - INFO - Path Smoothness - Avg Curvature: 11.0020
+2025-02-15 16:29:25,469 - INFO - Path 89 added. Length: 57.3407 units. Duration: 0.2591 seconds.
+2025-02-15 16:29:25,574 - INFO - Path Smoothness - Avg Curvature: 8.5583
+2025-02-15 16:29:25,574 - INFO - Path 90 added. Length: 40.3742 units. Duration: 0.1055 seconds.
+2025-02-15 16:29:25,680 - INFO - Path Smoothness - Avg Curvature: 9.1309
+2025-02-15 16:29:25,680 - INFO - Path 91 added. Length: 54.8280 units. Duration: 0.1055 seconds.
+2025-02-15 16:29:25,785 - INFO - Path Smoothness - Avg Curvature: 14.6246
+2025-02-15 16:29:25,785 - INFO - Path 92 added. Length: 40.5127 units. Duration: 0.1053 seconds.
+2025-02-15 16:29:25,891 - INFO - Path Smoothness - Avg Curvature: 3.1923
+2025-02-15 16:29:25,891 - INFO - Path 93 added. Length: 50.5392 units. Duration: 0.1053 seconds.
+2025-02-15 16:29:25,997 - INFO - Path Smoothness - Avg Curvature: 33.2919
+2025-02-15 16:29:25,997 - INFO - Path 94 added. Length: 44.3602 units. Duration: 0.1062 seconds.
+2025-02-15 16:29:26,257 - INFO - Path Smoothness - Avg Curvature: 3.0021
+2025-02-15 16:29:26,257 - INFO - Path 95 added. Length: 51.5677 units. Duration: 0.2597 seconds.
+2025-02-15 16:29:26,363 - INFO - Path Smoothness - Avg Curvature: 7.7102
+2025-02-15 16:29:26,363 - INFO - Path 96 added. Length: 51.5817 units. Duration: 0.1059 seconds.
+2025-02-15 16:29:26,468 - INFO - Path Smoothness - Avg Curvature: 3.0358
+2025-02-15 16:29:26,468 - INFO - Path 97 added. Length: 51.0705 units. Duration: 0.1049 seconds.
+2025-02-15 16:29:26,572 - INFO - Path Smoothness - Avg Curvature: 8.9379
+2025-02-15 16:29:26,572 - INFO - Path 98 added. Length: 46.3773 units. Duration: 0.1044 seconds.
+2025-02-15 16:29:26,830 - INFO - Path Smoothness - Avg Curvature: 42.4946
+2025-02-15 16:29:26,830 - INFO - Path 99 added. Length: 41.1454 units. Duration: 0.2581 seconds.
+2025-02-15 16:29:26,831 - INFO - Planning 100 paths from [ 0.     0.304 -0.45 ] to [ 0.    -0.304 -0.45 ].
+2025-02-15 16:29:26,832 - INFO - Actual start state: (0.0, 0.304, -0.45). Actual goal state: (0.0, -0.304, -0.45)
+2025-02-15 16:29:26,936 - INFO - Path Smoothness - Avg Curvature: 4.2029
+2025-02-15 16:29:26,937 - INFO - Path 0 added. Length: 34.3565 units. Duration: 0.1049 seconds.
+2025-02-15 16:29:27,041 - INFO - Path Smoothness - Avg Curvature: 5.4614
+2025-02-15 16:29:27,041 - INFO - Path 1 added. Length: 36.6369 units. Duration: 0.1044 seconds.
+2025-02-15 16:29:27,146 - INFO - Path Smoothness - Avg Curvature: 5.0424
+2025-02-15 16:29:27,146 - INFO - Path 2 added. Length: 42.2157 units. Duration: 0.1047 seconds.
+2025-02-15 16:29:27,251 - INFO - Path Smoothness - Avg Curvature: 0.5987
+2025-02-15 16:29:27,251 - INFO - Path 3 added. Length: 34.0473 units. Duration: 0.1048 seconds.
+2025-02-15 16:29:27,356 - INFO - Path Smoothness - Avg Curvature: 5.5384
+2025-02-15 16:29:27,356 - INFO - Path 4 added. Length: 38.0042 units. Duration: 0.1055 seconds.
+2025-02-15 16:29:27,460 - INFO - Path Smoothness - Avg Curvature: 7.8386
+2025-02-15 16:29:27,460 - INFO - Path 5 added. Length: 39.5117 units. Duration: 0.1038 seconds.
+2025-02-15 16:29:27,567 - INFO - Path Smoothness - Avg Curvature: 5.6200
+2025-02-15 16:29:27,567 - INFO - Path 6 added. Length: 33.6889 units. Duration: 0.1071 seconds.
+2025-02-15 16:29:27,675 - INFO - Path Smoothness - Avg Curvature: 10.4739
+2025-02-15 16:29:27,675 - INFO - Path 7 added. Length: 39.5127 units. Duration: 0.1072 seconds.
+2025-02-15 16:29:27,780 - INFO - Path Smoothness - Avg Curvature: 4.9073
+2025-02-15 16:29:27,780 - INFO - Path 8 added. Length: 33.5800 units. Duration: 0.1052 seconds.
+2025-02-15 16:29:27,884 - INFO - Path Smoothness - Avg Curvature: 10.3215
+2025-02-15 16:29:27,884 - INFO - Path 9 added. Length: 34.5262 units. Duration: 0.1040 seconds.
+2025-02-15 16:29:27,989 - INFO - Path Smoothness - Avg Curvature: 6.4155
+2025-02-15 16:29:27,989 - INFO - Path 10 added. Length: 39.1315 units. Duration: 0.1046 seconds.
+2025-02-15 16:29:28,093 - INFO - Path Smoothness - Avg Curvature: 6.5919
+2025-02-15 16:29:28,093 - INFO - Path 11 added. Length: 39.1875 units. Duration: 0.1047 seconds.
+2025-02-15 16:29:28,199 - INFO - Path Smoothness - Avg Curvature: 6.7110
+2025-02-15 16:29:28,199 - INFO - Path 12 added. Length: 38.0683 units. Duration: 0.1058 seconds.
+2025-02-15 16:29:28,304 - INFO - Path Smoothness - Avg Curvature: 2.1363
+2025-02-15 16:29:28,304 - INFO - Path 13 added. Length: 33.5008 units. Duration: 0.1049 seconds.
+2025-02-15 16:29:28,410 - INFO - Path Smoothness - Avg Curvature: 11.6689
+2025-02-15 16:29:28,410 - INFO - Path 14 added. Length: 34.0718 units. Duration: 0.1060 seconds.
+2025-02-15 16:29:28,516 - INFO - Path Smoothness - Avg Curvature: 5.4009
+2025-02-15 16:29:28,516 - INFO - Path 15 added. Length: 36.3145 units. Duration: 0.1056 seconds.
+2025-02-15 16:29:28,622 - INFO - Path Smoothness - Avg Curvature: 2.6139
+2025-02-15 16:29:28,622 - INFO - Path 16 added. Length: 43.2462 units. Duration: 0.1060 seconds.
+2025-02-15 16:29:28,730 - INFO - Path Smoothness - Avg Curvature: 7.2122
+2025-02-15 16:29:28,730 - INFO - Path 17 added. Length: 42.5190 units. Duration: 0.1076 seconds.
+2025-02-15 16:29:28,835 - INFO - Path Smoothness - Avg Curvature: 4.5016
+2025-02-15 16:29:28,835 - INFO - Path 18 added. Length: 41.6784 units. Duration: 0.1051 seconds.
+2025-02-15 16:29:28,940 - INFO - Path Smoothness - Avg Curvature: 4.2122
+2025-02-15 16:29:28,941 - INFO - Path 19 added. Length: 34.1428 units. Duration: 0.1056 seconds.
+2025-02-15 16:29:29,045 - INFO - Path Smoothness - Avg Curvature: 7.5862
+2025-02-15 16:29:29,046 - INFO - Path 20 added. Length: 38.3853 units. Duration: 0.1051 seconds.
+2025-02-15 16:29:29,151 - INFO - Path Smoothness - Avg Curvature: 11.3936
+2025-02-15 16:29:29,151 - INFO - Path 21 added. Length: 38.6979 units. Duration: 0.1053 seconds.
+2025-02-15 16:29:29,255 - INFO - Path Smoothness - Avg Curvature: 0.6976
+2025-02-15 16:29:29,255 - INFO - Path 22 added. Length: 34.5739 units. Duration: 0.1039 seconds.
+2025-02-15 16:29:29,360 - INFO - Path Smoothness - Avg Curvature: 9.4938
+2025-02-15 16:29:29,360 - INFO - Path 23 added. Length: 39.1218 units. Duration: 0.1052 seconds.
+2025-02-15 16:29:29,466 - INFO - Path Smoothness - Avg Curvature: 10.7179
+2025-02-15 16:29:29,466 - INFO - Path 24 added. Length: 34.2403 units. Duration: 0.1061 seconds.
+2025-02-15 16:29:29,571 - INFO - Path Smoothness - Avg Curvature: 93.5620
+2025-02-15 16:29:29,572 - INFO - Path 25 added. Length: 34.9603 units. Duration: 0.1051 seconds.
+2025-02-15 16:29:29,675 - INFO - Path Smoothness - Avg Curvature: 11.9515
+2025-02-15 16:29:29,675 - INFO - Path 26 added. Length: 42.1872 units. Duration: 0.1039 seconds.
+2025-02-15 16:29:29,782 - INFO - Path Smoothness - Avg Curvature: 12.3373
+2025-02-15 16:29:29,782 - INFO - Path 27 added. Length: 38.6515 units. Duration: 0.1064 seconds.
+2025-02-15 16:29:29,886 - INFO - Path Smoothness - Avg Curvature: 2.3745
+2025-02-15 16:29:29,887 - INFO - Path 28 added. Length: 43.1525 units. Duration: 0.1046 seconds.
+2025-02-15 16:29:29,991 - INFO - Path Smoothness - Avg Curvature: 5.5073
+2025-02-15 16:29:29,991 - INFO - Path 29 added. Length: 36.2111 units. Duration: 0.1041 seconds.
+2025-02-15 16:29:30,097 - INFO - Path Smoothness - Avg Curvature: 6.0862
+2025-02-15 16:29:30,097 - INFO - Path 30 added. Length: 42.5727 units. Duration: 0.1062 seconds.
+2025-02-15 16:29:30,202 - INFO - Path Smoothness - Avg Curvature: 2.9790
+2025-02-15 16:29:30,203 - INFO - Path 31 added. Length: 33.5045 units. Duration: 0.1056 seconds.
+2025-02-15 16:29:30,306 - INFO - Path Smoothness - Avg Curvature: 3.2892
+2025-02-15 16:29:30,306 - INFO - Path 32 added. Length: 34.3182 units. Duration: 0.1032 seconds.
+2025-02-15 16:29:30,410 - INFO - Path Smoothness - Avg Curvature: 5.6165
+2025-02-15 16:29:30,410 - INFO - Path 33 added. Length: 40.0751 units. Duration: 0.1039 seconds.
+2025-02-15 16:29:30,515 - INFO - Path Smoothness - Avg Curvature: 4.7446
+2025-02-15 16:29:30,515 - INFO - Path 34 added. Length: 34.7734 units. Duration: 0.1051 seconds.
+2025-02-15 16:29:30,618 - INFO - Path Smoothness - Avg Curvature: 9.8371
+2025-02-15 16:29:30,619 - INFO - Path 35 added. Length: 42.0918 units. Duration: 0.1035 seconds.
+2025-02-15 16:29:30,723 - INFO - Path Smoothness - Avg Curvature: 4.1007
+2025-02-15 16:29:30,723 - INFO - Path 36 added. Length: 40.2443 units. Duration: 0.1048 seconds.
+2025-02-15 16:29:30,829 - INFO - Path Smoothness - Avg Curvature: 25.4826
+2025-02-15 16:29:30,830 - INFO - Path 37 added. Length: 33.2483 units. Duration: 0.1060 seconds.
+2025-02-15 16:29:30,936 - INFO - Path Smoothness - Avg Curvature: 7.0559
+2025-02-15 16:29:30,936 - INFO - Path 38 added. Length: 36.4369 units. Duration: 0.1062 seconds.
+2025-02-15 16:29:31,040 - INFO - Path Smoothness - Avg Curvature: 83.1599
+2025-02-15 16:29:31,040 - INFO - Path 39 added. Length: 36.2437 units. Duration: 0.1046 seconds.
+2025-02-15 16:29:31,144 - INFO - Path Smoothness - Avg Curvature: 1.1917
+2025-02-15 16:29:31,144 - INFO - Path 40 added. Length: 33.3116 units. Duration: 0.1036 seconds.
+2025-02-15 16:29:31,249 - INFO - Path Smoothness - Avg Curvature: 12.3269
+2025-02-15 16:29:31,249 - INFO - Path 41 added. Length: 40.3822 units. Duration: 0.1049 seconds.
+2025-02-15 16:29:31,354 - INFO - Path Smoothness - Avg Curvature: 0.9439
+2025-02-15 16:29:31,354 - INFO - Path 42 added. Length: 33.0629 units. Duration: 0.1049 seconds.
+2025-02-15 16:29:31,459 - INFO - Path Smoothness - Avg Curvature: 7.9708
+2025-02-15 16:29:31,459 - INFO - Path 43 added. Length: 38.0346 units. Duration: 0.1049 seconds.
+2025-02-15 16:29:31,564 - INFO - Path Smoothness - Avg Curvature: 5.1868
+2025-02-15 16:29:31,564 - INFO - Path 44 added. Length: 40.2772 units. Duration: 0.1053 seconds.
+2025-02-15 16:29:31,669 - INFO - Path Smoothness - Avg Curvature: 3.9731
+2025-02-15 16:29:31,669 - INFO - Path 45 added. Length: 42.8744 units. Duration: 0.1050 seconds.
+2025-02-15 16:29:31,774 - INFO - Path Smoothness - Avg Curvature: 11.1124
+2025-02-15 16:29:31,774 - INFO - Path 46 added. Length: 38.5727 units. Duration: 0.1047 seconds.
+2025-02-15 16:29:31,879 - INFO - Path Smoothness - Avg Curvature: 11.1690
+2025-02-15 16:29:31,879 - INFO - Path 47 added. Length: 40.4847 units. Duration: 0.1045 seconds.
+2025-02-15 16:29:31,983 - INFO - Path Smoothness - Avg Curvature: 5.4628
+2025-02-15 16:29:31,983 - INFO - Path 48 added. Length: 35.7906 units. Duration: 0.1042 seconds.
+2025-02-15 16:29:32,089 - INFO - Path Smoothness - Avg Curvature: 4.3444
+2025-02-15 16:29:32,090 - INFO - Path 49 added. Length: 36.1000 units. Duration: 0.1066 seconds.
+2025-02-15 16:29:32,193 - INFO - Path Smoothness - Avg Curvature: 7.3662
+2025-02-15 16:29:32,194 - INFO - Path 50 added. Length: 34.6152 units. Duration: 0.1040 seconds.
+2025-02-15 16:29:32,300 - INFO - Path Smoothness - Avg Curvature: 10.5553
+2025-02-15 16:29:32,300 - INFO - Path 51 added. Length: 40.6148 units. Duration: 0.1060 seconds.
+2025-02-15 16:29:32,405 - INFO - Path Smoothness - Avg Curvature: 5.5221
+2025-02-15 16:29:32,405 - INFO - Path 52 added. Length: 38.4486 units. Duration: 0.1056 seconds.
+2025-02-15 16:29:32,510 - INFO - Path Smoothness - Avg Curvature: 3.7598
+2025-02-15 16:29:32,511 - INFO - Path 53 added. Length: 35.5556 units. Duration: 0.1052 seconds.
+2025-02-15 16:29:32,614 - INFO - Path Smoothness - Avg Curvature: 4.9157
+2025-02-15 16:29:32,614 - INFO - Path 54 added. Length: 35.3138 units. Duration: 0.1039 seconds.
+2025-02-15 16:29:32,719 - INFO - Path Smoothness - Avg Curvature: 10.8855
+2025-02-15 16:29:32,719 - INFO - Path 55 added. Length: 33.3031 units. Duration: 0.1048 seconds.
+2025-02-15 16:29:32,822 - INFO - Path Smoothness - Avg Curvature: 4.0419
+2025-02-15 16:29:32,823 - INFO - Path 56 added. Length: 38.5635 units. Duration: 0.1032 seconds.
+2025-02-15 16:29:32,928 - INFO - Path Smoothness - Avg Curvature: 8.2556
+2025-02-15 16:29:32,928 - INFO - Path 57 added. Length: 37.8462 units. Duration: 0.1051 seconds.
+2025-02-15 16:29:33,033 - INFO - Path Smoothness - Avg Curvature: 5.7010
+2025-02-15 16:29:33,033 - INFO - Path 58 added. Length: 38.9970 units. Duration: 0.1056 seconds.
+2025-02-15 16:29:33,138 - INFO - Path Smoothness - Avg Curvature: 13.6324
+2025-02-15 16:29:33,138 - INFO - Path 59 added. Length: 34.5444 units. Duration: 0.1050 seconds.
+2025-02-15 16:29:33,243 - INFO - Path Smoothness - Avg Curvature: 17.6593
+2025-02-15 16:29:33,243 - INFO - Path 60 added. Length: 35.0456 units. Duration: 0.1048 seconds.
+2025-02-15 16:29:33,348 - INFO - Path Smoothness - Avg Curvature: 9.6670
+2025-02-15 16:29:33,348 - INFO - Path 61 added. Length: 39.5985 units. Duration: 0.1045 seconds.
+2025-02-15 16:29:33,454 - INFO - Path Smoothness - Avg Curvature: 13.3999
+2025-02-15 16:29:33,454 - INFO - Path 62 added. Length: 39.5471 units. Duration: 0.1059 seconds.
+2025-02-15 16:29:33,559 - INFO - Path Smoothness - Avg Curvature: 8.6953
+2025-02-15 16:29:33,559 - INFO - Path 63 added. Length: 41.1259 units. Duration: 0.1048 seconds.
+2025-02-15 16:29:33,664 - INFO - Path Smoothness - Avg Curvature: 7.1853
+2025-02-15 16:29:33,665 - INFO - Path 64 added. Length: 38.8478 units. Duration: 0.1055 seconds.
+2025-02-15 16:29:33,769 - INFO - Path Smoothness - Avg Curvature: 12.4613
+2025-02-15 16:29:33,769 - INFO - Path 65 added. Length: 44.5691 units. Duration: 0.1046 seconds.
+2025-02-15 16:29:33,874 - INFO - Path Smoothness - Avg Curvature: 5.4588
+2025-02-15 16:29:33,874 - INFO - Path 66 added. Length: 37.5899 units. Duration: 0.1047 seconds.
+2025-02-15 16:29:33,979 - INFO - Path Smoothness - Avg Curvature: 14.1992
+2025-02-15 16:29:33,979 - INFO - Path 67 added. Length: 38.8537 units. Duration: 0.1047 seconds.
+2025-02-15 16:29:34,083 - INFO - Path Smoothness - Avg Curvature: 7.7607
+2025-02-15 16:29:34,084 - INFO - Path 68 added. Length: 41.6428 units. Duration: 0.1047 seconds.
+2025-02-15 16:29:34,189 - INFO - Path Smoothness - Avg Curvature: 34.2874
+2025-02-15 16:29:34,189 - INFO - Path 69 added. Length: 42.2585 units. Duration: 0.1056 seconds.
+2025-02-15 16:29:34,294 - INFO - Path Smoothness - Avg Curvature: 46.0992
+2025-02-15 16:29:34,294 - INFO - Path 70 added. Length: 37.0533 units. Duration: 0.1052 seconds.
+2025-02-15 16:29:34,398 - INFO - Path Smoothness - Avg Curvature: 4.8938
+2025-02-15 16:29:34,398 - INFO - Path 71 added. Length: 37.4877 units. Duration: 0.1040 seconds.
+2025-02-15 16:29:34,504 - INFO - Path Smoothness - Avg Curvature: 5.8358
+2025-02-15 16:29:34,504 - INFO - Path 72 added. Length: 34.3945 units. Duration: 0.1056 seconds.
+2025-02-15 16:29:34,609 - INFO - Path Smoothness - Avg Curvature: 7.2783
+2025-02-15 16:29:34,609 - INFO - Path 73 added. Length: 38.4118 units. Duration: 0.1047 seconds.
+2025-02-15 16:29:34,713 - INFO - Path Smoothness - Avg Curvature: 8.4979
+2025-02-15 16:29:34,713 - INFO - Path 74 added. Length: 39.2228 units. Duration: 0.1046 seconds.
+2025-02-15 16:29:34,819 - INFO - Path Smoothness - Avg Curvature: 5.5976
+2025-02-15 16:29:34,819 - INFO - Path 75 added. Length: 37.2614 units. Duration: 0.1058 seconds.
+2025-02-15 16:29:34,924 - INFO - Path Smoothness - Avg Curvature: 1.5777
+2025-02-15 16:29:34,925 - INFO - Path 76 added. Length: 33.1015 units. Duration: 0.1053 seconds.
+2025-02-15 16:29:35,029 - INFO - Path Smoothness - Avg Curvature: 2.7501
+2025-02-15 16:29:35,029 - INFO - Path 77 added. Length: 34.1774 units. Duration: 0.1047 seconds.
+2025-02-15 16:29:35,135 - INFO - Path Smoothness - Avg Curvature: 11.5127
+2025-02-15 16:29:35,135 - INFO - Path 78 added. Length: 43.9269 units. Duration: 0.1056 seconds.
+2025-02-15 16:29:35,240 - INFO - Path Smoothness - Avg Curvature: 3.8301
+2025-02-15 16:29:35,240 - INFO - Path 79 added. Length: 41.1841 units. Duration: 0.1051 seconds.
+2025-02-15 16:29:35,347 - INFO - Path Smoothness - Avg Curvature: 3.1058
+2025-02-15 16:29:35,347 - INFO - Path 80 added. Length: 33.3808 units. Duration: 0.1069 seconds.
+2025-02-15 16:29:35,452 - INFO - Path Smoothness - Avg Curvature: 2.6144
+2025-02-15 16:29:35,452 - INFO - Path 81 added. Length: 37.8098 units. Duration: 0.1050 seconds.
+2025-02-15 16:29:35,558 - INFO - Path Smoothness - Avg Curvature: 3.5905
+2025-02-15 16:29:35,558 - INFO - Path 82 added. Length: 39.2550 units. Duration: 0.1058 seconds.
+2025-02-15 16:29:35,664 - INFO - Path Smoothness - Avg Curvature: 9.7272
+2025-02-15 16:29:35,665 - INFO - Path 83 added. Length: 40.7017 units. Duration: 0.1065 seconds.
+2025-02-15 16:29:35,769 - INFO - Path Smoothness - Avg Curvature: 11.1717
+2025-02-15 16:29:35,769 - INFO - Path 84 added. Length: 39.3993 units. Duration: 0.1040 seconds.
+2025-02-15 16:29:35,872 - INFO - Path Smoothness - Avg Curvature: 6.3995
+2025-02-15 16:29:35,872 - INFO - Path 85 added. Length: 35.2621 units. Duration: 0.1035 seconds.
+2025-02-15 16:29:35,978 - INFO - Path Smoothness - Avg Curvature: 1.7838
+2025-02-15 16:29:35,979 - INFO - Path 86 added. Length: 33.2083 units. Duration: 0.1063 seconds.
+2025-02-15 16:29:36,085 - INFO - Path Smoothness - Avg Curvature: 14.6038
+2025-02-15 16:29:36,085 - INFO - Path 87 added. Length: 38.8665 units. Duration: 0.1061 seconds.
+2025-02-15 16:29:36,190 - INFO - Path Smoothness - Avg Curvature: 17.5161
+2025-02-15 16:29:36,190 - INFO - Path 88 added. Length: 38.6295 units. Duration: 0.1050 seconds.
+2025-02-15 16:29:36,294 - INFO - Path Smoothness - Avg Curvature: 3.1962
+2025-02-15 16:29:36,294 - INFO - Path 89 added. Length: 34.0026 units. Duration: 0.1040 seconds.
+2025-02-15 16:29:36,402 - INFO - Path Smoothness - Avg Curvature: 8.0257
+2025-02-15 16:29:36,402 - INFO - Path 90 added. Length: 38.6025 units. Duration: 0.1082 seconds.
+2025-02-15 16:29:36,506 - INFO - Path Smoothness - Avg Curvature: 6.1680
+2025-02-15 16:29:36,507 - INFO - Path 91 added. Length: 33.9551 units. Duration: 0.1045 seconds.
+2025-02-15 16:29:36,613 - INFO - Path Smoothness - Avg Curvature: 12.0516
+2025-02-15 16:29:36,613 - INFO - Path 92 added. Length: 38.1497 units. Duration: 0.1060 seconds.
+2025-02-15 16:29:36,720 - INFO - Path Smoothness - Avg Curvature: 217.9844
+2025-02-15 16:29:36,720 - INFO - Path 93 added. Length: 39.4463 units. Duration: 0.1074 seconds.
+2025-02-15 16:29:36,825 - INFO - Path Smoothness - Avg Curvature: 5.2509
+2025-02-15 16:29:36,825 - INFO - Path 94 added. Length: 34.0728 units. Duration: 0.1050 seconds.
+2025-02-15 16:29:36,930 - INFO - Path Smoothness - Avg Curvature: 10.0093
+2025-02-15 16:29:36,930 - INFO - Path 95 added. Length: 39.1987 units. Duration: 0.1051 seconds.
+2025-02-15 16:29:37,035 - INFO - Path Smoothness - Avg Curvature: 7.7907
+2025-02-15 16:29:37,035 - INFO - Path 96 added. Length: 35.4386 units. Duration: 0.1041 seconds.
+2025-02-15 16:29:37,139 - INFO - Path Smoothness - Avg Curvature: 21.1059
+2025-02-15 16:29:37,139 - INFO - Path 97 added. Length: 41.8283 units. Duration: 0.1044 seconds.
+2025-02-15 16:29:37,245 - INFO - Path Smoothness - Avg Curvature: 0.8836
+2025-02-15 16:29:37,245 - INFO - Path 98 added. Length: 33.3460 units. Duration: 0.1057 seconds.
+2025-02-15 16:29:37,350 - INFO - Path Smoothness - Avg Curvature: 5.7170
+2025-02-15 16:29:37,350 - INFO - Path 99 added. Length: 39.6508 units. Duration: 0.1055 seconds.
+2025-02-15 16:29:37,351 - INFO - Planning 100 paths from [-0.106 -0.286 -0.45 ] to [ 0.106  0.286 -0.45 ].
+2025-02-15 16:29:37,351 - INFO - Actual start state: (-0.106, -0.286, -0.45). Actual goal state: (0.106, 0.286, -0.45)
+2025-02-15 16:29:37,457 - INFO - Path Smoothness - Avg Curvature: 5.4887
+2025-02-15 16:29:37,457 - INFO - Path 0 added. Length: 34.8000 units. Duration: 0.1055 seconds.
+2025-02-15 16:29:37,561 - INFO - Path Smoothness - Avg Curvature: 3.8558
+2025-02-15 16:29:37,562 - INFO - Path 1 added. Length: 34.9781 units. Duration: 0.1047 seconds.
+2025-02-15 16:29:37,667 - INFO - Path Smoothness - Avg Curvature: 26.9465
+2025-02-15 16:29:37,667 - INFO - Path 2 added. Length: 39.5772 units. Duration: 0.1057 seconds.
+2025-02-15 16:29:37,775 - INFO - Path Smoothness - Avg Curvature: 6.1515
+2025-02-15 16:29:37,775 - INFO - Path 3 added. Length: 40.2517 units. Duration: 0.1074 seconds.
+2025-02-15 16:29:37,879 - INFO - Path Smoothness - Avg Curvature: 2.0203
+2025-02-15 16:29:37,879 - INFO - Path 4 added. Length: 39.0830 units. Duration: 0.1041 seconds.
+2025-02-15 16:29:37,984 - INFO - Path Smoothness - Avg Curvature: 5.7450
+2025-02-15 16:29:37,984 - INFO - Path 5 added. Length: 38.7163 units. Duration: 0.1052 seconds.
+2025-02-15 16:29:38,087 - INFO - Path Smoothness - Avg Curvature: 5.0908
+2025-02-15 16:29:38,088 - INFO - Path 6 added. Length: 34.5353 units. Duration: 0.1034 seconds.
+2025-02-15 16:29:38,191 - INFO - Path Smoothness - Avg Curvature: 25.4981
+2025-02-15 16:29:38,192 - INFO - Path 7 added. Length: 36.2164 units. Duration: 0.1039 seconds.
+2025-02-15 16:29:38,297 - INFO - Path Smoothness - Avg Curvature: 13.1752
+2025-02-15 16:29:38,297 - INFO - Path 8 added. Length: 35.4263 units. Duration: 0.1056 seconds.
+2025-02-15 16:29:38,403 - INFO - Path Smoothness - Avg Curvature: 6.2459
+2025-02-15 16:29:38,404 - INFO - Path 9 added. Length: 40.3943 units. Duration: 0.1064 seconds.
+2025-02-15 16:29:38,510 - INFO - Path Smoothness - Avg Curvature: 2.6933
+2025-02-15 16:29:38,510 - INFO - Path 10 added. Length: 38.0448 units. Duration: 0.1062 seconds.
+2025-02-15 16:29:38,614 - INFO - Path Smoothness - Avg Curvature: 2.1823
+2025-02-15 16:29:38,614 - INFO - Path 11 added. Length: 33.3639 units. Duration: 0.1039 seconds.
+2025-02-15 16:29:38,719 - INFO - Path Smoothness - Avg Curvature: 4.9412
+2025-02-15 16:29:38,719 - INFO - Path 12 added. Length: 34.3424 units. Duration: 0.1052 seconds.
+2025-02-15 16:29:38,824 - INFO - Path Smoothness - Avg Curvature: 1.0119
+2025-02-15 16:29:38,825 - INFO - Path 13 added. Length: 38.1208 units. Duration: 0.1053 seconds.
+2025-02-15 16:29:38,929 - INFO - Path Smoothness - Avg Curvature: 9.7356
+2025-02-15 16:29:38,929 - INFO - Path 14 added. Length: 39.5619 units. Duration: 0.1045 seconds.
+2025-02-15 16:29:39,034 - INFO - Path Smoothness - Avg Curvature: 29.9508
+2025-02-15 16:29:39,034 - INFO - Path 15 added. Length: 41.0027 units. Duration: 0.1053 seconds.
+2025-02-15 16:29:39,138 - INFO - Path Smoothness - Avg Curvature: 11.7098
+2025-02-15 16:29:39,138 - INFO - Path 16 added. Length: 35.4206 units. Duration: 0.1035 seconds.
+2025-02-15 16:29:39,242 - INFO - Path Smoothness - Avg Curvature: 4.1068
+2025-02-15 16:29:39,242 - INFO - Path 17 added. Length: 38.0797 units. Duration: 0.1044 seconds.
+2025-02-15 16:29:39,347 - INFO - Path Smoothness - Avg Curvature: 4.4649
+2025-02-15 16:29:39,348 - INFO - Path 18 added. Length: 39.4304 units. Duration: 0.1052 seconds.
+2025-02-15 16:29:39,452 - INFO - Path Smoothness - Avg Curvature: 6.6675
+2025-02-15 16:29:39,452 - INFO - Path 19 added. Length: 38.7421 units. Duration: 0.1043 seconds.
+2025-02-15 16:29:39,558 - INFO - Path Smoothness - Avg Curvature: 7.1135
+2025-02-15 16:29:39,558 - INFO - Path 20 added. Length: 33.4426 units. Duration: 0.1057 seconds.
+2025-02-15 16:29:39,665 - INFO - Path Smoothness - Avg Curvature: 6.3948
+2025-02-15 16:29:39,665 - INFO - Path 21 added. Length: 38.2451 units. Duration: 0.1070 seconds.
+2025-02-15 16:29:39,768 - INFO - Path Smoothness - Avg Curvature: 2.7524
+2025-02-15 16:29:39,768 - INFO - Path 22 added. Length: 39.4172 units. Duration: 0.1035 seconds.
+2025-02-15 16:29:39,873 - INFO - Path Smoothness - Avg Curvature: 6.3736
+2025-02-15 16:29:39,873 - INFO - Path 23 added. Length: 35.6116 units. Duration: 0.1049 seconds.
+2025-02-15 16:29:39,978 - INFO - Path Smoothness - Avg Curvature: 4.5012
+2025-02-15 16:29:39,979 - INFO - Path 24 added. Length: 33.6970 units. Duration: 0.1052 seconds.
+2025-02-15 16:29:40,082 - INFO - Path Smoothness - Avg Curvature: 2.3616
+2025-02-15 16:29:40,082 - INFO - Path 25 added. Length: 39.0176 units. Duration: 0.1039 seconds.
+2025-02-15 16:29:40,186 - INFO - Path Smoothness - Avg Curvature: 5.7194
+2025-02-15 16:29:40,187 - INFO - Path 26 added. Length: 34.1517 units. Duration: 0.1041 seconds.
+2025-02-15 16:29:40,291 - INFO - Path Smoothness - Avg Curvature: 6.8977
+2025-02-15 16:29:40,292 - INFO - Path 27 added. Length: 35.7701 units. Duration: 0.1050 seconds.
+2025-02-15 16:29:40,397 - INFO - Path Smoothness - Avg Curvature: 10.8335
+2025-02-15 16:29:40,397 - INFO - Path 28 added. Length: 37.6788 units. Duration: 0.1053 seconds.
+2025-02-15 16:29:40,501 - INFO - Path Smoothness - Avg Curvature: 27.1768
+2025-02-15 16:29:40,501 - INFO - Path 29 added. Length: 39.2103 units. Duration: 0.1043 seconds.
+2025-02-15 16:29:40,604 - INFO - Path Smoothness - Avg Curvature: 5.6119
+2025-02-15 16:29:40,605 - INFO - Path 30 added. Length: 38.1577 units. Duration: 0.1032 seconds.
+2025-02-15 16:29:40,710 - INFO - Path Smoothness - Avg Curvature: 3.1252
+2025-02-15 16:29:40,710 - INFO - Path 31 added. Length: 33.6451 units. Duration: 0.1052 seconds.
+2025-02-15 16:29:40,815 - INFO - Path Smoothness - Avg Curvature: 4.1801
+2025-02-15 16:29:40,815 - INFO - Path 32 added. Length: 37.9462 units. Duration: 0.1055 seconds.
+2025-02-15 16:29:40,920 - INFO - Path Smoothness - Avg Curvature: 0.8790
+2025-02-15 16:29:40,920 - INFO - Path 33 added. Length: 39.0494 units. Duration: 0.1042 seconds.
+2025-02-15 16:29:41,024 - INFO - Path Smoothness - Avg Curvature: 164.4117
+2025-02-15 16:29:41,024 - INFO - Path 34 added. Length: 36.9256 units. Duration: 0.1047 seconds.
+2025-02-15 16:29:41,131 - INFO - Path Smoothness - Avg Curvature: 11.6423
+2025-02-15 16:29:41,131 - INFO - Path 35 added. Length: 40.2806 units. Duration: 0.1063 seconds.
+2025-02-15 16:29:41,235 - INFO - Path Smoothness - Avg Curvature: 31.0381
+2025-02-15 16:29:41,235 - INFO - Path 36 added. Length: 38.7547 units. Duration: 0.1044 seconds.
+2025-02-15 16:29:41,341 - INFO - Path Smoothness - Avg Curvature: 7.5728
+2025-02-15 16:29:41,341 - INFO - Path 37 added. Length: 35.1435 units. Duration: 0.1054 seconds.
+2025-02-15 16:29:41,446 - INFO - Path Smoothness - Avg Curvature: 3.7882
+2025-02-15 16:29:41,446 - INFO - Path 38 added. Length: 33.5803 units. Duration: 0.1049 seconds.
+2025-02-15 16:29:41,551 - INFO - Path Smoothness - Avg Curvature: 12.1913
+2025-02-15 16:29:41,551 - INFO - Path 39 added. Length: 35.9670 units. Duration: 0.1049 seconds.
+2025-02-15 16:29:41,656 - INFO - Path Smoothness - Avg Curvature: 3.3362
+2025-02-15 16:29:41,656 - INFO - Path 40 added. Length: 39.0050 units. Duration: 0.1052 seconds.
+2025-02-15 16:29:41,760 - INFO - Path Smoothness - Avg Curvature: 7.0988
+2025-02-15 16:29:41,761 - INFO - Path 41 added. Length: 35.4207 units. Duration: 0.1047 seconds.
+2025-02-15 16:29:41,865 - INFO - Path Smoothness - Avg Curvature: 1.0059
+2025-02-15 16:29:41,865 - INFO - Path 42 added. Length: 39.8848 units. Duration: 0.1042 seconds.
+2025-02-15 16:29:41,970 - INFO - Path Smoothness - Avg Curvature: 13.3010
+2025-02-15 16:29:41,970 - INFO - Path 43 added. Length: 37.9215 units. Duration: 0.1047 seconds.
+2025-02-15 16:29:42,074 - INFO - Path Smoothness - Avg Curvature: 6.4840
+2025-02-15 16:29:42,074 - INFO - Path 44 added. Length: 34.3627 units. Duration: 0.1043 seconds.
+2025-02-15 16:29:42,179 - INFO - Path Smoothness - Avg Curvature: 4.4841
+2025-02-15 16:29:42,179 - INFO - Path 45 added. Length: 35.3039 units. Duration: 0.1047 seconds.
+2025-02-15 16:29:42,283 - INFO - Path Smoothness - Avg Curvature: 5.9218
+2025-02-15 16:29:42,283 - INFO - Path 46 added. Length: 38.3430 units. Duration: 0.1039 seconds.
+2025-02-15 16:29:42,387 - INFO - Path Smoothness - Avg Curvature: 4.2517
+2025-02-15 16:29:42,387 - INFO - Path 47 added. Length: 38.5695 units. Duration: 0.1040 seconds.
+2025-02-15 16:29:42,493 - INFO - Path Smoothness - Avg Curvature: 9.3252
+2025-02-15 16:29:42,493 - INFO - Path 48 added. Length: 34.8894 units. Duration: 0.1064 seconds.
+2025-02-15 16:29:42,600 - INFO - Path Smoothness - Avg Curvature: 2.9843
+2025-02-15 16:29:42,600 - INFO - Path 49 added. Length: 34.2958 units. Duration: 0.1064 seconds.
+2025-02-15 16:29:42,705 - INFO - Path Smoothness - Avg Curvature: 7.0356
+2025-02-15 16:29:42,705 - INFO - Path 50 added. Length: 37.3652 units. Duration: 0.1053 seconds.
+2025-02-15 16:29:42,810 - INFO - Path Smoothness - Avg Curvature: 4.3754
+2025-02-15 16:29:42,810 - INFO - Path 51 added. Length: 33.5241 units. Duration: 0.1047 seconds.
+2025-02-15 16:29:42,915 - INFO - Path Smoothness - Avg Curvature: 3.3337
+2025-02-15 16:29:42,915 - INFO - Path 52 added. Length: 34.5890 units. Duration: 0.1050 seconds.
+2025-02-15 16:29:43,020 - INFO - Path Smoothness - Avg Curvature: 2.0635
+2025-02-15 16:29:43,020 - INFO - Path 53 added. Length: 38.5411 units. Duration: 0.1050 seconds.
+2025-02-15 16:29:43,124 - INFO - Path Smoothness - Avg Curvature: 4.5693
+2025-02-15 16:29:43,124 - INFO - Path 54 added. Length: 39.3508 units. Duration: 0.1040 seconds.
+2025-02-15 16:29:43,230 - INFO - Path Smoothness - Avg Curvature: 9.2760
+2025-02-15 16:29:43,230 - INFO - Path 55 added. Length: 34.1504 units. Duration: 0.1058 seconds.
+2025-02-15 16:29:43,334 - INFO - Path Smoothness - Avg Curvature: 1.6429
+2025-02-15 16:29:43,335 - INFO - Path 56 added. Length: 37.9124 units. Duration: 0.1047 seconds.
+2025-02-15 16:29:43,440 - INFO - Path Smoothness - Avg Curvature: 2.4615
+2025-02-15 16:29:43,440 - INFO - Path 57 added. Length: 33.3540 units. Duration: 0.1050 seconds.
+2025-02-15 16:29:43,543 - INFO - Path Smoothness - Avg Curvature: 5.4952
+2025-02-15 16:29:43,543 - INFO - Path 58 added. Length: 34.6456 units. Duration: 0.1034 seconds.
+2025-02-15 16:29:43,647 - INFO - Path Smoothness - Avg Curvature: 6.8776
+2025-02-15 16:29:43,647 - INFO - Path 59 added. Length: 33.3031 units. Duration: 0.1043 seconds.
+2025-02-15 16:29:43,752 - INFO - Path Smoothness - Avg Curvature: 4.2118
+2025-02-15 16:29:43,753 - INFO - Path 60 added. Length: 34.1217 units. Duration: 0.1050 seconds.
+2025-02-15 16:29:43,857 - INFO - Path Smoothness - Avg Curvature: 2.9584
+2025-02-15 16:29:43,857 - INFO - Path 61 added. Length: 41.1353 units. Duration: 0.1042 seconds.
+2025-02-15 16:29:43,961 - INFO - Path Smoothness - Avg Curvature: 3.7737
+2025-02-15 16:29:43,961 - INFO - Path 62 added. Length: 38.1659 units. Duration: 0.1046 seconds.
+2025-02-15 16:29:44,067 - INFO - Path Smoothness - Avg Curvature: 9.6202
+2025-02-15 16:29:44,067 - INFO - Path 63 added. Length: 37.8335 units. Duration: 0.1057 seconds.
+2025-02-15 16:29:44,172 - INFO - Path Smoothness - Avg Curvature: 5.6668
+2025-02-15 16:29:44,173 - INFO - Path 64 added. Length: 38.9502 units. Duration: 0.1053 seconds.
+2025-02-15 16:29:44,278 - INFO - Path Smoothness - Avg Curvature: 51.7630
+2025-02-15 16:29:44,278 - INFO - Path 65 added. Length: 39.5351 units. Duration: 0.1051 seconds.
+2025-02-15 16:29:44,382 - INFO - Path Smoothness - Avg Curvature: 8.1293
+2025-02-15 16:29:44,383 - INFO - Path 66 added. Length: 35.0108 units. Duration: 0.1047 seconds.
+2025-02-15 16:29:44,490 - INFO - Path Smoothness - Avg Curvature: 8.0788
+2025-02-15 16:29:44,490 - INFO - Path 67 added. Length: 39.8813 units. Duration: 0.1071 seconds.
+2025-02-15 16:29:44,595 - INFO - Path Smoothness - Avg Curvature: 8.7809
+2025-02-15 16:29:44,595 - INFO - Path 68 added. Length: 37.0496 units. Duration: 0.1052 seconds.
+2025-02-15 16:29:44,699 - INFO - Path Smoothness - Avg Curvature: 5.6375
+2025-02-15 16:29:44,699 - INFO - Path 69 added. Length: 33.6785 units. Duration: 0.1039 seconds.
+2025-02-15 16:29:44,805 - INFO - Path Smoothness - Avg Curvature: 13.6911
+2025-02-15 16:29:44,805 - INFO - Path 70 added. Length: 38.0378 units. Duration: 0.1059 seconds.
+2025-02-15 16:29:44,910 - INFO - Path Smoothness - Avg Curvature: 12.6442
+2025-02-15 16:29:44,910 - INFO - Path 71 added. Length: 39.7318 units. Duration: 0.1050 seconds.
+2025-02-15 16:29:45,015 - INFO - Path Smoothness - Avg Curvature: 2.0380
+2025-02-15 16:29:45,015 - INFO - Path 72 added. Length: 38.3924 units. Duration: 0.1051 seconds.
+2025-02-15 16:29:45,119 - INFO - Path Smoothness - Avg Curvature: 3.4654
+2025-02-15 16:29:45,119 - INFO - Path 73 added. Length: 33.8196 units. Duration: 0.1035 seconds.
+2025-02-15 16:29:45,224 - INFO - Path Smoothness - Avg Curvature: 5.7704
+2025-02-15 16:29:45,224 - INFO - Path 74 added. Length: 34.6985 units. Duration: 0.1053 seconds.
+2025-02-15 16:29:45,329 - INFO - Path Smoothness - Avg Curvature: 4.0880
+2025-02-15 16:29:45,329 - INFO - Path 75 added. Length: 33.5388 units. Duration: 0.1048 seconds.
+2025-02-15 16:29:45,432 - INFO - Path Smoothness - Avg Curvature: 1.2146
+2025-02-15 16:29:45,432 - INFO - Path 76 added. Length: 41.7719 units. Duration: 0.1033 seconds.
+2025-02-15 16:29:45,538 - INFO - Path Smoothness - Avg Curvature: 11.9013
+2025-02-15 16:29:45,538 - INFO - Path 77 added. Length: 38.5739 units. Duration: 0.1061 seconds.
+2025-02-15 16:29:45,643 - INFO - Path Smoothness - Avg Curvature: 2.6258
+2025-02-15 16:29:45,644 - INFO - Path 78 added. Length: 33.2380 units. Duration: 0.1052 seconds.
+2025-02-15 16:29:45,749 - INFO - Path Smoothness - Avg Curvature: 13.4661
+2025-02-15 16:29:45,749 - INFO - Path 79 added. Length: 33.8467 units. Duration: 0.1056 seconds.
+2025-02-15 16:29:45,855 - INFO - Path Smoothness - Avg Curvature: 40.3186
+2025-02-15 16:29:45,855 - INFO - Path 80 added. Length: 42.4283 units. Duration: 0.1059 seconds.
+2025-02-15 16:29:45,960 - INFO - Path Smoothness - Avg Curvature: 3.1069
+2025-02-15 16:29:45,960 - INFO - Path 81 added. Length: 38.2921 units. Duration: 0.1051 seconds.
+2025-02-15 16:29:46,064 - INFO - Path Smoothness - Avg Curvature: 3.7664
+2025-02-15 16:29:46,064 - INFO - Path 82 added. Length: 34.2104 units. Duration: 0.1038 seconds.
+2025-02-15 16:29:46,168 - INFO - Path Smoothness - Avg Curvature: 5.0983
+2025-02-15 16:29:46,168 - INFO - Path 83 added. Length: 34.0141 units. Duration: 0.1039 seconds.
+2025-02-15 16:29:46,273 - INFO - Path Smoothness - Avg Curvature: 2.2962
+2025-02-15 16:29:46,273 - INFO - Path 84 added. Length: 37.8665 units. Duration: 0.1045 seconds.
+2025-02-15 16:29:46,377 - INFO - Path Smoothness - Avg Curvature: 6.2320
+2025-02-15 16:29:46,377 - INFO - Path 85 added. Length: 34.6365 units. Duration: 0.1040 seconds.
+2025-02-15 16:29:46,482 - INFO - Path Smoothness - Avg Curvature: 2.5425
+2025-02-15 16:29:46,482 - INFO - Path 86 added. Length: 39.1706 units. Duration: 0.1055 seconds.
+2025-02-15 16:29:46,588 - INFO - Path Smoothness - Avg Curvature: 1.5020
+2025-02-15 16:29:46,588 - INFO - Path 87 added. Length: 38.1478 units. Duration: 0.1058 seconds.
+2025-02-15 16:29:46,693 - INFO - Path Smoothness - Avg Curvature: 1.1867
+2025-02-15 16:29:46,693 - INFO - Path 88 added. Length: 38.7454 units. Duration: 0.1050 seconds.
+2025-02-15 16:29:46,798 - INFO - Path Smoothness - Avg Curvature: 9.3365
+2025-02-15 16:29:46,798 - INFO - Path 89 added. Length: 37.2090 units. Duration: 0.1044 seconds.
+2025-02-15 16:29:46,902 - INFO - Path Smoothness - Avg Curvature: 4.0303
+2025-02-15 16:29:46,902 - INFO - Path 90 added. Length: 38.0434 units. Duration: 0.1042 seconds.
+2025-02-15 16:29:47,007 - INFO - Path Smoothness - Avg Curvature: 0.9445
+2025-02-15 16:29:47,007 - INFO - Path 91 added. Length: 40.5166 units. Duration: 0.1047 seconds.
+2025-02-15 16:29:47,111 - INFO - Path Smoothness - Avg Curvature: 7.4068
+2025-02-15 16:29:47,112 - INFO - Path 92 added. Length: 35.9500 units. Duration: 0.1045 seconds.
+2025-02-15 16:29:47,215 - INFO - Path Smoothness - Avg Curvature: 2.5955
+2025-02-15 16:29:47,215 - INFO - Path 93 added. Length: 38.5797 units. Duration: 0.1038 seconds.
+2025-02-15 16:29:47,320 - INFO - Path Smoothness - Avg Curvature: 31.7934
+2025-02-15 16:29:47,320 - INFO - Path 94 added. Length: 37.5985 units. Duration: 0.1051 seconds.
+2025-02-15 16:29:47,426 - INFO - Path Smoothness - Avg Curvature: 11.8633
+2025-02-15 16:29:47,426 - INFO - Path 95 added. Length: 35.0759 units. Duration: 0.1052 seconds.
+2025-02-15 16:29:47,531 - INFO - Path Smoothness - Avg Curvature: 38.2801
+2025-02-15 16:29:47,531 - INFO - Path 96 added. Length: 34.3316 units. Duration: 0.1055 seconds.
+2025-02-15 16:29:47,635 - INFO - Path Smoothness - Avg Curvature: 2.1484
+2025-02-15 16:29:47,635 - INFO - Path 97 added. Length: 37.8637 units. Duration: 0.1039 seconds.
+2025-02-15 16:29:47,741 - INFO - Path Smoothness - Avg Curvature: 2.7691
+2025-02-15 16:29:47,741 - INFO - Path 98 added. Length: 38.7899 units. Duration: 0.1056 seconds.
+2025-02-15 16:29:47,845 - INFO - Path Smoothness - Avg Curvature: 3.0714
+2025-02-15 16:29:47,846 - INFO - Path 99 added. Length: 38.0142 units. Duration: 0.1045 seconds.
+2025-02-15 16:29:47,846 - INFO - Planning 100 paths from [ 0.198  0.233 -0.45 ] to [-0.198 -0.233 -0.45 ].
+2025-02-15 16:29:47,846 - INFO - Actual start state: (0.198, 0.233, -0.45). Actual goal state: (-0.198, -0.233, -0.45)
+2025-02-15 16:29:47,951 - INFO - Path Smoothness - Avg Curvature: 3.9275
+2025-02-15 16:29:47,952 - INFO - Path 0 added. Length: 35.6824 units. Duration: 0.1053 seconds.
+2025-02-15 16:29:48,056 - INFO - Path Smoothness - Avg Curvature: 5.2982
+2025-02-15 16:29:48,056 - INFO - Path 1 added. Length: 34.9109 units. Duration: 0.1043 seconds.
+2025-02-15 16:29:48,161 - INFO - Path Smoothness - Avg Curvature: 10.1840
+2025-02-15 16:29:48,161 - INFO - Path 2 added. Length: 34.4679 units. Duration: 0.1053 seconds.
+2025-02-15 16:29:48,264 - INFO - Path Smoothness - Avg Curvature: 2.5639
+2025-02-15 16:29:48,265 - INFO - Path 3 added. Length: 36.4273 units. Duration: 0.1032 seconds.
+2025-02-15 16:29:48,370 - INFO - Path Smoothness - Avg Curvature: 2.9952
+2025-02-15 16:29:48,370 - INFO - Path 4 added. Length: 38.7185 units. Duration: 0.1055 seconds.
+2025-02-15 16:29:48,475 - INFO - Path Smoothness - Avg Curvature: 2.9879
+2025-02-15 16:29:48,475 - INFO - Path 5 added. Length: 38.3893 units. Duration: 0.1047 seconds.
+2025-02-15 16:29:48,581 - INFO - Path Smoothness - Avg Curvature: 14.0242
+2025-02-15 16:29:48,581 - INFO - Path 6 added. Length: 33.6497 units. Duration: 0.1062 seconds.
+2025-02-15 16:29:48,686 - INFO - Path Smoothness - Avg Curvature: 4.5837
+2025-02-15 16:29:48,686 - INFO - Path 7 added. Length: 38.1762 units. Duration: 0.1045 seconds.
+2025-02-15 16:29:48,790 - INFO - Path Smoothness - Avg Curvature: 21.3102
+2025-02-15 16:29:48,790 - INFO - Path 8 added. Length: 33.8445 units. Duration: 0.1042 seconds.
+2025-02-15 16:29:48,895 - INFO - Path Smoothness - Avg Curvature: 4.6318
+2025-02-15 16:29:48,895 - INFO - Path 9 added. Length: 38.4450 units. Duration: 0.1050 seconds.
+2025-02-15 16:29:49,000 - INFO - Path Smoothness - Avg Curvature: 17.5527
+2025-02-15 16:29:49,000 - INFO - Path 10 added. Length: 38.3745 units. Duration: 0.1048 seconds.
+2025-02-15 16:29:49,104 - INFO - Path Smoothness - Avg Curvature: 4.2768
+2025-02-15 16:29:49,105 - INFO - Path 11 added. Length: 36.0507 units. Duration: 0.1047 seconds.
+2025-02-15 16:29:49,211 - INFO - Path Smoothness - Avg Curvature: 5.8436
+2025-02-15 16:29:49,211 - INFO - Path 12 added. Length: 36.4673 units. Duration: 0.1061 seconds.
+2025-02-15 16:29:49,314 - INFO - Path Smoothness - Avg Curvature: 8.7297
+2025-02-15 16:29:49,314 - INFO - Path 13 added. Length: 34.8630 units. Duration: 0.1036 seconds.
+2025-02-15 16:29:49,420 - INFO - Path Smoothness - Avg Curvature: 11.3891
+2025-02-15 16:29:49,420 - INFO - Path 14 added. Length: 35.3792 units. Duration: 0.1055 seconds.
+2025-02-15 16:29:49,524 - INFO - Path Smoothness - Avg Curvature: 2.2395
+2025-02-15 16:29:49,524 - INFO - Path 15 added. Length: 39.5579 units. Duration: 0.1041 seconds.
+2025-02-15 16:29:49,629 - INFO - Path Smoothness - Avg Curvature: 3.2180
+2025-02-15 16:29:49,629 - INFO - Path 16 added. Length: 38.5970 units. Duration: 0.1048 seconds.
+2025-02-15 16:29:49,734 - INFO - Path Smoothness - Avg Curvature: 31.3396
+2025-02-15 16:29:49,734 - INFO - Path 17 added. Length: 33.3328 units. Duration: 0.1049 seconds.
+2025-02-15 16:29:49,837 - INFO - Path Smoothness - Avg Curvature: 2.0568
+2025-02-15 16:29:49,837 - INFO - Path 18 added. Length: 39.1642 units. Duration: 0.1034 seconds.
+2025-02-15 16:29:49,941 - INFO - Path Smoothness - Avg Curvature: 4.9133
+2025-02-15 16:29:49,941 - INFO - Path 19 added. Length: 37.5410 units. Duration: 0.1033 seconds.
+2025-02-15 16:29:50,047 - INFO - Path Smoothness - Avg Curvature: 9.3039
+2025-02-15 16:29:50,047 - INFO - Path 20 added. Length: 37.2128 units. Duration: 0.1062 seconds.
+2025-02-15 16:29:50,151 - INFO - Path Smoothness - Avg Curvature: 5.2268
+2025-02-15 16:29:50,151 - INFO - Path 21 added. Length: 34.9200 units. Duration: 0.1044 seconds.
+2025-02-15 16:29:50,256 - INFO - Path Smoothness - Avg Curvature: 6.4861
+2025-02-15 16:29:50,256 - INFO - Path 22 added. Length: 33.9016 units. Duration: 0.1047 seconds.
+2025-02-15 16:29:50,362 - INFO - Path Smoothness - Avg Curvature: 6.0207
+2025-02-15 16:29:50,362 - INFO - Path 23 added. Length: 34.7332 units. Duration: 0.1058 seconds.
+2025-02-15 16:29:50,467 - INFO - Path Smoothness - Avg Curvature: 11.1848
+2025-02-15 16:29:50,467 - INFO - Path 24 added. Length: 33.7836 units. Duration: 0.1047 seconds.
+2025-02-15 16:29:50,571 - INFO - Path Smoothness - Avg Curvature: 4.8060
+2025-02-15 16:29:50,571 - INFO - Path 25 added. Length: 35.9927 units. Duration: 0.1043 seconds.
+2025-02-15 16:29:50,678 - INFO - Path Smoothness - Avg Curvature: 5.6891
+2025-02-15 16:29:50,678 - INFO - Path 26 added. Length: 36.1940 units. Duration: 0.1065 seconds.
+2025-02-15 16:29:50,782 - INFO - Path Smoothness - Avg Curvature: 7.7170
+2025-02-15 16:29:50,782 - INFO - Path 27 added. Length: 34.6306 units. Duration: 0.1041 seconds.
+2025-02-15 16:29:50,886 - INFO - Path Smoothness - Avg Curvature: 2.1513
+2025-02-15 16:29:50,886 - INFO - Path 28 added. Length: 33.7835 units. Duration: 0.1039 seconds.
+2025-02-15 16:29:50,992 - INFO - Path Smoothness - Avg Curvature: 8.6727
+2025-02-15 16:29:50,992 - INFO - Path 29 added. Length: 36.9915 units. Duration: 0.1060 seconds.
+2025-02-15 16:29:51,096 - INFO - Path Smoothness - Avg Curvature: 6.4063
+2025-02-15 16:29:51,096 - INFO - Path 30 added. Length: 39.0276 units. Duration: 0.1040 seconds.
+2025-02-15 16:29:51,200 - INFO - Path Smoothness - Avg Curvature: 9.5637
+2025-02-15 16:29:51,200 - INFO - Path 31 added. Length: 34.7652 units. Duration: 0.1043 seconds.
+2025-02-15 16:29:51,305 - INFO - Path Smoothness - Avg Curvature: 5.2000
+2025-02-15 16:29:51,305 - INFO - Path 32 added. Length: 35.8143 units. Duration: 0.1048 seconds.
+2025-02-15 16:29:51,411 - INFO - Path Smoothness - Avg Curvature: 11.2930
+2025-02-15 16:29:51,411 - INFO - Path 33 added. Length: 33.6777 units. Duration: 0.1055 seconds.
+2025-02-15 16:29:51,516 - INFO - Path Smoothness - Avg Curvature: 4.1568
+2025-02-15 16:29:51,516 - INFO - Path 34 added. Length: 38.8724 units. Duration: 0.1049 seconds.
+2025-02-15 16:29:51,620 - INFO - Path Smoothness - Avg Curvature: 17.7959
+2025-02-15 16:29:51,620 - INFO - Path 35 added. Length: 35.9973 units. Duration: 0.1040 seconds.
+2025-02-15 16:29:51,724 - INFO - Path Smoothness - Avg Curvature: 3.6348
+2025-02-15 16:29:51,725 - INFO - Path 36 added. Length: 34.0675 units. Duration: 0.1047 seconds.
+2025-02-15 16:29:51,830 - INFO - Path Smoothness - Avg Curvature: 3.1637
+2025-02-15 16:29:51,830 - INFO - Path 37 added. Length: 40.2841 units. Duration: 0.1051 seconds.
+2025-02-15 16:29:51,935 - INFO - Path Smoothness - Avg Curvature: 10.1310
+2025-02-15 16:29:51,935 - INFO - Path 38 added. Length: 35.0019 units. Duration: 0.1056 seconds.
+2025-02-15 16:29:52,039 - INFO - Path Smoothness - Avg Curvature: 2.6789
+2025-02-15 16:29:52,040 - INFO - Path 39 added. Length: 39.7649 units. Duration: 0.1041 seconds.
+2025-02-15 16:29:52,145 - INFO - Path Smoothness - Avg Curvature: 2.8704
+2025-02-15 16:29:52,145 - INFO - Path 40 added. Length: 38.8795 units. Duration: 0.1051 seconds.
+2025-02-15 16:29:52,249 - INFO - Path Smoothness - Avg Curvature: 4.9994
+2025-02-15 16:29:52,249 - INFO - Path 41 added. Length: 33.3097 units. Duration: 0.1044 seconds.
+2025-02-15 16:29:52,354 - INFO - Path Smoothness - Avg Curvature: 28.4635
+2025-02-15 16:29:52,354 - INFO - Path 42 added. Length: 37.3186 units. Duration: 0.1049 seconds.
+2025-02-15 16:29:52,458 - INFO - Path Smoothness - Avg Curvature: 7.8403
+2025-02-15 16:29:52,459 - INFO - Path 43 added. Length: 36.0493 units. Duration: 0.1044 seconds.
+2025-02-15 16:29:52,562 - INFO - Path Smoothness - Avg Curvature: 15.0378
+2025-02-15 16:29:52,562 - INFO - Path 44 added. Length: 34.0111 units. Duration: 0.1034 seconds.
+2025-02-15 16:29:52,668 - INFO - Path Smoothness - Avg Curvature: 6.7392
+2025-02-15 16:29:52,668 - INFO - Path 45 added. Length: 33.7871 units. Duration: 0.1057 seconds.
+2025-02-15 16:29:52,774 - INFO - Path Smoothness - Avg Curvature: 5.0433
+2025-02-15 16:29:52,774 - INFO - Path 46 added. Length: 33.8084 units. Duration: 0.1059 seconds.
+2025-02-15 16:29:52,879 - INFO - Path Smoothness - Avg Curvature: 21.3985
+2025-02-15 16:29:52,879 - INFO - Path 47 added. Length: 33.5169 units. Duration: 0.1055 seconds.
+2025-02-15 16:29:52,983 - INFO - Path Smoothness - Avg Curvature: 5.7402
+2025-02-15 16:29:52,983 - INFO - Path 48 added. Length: 34.9004 units. Duration: 0.1041 seconds.
+2025-02-15 16:29:53,087 - INFO - Path Smoothness - Avg Curvature: 2.0301
+2025-02-15 16:29:53,087 - INFO - Path 49 added. Length: 33.1116 units. Duration: 0.1040 seconds.
+2025-02-15 16:29:53,193 - INFO - Path Smoothness - Avg Curvature: 2.8821
+2025-02-15 16:29:53,193 - INFO - Path 50 added. Length: 37.9681 units. Duration: 0.1056 seconds.
+2025-02-15 16:29:53,297 - INFO - Path Smoothness - Avg Curvature: 3.8970
+2025-02-15 16:29:53,297 - INFO - Path 51 added. Length: 33.6642 units. Duration: 0.1037 seconds.
+2025-02-15 16:29:53,401 - INFO - Path Smoothness - Avg Curvature: 5.0086
+2025-02-15 16:29:53,401 - INFO - Path 52 added. Length: 38.3785 units. Duration: 0.1039 seconds.
+2025-02-15 16:29:53,504 - INFO - Path Smoothness - Avg Curvature: 2.3379
+2025-02-15 16:29:53,504 - INFO - Path 53 added. Length: 38.8424 units. Duration: 0.1028 seconds.
+2025-02-15 16:29:53,609 - INFO - Path Smoothness - Avg Curvature: 5.1665
+2025-02-15 16:29:53,609 - INFO - Path 54 added. Length: 36.3994 units. Duration: 0.1051 seconds.
+2025-02-15 16:29:53,712 - INFO - Path Smoothness - Avg Curvature: 4.0924
+2025-02-15 16:29:53,712 - INFO - Path 55 added. Length: 39.1462 units. Duration: 0.1032 seconds.
+2025-02-15 16:29:53,816 - INFO - Path Smoothness - Avg Curvature: 47.5069
+2025-02-15 16:29:53,816 - INFO - Path 56 added. Length: 38.0727 units. Duration: 0.1039 seconds.
+2025-02-15 16:29:53,919 - INFO - Path Smoothness - Avg Curvature: 3.4553
+2025-02-15 16:29:53,920 - INFO - Path 57 added. Length: 33.3021 units. Duration: 0.1035 seconds.
+2025-02-15 16:29:54,024 - INFO - Path Smoothness - Avg Curvature: 5.6571
+2025-02-15 16:29:54,024 - INFO - Path 58 added. Length: 35.3130 units. Duration: 0.1042 seconds.
+2025-02-15 16:29:54,128 - INFO - Path Smoothness - Avg Curvature: 5.5015
+2025-02-15 16:29:54,128 - INFO - Path 59 added. Length: 33.9837 units. Duration: 0.1040 seconds.
+2025-02-15 16:29:54,232 - INFO - Path Smoothness - Avg Curvature: 12.2737
+2025-02-15 16:29:54,232 - INFO - Path 60 added. Length: 40.2780 units. Duration: 0.1042 seconds.
+2025-02-15 16:29:54,336 - INFO - Path Smoothness - Avg Curvature: 2.9030
+2025-02-15 16:29:54,336 - INFO - Path 61 added. Length: 37.4905 units. Duration: 0.1037 seconds.
+2025-02-15 16:29:54,441 - INFO - Path Smoothness - Avg Curvature: 3.5934
+2025-02-15 16:29:54,441 - INFO - Path 62 added. Length: 34.9343 units. Duration: 0.1054 seconds.
+2025-02-15 16:29:54,546 - INFO - Path Smoothness - Avg Curvature: 3.3963
+2025-02-15 16:29:54,546 - INFO - Path 63 added. Length: 33.6227 units. Duration: 0.1047 seconds.
+2025-02-15 16:29:54,651 - INFO - Path Smoothness - Avg Curvature: 15.2928
+2025-02-15 16:29:54,651 - INFO - Path 64 added. Length: 34.0601 units. Duration: 0.1052 seconds.
+2025-02-15 16:29:54,757 - INFO - Path Smoothness - Avg Curvature: 6.0936
+2025-02-15 16:29:54,757 - INFO - Path 65 added. Length: 34.7988 units. Duration: 0.1054 seconds.
+2025-02-15 16:29:54,860 - INFO - Path Smoothness - Avg Curvature: 4.6638
+2025-02-15 16:29:54,860 - INFO - Path 66 added. Length: 38.5417 units. Duration: 0.1029 seconds.
+2025-02-15 16:29:54,964 - INFO - Path Smoothness - Avg Curvature: 4.0721
+2025-02-15 16:29:54,964 - INFO - Path 67 added. Length: 33.2001 units. Duration: 0.1042 seconds.
+2025-02-15 16:29:55,068 - INFO - Path Smoothness - Avg Curvature: 3.5464
+2025-02-15 16:29:55,069 - INFO - Path 68 added. Length: 33.2597 units. Duration: 0.1044 seconds.
+2025-02-15 16:29:55,173 - INFO - Path Smoothness - Avg Curvature: 9.1425
+2025-02-15 16:29:55,173 - INFO - Path 69 added. Length: 33.7325 units. Duration: 0.1042 seconds.
+2025-02-15 16:29:55,278 - INFO - Path Smoothness - Avg Curvature: 4.6402
+2025-02-15 16:29:55,278 - INFO - Path 70 added. Length: 35.3119 units. Duration: 0.1055 seconds.
+2025-02-15 16:29:55,383 - INFO - Path Smoothness - Avg Curvature: 3.6031
+2025-02-15 16:29:55,383 - INFO - Path 71 added. Length: 33.6960 units. Duration: 0.1049 seconds.
+2025-02-15 16:29:55,488 - INFO - Path Smoothness - Avg Curvature: 3.2452
+2025-02-15 16:29:55,488 - INFO - Path 72 added. Length: 37.8364 units. Duration: 0.1050 seconds.
+2025-02-15 16:29:55,592 - INFO - Path Smoothness - Avg Curvature: 7.4263
+2025-02-15 16:29:55,593 - INFO - Path 73 added. Length: 36.1697 units. Duration: 0.1041 seconds.
+2025-02-15 16:29:55,697 - INFO - Path Smoothness - Avg Curvature: 4.0618
+2025-02-15 16:29:55,697 - INFO - Path 74 added. Length: 34.1817 units. Duration: 0.1048 seconds.
+2025-02-15 16:29:55,801 - INFO - Path Smoothness - Avg Curvature: 2.3124
+2025-02-15 16:29:55,801 - INFO - Path 75 added. Length: 33.6007 units. Duration: 0.1037 seconds.
+2025-02-15 16:29:55,907 - INFO - Path Smoothness - Avg Curvature: 9.0531
+2025-02-15 16:29:55,907 - INFO - Path 76 added. Length: 34.2786 units. Duration: 0.1054 seconds.
+2025-02-15 16:29:56,011 - INFO - Path Smoothness - Avg Curvature: 10.5785
+2025-02-15 16:29:56,011 - INFO - Path 77 added. Length: 34.6100 units. Duration: 0.1047 seconds.
+2025-02-15 16:29:56,116 - INFO - Path Smoothness - Avg Curvature: 12.0589
+2025-02-15 16:29:56,116 - INFO - Path 78 added. Length: 37.1683 units. Duration: 0.1044 seconds.
+2025-02-15 16:29:56,221 - INFO - Path Smoothness - Avg Curvature: 7.8643
+2025-02-15 16:29:56,221 - INFO - Path 79 added. Length: 37.4862 units. Duration: 0.1048 seconds.
+2025-02-15 16:29:56,325 - INFO - Path Smoothness - Avg Curvature: 12.3509
+2025-02-15 16:29:56,325 - INFO - Path 80 added. Length: 38.0526 units. Duration: 0.1046 seconds.
+2025-02-15 16:29:56,430 - INFO - Path Smoothness - Avg Curvature: 6.7893
+2025-02-15 16:29:56,430 - INFO - Path 81 added. Length: 36.6931 units. Duration: 0.1049 seconds.
+2025-02-15 16:29:56,533 - INFO - Path Smoothness - Avg Curvature: 4.7909
+2025-02-15 16:29:56,533 - INFO - Path 82 added. Length: 37.5221 units. Duration: 0.1031 seconds.
+2025-02-15 16:29:56,639 - INFO - Path Smoothness - Avg Curvature: 0.9548
+2025-02-15 16:29:56,640 - INFO - Path 83 added. Length: 39.3653 units. Duration: 0.1061 seconds.
+2025-02-15 16:29:56,745 - INFO - Path Smoothness - Avg Curvature: 4.0158
+2025-02-15 16:29:56,745 - INFO - Path 84 added. Length: 37.5069 units. Duration: 0.1058 seconds.
+2025-02-15 16:29:56,852 - INFO - Path Smoothness - Avg Curvature: 13.5564
+2025-02-15 16:29:56,852 - INFO - Path 85 added. Length: 33.5622 units. Duration: 0.1065 seconds.
+2025-02-15 16:29:56,957 - INFO - Path Smoothness - Avg Curvature: 2.8544
+2025-02-15 16:29:56,958 - INFO - Path 86 added. Length: 34.2434 units. Duration: 0.1056 seconds.
+2025-02-15 16:29:57,063 - INFO - Path Smoothness - Avg Curvature: 25.1465
+2025-02-15 16:29:57,063 - INFO - Path 87 added. Length: 35.0183 units. Duration: 0.1053 seconds.
+2025-02-15 16:29:57,166 - INFO - Path Smoothness - Avg Curvature: 14.3321
+2025-02-15 16:29:57,166 - INFO - Path 88 added. Length: 37.7691 units. Duration: 0.1030 seconds.
+2025-02-15 16:29:57,272 - INFO - Path Smoothness - Avg Curvature: 3.1684
+2025-02-15 16:29:57,272 - INFO - Path 89 added. Length: 34.9967 units. Duration: 0.1059 seconds.
+2025-02-15 16:29:57,377 - INFO - Path Smoothness - Avg Curvature: 3.4456
+2025-02-15 16:29:57,377 - INFO - Path 90 added. Length: 33.6719 units. Duration: 0.1046 seconds.
+2025-02-15 16:29:57,481 - INFO - Path Smoothness - Avg Curvature: 5.5657
+2025-02-15 16:29:57,481 - INFO - Path 91 added. Length: 38.1286 units. Duration: 0.1045 seconds.
+2025-02-15 16:29:57,587 - INFO - Path Smoothness - Avg Curvature: 7.6078
+2025-02-15 16:29:57,587 - INFO - Path 92 added. Length: 33.7502 units. Duration: 0.1059 seconds.
+2025-02-15 16:29:57,692 - INFO - Path Smoothness - Avg Curvature: 2.2338
+2025-02-15 16:29:57,693 - INFO - Path 93 added. Length: 37.7849 units. Duration: 0.1052 seconds.
+2025-02-15 16:29:57,799 - INFO - Path Smoothness - Avg Curvature: 8.1645
+2025-02-15 16:29:57,799 - INFO - Path 94 added. Length: 34.0906 units. Duration: 0.1065 seconds.
+2025-02-15 16:29:57,903 - INFO - Path Smoothness - Avg Curvature: 7.2526
+2025-02-15 16:29:57,904 - INFO - Path 95 added. Length: 33.2619 units. Duration: 0.1045 seconds.
+2025-02-15 16:29:58,009 - INFO - Path Smoothness - Avg Curvature: 11.6038
+2025-02-15 16:29:58,010 - INFO - Path 96 added. Length: 36.2672 units. Duration: 0.1058 seconds.
+2025-02-15 16:29:58,113 - INFO - Path Smoothness - Avg Curvature: 3.0130
+2025-02-15 16:29:58,113 - INFO - Path 97 added. Length: 38.0014 units. Duration: 0.1038 seconds.
+2025-02-15 16:29:58,218 - INFO - Path Smoothness - Avg Curvature: 2.0243
+2025-02-15 16:29:58,218 - INFO - Path 98 added. Length: 35.0272 units. Duration: 0.1043 seconds.
+2025-02-15 16:29:58,322 - INFO - Path Smoothness - Avg Curvature: 0.5302
+2025-02-15 16:29:58,322 - INFO - Path 99 added. Length: 39.0282 units. Duration: 0.1046 seconds.
+2025-02-15 16:29:58,323 - INFO - Planning 100 paths from [-0.267 -0.152 -0.45 ] to [ 0.267  0.152 -0.45 ].
+2025-02-15 16:29:58,323 - INFO - Actual start state: (-0.267, -0.152, -0.45). Actual goal state: (0.267, 0.152, -0.45)
+2025-02-15 16:29:58,426 - INFO - Path Smoothness - Avg Curvature: 10.3517
+2025-02-15 16:29:58,427 - INFO - Path 0 added. Length: 37.4469 units. Duration: 0.1036 seconds.
+2025-02-15 16:29:58,533 - INFO - Path Smoothness - Avg Curvature: 12.0180
+2025-02-15 16:29:58,533 - INFO - Path 1 added. Length: 39.1444 units. Duration: 0.1066 seconds.
+2025-02-15 16:29:58,640 - INFO - Path Smoothness - Avg Curvature: 4.3226
+2025-02-15 16:29:58,640 - INFO - Path 2 added. Length: 41.8910 units. Duration: 0.1064 seconds.
+2025-02-15 16:29:58,744 - INFO - Path Smoothness - Avg Curvature: 33.8160
+2025-02-15 16:29:58,744 - INFO - Path 3 added. Length: 42.2109 units. Duration: 0.1040 seconds.
+2025-02-15 16:29:58,849 - INFO - Path Smoothness - Avg Curvature: 22.3576
+2025-02-15 16:29:58,849 - INFO - Path 4 added. Length: 40.6023 units. Duration: 0.1049 seconds.
+2025-02-15 16:29:58,954 - INFO - Path Smoothness - Avg Curvature: 7.9080
+2025-02-15 16:29:58,954 - INFO - Path 5 added. Length: 39.0093 units. Duration: 0.1057 seconds.
+2025-02-15 16:29:59,059 - INFO - Path Smoothness - Avg Curvature: 7.4034
+2025-02-15 16:29:59,059 - INFO - Path 6 added. Length: 39.4139 units. Duration: 0.1047 seconds.
+2025-02-15 16:29:59,164 - INFO - Path Smoothness - Avg Curvature: 37.9479
+2025-02-15 16:29:59,165 - INFO - Path 7 added. Length: 38.2688 units. Duration: 0.1052 seconds.
+2025-02-15 16:29:59,269 - INFO - Path Smoothness - Avg Curvature: 4.8976
+2025-02-15 16:29:59,269 - INFO - Path 8 added. Length: 41.0622 units. Duration: 0.1047 seconds.
+2025-02-15 16:29:59,374 - INFO - Path Smoothness - Avg Curvature: 6.6871
+2025-02-15 16:29:59,374 - INFO - Path 9 added. Length: 39.8820 units. Duration: 0.1045 seconds.
+2025-02-15 16:29:59,479 - INFO - Path Smoothness - Avg Curvature: 8.7303
+2025-02-15 16:29:59,479 - INFO - Path 10 added. Length: 40.0263 units. Duration: 0.1053 seconds.
+2025-02-15 16:29:59,739 - INFO - Path Smoothness - Avg Curvature: 8.1288
+2025-02-15 16:29:59,739 - INFO - Path 11 added. Length: 50.9323 units. Duration: 0.2595 seconds.
+2025-02-15 16:29:59,846 - INFO - Path Smoothness - Avg Curvature: 25.3253
+2025-02-15 16:29:59,846 - INFO - Path 12 added. Length: 40.2927 units. Duration: 0.1072 seconds.
+2025-02-15 16:29:59,950 - INFO - Path Smoothness - Avg Curvature: 4.2692
+2025-02-15 16:29:59,950 - INFO - Path 13 added. Length: 40.4175 units. Duration: 0.1036 seconds.
+2025-02-15 16:30:00,054 - INFO - Path Smoothness - Avg Curvature: 6.1069
+2025-02-15 16:30:00,054 - INFO - Path 14 added. Length: 40.8845 units. Duration: 0.1046 seconds.
+2025-02-15 16:30:00,160 - INFO - Path Smoothness - Avg Curvature: 4.3544
+2025-02-15 16:30:00,160 - INFO - Path 15 added. Length: 40.3704 units. Duration: 0.1061 seconds.
+2025-02-15 16:30:00,265 - INFO - Path Smoothness - Avg Curvature: 2.8628
+2025-02-15 16:30:00,265 - INFO - Path 16 added. Length: 40.8638 units. Duration: 0.1045 seconds.
+2025-02-15 16:30:00,368 - INFO - Path Smoothness - Avg Curvature: 12.0969
+2025-02-15 16:30:00,368 - INFO - Path 17 added. Length: 39.9633 units. Duration: 0.1034 seconds.
+2025-02-15 16:30:00,474 - INFO - Path Smoothness - Avg Curvature: 25.6867
+2025-02-15 16:30:00,474 - INFO - Path 18 added. Length: 37.8372 units. Duration: 0.1053 seconds.
+2025-02-15 16:30:00,579 - INFO - Path Smoothness - Avg Curvature: 6.1656
+2025-02-15 16:30:00,579 - INFO - Path 19 added. Length: 38.3189 units. Duration: 0.1055 seconds.
+2025-02-15 16:30:00,685 - INFO - Path Smoothness - Avg Curvature: 3.2818
+2025-02-15 16:30:00,685 - INFO - Path 20 added. Length: 40.8193 units. Duration: 0.1056 seconds.
+2025-02-15 16:30:00,789 - INFO - Path Smoothness - Avg Curvature: 5.4850
+2025-02-15 16:30:00,790 - INFO - Path 21 added. Length: 40.1161 units. Duration: 0.1044 seconds.
+2025-02-15 16:30:00,895 - INFO - Path Smoothness - Avg Curvature: 4.9296
+2025-02-15 16:30:00,896 - INFO - Path 22 added. Length: 41.7390 units. Duration: 0.1060 seconds.
+2025-02-15 16:30:00,999 - INFO - Path Smoothness - Avg Curvature: 11.5002
+2025-02-15 16:30:01,000 - INFO - Path 23 added. Length: 38.4036 units. Duration: 0.1040 seconds.
+2025-02-15 16:30:01,105 - INFO - Path Smoothness - Avg Curvature: 10.8643
+2025-02-15 16:30:01,106 - INFO - Path 24 added. Length: 40.9541 units. Duration: 0.1059 seconds.
+2025-02-15 16:30:01,211 - INFO - Path Smoothness - Avg Curvature: 17.8544
+2025-02-15 16:30:01,211 - INFO - Path 25 added. Length: 40.5997 units. Duration: 0.1051 seconds.
+2025-02-15 16:30:01,317 - INFO - Path Smoothness - Avg Curvature: 6.4745
+2025-02-15 16:30:01,317 - INFO - Path 26 added. Length: 36.7535 units. Duration: 0.1060 seconds.
+2025-02-15 16:30:01,423 - INFO - Path Smoothness - Avg Curvature: 4.6406
+2025-02-15 16:30:01,424 - INFO - Path 27 added. Length: 36.8017 units. Duration: 0.1067 seconds.
+2025-02-15 16:30:01,529 - INFO - Path Smoothness - Avg Curvature: 9.1550
+2025-02-15 16:30:01,529 - INFO - Path 28 added. Length: 38.2921 units. Duration: 0.1053 seconds.
+2025-02-15 16:30:01,634 - INFO - Path Smoothness - Avg Curvature: 33.8441
+2025-02-15 16:30:01,634 - INFO - Path 29 added. Length: 39.4782 units. Duration: 0.1052 seconds.
+2025-02-15 16:30:01,740 - INFO - Path Smoothness - Avg Curvature: 12.4469
+2025-02-15 16:30:01,740 - INFO - Path 30 added. Length: 40.7506 units. Duration: 0.1054 seconds.
+2025-02-15 16:30:01,845 - INFO - Path Smoothness - Avg Curvature: 7.5909
+2025-02-15 16:30:01,845 - INFO - Path 31 added. Length: 39.1031 units. Duration: 0.1052 seconds.
+2025-02-15 16:30:01,951 - INFO - Path Smoothness - Avg Curvature: 4.1397
+2025-02-15 16:30:01,951 - INFO - Path 32 added. Length: 40.6856 units. Duration: 0.1063 seconds.
+2025-02-15 16:30:02,057 - INFO - Path Smoothness - Avg Curvature: 7.4364
+2025-02-15 16:30:02,057 - INFO - Path 33 added. Length: 38.2016 units. Duration: 0.1057 seconds.
+2025-02-15 16:30:02,161 - INFO - Path Smoothness - Avg Curvature: 39.7137
+2025-02-15 16:30:02,161 - INFO - Path 34 added. Length: 37.7537 units. Duration: 0.1042 seconds.
+2025-02-15 16:30:02,267 - INFO - Path Smoothness - Avg Curvature: 22.8606
+2025-02-15 16:30:02,267 - INFO - Path 35 added. Length: 38.9211 units. Duration: 0.1059 seconds.
+2025-02-15 16:30:02,373 - INFO - Path Smoothness - Avg Curvature: 9.7976
+2025-02-15 16:30:02,373 - INFO - Path 36 added. Length: 38.5292 units. Duration: 0.1057 seconds.
+2025-02-15 16:30:02,479 - INFO - Path Smoothness - Avg Curvature: 4.9641
+2025-02-15 16:30:02,480 - INFO - Path 37 added. Length: 42.4353 units. Duration: 0.1064 seconds.
+2025-02-15 16:30:02,584 - INFO - Path Smoothness - Avg Curvature: 9.2598
+2025-02-15 16:30:02,585 - INFO - Path 38 added. Length: 40.6340 units. Duration: 0.1050 seconds.
+2025-02-15 16:30:02,689 - INFO - Path Smoothness - Avg Curvature: 8.2015
+2025-02-15 16:30:02,689 - INFO - Path 39 added. Length: 37.7365 units. Duration: 0.1047 seconds.
+2025-02-15 16:30:02,794 - INFO - Path Smoothness - Avg Curvature: 7.6659
+2025-02-15 16:30:02,795 - INFO - Path 40 added. Length: 37.1770 units. Duration: 0.1053 seconds.
+2025-02-15 16:30:02,898 - INFO - Path Smoothness - Avg Curvature: 20.0963
+2025-02-15 16:30:02,898 - INFO - Path 41 added. Length: 41.3405 units. Duration: 0.1034 seconds.
+2025-02-15 16:30:03,004 - INFO - Path Smoothness - Avg Curvature: 6.0871
+2025-02-15 16:30:03,004 - INFO - Path 42 added. Length: 40.1309 units. Duration: 0.1056 seconds.
+2025-02-15 16:30:03,111 - INFO - Path Smoothness - Avg Curvature: 9.5452
+2025-02-15 16:30:03,111 - INFO - Path 43 added. Length: 41.1111 units. Duration: 0.1070 seconds.
+2025-02-15 16:30:03,218 - INFO - Path Smoothness - Avg Curvature: 9.0042
+2025-02-15 16:30:03,218 - INFO - Path 44 added. Length: 40.4399 units. Duration: 0.1074 seconds.
+2025-02-15 16:30:03,323 - INFO - Path Smoothness - Avg Curvature: 7.7021
+2025-02-15 16:30:03,323 - INFO - Path 45 added. Length: 40.1938 units. Duration: 0.1050 seconds.
+2025-02-15 16:30:03,428 - INFO - Path Smoothness - Avg Curvature: 56.9892
+2025-02-15 16:30:03,428 - INFO - Path 46 added. Length: 39.0331 units. Duration: 0.1045 seconds.
+2025-02-15 16:30:03,531 - INFO - Path Smoothness - Avg Curvature: 18.1513
+2025-02-15 16:30:03,531 - INFO - Path 47 added. Length: 41.4099 units. Duration: 0.1035 seconds.
+2025-02-15 16:30:03,636 - INFO - Path Smoothness - Avg Curvature: 6.4440
+2025-02-15 16:30:03,637 - INFO - Path 48 added. Length: 38.8048 units. Duration: 0.1051 seconds.
+2025-02-15 16:30:03,741 - INFO - Path Smoothness - Avg Curvature: 7.1357
+2025-02-15 16:30:03,741 - INFO - Path 49 added. Length: 40.8418 units. Duration: 0.1043 seconds.
+2025-02-15 16:30:03,846 - INFO - Path Smoothness - Avg Curvature: 4.9282
+2025-02-15 16:30:03,846 - INFO - Path 50 added. Length: 42.3675 units. Duration: 0.1050 seconds.
+2025-02-15 16:30:03,950 - INFO - Path Smoothness - Avg Curvature: 3.1265
+2025-02-15 16:30:03,950 - INFO - Path 51 added. Length: 41.0287 units. Duration: 0.1044 seconds.
+2025-02-15 16:30:04,057 - INFO - Path Smoothness - Avg Curvature: 27.6153
+2025-02-15 16:30:04,057 - INFO - Path 52 added. Length: 38.4057 units. Duration: 0.1067 seconds.
+2025-02-15 16:30:04,163 - INFO - Path Smoothness - Avg Curvature: 5.9050
+2025-02-15 16:30:04,163 - INFO - Path 53 added. Length: 37.2141 units. Duration: 0.1054 seconds.
+2025-02-15 16:30:04,267 - INFO - Path Smoothness - Avg Curvature: 4.8829
+2025-02-15 16:30:04,268 - INFO - Path 54 added. Length: 36.7359 units. Duration: 0.1048 seconds.
+2025-02-15 16:30:04,371 - INFO - Path Smoothness - Avg Curvature: 7.4993
+2025-02-15 16:30:04,371 - INFO - Path 55 added. Length: 42.2313 units. Duration: 0.1035 seconds.
+2025-02-15 16:30:04,528 - INFO - Path Smoothness - Avg Curvature: 9.9476
+2025-02-15 16:30:04,528 - INFO - Path 56 added. Length: 41.6113 units. Duration: 0.1567 seconds.
+2025-02-15 16:30:04,635 - INFO - Path Smoothness - Avg Curvature: 48.7219
+2025-02-15 16:30:04,635 - INFO - Path 57 added. Length: 42.4569 units. Duration: 0.1069 seconds.
+2025-02-15 16:30:04,741 - INFO - Path Smoothness - Avg Curvature: 5.6875
+2025-02-15 16:30:04,741 - INFO - Path 58 added. Length: 50.1652 units. Duration: 0.1064 seconds.
+2025-02-15 16:30:04,847 - INFO - Path Smoothness - Avg Curvature: 22.5076
+2025-02-15 16:30:04,847 - INFO - Path 59 added. Length: 40.1821 units. Duration: 0.1056 seconds.
+2025-02-15 16:30:04,952 - INFO - Path Smoothness - Avg Curvature: 4.1143
+2025-02-15 16:30:04,952 - INFO - Path 60 added. Length: 36.8297 units. Duration: 0.1054 seconds.
+2025-02-15 16:30:05,057 - INFO - Path Smoothness - Avg Curvature: 2.7175
+2025-02-15 16:30:05,057 - INFO - Path 61 added. Length: 40.6406 units. Duration: 0.1047 seconds.
+2025-02-15 16:30:05,162 - INFO - Path Smoothness - Avg Curvature: 3.8854
+2025-02-15 16:30:05,162 - INFO - Path 62 added. Length: 40.1664 units. Duration: 0.1052 seconds.
+2025-02-15 16:30:05,267 - INFO - Path Smoothness - Avg Curvature: 12.2547
+2025-02-15 16:30:05,267 - INFO - Path 63 added. Length: 38.5388 units. Duration: 0.1046 seconds.
+2025-02-15 16:30:05,371 - INFO - Path Smoothness - Avg Curvature: 14.5183
+2025-02-15 16:30:05,371 - INFO - Path 64 added. Length: 42.0872 units. Duration: 0.1042 seconds.
+2025-02-15 16:30:05,475 - INFO - Path Smoothness - Avg Curvature: 3.8512
+2025-02-15 16:30:05,475 - INFO - Path 65 added. Length: 40.7010 units. Duration: 0.1033 seconds.
+2025-02-15 16:30:05,580 - INFO - Path Smoothness - Avg Curvature: 9.2130
+2025-02-15 16:30:05,580 - INFO - Path 66 added. Length: 39.7712 units. Duration: 0.1055 seconds.
+2025-02-15 16:30:05,685 - INFO - Path Smoothness - Avg Curvature: 9.3742
+2025-02-15 16:30:05,685 - INFO - Path 67 added. Length: 38.2809 units. Duration: 0.1051 seconds.
+2025-02-15 16:30:05,790 - INFO - Path Smoothness - Avg Curvature: 6.9062
+2025-02-15 16:30:05,790 - INFO - Path 68 added. Length: 37.2504 units. Duration: 0.1046 seconds.
+2025-02-15 16:30:05,895 - INFO - Path Smoothness - Avg Curvature: 6.5245
+2025-02-15 16:30:05,895 - INFO - Path 69 added. Length: 39.0884 units. Duration: 0.1048 seconds.
+2025-02-15 16:30:06,000 - INFO - Path Smoothness - Avg Curvature: 10.0262
+2025-02-15 16:30:06,000 - INFO - Path 70 added. Length: 38.4318 units. Duration: 0.1049 seconds.
+2025-02-15 16:30:06,104 - INFO - Path Smoothness - Avg Curvature: 4.2191
+2025-02-15 16:30:06,104 - INFO - Path 71 added. Length: 38.2568 units. Duration: 0.1043 seconds.
+2025-02-15 16:30:06,207 - INFO - Path Smoothness - Avg Curvature: 3.2753
+2025-02-15 16:30:06,208 - INFO - Path 72 added. Length: 41.2987 units. Duration: 0.1032 seconds.
+2025-02-15 16:30:06,465 - INFO - Path Smoothness - Avg Curvature: 10.7864
+2025-02-15 16:30:06,465 - INFO - Path 73 added. Length: 38.9412 units. Duration: 0.2577 seconds.
+2025-02-15 16:30:06,570 - INFO - Path Smoothness - Avg Curvature: 16.0162
+2025-02-15 16:30:06,570 - INFO - Path 74 added. Length: 40.9800 units. Duration: 0.1045 seconds.
+2025-02-15 16:30:06,675 - INFO - Path Smoothness - Avg Curvature: 8.2897
+2025-02-15 16:30:06,675 - INFO - Path 75 added. Length: 39.0322 units. Duration: 0.1054 seconds.
+2025-02-15 16:30:06,780 - INFO - Path Smoothness - Avg Curvature: 5.6793
+2025-02-15 16:30:06,780 - INFO - Path 76 added. Length: 38.6742 units. Duration: 0.1047 seconds.
+2025-02-15 16:30:06,886 - INFO - Path Smoothness - Avg Curvature: 5.1155
+2025-02-15 16:30:06,886 - INFO - Path 77 added. Length: 37.8204 units. Duration: 0.1058 seconds.
+2025-02-15 16:30:06,992 - INFO - Path Smoothness - Avg Curvature: 4.5693
+2025-02-15 16:30:06,992 - INFO - Path 78 added. Length: 40.6355 units. Duration: 0.1056 seconds.
+2025-02-15 16:30:07,097 - INFO - Path Smoothness - Avg Curvature: 4.8215
+2025-02-15 16:30:07,097 - INFO - Path 79 added. Length: 39.3319 units. Duration: 0.1054 seconds.
+2025-02-15 16:30:07,203 - INFO - Path Smoothness - Avg Curvature: 3.4174
+2025-02-15 16:30:07,203 - INFO - Path 80 added. Length: 41.3627 units. Duration: 0.1059 seconds.
+2025-02-15 16:30:07,307 - INFO - Path Smoothness - Avg Curvature: 5.6935
+2025-02-15 16:30:07,307 - INFO - Path 81 added. Length: 39.4849 units. Duration: 0.1044 seconds.
+2025-02-15 16:30:07,413 - INFO - Path Smoothness - Avg Curvature: 9.4009
+2025-02-15 16:30:07,413 - INFO - Path 82 added. Length: 37.7335 units. Duration: 0.1053 seconds.
+2025-02-15 16:30:07,518 - INFO - Path Smoothness - Avg Curvature: 3.0736
+2025-02-15 16:30:07,518 - INFO - Path 83 added. Length: 39.5636 units. Duration: 0.1050 seconds.
+2025-02-15 16:30:07,623 - INFO - Path Smoothness - Avg Curvature: 2.6889
+2025-02-15 16:30:07,623 - INFO - Path 84 added. Length: 50.3291 units. Duration: 0.1053 seconds.
+2025-02-15 16:30:07,729 - INFO - Path Smoothness - Avg Curvature: 4.8650
+2025-02-15 16:30:07,729 - INFO - Path 85 added. Length: 36.7032 units. Duration: 0.1056 seconds.
+2025-02-15 16:30:07,835 - INFO - Path Smoothness - Avg Curvature: 11.6608
+2025-02-15 16:30:07,835 - INFO - Path 86 added. Length: 39.6881 units. Duration: 0.1062 seconds.
+2025-02-15 16:30:07,939 - INFO - Path Smoothness - Avg Curvature: 4.4944
+2025-02-15 16:30:07,939 - INFO - Path 87 added. Length: 40.0503 units. Duration: 0.1038 seconds.
+2025-02-15 16:30:08,044 - INFO - Path Smoothness - Avg Curvature: 58.5611
+2025-02-15 16:30:08,044 - INFO - Path 88 added. Length: 40.6597 units. Duration: 0.1048 seconds.
+2025-02-15 16:30:08,148 - INFO - Path Smoothness - Avg Curvature: 4.8193
+2025-02-15 16:30:08,148 - INFO - Path 89 added. Length: 40.3706 units. Duration: 0.1037 seconds.
+2025-02-15 16:30:08,254 - INFO - Path Smoothness - Avg Curvature: 4.4679
+2025-02-15 16:30:08,254 - INFO - Path 90 added. Length: 38.0052 units. Duration: 0.1065 seconds.
+2025-02-15 16:30:08,360 - INFO - Path Smoothness - Avg Curvature: 7.2798
+2025-02-15 16:30:08,360 - INFO - Path 91 added. Length: 41.8332 units. Duration: 0.1059 seconds.
+2025-02-15 16:30:08,466 - INFO - Path Smoothness - Avg Curvature: 11.1514
+2025-02-15 16:30:08,467 - INFO - Path 92 added. Length: 40.2760 units. Duration: 0.1062 seconds.
+2025-02-15 16:30:08,722 - INFO - Path Smoothness - Avg Curvature: 6.7974
+2025-02-15 16:30:08,722 - INFO - Path 93 added. Length: 38.8094 units. Duration: 0.2556 seconds.
+2025-02-15 16:30:08,827 - INFO - Path Smoothness - Avg Curvature: 3.1079
+2025-02-15 16:30:08,827 - INFO - Path 94 added. Length: 40.6591 units. Duration: 0.1051 seconds.
+2025-02-15 16:30:08,933 - INFO - Path Smoothness - Avg Curvature: 6.6277
+2025-02-15 16:30:08,933 - INFO - Path 95 added. Length: 39.7064 units. Duration: 0.1054 seconds.
+2025-02-15 16:30:09,037 - INFO - Path Smoothness - Avg Curvature: 4.6983
+2025-02-15 16:30:09,038 - INFO - Path 96 added. Length: 39.0113 units. Duration: 0.1048 seconds.
+2025-02-15 16:30:09,143 - INFO - Path Smoothness - Avg Curvature: 17.1534
+2025-02-15 16:30:09,143 - INFO - Path 97 added. Length: 39.6151 units. Duration: 0.1052 seconds.
+2025-02-15 16:30:09,249 - INFO - Path Smoothness - Avg Curvature: 19.1531
+2025-02-15 16:30:09,249 - INFO - Path 98 added. Length: 41.5383 units. Duration: 0.1058 seconds.
+2025-02-15 16:30:09,354 - INFO - Path Smoothness - Avg Curvature: 8.7893
+2025-02-15 16:30:09,354 - INFO - Path 99 added. Length: 42.3862 units. Duration: 0.1054 seconds.
+2025-02-15 16:30:09,362 - INFO - Planning 100 paths from [ 0.304  0.053 -0.45 ] to [-0.304 -0.053 -0.45 ].
+2025-02-15 16:30:09,362 - INFO - Actual start state: (0.304, 0.053, -0.45). Actual goal state: (-0.304, -0.053, -0.45)
+2025-02-15 16:30:09,469 - INFO - Path Smoothness - Avg Curvature: 7.3948
+2025-02-15 16:30:09,469 - INFO - Path 0 added. Length: 50.4890 units. Duration: 0.1069 seconds.
+2025-02-15 16:30:09,572 - INFO - Path Smoothness - Avg Curvature: 5.3529
+2025-02-15 16:30:09,572 - INFO - Path 1 added. Length: 45.6973 units. Duration: 0.1029 seconds.
+2025-02-15 16:30:09,678 - INFO - Path Smoothness - Avg Curvature: 7.5738
+2025-02-15 16:30:09,679 - INFO - Path 2 added. Length: 45.0697 units. Duration: 0.1060 seconds.
+2025-02-15 16:30:09,784 - INFO - Path Smoothness - Avg Curvature: 1.4170
+2025-02-15 16:30:09,784 - INFO - Path 3 added. Length: 42.7078 units. Duration: 0.1051 seconds.
+2025-02-15 16:30:09,887 - INFO - Path Smoothness - Avg Curvature: 9.9232
+2025-02-15 16:30:09,887 - INFO - Path 4 added. Length: 43.0047 units. Duration: 0.1037 seconds.
+2025-02-15 16:30:09,994 - INFO - Path Smoothness - Avg Curvature: 5.2745
+2025-02-15 16:30:09,994 - INFO - Path 5 added. Length: 44.3604 units. Duration: 0.1062 seconds.
+2025-02-15 16:30:10,098 - INFO - Path Smoothness - Avg Curvature: 3.7503
+2025-02-15 16:30:10,098 - INFO - Path 6 added. Length: 42.5129 units. Duration: 0.1039 seconds.
+2025-02-15 16:30:10,203 - INFO - Path Smoothness - Avg Curvature: 5.1695
+2025-02-15 16:30:10,203 - INFO - Path 7 added. Length: 41.5964 units. Duration: 0.1058 seconds.
+2025-02-15 16:30:10,307 - INFO - Path Smoothness - Avg Curvature: 1.3909
+2025-02-15 16:30:10,308 - INFO - Path 8 added. Length: 43.2722 units. Duration: 0.1040 seconds.
+2025-02-15 16:30:10,411 - INFO - Path Smoothness - Avg Curvature: 2.4490
+2025-02-15 16:30:10,411 - INFO - Path 9 added. Length: 49.1019 units. Duration: 0.1037 seconds.
+2025-02-15 16:30:10,517 - INFO - Path Smoothness - Avg Curvature: 4.6199
+2025-02-15 16:30:10,517 - INFO - Path 10 added. Length: 41.6393 units. Duration: 0.1058 seconds.
+2025-02-15 16:30:10,622 - INFO - Path Smoothness - Avg Curvature: 9.4119
+2025-02-15 16:30:10,623 - INFO - Path 11 added. Length: 41.5985 units. Duration: 0.1054 seconds.
+2025-02-15 16:30:10,727 - INFO - Path Smoothness - Avg Curvature: 3.5310
+2025-02-15 16:30:10,727 - INFO - Path 12 added. Length: 41.8636 units. Duration: 0.1048 seconds.
+2025-02-15 16:30:10,831 - INFO - Path Smoothness - Avg Curvature: 5.1801
+2025-02-15 16:30:10,831 - INFO - Path 13 added. Length: 41.5377 units. Duration: 0.1039 seconds.
+2025-02-15 16:30:10,989 - INFO - Path Smoothness - Avg Curvature: 9.3889
+2025-02-15 16:30:10,989 - INFO - Path 14 added. Length: 44.0489 units. Duration: 0.1572 seconds.
+2025-02-15 16:30:11,093 - INFO - Path Smoothness - Avg Curvature: 14.4527
+2025-02-15 16:30:11,093 - INFO - Path 15 added. Length: 44.2185 units. Duration: 0.1041 seconds.
+2025-02-15 16:30:11,199 - INFO - Path Smoothness - Avg Curvature: 9.1710
+2025-02-15 16:30:11,199 - INFO - Path 16 added. Length: 42.8886 units. Duration: 0.1066 seconds.
+2025-02-15 16:30:11,305 - INFO - Path Smoothness - Avg Curvature: 7.0422
+2025-02-15 16:30:11,305 - INFO - Path 17 added. Length: 44.7786 units. Duration: 0.1059 seconds.
+2025-02-15 16:30:11,409 - INFO - Path Smoothness - Avg Curvature: 5.5855
+2025-02-15 16:30:11,409 - INFO - Path 18 added. Length: 44.3997 units. Duration: 0.1038 seconds.
+2025-02-15 16:30:11,514 - INFO - Path Smoothness - Avg Curvature: 13.9112
+2025-02-15 16:30:11,514 - INFO - Path 19 added. Length: 43.4819 units. Duration: 0.1048 seconds.
+2025-02-15 16:30:11,620 - INFO - Path Smoothness - Avg Curvature: 5.1270
+2025-02-15 16:30:11,620 - INFO - Path 20 added. Length: 41.4095 units. Duration: 0.1055 seconds.
+2025-02-15 16:30:11,725 - INFO - Path Smoothness - Avg Curvature: 8.5235
+2025-02-15 16:30:11,725 - INFO - Path 21 added. Length: 44.8889 units. Duration: 0.1052 seconds.
+2025-02-15 16:30:11,830 - INFO - Path Smoothness - Avg Curvature: 11.1851
+2025-02-15 16:30:11,830 - INFO - Path 22 added. Length: 46.3079 units. Duration: 0.1054 seconds.
+2025-02-15 16:30:11,936 - INFO - Path Smoothness - Avg Curvature: 15.3749
+2025-02-15 16:30:11,936 - INFO - Path 23 added. Length: 43.5687 units. Duration: 0.1053 seconds.
+2025-02-15 16:30:12,042 - INFO - Path Smoothness - Avg Curvature: 2.7827
+2025-02-15 16:30:12,042 - INFO - Path 24 added. Length: 43.3547 units. Duration: 0.1063 seconds.
+2025-02-15 16:30:12,148 - INFO - Path Smoothness - Avg Curvature: 8.1910
+2025-02-15 16:30:12,149 - INFO - Path 25 added. Length: 43.9017 units. Duration: 0.1063 seconds.
+2025-02-15 16:30:12,253 - INFO - Path Smoothness - Avg Curvature: 14.9090
+2025-02-15 16:30:12,254 - INFO - Path 26 added. Length: 42.9903 units. Duration: 0.1050 seconds.
+2025-02-15 16:30:12,359 - INFO - Path Smoothness - Avg Curvature: 5.6817
+2025-02-15 16:30:12,360 - INFO - Path 27 added. Length: 42.4316 units. Duration: 0.1059 seconds.
+2025-02-15 16:30:12,465 - INFO - Path Smoothness - Avg Curvature: 6.1057
+2025-02-15 16:30:12,465 - INFO - Path 28 added. Length: 49.4979 units. Duration: 0.1054 seconds.
+2025-02-15 16:30:12,623 - INFO - Path Smoothness - Avg Curvature: 15.7798
+2025-02-15 16:30:12,623 - INFO - Path 29 added. Length: 50.0443 units. Duration: 0.1582 seconds.
+2025-02-15 16:30:12,730 - INFO - Path Smoothness - Avg Curvature: 9.6221
+2025-02-15 16:30:12,730 - INFO - Path 30 added. Length: 44.5055 units. Duration: 0.1066 seconds.
+2025-02-15 16:30:12,837 - INFO - Path Smoothness - Avg Curvature: 7.3186
+2025-02-15 16:30:12,837 - INFO - Path 31 added. Length: 41.7013 units. Duration: 0.1066 seconds.
+2025-02-15 16:30:12,941 - INFO - Path Smoothness - Avg Curvature: 4.1806
+2025-02-15 16:30:12,941 - INFO - Path 32 added. Length: 43.6232 units. Duration: 0.1042 seconds.
+2025-02-15 16:30:13,046 - INFO - Path Smoothness - Avg Curvature: 26.7289
+2025-02-15 16:30:13,046 - INFO - Path 33 added. Length: 43.5014 units. Duration: 0.1051 seconds.
+2025-02-15 16:30:13,152 - INFO - Path Smoothness - Avg Curvature: 4.2406
+2025-02-15 16:30:13,152 - INFO - Path 34 added. Length: 42.9462 units. Duration: 0.1057 seconds.
+2025-02-15 16:30:13,256 - INFO - Path Smoothness - Avg Curvature: 5.9867
+2025-02-15 16:30:13,256 - INFO - Path 35 added. Length: 43.3830 units. Duration: 0.1043 seconds.
+2025-02-15 16:30:13,361 - INFO - Path Smoothness - Avg Curvature: 7.1704
+2025-02-15 16:30:13,361 - INFO - Path 36 added. Length: 42.3954 units. Duration: 0.1049 seconds.
+2025-02-15 16:30:13,465 - INFO - Path Smoothness - Avg Curvature: 23.4582
+2025-02-15 16:30:13,466 - INFO - Path 37 added. Length: 46.1262 units. Duration: 0.1044 seconds.
+2025-02-15 16:30:13,571 - INFO - Path Smoothness - Avg Curvature: 5.5240
+2025-02-15 16:30:13,571 - INFO - Path 38 added. Length: 44.2779 units. Duration: 0.1056 seconds.
+2025-02-15 16:30:13,677 - INFO - Path Smoothness - Avg Curvature: 6.4367
+2025-02-15 16:30:13,677 - INFO - Path 39 added. Length: 42.7647 units. Duration: 0.1057 seconds.
+2025-02-15 16:30:13,782 - INFO - Path Smoothness - Avg Curvature: 4.6492
+2025-02-15 16:30:13,782 - INFO - Path 40 added. Length: 42.7313 units. Duration: 0.1052 seconds.
+2025-02-15 16:30:13,888 - INFO - Path Smoothness - Avg Curvature: 7.4159
+2025-02-15 16:30:13,888 - INFO - Path 41 added. Length: 42.0215 units. Duration: 0.1059 seconds.
+2025-02-15 16:30:14,296 - INFO - Path Smoothness - Avg Curvature: 4.4346
+2025-02-15 16:30:14,296 - INFO - Path 42 added. Length: 41.9951 units. Duration: 0.4082 seconds.
+2025-02-15 16:30:14,401 - INFO - Path Smoothness - Avg Curvature: 4.0324
+2025-02-15 16:30:14,402 - INFO - Path 43 added. Length: 43.8051 units. Duration: 0.1050 seconds.
+2025-02-15 16:30:14,509 - INFO - Path Smoothness - Avg Curvature: 18.9135
+2025-02-15 16:30:14,509 - INFO - Path 44 added. Length: 43.9513 units. Duration: 0.1071 seconds.
+2025-02-15 16:30:14,764 - INFO - Path Smoothness - Avg Curvature: 17.3918
+2025-02-15 16:30:14,764 - INFO - Path 45 added. Length: 42.1521 units. Duration: 0.2555 seconds.
+2025-02-15 16:30:14,920 - INFO - Path Smoothness - Avg Curvature: 7.4416
+2025-02-15 16:30:14,920 - INFO - Path 46 added. Length: 43.0747 units. Duration: 0.1553 seconds.
+2025-02-15 16:30:15,025 - INFO - Path Smoothness - Avg Curvature: 9.3015
+2025-02-15 16:30:15,025 - INFO - Path 47 added. Length: 41.8692 units. Duration: 0.1050 seconds.
+2025-02-15 16:30:15,281 - INFO - Path Smoothness - Avg Curvature: 4.7897
+2025-02-15 16:30:15,281 - INFO - Path 48 added. Length: 42.1303 units. Duration: 0.2564 seconds.
+2025-02-15 16:30:15,387 - INFO - Path Smoothness - Avg Curvature: 5.7207
+2025-02-15 16:30:15,387 - INFO - Path 49 added. Length: 44.6338 units. Duration: 0.1059 seconds.
+2025-02-15 16:30:15,492 - INFO - Path Smoothness - Avg Curvature: 8.0043
+2025-02-15 16:30:15,493 - INFO - Path 50 added. Length: 41.1556 units. Duration: 0.1053 seconds.
+2025-02-15 16:30:15,598 - INFO - Path Smoothness - Avg Curvature: 5.3939
+2025-02-15 16:30:15,598 - INFO - Path 51 added. Length: 42.8604 units. Duration: 0.1057 seconds.
+2025-02-15 16:30:15,704 - INFO - Path Smoothness - Avg Curvature: 15.3495
+2025-02-15 16:30:15,704 - INFO - Path 52 added. Length: 49.7726 units. Duration: 0.1058 seconds.
+2025-02-15 16:30:15,807 - INFO - Path Smoothness - Avg Curvature: 1.2385
+2025-02-15 16:30:15,807 - INFO - Path 53 added. Length: 43.1705 units. Duration: 0.1025 seconds.
+2025-02-15 16:30:15,912 - INFO - Path Smoothness - Avg Curvature: 8.9139
+2025-02-15 16:30:15,912 - INFO - Path 54 added. Length: 43.3284 units. Duration: 0.1049 seconds.
+2025-02-15 16:30:16,016 - INFO - Path Smoothness - Avg Curvature: 6.8144
+2025-02-15 16:30:16,016 - INFO - Path 55 added. Length: 44.9381 units. Duration: 0.1045 seconds.
+2025-02-15 16:30:16,121 - INFO - Path Smoothness - Avg Curvature: 5.5452
+2025-02-15 16:30:16,122 - INFO - Path 56 added. Length: 43.4046 units. Duration: 0.1051 seconds.
+2025-02-15 16:30:16,278 - INFO - Path Smoothness - Avg Curvature: 11.6473
+2025-02-15 16:30:16,278 - INFO - Path 57 added. Length: 50.3988 units. Duration: 0.1569 seconds.
+2025-02-15 16:30:16,384 - INFO - Path Smoothness - Avg Curvature: 7.4669
+2025-02-15 16:30:16,384 - INFO - Path 58 added. Length: 41.3851 units. Duration: 0.1052 seconds.
+2025-02-15 16:30:16,489 - INFO - Path Smoothness - Avg Curvature: 10.1974
+2025-02-15 16:30:16,489 - INFO - Path 59 added. Length: 44.3562 units. Duration: 0.1050 seconds.
+2025-02-15 16:30:16,593 - INFO - Path Smoothness - Avg Curvature: 1.6064
+2025-02-15 16:30:16,593 - INFO - Path 60 added. Length: 43.8664 units. Duration: 0.1039 seconds.
+2025-02-15 16:30:16,850 - INFO - Path Smoothness - Avg Curvature: 11.4784
+2025-02-15 16:30:16,850 - INFO - Path 61 added. Length: 42.4915 units. Duration: 0.2575 seconds.
+2025-02-15 16:30:16,956 - INFO - Path Smoothness - Avg Curvature: 9.2735
+2025-02-15 16:30:16,956 - INFO - Path 62 added. Length: 42.4637 units. Duration: 0.1053 seconds.
+2025-02-15 16:30:17,060 - INFO - Path Smoothness - Avg Curvature: 4.6722
+2025-02-15 16:30:17,060 - INFO - Path 63 added. Length: 43.9277 units. Duration: 0.1044 seconds.
+2025-02-15 16:30:17,318 - INFO - Path Smoothness - Avg Curvature: 4.5164
+2025-02-15 16:30:17,318 - INFO - Path 64 added. Length: 49.2420 units. Duration: 0.2581 seconds.
+2025-02-15 16:30:17,577 - INFO - Path Smoothness - Avg Curvature: 14.4747
+2025-02-15 16:30:17,577 - INFO - Path 65 added. Length: 42.2475 units. Duration: 0.2586 seconds.
+2025-02-15 16:30:17,681 - INFO - Path Smoothness - Avg Curvature: 3.4140
+2025-02-15 16:30:17,682 - INFO - Path 66 added. Length: 43.1379 units. Duration: 0.1047 seconds.
+2025-02-15 16:30:17,787 - INFO - Path Smoothness - Avg Curvature: 7.0789
+2025-02-15 16:30:17,787 - INFO - Path 67 added. Length: 42.8885 units. Duration: 0.1057 seconds.
+2025-02-15 16:30:17,893 - INFO - Path Smoothness - Avg Curvature: 7.1566
+2025-02-15 16:30:17,893 - INFO - Path 68 added. Length: 42.8449 units. Duration: 0.1056 seconds.
+2025-02-15 16:30:17,999 - INFO - Path Smoothness - Avg Curvature: 13.3599
+2025-02-15 16:30:17,999 - INFO - Path 69 added. Length: 42.9502 units. Duration: 0.1063 seconds.
+2025-02-15 16:30:18,105 - INFO - Path Smoothness - Avg Curvature: 7.3604
+2025-02-15 16:30:18,105 - INFO - Path 70 added. Length: 43.2884 units. Duration: 0.1059 seconds.
+2025-02-15 16:30:18,211 - INFO - Path Smoothness - Avg Curvature: 13.5886
+2025-02-15 16:30:18,211 - INFO - Path 71 added. Length: 47.1913 units. Duration: 0.1052 seconds.
+2025-02-15 16:30:18,315 - INFO - Path Smoothness - Avg Curvature: 4.2688
+2025-02-15 16:30:18,315 - INFO - Path 72 added. Length: 49.0656 units. Duration: 0.1047 seconds.
+2025-02-15 16:30:18,574 - INFO - Path Smoothness - Avg Curvature: 13.6229
+2025-02-15 16:30:18,574 - INFO - Path 73 added. Length: 40.6256 units. Duration: 0.2583 seconds.
+2025-02-15 16:30:18,681 - INFO - Path Smoothness - Avg Curvature: 6.7779
+2025-02-15 16:30:18,681 - INFO - Path 74 added. Length: 44.2141 units. Duration: 0.1071 seconds.
+2025-02-15 16:30:18,785 - INFO - Path Smoothness - Avg Curvature: 4.6471
+2025-02-15 16:30:18,785 - INFO - Path 75 added. Length: 43.7303 units. Duration: 0.1039 seconds.
+2025-02-15 16:30:18,891 - INFO - Path Smoothness - Avg Curvature: 6.7640
+2025-02-15 16:30:18,891 - INFO - Path 76 added. Length: 43.2385 units. Duration: 0.1064 seconds.
+2025-02-15 16:30:18,996 - INFO - Path Smoothness - Avg Curvature: 6.9229
+2025-02-15 16:30:18,996 - INFO - Path 77 added. Length: 42.3768 units. Duration: 0.1046 seconds.
+2025-02-15 16:30:19,101 - INFO - Path Smoothness - Avg Curvature: 5.0249
+2025-02-15 16:30:19,101 - INFO - Path 78 added. Length: 41.3128 units. Duration: 0.1048 seconds.
+2025-02-15 16:30:19,205 - INFO - Path Smoothness - Avg Curvature: 2.5096
+2025-02-15 16:30:19,206 - INFO - Path 79 added. Length: 42.3571 units. Duration: 0.1047 seconds.
+2025-02-15 16:30:19,312 - INFO - Path Smoothness - Avg Curvature: 4.2437
+2025-02-15 16:30:19,313 - INFO - Path 80 added. Length: 42.8705 units. Duration: 0.1069 seconds.
+2025-02-15 16:30:19,418 - INFO - Path Smoothness - Avg Curvature: 3.0344
+2025-02-15 16:30:19,418 - INFO - Path 81 added. Length: 42.4428 units. Duration: 0.1056 seconds.
+2025-02-15 16:30:19,524 - INFO - Path Smoothness - Avg Curvature: 11.4806
+2025-02-15 16:30:19,524 - INFO - Path 82 added. Length: 42.6002 units. Duration: 0.1056 seconds.
+2025-02-15 16:30:19,630 - INFO - Path Smoothness - Avg Curvature: 5.8223
+2025-02-15 16:30:19,631 - INFO - Path 83 added. Length: 43.8243 units. Duration: 0.1067 seconds.
+2025-02-15 16:30:19,737 - INFO - Path Smoothness - Avg Curvature: 5.3354
+2025-02-15 16:30:19,737 - INFO - Path 84 added. Length: 41.5121 units. Duration: 0.1063 seconds.
+2025-02-15 16:30:19,842 - INFO - Path Smoothness - Avg Curvature: 7.6318
+2025-02-15 16:30:19,842 - INFO - Path 85 added. Length: 41.8807 units. Duration: 0.1046 seconds.
+2025-02-15 16:30:19,948 - INFO - Path Smoothness - Avg Curvature: 5.1757
+2025-02-15 16:30:19,948 - INFO - Path 86 added. Length: 44.8495 units. Duration: 0.1059 seconds.
+2025-02-15 16:30:20,358 - INFO - Path Smoothness - Avg Curvature: 5.1888
+2025-02-15 16:30:20,358 - INFO - Path 87 added. Length: 48.6567 units. Duration: 0.4103 seconds.
+2025-02-15 16:30:20,463 - INFO - Path Smoothness - Avg Curvature: 9.3614
+2025-02-15 16:30:20,463 - INFO - Path 88 added. Length: 41.1957 units. Duration: 0.1048 seconds.
+2025-02-15 16:30:20,568 - INFO - Path Smoothness - Avg Curvature: 4.3760
+2025-02-15 16:30:20,568 - INFO - Path 89 added. Length: 41.2814 units. Duration: 0.1055 seconds.
+2025-02-15 16:30:20,673 - INFO - Path Smoothness - Avg Curvature: 7.2667
+2025-02-15 16:30:20,673 - INFO - Path 90 added. Length: 42.8442 units. Duration: 0.1050 seconds.
+2025-02-15 16:30:20,782 - INFO - Path Smoothness - Avg Curvature: 10.5798
+2025-02-15 16:30:20,782 - INFO - Path 91 added. Length: 41.4041 units. Duration: 0.1086 seconds.
+2025-02-15 16:30:20,892 - INFO - Path Smoothness - Avg Curvature: 5.7775
+2025-02-15 16:30:20,893 - INFO - Path 92 added. Length: 46.1625 units. Duration: 0.1103 seconds.
+2025-02-15 16:30:21,309 - INFO - Path Smoothness - Avg Curvature: 6.6734
+2025-02-15 16:30:21,309 - INFO - Path 93 added. Length: 43.0391 units. Duration: 0.4164 seconds.
+2025-02-15 16:30:21,575 - INFO - Path Smoothness - Avg Curvature: 8.1674
+2025-02-15 16:30:21,575 - INFO - Path 94 added. Length: 49.1927 units. Duration: 0.2658 seconds.
+2025-02-15 16:30:21,737 - INFO - Path Smoothness - Avg Curvature: 10.7835
+2025-02-15 16:30:21,738 - INFO - Path 95 added. Length: 41.3193 units. Duration: 0.1628 seconds.
+2025-02-15 16:30:22,003 - INFO - Path Smoothness - Avg Curvature: 6.6516
+2025-02-15 16:30:22,003 - INFO - Path 96 added. Length: 45.2989 units. Duration: 0.2657 seconds.
+2025-02-15 16:30:22,110 - INFO - Path Smoothness - Avg Curvature: 7.7877
+2025-02-15 16:30:22,110 - INFO - Path 97 added. Length: 46.1575 units. Duration: 0.1066 seconds.
+2025-02-15 16:30:22,223 - INFO - Path Smoothness - Avg Curvature: 45.9806
+2025-02-15 16:30:22,223 - INFO - Path 98 added. Length: 53.1707 units. Duration: 0.1130 seconds.
+2025-02-15 16:30:22,332 - INFO - Path Smoothness - Avg Curvature: 6.0816
+2025-02-15 16:30:22,332 - INFO - Path 99 added. Length: 45.0013 units. Duration: 0.1088 seconds.

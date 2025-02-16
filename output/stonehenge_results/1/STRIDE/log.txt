@@ -1,0 +1,37 @@
+2025-02-16 03:02:36,389 - INFO - Planning 9 total paths with max time 5 seconds per path...
+2025-02-16 03:02:36,390 - INFO - Planning 1 paths from [-0.304  0.053 -0.45 ] to [ 0.304 -0.053 -0.45 ].
+2025-02-16 03:02:36,391 - INFO - Actual start state: (-0.304, 0.053, -0.45). Actual goal state: (0.304, -0.053, -0.45)
+2025-02-16 03:02:36,441 - INFO - Path Smoothness - Avg Curvature: 7.4025
+2025-02-16 03:02:36,441 - INFO - Path 0 added. Length: 44.9160 units. Duration: 0.0497 seconds.
+2025-02-16 03:02:36,441 - INFO - Planning 1 paths from [ 0.259 -0.15  -0.45 ] to [-0.267  0.152 -0.45 ].
+2025-02-16 03:02:36,441 - INFO - Actual start state: (0.259, -0.15, -0.45). Actual goal state: (-0.267, 0.152, -0.45)
+2025-02-16 03:02:37,014 - INFO - Path Smoothness - Avg Curvature: 4.8914
+2025-02-16 03:02:37,014 - INFO - Path 0 added. Length: 49.3895 units. Duration: 0.5732 seconds.
+2025-02-16 03:02:37,015 - INFO - Planning 1 paths from [-0.198  0.233 -0.45 ] to [ 0.198 -0.233 -0.45 ].
+2025-02-16 03:02:37,015 - INFO - Actual start state: (-0.198, 0.233, -0.45). Actual goal state: (0.198, -0.233, -0.45)
+2025-02-16 03:02:37,040 - INFO - Path Smoothness - Avg Curvature: 47.3461
+2025-02-16 03:02:37,040 - INFO - Path 0 added. Length: 44.2651 units. Duration: 0.0254 seconds.
+2025-02-16 03:02:37,041 - INFO - Planning 1 paths from [ 0.106 -0.286 -0.45 ] to [-0.106  0.286 -0.45 ].
+2025-02-16 03:02:37,041 - INFO - Actual start state: (0.106, -0.286, -0.45). Actual goal state: (-0.106, 0.286, -0.45)
+2025-02-16 03:02:37,812 - INFO - Path Smoothness - Avg Curvature: 23.7038
+2025-02-16 03:02:37,812 - INFO - Path 0 added. Length: 59.4846 units. Duration: 0.7711 seconds.
+2025-02-16 03:02:37,812 - INFO - Planning 1 paths from [ 0.     0.304 -0.45 ] to [ 0.    -0.304 -0.45 ].
+2025-02-16 03:02:37,813 - INFO - Actual start state: (0.0, 0.304, -0.45). Actual goal state: (0.0, -0.304, -0.45)
+2025-02-16 03:02:37,995 - INFO - Path Smoothness - Avg Curvature: 2.7081
+2025-02-16 03:02:37,995 - INFO - Path 0 added. Length: 42.3626 units. Duration: 0.1822 seconds.
+2025-02-16 03:02:37,995 - INFO - Planning 1 paths from [-0.106 -0.286 -0.45 ] to [ 0.106  0.286 -0.45 ].
+2025-02-16 03:02:37,995 - INFO - Actual start state: (-0.106, -0.286, -0.45). Actual goal state: (0.106, 0.286, -0.45)
+2025-02-16 03:02:38,043 - INFO - Path Smoothness - Avg Curvature: 0.8559
+2025-02-16 03:02:38,043 - INFO - Path 0 added. Length: 39.6796 units. Duration: 0.0481 seconds.
+2025-02-16 03:02:38,044 - INFO - Planning 1 paths from [ 0.198  0.233 -0.45 ] to [-0.198 -0.233 -0.45 ].
+2025-02-16 03:02:38,044 - INFO - Actual start state: (0.198, 0.233, -0.45). Actual goal state: (-0.198, -0.233, -0.45)
+2025-02-16 03:02:38,091 - INFO - Path Smoothness - Avg Curvature: 14.9258
+2025-02-16 03:02:38,091 - INFO - Path 0 added. Length: 38.7122 units. Duration: 0.0468 seconds.
+2025-02-16 03:02:38,091 - INFO - Planning 1 paths from [-0.267 -0.152 -0.45 ] to [ 0.267  0.152 -0.45 ].
+2025-02-16 03:02:38,091 - INFO - Actual start state: (-0.267, -0.152, -0.45). Actual goal state: (0.267, 0.152, -0.45)
+2025-02-16 03:02:38,166 - INFO - Path Smoothness - Avg Curvature: 48.5493
+2025-02-16 03:02:38,166 - INFO - Path 0 added. Length: 41.4982 units. Duration: 0.0748 seconds.
+2025-02-16 03:02:38,166 - INFO - Planning 1 paths from [ 0.304  0.053 -0.45 ] to [-0.304 -0.053 -0.45 ].
+2025-02-16 03:02:38,167 - INFO - Actual start state: (0.304, 0.053, -0.45). Actual goal state: (-0.304, -0.053, -0.45)
+2025-02-16 03:02:38,324 - INFO - Path Smoothness - Avg Curvature: 8.8458
+2025-02-16 03:02:38,324 - INFO - Path 0 added. Length: 45.5637 units. Duration: 0.1572 seconds.
