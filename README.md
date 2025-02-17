@@ -69,9 +69,12 @@ docker run -it --rm --gpus all -v "$(pwd):/app" -e DISPLAY=$DISPLAY -p 5005:5005
 ```
 
 # Output
-Logging information is saved in the output>output_name folder, creating a subdirectory for each number of paths that were generated. Here, the logs and saved screenshots are saved for each planner.
-In addition, a summary log containing the most important statistics about all planners is created.
-Plots depicting the information about computation times, path lengths and path curvatures for all planners are saved in the plots folder.
+Results are stored in the output/output_name folder, with subdirectories created for each generated path set. This includes:\
+- Logs for each planner
+- Screenshots of the generated paths
+- A summary log with key statistics from all planners (computation time, path lengths, curvatures)
+
+Additionally, plots analyzing path properties (computation times, lengths, curvatures) are saved in the plots folder.
 
 # File structure
 ```bash
