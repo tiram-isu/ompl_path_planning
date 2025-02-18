@@ -17,7 +17,8 @@ Optionally, this can then be sent to be rendered by Nerfstudio via a Flask serve
 # Prerequisites
 
 ## Required  
-- **Docker** and **WSL 2**  
+- **Python** `3.12.3`
+-  **Docker** and **WSL 2**  
 - **Torch** `2.1.2` with **CUDA 11.8**  
 
 ## Required Dependencies (inside Docker)  
