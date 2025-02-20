@@ -365,30 +365,6 @@ def __create_boxplot_computation_times(non_optimizing_planners, optimizing_plann
     
     return fig
 
-
-def __add_labels_to_plot(ax, updated_planners, non_optimizing_planners, optimizing_planners):
-    ax.set_xticks(range(1, len(updated_planners) + 1))
-    ax.set_xticklabels(updated_planners, rotation=90)
-
-    num_optimizing = len(optimizing_planners)
-    num_non_optimizing = len(non_optimizing_planners)
-
-    # Add divider between non-optimizing and optimizing planners
-    if num_optimizing == 0:
-        ax.annotate("optimizing planners", xy = (0.5, 0), xycoords='axes fraction', horizontalalignment='center', verticalalignment='center', xytext=(0, 500), textcoords='offset points')
-    elif num_non_optimizing == 0:
-        ax.annotate("non-optimizing planners", xy = (0.5, 0), xycoords='axes fraction', horizontalalignment='center', verticalalignment='center', xytext=(0, 550), textcoords='offset points')
-    else:
-        num_total = num_optimizing + num_non_optimizing
-
-        divider_x_position = len(non_optimizing_planners) + 0.5
-        ax.axvline(x=divider_x_position, color='black', linestyle='--')
-        
-        ax.annotate("non-optimizing planners", xy = (num_non_optimizing / num_total / 2, 0), xycoords='axes fraction', horizontalalignment='center', verticalalignment='center', xytext=(0, 575), textcoords='offset points')
-
-        ax.annotate("optimizing planners", xy = (1 - (num_optimizing / num_total / 2), 0), xycoords='axes fraction', horizontalalignment='center', verticalalignment='center', xytext=(0, 575), textcoords='offset points')
-
-
 def __create_boxplot_curvatures(non_optimizing_planners, optimizing_planners, curvature_values, colors, updated_planners):
     fig, ax = plt.subplots(figsize=(19.20, 10.80))
     bplot = ax.boxplot(curvature_values, showfliers=False, notch=False, patch_artist=True,
@@ -413,3 +389,25 @@ def __create_boxplot_curvatures(non_optimizing_planners, optimizing_planners, cu
     ax.set_ylim(lower_bound - padding, upper_bound + padding)
 
     return fig
+
+def __add_labels_to_plot(ax, updated_planners, non_optimizing_planners, optimizing_planners):
+    ax.set_xticks(range(1, len(updated_planners) + 1))
+    ax.set_xticklabels(updated_planners, rotation=90)
+
+    num_optimizing = len(optimizing_planners)
+    num_non_optimizing = len(non_optimizing_planners)
+
+    # Add divider between non-optimizing and optimizing planners
+    if num_optimizing == 0:
+        ax.annotate("optimizing planners", xy = (0.5, 0), xycoords='axes fraction', horizontalalignment='center', verticalalignment='center', xytext=(0, 575), textcoords='offset points')
+    elif num_non_optimizing == 0:
+        ax.annotate("non-optimizing planners", xy = (0.5, 0), xycoords='axes fraction', horizontalalignment='center', verticalalignment='center', xytext=(0, 575), textcoords='offset points')
+    else:
+        num_total = num_optimizing + num_non_optimizing
+
+        divider_x_position = len(non_optimizing_planners) + 0.5
+        ax.axvline(x=divider_x_position, color='black', linestyle='--')
+        
+        ax.annotate("non-optimizing planners", xy = (num_non_optimizing / num_total / 2, 0), xycoords='axes fraction', horizontalalignment='center', verticalalignment='center', xytext=(0, 575), textcoords='offset points')
+
+        ax.annotate("optimizing planners", xy = (1 - (num_optimizing / num_total / 2), 0), xycoords='axes fraction', horizontalalignment='center', verticalalignment='center', xytext=(0, 575), textcoords='offset points')

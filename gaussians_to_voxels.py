@@ -62,7 +62,8 @@ def save_gaussians_as_voxels(
     opacity_threshold: float = 0,
     scale_threshold: float = 0,
     padding: int = 1,
-    support_voxels: int = 4,
+    min_distance_to_ground: int = 2,
+    max_distance_to_ground: int = 6,
     enable_logging: bool = True
     ) -> None:
 
@@ -122,7 +123,7 @@ def save_gaussians_as_voxels(
     # Ground
     ground_output_dir = output_paths[1]
     os.makedirs(ground_output_dir, exist_ok=True)
-    voxel_grid_ground = voxel_grid_padding.mark_voxels_without_support(support_voxels)
+    voxel_grid_ground = voxel_grid_padding.mark_voxels_without_support(min_distance_to_ground, max_distance_to_ground)
     voxel_grid_ground.save(ground_output_dir)
 
 def get_output_paths(root_dir, output_name, voxel_grid_config):
@@ -135,7 +136,7 @@ def get_output_paths(root_dir, output_name, voxel_grid_config):
 
     output_path += f"voxels_{voxel_grid_config['opacity_threshold']}_{voxel_grid_config['scale_threshold']}/"
 
-    padding_path = output_path + f"padding/{voxel_grid_config['padding']}_{voxel_grid_config['support_voxels']}/"
+    padding_path = output_path + f"padding/{voxel_grid_config['padding']}_{voxel_grid_config['min_distance_to_ground']}_{voxel_grid_config['max_distance_to_ground']}/"
 
     return [output_path, padding_path]
 

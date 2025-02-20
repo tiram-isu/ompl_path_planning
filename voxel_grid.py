@@ -100,17 +100,30 @@ class VoxelGrid:
                     new_grid.grid[index] = True
         return new_grid
 
-    def mark_voxels_without_support(self, support_threshold: int) -> 'VoxelGrid':
+    def mark_voxels_without_support(self, min_distance: int, max_distance: int) -> 'VoxelGrid':
         """
         Mark voxels without support as unoccupied.
         """
         new_grid = VoxelGrid(self.scene_dimensions, self.voxel_size, self.bounding_box_min)
         grid_height = self.grid_dims[2]
+
+        temp_grid = self.grid.copy()
+        
+        # Minimum distance from the ground
+        for (x, y, z) in self.grid.keys():
+            if self.grid[(x, y, z)]:
+                for dz in range(1, min_distance):
+                    if z + dz < grid_height:
+                        temp_grid[(x, y, z + dz)] = True
+        
+        new_grid.grid = temp_grid.copy()
+
+        # Maximum distance from the ground
         for x in range(self.grid_dims[0]):
             for y in range(self.grid_dims[1]):
                 for z in range(self.grid_dims[2]):
                     new_grid.grid[(x, y, z)] = True
-                    for i in range(support_threshold):
+                    for i in range(max_distance):
                         if z + i >= grid_height:
                             break
                         if (x, y, grid_height - z - i) in self.grid and (x, y, grid_height - z) not in self.grid:
