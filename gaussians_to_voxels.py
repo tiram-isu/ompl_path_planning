@@ -1,13 +1,10 @@
-import torch
 import open3d as o3d
 import numpy as np
-from scipy.spatial.transform import Rotation as R
-import json
 import os
 import matplotlib.pyplot as plt
 import importer
 from voxel_grid import VoxelGrid
-from typing import Dict
+from typing import Dict, List
 
 def __normalize_colors(features_dc: np.ndarray) -> np.ndarray:
     min_val, max_val = np.min(features_dc), np.max(features_dc)
@@ -126,7 +123,10 @@ def save_gaussians_as_voxels(
     voxel_grid_ground = voxel_grid_padding.mark_voxels_without_support(min_distance_to_ground, max_distance_to_ground)
     voxel_grid_ground.save(ground_output_dir)
 
-def get_output_paths(root_dir, output_name, voxel_grid_config):
+def get_output_paths(root_dir: str, output_name: str, voxel_grid_config: Dict) -> List:
+    """
+    Returns the output paths for the voxel grid and the padded voxel grid.
+    """
     manual_voxel_resolution = voxel_grid_config["manual_voxel_resolution"]
 
     if manual_voxel_resolution:
@@ -140,7 +140,10 @@ def get_output_paths(root_dir, output_name, voxel_grid_config):
 
     return [output_path, padding_path]
 
-def convert_to_voxel_grid(model_path, config, output_paths):
+def convert_to_voxel_grid(model_path: str, config: Dict, output_paths: List) -> None:
+    """
+    Load Gaussian data and convert it to voxel grid.
+    """
     file_extension = os.path.splitext(model_path)[1]
     if file_extension == ".ply":
         gaussian_data = importer.load_gaussians_from_ply(model_path)

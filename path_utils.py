@@ -3,15 +3,18 @@ import numpy as np
 import math
 import os
 from datetime import datetime
+from typing import Dict, List
 
-def resample_path(path, distance=0.1):
-    """Resample the path to have more evenly spaced points for smoother animation."""
-    new_path = [path[0]]
+def resample_path(path_points: np.array, distance: float=0.1) -> np.array:
+    """
+    Resample the path to have more evenly spaced points for smoother animation.
+    """
+    new_path = [path_points[0]]
     accumulated_distance = 0.0
 
-    for i in range(1, len(path)):
-        start = np.array(path[i - 1])
-        end = np.array(path[i])
+    for i in range(1, len(path_points)):
+        start = np.array(path_points[i - 1])
+        end = np.array(path_points[i])
         segment_length = np.linalg.norm(end - start)
 
         while accumulated_distance + segment_length >= distance:
@@ -26,11 +29,10 @@ def resample_path(path, distance=0.1):
 
     return new_path
 
-def __calculate_rotation(from_point, to_point):
-    """Calculate the quaternion for the camera to look at the next point, with Z as the up vector."""
-    from_point = np.array(from_point)
-    to_point = np.array(to_point)
-
+def __calculate_rotation(from_point: np.array, to_point: np.array) -> np.array:
+    """
+    Calculate the quaternion for the camera to look at the next point, with Z as the up vector.
+    """
     forward = from_point - to_point
     forward /= np.linalg.norm(forward)
 
@@ -73,8 +75,10 @@ def __calculate_rotation(from_point, to_point):
 
     return [qw, qx, qy, qz]
 
-def __transform_to_nerfstudio_format(path, fps=30, distance=0.05):  #TODO: fix this
-    """Transform a single path to Nerfstudio format with more keyframes."""
+def __transform_to_nerfstudio_format(path: np.array, fps: int=30, distance: float=0.05) -> Dict:  #TODO: fix this
+    """
+    Transform a single path to Nerfstudio format with more keyframes.
+    """
     resampled_path = resample_path(path, distance)
 
     camera_path_data = {
@@ -129,8 +133,10 @@ def __transform_to_nerfstudio_format(path, fps=30, distance=0.05):  #TODO: fix t
     return camera_path_data
 
 
-def save_in_nerfstudio_format(paths, output_dir, planner, fps=30, distance=0.1):
-    """Process each path and save the result as a separate JSON file."""
+def save_in_nerfstudio_format(paths: List, output_dir: str, planner: str, fps: int=30, distance: float=0.1) -> List:
+    """
+    Process each path and save the result as a separate JSON file.
+    """
     serializable_paths = [[[float(coord) for coord in line.split()] for line in path.printAsMatrix().strip().split("\n")] for path in paths]
     
     os.makedirs(output_dir, exist_ok=True)

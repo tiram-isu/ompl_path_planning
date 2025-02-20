@@ -8,11 +8,12 @@ import path_utils
 import re
 import os
 from planner import PathPlanner
-import numpy as np
-from path_utils import resample_path
 from pathlib import Path
 
 class PathPlanningManager:
+    """
+    Run and planners with given settings in process and visualize the paths.
+    """
     def __init__(
         self,
         model: Dict,
@@ -31,7 +32,10 @@ class PathPlanningManager:
         self.visualizer = visualizer
         self.file_dir = os.path.dirname(os.path.realpath(__file__))
 
-    def run_planners(self):
+    def run_planners(self) -> None:
+        """
+        Run all planners with the given settings in separate processes.
+        """
         processes = []
         log_roots = []
 
@@ -42,7 +46,7 @@ class PathPlanningManager:
                 log_root = f"{self.file_dir}/output/{self.model['name']}/{num_paths}/{planner_name}"
                 log_root = re.sub(r'\s+', '_', log_root)
 
-                process = Process(target=self.__plan_and_visualize_paths, args=(log_root, planner, num_paths, self.path_settings["start_and_end_pairs"], self.path_settings["max_time_per_path"], self.path_settings["max_smoothing_steps"], log_root))
+                process = Process(target=self.__plan_and_visualize_paths, args=(log_root, planner, num_paths, self.path_settings["start_and_end_pairs"], self.path_settings["max_time_per_path"], self.path_settings["max_smoothing_steps"]))
                 process.start()
 
                 processes.append(process)
@@ -59,17 +63,21 @@ class PathPlanningManager:
         if self.debugging_settings["enable_logging"]:
             self.__create_logs_and_plots(f"{self.file_dir}/output/{self.model['name']}/{num_paths}")
 
-    def __plan_and_visualize_paths(self, log_root, planner, num_paths, coordinates_list, max_time_per_path, max_smoothing_steps, output_dir):
+    def __plan_and_visualize_paths(self, log_root: str, planner: str, num_paths: int, coordinates_list: List, max_time_per_path: float, max_smoothing_steps: int) -> None:
+        """
+        Plan and visualize paths for a given planner and number of paths.
+        """
+        
         log_utils.setup_logging(log_root, self.debugging_settings["enable_logging"])
         
         paths = planner.plan_and_log_paths(num_paths, coordinates_list, max_time_per_path, max_smoothing_steps)
 
         if self.visualizer and self.debugging_settings["enable_interactive_visualization"] or self.debugging_settings["save_screenshot"]:
-            self.visualizer.visualize_paths(paths, output_dir)
+            self.visualizer.visualize_paths(paths, log_root)
 
         paths_dir = f"{self.file_dir}/paths/{self.model['name']}/"
         output_paths = path_utils.save_in_nerfstudio_format(
-                paths, paths_dir, planner.planner_name, fps=30, distance=0.01 # TODO: use resampled
+                paths, paths_dir, planner.planner_name, fps=30, distance=0.01
             )
         
         if self.debugging_settings["render_nerfstudio_video"]:
@@ -84,12 +92,15 @@ class PathPlanningManager:
                     },
                 )
                     
-    def __create_logs_and_plots(self, log_root):
+    def __create_logs_and_plots(self, log_root: str) -> None:
+        """
+        Create summary logs and boxplots for all planners.
+        """
         log_root = Path(log_root)
         log_utils.generate_summary_log(log_root, self.model['name'], self.path_settings["max_time_per_path"])
         log_utils.create_boxplots(log_root)
 
-    def __init_planner(self, planner_name):
+    def __init_planner(self, planner_name: str) -> PathPlanner:
         planner =  PathPlanner(
             planner_name,
             self.model["name"],
@@ -101,7 +112,10 @@ class PathPlanningManager:
 
         return planner
 
-    def __handle_timeout(self, max_time: float, process: Process, planner: str):
+    def __handle_timeout(self, max_time: float, process: Process, planner: str) -> None:
+        """
+        Terminate a planner process if it exceeds the maximum time.
+        """
         process.join(max_time)
         if process.is_alive():
             process.terminate()
@@ -110,7 +124,7 @@ class PathPlanningManager:
 
     def __send_to_frontend(self, frontend_url, data):
         """
-        Sends a message to the frontend via HTTP.
+        Sends message to the frontend via HTTP containing information needed for rendering the path in Nerfstudio.
         """
         try:
             response = requests.post(frontend_url, json=data)

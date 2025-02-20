@@ -10,6 +10,9 @@ import matplotlib.pyplot as plt
 from typing import Dict, Any, List, Tuple
 from pathlib import Path
 import math
+import warnings
+
+warnings.filterwarnings("ignore")
 
 
 def setup_logging(output_path: str, enable_logging: bool) -> None:
@@ -37,6 +40,9 @@ def setup_logging(output_path: str, enable_logging: bool) -> None:
         logging.disable(logging.CRITICAL)
 
 def __parse_log_file(log_file_path: str) -> Dict[str, Any]:
+    """
+    Parse the log file of a single planner and return a dictionary with the results.
+    """
     result = {
         'success': False,
         'error_message': None,
@@ -86,11 +92,11 @@ def __parse_log_file(log_file_path: str) -> Dict[str, Any]:
         print(f"Failed to parse log file {log_file_path}: {e}")
     return result
 
-def generate_summary_log(root_dir, model_name, max_time_per_path):
-    """Generates a log file summarizing the results of all planners."""
-    # root_dir = Path(log_dir).parent
+def generate_summary_log(root_dir: Path, model_name: str, max_time_per_path: int) -> None:
+    """
+    Generates a .json file summarizing the results of all planners.
+    """
     summary_json_path = root_dir / "summary_log.json"
-    print(summary_json_path)
     
     summary_data = {
         "model": {
@@ -146,8 +152,12 @@ def generate_summary_log(root_dir, model_name, max_time_per_path):
         
     summary_json_path.write_text(json.dumps(summary_data, indent=4))
 
-def __get_unique_color(planner):
-    max_num_planners = 20
+def __get_unique_color(planner: str) -> Tuple[float, float, float]:
+    """
+    Generate unique color for every planner based on its name, so that colors are consistent across all plots
+    (even when not all planners are used in the plot).
+    """
+    max_num_planners = 20 # total number of available planners
     hash_value = int(hashlib.md5(planner.encode()).hexdigest(), 16)
     index = hash_value % max_num_planners
     hue_offset = 0.1
@@ -163,8 +173,10 @@ def __get_unique_color(planner):
 
     return colorsys.hls_to_rgb(hue, lightness, saturation)
 
-
-def create_boxplots(root_dir):
+def create_boxplots(root_dir: Path) -> None:
+    """
+    Create boxplots for path lengths, computation times and curvatures of all planners.
+    """
     root_dir = str(root_dir)
     non_optimizing_planners_order = ["RRT", "LazyRRT", "RRTConnect", "TRRT", "PDST", "SBL", "STRIDE", "EST", "BiEST", "ProjEST",
                                      "KPIECE1", "BKPIECE1", "LBKPIECE1", "PRM", "LazyPRM"]
@@ -216,8 +228,7 @@ def create_boxplots(root_dir):
     fig_curvature = __create_boxplot_curvatures(non_optimizing_planners, optimizing_planners, curvature_values, colors, updated_planners)
     fig_curvature.savefig(output_dir + "/boxplot_curvatures.png")
 
-
-def __create_boxplot_path_lengths(non_optimizing_planners, optimizing_planners, path_lengths, colors, updated_planners):
+def __create_boxplot_path_lengths(non_optimizing_planners: List, optimizing_planners: List, path_lengths: List, colors: List, updated_planners: List) -> plt.Figure:
     fig, ax = plt.subplots(figsize=(19.20, 10.80))
     bplot = ax.boxplot(path_lengths, showfliers=False, notch=False, patch_artist=True,
                        boxprops=dict(color='black'),
@@ -243,31 +254,7 @@ def __create_boxplot_path_lengths(non_optimizing_planners, optimizing_planners, 
 
     return fig
 
-def __calculate_whiskers(data):
-    lower_whiskers = []
-    upper_whiskers = []
-    for planner_data in data:
-        sorted_data = np.sort(planner_data)
-        
-        Q1 = np.percentile(sorted_data, 25)
-        Q3 = np.percentile(sorted_data, 75)
-        
-        IQR = Q3 - Q1
-
-        loval = Q1 - 1.5 * IQR
-        hival = Q3 + 1.5 * IQR
-        
-        wiskhi = np.compress(planner_data <= hival, planner_data)
-        wisklo = np.compress(planner_data >= loval, planner_data)
-        actual_hival = np.max(wiskhi)
-        actual_loval = np.min(wisklo)
-
-        lower_whiskers.append(actual_loval)
-        upper_whiskers.append(actual_hival)
-
-    return min(lower_whiskers), max(upper_whiskers)
-
-def __create_boxplot_computation_times(non_optimizing_planners, optimizing_planners, computation_times, colors, updated_planners):
+def __create_boxplot_computation_times(non_optimizing_planners: List, optimizing_planners: List, computation_times: List, colors: List, updated_planners: List) -> plt.Figure:
     fig = plt.figure(figsize=(19.20, 10.80))
     
     if len(non_optimizing_planners) != 0 and len(optimizing_planners) != 0:
@@ -365,7 +352,7 @@ def __create_boxplot_computation_times(non_optimizing_planners, optimizing_plann
     
     return fig
 
-def __create_boxplot_curvatures(non_optimizing_planners, optimizing_planners, curvature_values, colors, updated_planners):
+def __create_boxplot_curvatures(non_optimizing_planners: List, optimizing_planners: List, curvature_values: List, colors: List, updated_planners: List):
     fig, ax = plt.subplots(figsize=(19.20, 10.80))
     bplot = ax.boxplot(curvature_values, showfliers=False, notch=False, patch_artist=True,
                        boxprops=dict(color='black'),
@@ -390,7 +377,37 @@ def __create_boxplot_curvatures(non_optimizing_planners, optimizing_planners, cu
 
     return fig
 
-def __add_labels_to_plot(ax, updated_planners, non_optimizing_planners, optimizing_planners):
+def __calculate_whiskers(data: List) -> Tuple[float, float]:
+    """
+    Calculate the whiskers for a boxplot based on the data for setting the y-axis limits.
+    """
+    lower_whiskers = []
+    upper_whiskers = []
+    for planner_data in data:
+        sorted_data = np.sort(planner_data)
+        
+        Q1 = np.percentile(sorted_data, 25)
+        Q3 = np.percentile(sorted_data, 75)
+        
+        IQR = Q3 - Q1
+
+        loval = Q1 - 1.5 * IQR
+        hival = Q3 + 1.5 * IQR
+        
+        wiskhi = np.compress(planner_data <= hival, planner_data)
+        wisklo = np.compress(planner_data >= loval, planner_data)
+        actual_hival = np.max(wiskhi)
+        actual_loval = np.min(wisklo)
+
+        lower_whiskers.append(actual_loval)
+        upper_whiskers.append(actual_hival)
+
+    return min(lower_whiskers), max(upper_whiskers)
+
+def __add_labels_to_plot(ax: plt.Axes, updated_planners: List, non_optimizing_planners: List, optimizing_planners: List) -> None:
+    """
+    Add line to separate non-optimizing and optimizing planners and label the two sections. Also sets x-axis labels.
+    """
     ax.set_xticks(range(1, len(updated_planners) + 1))
     ax.set_xticklabels(updated_planners, rotation=90)
 

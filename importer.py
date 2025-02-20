@@ -4,7 +4,9 @@ import numpy as np
 from typing import Dict, Optional, Tuple
 
 def load_gaussians_from_nerfstudio_ckpt(ckpt_path: str, device: str = "cuda") -> Dict:
-    """Load Gaussian parameters from a Nerfstudio checkpoint."""
+    """
+    Load Gaussian parameters from a Nerfstudio checkpoint.
+    """
     checkpoint = torch.load(ckpt_path, map_location=device)
     gauss_params = checkpoint.get("pipeline", {})
     
@@ -28,7 +30,9 @@ def load_gaussians_from_nerfstudio_ckpt(ckpt_path: str, device: str = "cuda") ->
     return gaussian_data
 
 def load_gaussians_from_ply(input_ply_path: str) -> Optional[Dict]:
-    """Extract Gaussian parameters from a binary or ASCII .ply file."""
+    """
+    Extract Gaussian parameters from a binary or ASCII .ply file.
+    """
     try:
         with open(input_ply_path, 'rb') as ply_file:
             content = ply_file.read()
@@ -50,7 +54,9 @@ def load_gaussians_from_ply(input_ply_path: str) -> Optional[Dict]:
         return None
 
 def __parse_ply_header(header: str) -> Tuple[list, int]:
-    """Parse the header of a .ply file to extract vertex properties and count."""
+    """
+    Parse the header of a .ply file to extract vertex properties and count.
+    """
     vertex_properties = []
     vertex_count = 0
     for line in header.splitlines():
@@ -61,7 +67,9 @@ def __parse_ply_header(header: str) -> Tuple[list, int]:
     return vertex_properties, vertex_count
 
 def __parse_ply_body(vertex_properties: list, vertex_count: int, body: bytes, endian_char: str) -> Optional[Dict]:
-    """Parse the binary section of a .ply file and structure Gaussian data."""
+    """
+    Parse the binary section of a .ply file and structure Gaussian data.
+    """
     data = {prop: [] for prop in vertex_properties}
     offset = 0
     for _ in range(vertex_count):
@@ -77,13 +85,17 @@ def __parse_ply_body(vertex_properties: list, vertex_count: int, body: bytes, en
     return __structure_gaussian_data(data)
 
 def __property_format_and_size(property_name: str, endian_char: str) -> Optional[Tuple[str, int]]:
-    """Get struct format and size for a given .ply property name."""
+    """
+    Get struct format and size for a given .ply property name.
+    """
     if property_name.startswith(("f_dc_", "scale_", "rot_", "opacity", "x", "y", "z", "nx", "ny", "nz")):
         return f"{endian_char}f", 4
     return None, 4  # Skip unsupported properties
 
 def __structure_gaussian_data(data: Dict) -> Optional[Dict]:
-    """Structure raw .ply data into a dictionary of Gaussian parameters."""
+    """
+    Structure raw .ply data into a dictionary of Gaussian parameters.
+    """
     try:
         return {
             "means": np.column_stack((data["x"], data["y"], data["z"])),
@@ -96,10 +108,12 @@ def __structure_gaussian_data(data: Dict) -> Optional[Dict]:
         print(f"Error structuring Gaussian data: {e}")
         return None
     
-# Convert to .txt
+# Convert to .txt (for debugging only, not used in the main script)
 
 def convert_checkpoint_to_txt(checkpoint_path: str, output_txt_path: str) -> None:
-    """Convert a PyTorch checkpoint to a human-readable text file."""
+    """
+    Convert a PyTorch checkpoint to a human-readable text file.
+    """
     checkpoint = torch.load(checkpoint_path)
     model = checkpoint.get('model', checkpoint.get('model_state_dict', checkpoint))
     
@@ -115,7 +129,9 @@ def convert_checkpoint_to_txt(checkpoint_path: str, output_txt_path: str) -> Non
     print(f"Checkpoint written to {output_txt_path}")
 
 def convert_ply_to_readable_txt(input_ply_path: str, output_txt_path: str) -> None:
-    """Convert a .ply file (binary or ASCII) into a readable text format."""
+    """
+    Convert a .ply file (binary or ASCII) into a readable text format.
+    """
     try:
         with open(input_ply_path, 'rb') as ply_file:
             content = ply_file.read()
@@ -138,7 +154,9 @@ def convert_ply_to_readable_txt(input_ply_path: str, output_txt_path: str) -> No
         print(f"Error converting .ply to text: {e}")
 
 def __parse_binary_ply(header: str, body: bytes) -> str:
-    """Parse binary .ply file and return a readable string representation."""
+    """
+    Parse binary .ply file and return a readable string representation.
+    """
     vertex_properties, vertex_count = __parse_ply_header(header)
     endian_char = '<' if "binary_little_endian" in header else '>'
     

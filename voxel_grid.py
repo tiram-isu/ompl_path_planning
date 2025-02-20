@@ -6,10 +6,7 @@ from typing import Tuple, List, Dict, Optional, Any
 
 
 class VoxelGrid:
-    def __init__(self, scene_dimensions: Tuple[float, float, float], voxel_size: float, bounding_box_min: Tuple[float, float, float]):
-        """
-        Initialize the voxel grid.
-        """
+    def __init__(self, scene_dimensions: Tuple[float, float, float], voxel_size: float, bounding_box_min: Tuple[float, float, float]) -> None:
         self.scene_dimensions = np.array(scene_dimensions)
         self.voxel_size = voxel_size
         self.bounding_box_min = np.array(bounding_box_min)
@@ -102,7 +99,7 @@ class VoxelGrid:
 
     def mark_voxels_without_support(self, min_distance: int, max_distance: int) -> 'VoxelGrid':
         """
-        Mark voxels without support as unoccupied.
+        Mark voxels as occupied that are too close to or too far from the ground.
         """
         new_grid = VoxelGrid(self.scene_dimensions, self.voxel_size, self.bounding_box_min)
         grid_height = self.grid_dims[2]

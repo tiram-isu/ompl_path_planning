@@ -22,7 +22,7 @@ class StateValidityChecker(ob.StateValidityChecker):
 
     def is_valid(self, state: ob.State) -> bool:
         """
-        Check if a state is valid (no collision) using the voxel grid.
+        Check if a state is valid (no collision and within allowed slope) using the voxel grid.
         """
         x, y, z = state[0], state[1], state[2]
 

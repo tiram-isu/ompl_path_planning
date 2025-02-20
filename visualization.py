@@ -2,19 +2,23 @@ import open3d as o3d
 import numpy as np
 from typing import List, Tuple
 from path_utils import resample_path
+from ompl import geometric as og
 
 class Visualizer:
     """
     Class to visualize a 3D mesh and paths in Open3D.
     """
 
-    def __init__(self, mesh_path: str, enable_interactive_visualization: bool, save_screenshot: bool):
+    def __init__(self, mesh_path: str, enable_interactive_visualization: bool, save_screenshot: bool) -> None:
         self.mesh = o3d.io.read_triangle_mesh(mesh_path)
         self.path_diameter = 0.005 # TODO: make parameter
         self.enable_interactive_visualization = enable_interactive_visualization
         self.save_screenshot = save_screenshot
 
-    def visualize_paths(self, path_list: List, output_path: str=None):
+    def visualize_paths(self, path_list: List, output_path: str=None) -> None:
+        """
+        Visualize the mesh and paths in Open3D in an interactive window and/or by saving a screenshot.
+        """
         vis = o3d.visualization.Visualizer()
 
         start_color = [0, 0, 1]
@@ -64,14 +68,14 @@ class Visualizer:
         marker.translate(position)
         return marker
     
-    def __create_path_tube(self, path: 'Path', cylinder_length: float, start_color, middle_color, end_color) -> o3d.geometry.TriangleMesh:
+    def __create_path_tube(self, path: og.PathGeometric, distance_between_spheres: float, start_color: List, middle_color: List, end_color: List) -> o3d.geometry.TriangleMesh:
         tube_mesh = o3d.geometry.TriangleMesh()
 
         states = path.getStates()
         path_points = np.array([[state[0], state[1], state[2]] for state in states])
         
-        # Resample the path
-        path_points = np.array(resample_path(path_points, cylinder_length / 2))
+        # Resample the path so that spheres are evenly spaced
+        path_points = np.array(resample_path(path_points, distance_between_spheres / 2))
         num_points = len(path_points) - 1
 
         transition_end = int(num_points * 0.4)

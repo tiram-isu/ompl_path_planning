@@ -5,9 +5,7 @@ from ompl import base as ob
 from ompl import geometric as og
 from ompl import control as oc
 from collision_detection import StateValidityChecker
-from typing import Any, Dict, List, Optional
-
-from path_utils import resample_path
+from typing import Any, Dict, List, Optional, Tuple
 
 class PathPlanner:
     def __init__(
@@ -43,7 +41,7 @@ class PathPlanner:
         
         return rvss
     
-    def __init_validity_checker(self, state_validity_resolution):
+    def __init_validity_checker(self, state_validity_resolution: float) -> StateValidityChecker:
         validity_checker = StateValidityChecker(self.si, self.voxel_grid)
         self.si.setStateValidityChecker(ob.StateValidityCheckerFn(validity_checker.is_valid))
         self.si.setStateValidityCheckingResolution(state_validity_resolution)
@@ -63,7 +61,7 @@ class PathPlanner:
         logging.info(f"Initialized planner {planner} with range {range}")
         return planner
 
-    def __init_start_and_goal(self, start: np.ndarray, goal: np.ndarray):
+    def __init_start_and_goal(self, start: np.ndarray, goal: np.ndarray) -> Tuple[ob.State, ob.State]:
         start_state = ob.State(self.rvss)
         goal_state = ob.State(self.rvss)
 
@@ -81,14 +79,14 @@ class PathPlanner:
 
         return start_state, goal_state
 
-    def __is_distance_within_threshold(self, state1, state2):
+    def __is_distance_within_threshold(self, state1: ob.State, state2: ob.State) -> bool:
         threshold = 0.001
         for i in range(3):
             if abs(state1[i] - state2[i]) > threshold:
                 return False
         return True
 
-    def __plan_path(self, start_state: ob.State, goal_state: ob.State, max_time: float, max_smoothing_steps):
+    def __plan_path(self, start_state: ob.State, goal_state: ob.State, max_time: float, max_smoothing_steps) -> Optional[ob.Path]:
         self.validity_checker.set_prev_state(None)
         self.planner.clear()
 
@@ -112,7 +110,7 @@ class PathPlanner:
                 return path
         return None
 
-    def __log_path_smoothness(self, path):
+    def __log_path_smoothness(self, path: np.array) -> None:
         curvatures = []
 
         for i in range(1, len(path) - 1):
@@ -137,7 +135,7 @@ class PathPlanner:
 
         logging.info(f"Path Smoothness - Avg Curvature: {avg_curvature:.4f}")
 
-    def plan_and_log_paths(self, num_paths: int, coordinates_list: list, max_time: float, max_smoothing_steps: int):
+    def plan_and_log_paths(self, num_paths: int, coordinates_list: list, max_time: float, max_smoothing_steps: int) -> List[ob.Path]:
         all_paths = []
         path_lengths = []
 
