@@ -15,10 +15,10 @@ if __name__ == "__main__":
         "opacity_threshold": 0.9, # Gaussians below this threshold will be ignored
         "scale_threshold": 0, # Gaussians smaller than this will be ignored
         "manual_voxel_resolution": None, # Set voxel resolution for biggest dimension
-        "voxel_resolution_factor": 1, # Voxel size = average size of gaussians * voxel_resolution_factor
+        "voxel_resolution_factor": 1.5, # Voxel size = average size of gaussians * voxel_resolution_factor
         "scale_factor": 0.001, # 0.001 for Nerfstudio, 0.01 for vanilla/hierarchical 3DGS files
         "padding": 1, # Padding around the model = minimum distance from path to obstacles
-        "min_distance_to_ground": 1, # Minimum distance from model to ground
+        "min_distance_to_ground": 3, # Minimum distance from model to ground
         "max_distance_to_ground": 5, # Number of voxels above ground acceptible for path
         "enable_logging": True # Log voxel grid creation
     }
@@ -27,7 +27,7 @@ if __name__ == "__main__":
     planners = ['RRT', 'LazyRRT', 'RRTConnect', 'TRRT', 'PDST', 'SBL', 'STRIDE',
     'EST', 'BiEST', 'ProjEST', 'KPIECE1', 'BKPIECE1', 'LBKPIECE1', 'PRM', 'LazyPRM',
     'RRTstar', 'RRTXstatic', 'LBTRRT', 'LazyLBTRRT', 'BITstar']
-    planners = ['PRM', 'RRT']
+    planners = ['PRM']
     # available planners: ['RRT', 'LazyRRT', 'RRTConnect', 'TRRT', 'PDST', 'SBL', 'STRIDE',
     # 'EST', 'BiEST', 'ProjEST', 'KPIECE1', 'BKPIECE1', 'LBKPIECE1', 'PRM', 'LazyPRM',
     # 'RRTstar', 'RRTXstatic', 'LBTRRT', 'LazyLBTRRT', 'BITstar']
@@ -59,10 +59,10 @@ if __name__ == "__main__":
     }
 
     debugging_settings = {
-        "enable_interactive_visualization": True, # Open interactive visualization showing generated paths after planning
+        "enable_interactive_visualization": False, # Open interactive visualization showing generated paths after planning
         "save_screenshot": True, # Save screenshot of the visualization
         "enable_logging": True, # Log path planning
-        "render_nerfstudio_video": False, # Send generated paths to Nerfstudio for rendering - requires running Flask server and Nerfstudio
+        "render_nerfstudio_video": True, # Send generated paths to Nerfstudio for rendering - requires running Flask server and Nerfstudio
     }
 
     nerfstudio_paths = {

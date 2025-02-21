@@ -13,17 +13,11 @@ RUN apt-get update && apt-get install -y \
 
 # Install Python libraries
 RUN pip3 install --no-cache-dir "numpy==1.24.4" \
-    trimesh \
     pyrender \
     open3d \
     rtree \
     python-fcl \
-    pyopengl \
-    pyopengl-accelerate \
-    glfw \
-    opencv-python \
-    pylint \
-    pydoctor
+    opencv-python
 
 # Install PyTorch (CUDA-enabled version)
 RUN pip3 install torch==2.1.2+cu118 torchvision==0.16.2+cu118 --extra-index-url https://download.pytorch.org/whl/cu118 \

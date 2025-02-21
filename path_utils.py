@@ -5,7 +5,27 @@ import os
 from datetime import datetime
 from typing import Dict, List
 
-def resample_path(path_points: np.array, distance: float=0.1) -> np.array:
+def save_in_nerfstudio_format(paths: List, output_dir: str, planner: str, fps: int=30, distance: float=0.1) -> List:
+    """
+    Process each path and save the result as a separate JSON file in nerfstudio format.
+    """
+    serializable_paths = [[[float(coord) for coord in line.split()] for line in path.printAsMatrix().strip().split("\n")] for path in paths]
+    
+    os.makedirs(output_dir, exist_ok=True)
+    
+    output_paths = []
+    for _, path in enumerate(serializable_paths):
+        nerfstudio_data = __transform_to_nerfstudio_format(path, fps=fps, distance=distance)
+        formatted_date = datetime.now().strftime("%Y-%m-%d_%H-%M-%S-%f")[:-3]
+        output_path = os.path.join(output_dir, f"{planner}_{formatted_date}.json")
+        with open(output_path, 'w') as f:
+            json.dump(nerfstudio_data, f, indent=4)
+        output_paths.append(output_path.replace("/app", "", 1))
+
+    return output_paths
+
+
+def resample_path(path_points: np.array, distance: float) -> np.array:
     """
     Resample the path to have more evenly spaced points for smoother animation.
     """
@@ -79,17 +99,19 @@ def __transform_to_nerfstudio_format(path: np.array, fps: int=30, distance: floa
     """
     Transform a single path to Nerfstudio format with more keyframes.
     """
-    resampled_path = resample_path(path, distance)
+    resampling_distance = 0.1
+    time_between_keyframes = 0.5
+    resampled_path = resample_path(path, resampling_distance)
 
     camera_path_data = {
         "default_fov": 75.0,
-        "default_transition_sec": 1,
+        "default_transition_sec": time_between_keyframes,
         "keyframes": [],
         "camera_type": "perspective",
         "render_height": 1080.0,
         "render_width": 1920.0,
         "fps": fps,
-        "seconds": len(resampled_path) / fps,
+        "seconds": 5,
         "is_cycle": False,
         "smoothness_value": 0.0,
         "camera_path": []
@@ -130,27 +152,40 @@ def __transform_to_nerfstudio_format(path: np.array, fps: int=30, distance: floa
             "override_transition_sec": None
         })
 
-    return camera_path_data
+    camera_path = __interpolate_camera_path(camera_path_data, time_between_keyframes, fps)
 
+    return camera_path
 
-def save_in_nerfstudio_format(paths: List, output_dir: str, planner: str, fps: int=30, distance: float=0.1) -> List:
+def __interpolate_camera_path(path: Dict, time_between_keyframes: int, fps: int) -> Dict:
     """
-    Process each path and save the result as a separate JSON file.
+    Interpolates the camera path.
+    This is done automatically by nerfstudio, but only when loading the path via the GUI.
+    When rendering directly via the command line (like when render_nerfstudio_video == True),
+    the path needs to be interpolated using this function.
     """
-    serializable_paths = [[[float(coord) for coord in line.split()] for line in path.printAsMatrix().strip().split("\n")] for path in paths]
+    num_steps = int(time_between_keyframes * fps)
+
+    camera_path = path["camera_path"]
+    matrices = [cp["camera_to_world"] for cp in camera_path]
+    num_matrices = len(matrices)
     
-    os.makedirs(output_dir, exist_ok=True)
-    
-    output_paths = []
-    for _, path in enumerate(serializable_paths):
-        nerfstudio_data = __transform_to_nerfstudio_format(path, fps=fps, distance=distance)
-        formatted_date = datetime.now().strftime("%Y-%m-%d_%H-%M-%S-%f")[:-3]
-        output_path = os.path.join(output_dir, f"{planner}_{formatted_date}.json")
-        with open(output_path, 'w') as f:
-            json.dump(nerfstudio_data, f, indent=4)
-        output_paths.append(output_path.replace("/app", "", 1))
+    interpolated_camera_path = []
+    for i in range(num_matrices - 1):
+        start_matrix = np.array(matrices[i]).reshape(4, 4)
+        end_matrix = np.array(matrices[i + 1]).reshape(4, 4)
+        
+        for j in range(num_steps):
+            t = j / num_steps
+            interpolated_matrix = (1 - t) * start_matrix + t * end_matrix
+            interpolated_camera_path.append({
+                "camera_to_world": interpolated_matrix.flatten().tolist(),
+                "fov": 75.0,
+                "aspect": 1.7777777777777777
+            })
 
-    return output_paths
+    interpolated_camera_path.append(camera_path[-1])
 
-
+    path["camera_path"] = interpolated_camera_path
+    path["seconds"] = len(interpolated_camera_path) / fps
+    return path
 
