@@ -95,3 +95,5 @@ Additionally, plots analyzing path properties (computation times, lengths, curva
 │   path_utils.py
 │   log_utils.py
 ```
+
+The directory `blender_scripts` contains scripts used in Blender for image data creation and testing purposes. They are not used during path planning.
