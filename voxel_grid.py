@@ -105,25 +105,25 @@ class VoxelGrid:
         grid_height = self.grid_dims[2]
 
         temp_grid = self.grid.copy()
-        
-        # Minimum distance from the ground
-        for (x, y, z) in self.grid.keys():
-            if self.grid[(x, y, z)]:
-                for dz in range(1, min_distance):
-                    if z + dz < grid_height:
-                        temp_grid[(x, y, z + dz)] = True
-        
-        new_grid.grid = temp_grid.copy()
 
+        # Minimum distance from the ground
+        for x in range(self.grid_dims[0]):
+            for y in range(self.grid_dims[1]):
+                for z in range(self.grid_dims[2]):
+                    if self.is_voxel_occupied((x, y, z)):
+                        for dz in range(1, min_distance):
+                            if z + dz < grid_height:
+                                temp_grid[(x, y, z + dz)] = True
+        
         # Maximum distance from the ground
         for x in range(self.grid_dims[0]):
             for y in range(self.grid_dims[1]):
                 for z in range(self.grid_dims[2]):
-                    new_grid.grid[(x, y, z)] = True
+                    new_grid.grid[(x, y, grid_height - z - 1)] = True
                     for i in range(max_distance):
                         if z + i >= grid_height:
                             break
-                        if (x, y, grid_height - z - i) in self.grid and (x, y, grid_height - z) not in self.grid:
+                        if (x, y, grid_height - z - i) in temp_grid and (x, y, grid_height - z) not in temp_grid:
                             new_grid.grid.pop((x, y, grid_height - z), None)
                             break
         return new_grid
