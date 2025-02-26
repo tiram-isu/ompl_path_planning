@@ -1,0 +1,55 @@
+2025-02-26 06:10:23,061 - INFO - Planning 9 total paths with max time 5 seconds per path...
+2025-02-26 06:10:23,062 - INFO - Planning 1 paths from [-0.304  0.053 -0.44 ] to [ 0.304 -0.053 -0.44 ].
+2025-02-26 06:10:23,065 - INFO - Start state [-0.304  0.053 -0.44 ] is invalid. Found new valid start state: (-0.30790783664758914, 0.04738955065790318, -0.45657236557847536)
+2025-02-26 06:10:23,066 - INFO - Goal state [ 0.304 -0.053 -0.44 ] is invalid. Found new valid goal state: (0.3009869612666958, -0.05699241469883137, -0.45657236557847536)
+2025-02-26 06:10:23,067 - INFO - Actual start state: (-0.30790783664758914, 0.04738955065790318, -0.45657236557847536). Actual goal state: (0.3009869612666958, -0.05699241469883137, -0.45657236557847536)
+2025-02-26 06:10:23,082 - INFO - Path Smoothness - Avg Curvature: 6.3200
+2025-02-26 06:10:23,082 - INFO - Path 0 added. Length: 33.7865 units. Duration: 0.0155 seconds.
+2025-02-26 06:10:23,083 - INFO - Planning 1 paths from [ 0.259 -0.152 -0.44 ] to [-0.267  0.152 -0.44 ].
+2025-02-26 06:10:23,085 - INFO - Start state [ 0.259 -0.152 -0.44 ] is invalid. Found new valid start state: (0.24299698051295426, -0.14977638390481762, -0.45657236557847536)
+2025-02-26 06:10:23,086 - INFO - Goal state [-0.267  0.152 -0.44 ] is invalid. Found new valid goal state: (-0.26731485011997014, 0.15177151601463773, -0.4507733675031012)
+2025-02-26 06:10:23,086 - INFO - Actual start state: (0.24299698051295426, -0.14977638390481762, -0.45657236557847536). Actual goal state: (-0.26731485011997014, 0.15177151601463773, -0.4507733675031012)
+2025-02-26 06:10:23,188 - INFO - Path Smoothness - Avg Curvature: 37.8479
+2025-02-26 06:10:23,188 - INFO - Path 0 added. Length: 42.2026 units. Duration: 0.1023 seconds.
+2025-02-26 06:10:23,189 - INFO - Planning 1 paths from [-0.198  0.233 -0.44 ] to [ 0.195 -0.23  -0.44 ].
+2025-02-26 06:10:23,189 - INFO - Start state [-0.198  0.233 -0.44 ] is invalid. Found new valid start state: (-0.2035258712908546, 0.23295748906987568, -0.4507733675031012)
+2025-02-26 06:10:23,192 - INFO - Goal state [ 0.195 -0.23  -0.44 ] is invalid. Found new valid goal state: (0.18500699975921286, -0.21936436080930732, -0.45657236557847536)
+2025-02-26 06:10:23,192 - INFO - Actual start state: (-0.2035258712908546, 0.23295748906987568, -0.4507733675031012). Actual goal state: (0.18500699975921286, -0.21936436080930732, -0.45657236557847536)
+2025-02-26 06:10:23,219 - INFO - Path Smoothness - Avg Curvature: 10.0042
+2025-02-26 06:10:23,219 - INFO - Path 0 added. Length: 44.4977 units. Duration: 0.0273 seconds.
+2025-02-26 06:10:23,220 - INFO - Planning 1 paths from [ 0.103 -0.283 -0.44 ] to [-0.106  0.286 -0.44 ].
+2025-02-26 06:10:23,221 - INFO - Start state [ 0.103 -0.283 -0.44 ] is invalid. Found new valid start state: (0.09802202862860077, -0.2831533396384229, -0.45657236557847536)
+2025-02-26 06:10:23,222 - INFO - Goal state [-0.106  0.286 -0.44 ] is invalid. Found new valid goal state: (-0.11074190208486831, 0.285148471748243, -0.45657236557847536)
+2025-02-26 06:10:23,222 - INFO - Actual start state: (0.09802202862860077, -0.2831533396384229, -0.45657236557847536). Actual goal state: (-0.11074190208486831, 0.285148471748243, -0.45657236557847536)
+2025-02-26 06:10:23,313 - INFO - Path Smoothness - Avg Curvature: 10.0102
+2025-02-26 06:10:23,313 - INFO - Path 0 added. Length: 36.9069 units. Duration: 0.0908 seconds.
+2025-02-26 06:10:23,313 - INFO - Planning 1 paths from [ 0.     0.304 -0.44 ] to [ 0.    -0.304 -0.44 ].
+2025-02-26 06:10:23,314 - INFO - Start state [ 0.     0.304 -0.44 ] is invalid. Found new valid start state: (-0.000560938652759635, 0.3025454659743654, -0.45657236557847536)
+2025-02-26 06:10:23,315 - INFO - Goal state [ 0.    -0.304 -0.44 ] is invalid. Found new valid goal state: (-0.000560938652759635, -0.3063493319399194, -0.45657236557847536)
+2025-02-26 06:10:23,316 - INFO - Actual start state: (-0.000560938652759635, 0.3025454659743654, -0.45657236557847536). Actual goal state: (-0.000560938652759635, -0.3063493319399194, -0.45657236557847536)
+2025-02-26 06:10:23,340 - INFO - Path Smoothness - Avg Curvature: 2.6958
+2025-02-26 06:10:23,340 - INFO - Path 0 added. Length: 40.5718 units. Duration: 0.0247 seconds.
+2025-02-26 06:10:23,341 - INFO - Planning 1 paths from [-0.103 -0.283 -0.44 ] to [ 0.106  0.286 -0.44 ].
+2025-02-26 06:10:23,341 - INFO - Start state [-0.103 -0.283 -0.44 ] is invalid. Found new valid start state: (-0.10494290400949419, -0.2831533396384229, -0.4507733675031012)
+2025-02-26 06:10:23,342 - INFO - Goal state [ 0.106  0.286 -0.44 ] is invalid. Found new valid goal state: (0.10382102670397492, 0.285148471748243, -0.45657236557847536)
+2025-02-26 06:10:23,342 - INFO - Actual start state: (-0.10494290400949419, -0.2831533396384229, -0.4507733675031012). Actual goal state: (0.10382102670397492, 0.285148471748243, -0.45657236557847536)
+2025-02-26 06:10:23,356 - INFO - Path Smoothness - Avg Curvature: 5.3018
+2025-02-26 06:10:23,357 - INFO - Path 0 added. Length: 38.6433 units. Duration: 0.0145 seconds.
+2025-02-26 06:10:23,357 - INFO - Planning 1 paths from [ 0.198  0.233 -0.44 ] to [-0.198 -0.233 -0.44 ].
+2025-02-26 06:10:23,358 - INFO - Start state [ 0.198  0.233 -0.44 ] is invalid. Found new valid start state: (0.18500699975921286, 0.23295748906987568, -0.44497436942772706)
+2025-02-26 06:10:23,359 - INFO - Goal state [-0.198 -0.233 -0.44 ] is invalid. Found new valid goal state: (-0.2035258712908546, -0.23676135503542975, -0.45657236557847536)
+2025-02-26 06:10:23,359 - INFO - Actual start state: (0.18500699975921286, 0.23295748906987568, -0.44497436942772706). Actual goal state: (-0.2035258712908546, -0.23676135503542975, -0.45657236557847536)
+2025-02-26 06:10:23,373 - INFO - Path Smoothness - Avg Curvature: 4.3236
+2025-02-26 06:10:23,373 - INFO - Path 0 added. Length: 34.2463 units. Duration: 0.0143 seconds.
+2025-02-26 06:10:23,374 - INFO - Planning 1 paths from [-0.267 -0.152 -0.44 ] to [ 0.267  0.152 -0.44 ].
+2025-02-26 06:10:23,375 - INFO - Start state [-0.267 -0.152 -0.44 ] is invalid. Found new valid start state: (-0.26731485011997014, -0.15557538198019177, -0.45657236557847536)
+2025-02-26 06:10:23,376 - INFO - Goal state [ 0.267  0.152 -0.44 ] is invalid. Found new valid goal state: (0.2603939747390768, 0.15177151601463773, -0.45657236557847536)
+2025-02-26 06:10:23,376 - INFO - Actual start state: (-0.26731485011997014, -0.15557538198019177, -0.45657236557847536). Actual goal state: (0.2603939747390768, 0.15177151601463773, -0.45657236557847536)
+2025-02-26 06:10:23,390 - INFO - Path Smoothness - Avg Curvature: 3.7190
+2025-02-26 06:10:23,390 - INFO - Path 0 added. Length: 35.5837 units. Duration: 0.0141 seconds.
+2025-02-26 06:10:23,390 - INFO - Planning 1 paths from [ 0.304  0.053 -0.44 ] to [-0.304 -0.053 -0.44 ].
+2025-02-26 06:10:23,392 - INFO - Start state [ 0.304  0.053 -0.44 ] is invalid. Found new valid start state: (0.29518796319132157, 0.04738955065790318, -0.45657236557847536)
+2025-02-26 06:10:23,393 - INFO - Goal state [-0.304 -0.053 -0.44 ] is invalid. Found new valid goal state: (-0.302108838572215, -0.05699241469883137, -0.45657236557847536)
+2025-02-26 06:10:23,394 - INFO - Actual start state: (0.29518796319132157, 0.04738955065790318, -0.45657236557847536). Actual goal state: (-0.302108838572215, -0.05699241469883137, -0.45657236557847536)
+2025-02-26 06:10:23,406 - INFO - Path Smoothness - Avg Curvature: 0.1583
+2025-02-26 06:10:23,406 - INFO - Path 0 added. Length: 31.9270 units. Duration: 0.0128 seconds.

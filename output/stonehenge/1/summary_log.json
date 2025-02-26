@@ -1,0 +1,3392 @@
+{
+    "model": {
+        "name": "stonehenge",
+        "max_time_per_path": 5
+    },
+    "planners": {
+        "LBKPIECE1": {
+            "status": "Successful",
+            "num_paths_found": 9,
+            "total_paths": 9,
+            "success_rate": 100.0,
+            "length_stats": {
+                "average": 46.98523333333333,
+                "min": 38.3753,
+                "max": 58.0187,
+                "std_dev": 5.530131986168543
+            },
+            "duration_stats": {
+                "average": 0.12663333333333332,
+                "min": 0.0615,
+                "max": 0.1956,
+                "std_dev": 0.03948774774815882
+            },
+            "smoothness_stats": {
+                "average": 16.326344444444445,
+                "min": 5.7899,
+                "max": 28.3499,
+                "std_dev": 7.983610086658947
+            },
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 45.5979,
+                    "duration": 0.1697,
+                    "start_point": [
+                        -0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 5.7899
+                },
+                {
+                    "id": 1,
+                    "length": 49.856,
+                    "duration": 0.1009,
+                    "start_point": [
+                        0.259,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 24.3777
+                },
+                {
+                    "id": 2,
+                    "length": 46.7611,
+                    "duration": 0.1165,
+                    "start_point": [
+                        -0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.195,
+                        -0.23,
+                        -0.44
+                    ],
+                    "curvature": 12.989
+                },
+                {
+                    "id": 3,
+                    "length": 42.4016,
+                    "duration": 0.1605,
+                    "start_point": [
+                        0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 9.3404
+                },
+                {
+                    "id": 4,
+                    "length": 52.4021,
+                    "duration": 0.0919,
+                    "start_point": [
+                        0.0,
+                        0.304,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.0,
+                        -0.304,
+                        -0.44
+                    ],
+                    "curvature": 6.3941
+                },
+                {
+                    "id": 5,
+                    "length": 38.3753,
+                    "duration": 0.0615,
+                    "start_point": [
+                        -0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 18.5553
+                },
+                {
+                    "id": 6,
+                    "length": 46.8017,
+                    "duration": 0.1238,
+                    "start_point": [
+                        0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.198,
+                        -0.233,
+                        -0.44
+                    ],
+                    "curvature": 28.3499
+                },
+                {
+                    "id": 7,
+                    "length": 42.6527,
+                    "duration": 0.1956,
+                    "start_point": [
+                        -0.267,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 25.7498
+                },
+                {
+                    "id": 8,
+                    "length": 58.0187,
+                    "duration": 0.1193,
+                    "start_point": [
+                        0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 15.391
+                }
+            ]
+        },
+        "TRRT": {
+            "status": "Successful",
+            "num_paths_found": 9,
+            "total_paths": 9,
+            "success_rate": 100.0,
+            "length_stats": {
+                "average": 37.5962,
+                "min": 31.927,
+                "max": 44.4977,
+                "std_dev": 3.960934239685269
+            },
+            "duration_stats": {
+                "average": 0.03514444444444444,
+                "min": 0.0128,
+                "max": 0.1023,
+                "std_dev": 0.03327789092913429
+            },
+            "smoothness_stats": {
+                "average": 8.931199999999999,
+                "min": 0.1583,
+                "max": 37.8479,
+                "std_dev": 10.66001361714786
+            },
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 33.7865,
+                    "duration": 0.0155,
+                    "start_point": [
+                        -0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 6.32
+                },
+                {
+                    "id": 1,
+                    "length": 42.2026,
+                    "duration": 0.1023,
+                    "start_point": [
+                        0.259,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 37.8479
+                },
+                {
+                    "id": 2,
+                    "length": 44.4977,
+                    "duration": 0.0273,
+                    "start_point": [
+                        -0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.195,
+                        -0.23,
+                        -0.44
+                    ],
+                    "curvature": 10.0042
+                },
+                {
+                    "id": 3,
+                    "length": 36.9069,
+                    "duration": 0.0908,
+                    "start_point": [
+                        0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 10.0102
+                },
+                {
+                    "id": 4,
+                    "length": 40.5718,
+                    "duration": 0.0247,
+                    "start_point": [
+                        0.0,
+                        0.304,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.0,
+                        -0.304,
+                        -0.44
+                    ],
+                    "curvature": 2.6958
+                },
+                {
+                    "id": 5,
+                    "length": 38.6433,
+                    "duration": 0.0145,
+                    "start_point": [
+                        -0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 5.3018
+                },
+                {
+                    "id": 6,
+                    "length": 34.2463,
+                    "duration": 0.0143,
+                    "start_point": [
+                        0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.198,
+                        -0.233,
+                        -0.44
+                    ],
+                    "curvature": 4.3236
+                },
+                {
+                    "id": 7,
+                    "length": 35.5837,
+                    "duration": 0.0141,
+                    "start_point": [
+                        -0.267,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 3.719
+                },
+                {
+                    "id": 8,
+                    "length": 31.927,
+                    "duration": 0.0128,
+                    "start_point": [
+                        0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 0.1583
+                }
+            ]
+        },
+        "RRT": {
+            "status": "Successful",
+            "num_paths_found": 9,
+            "total_paths": 9,
+            "success_rate": 100.0,
+            "length_stats": {
+                "average": 38.53761111111111,
+                "min": 33.1632,
+                "max": 45.2259,
+                "std_dev": 4.088876064382062
+            },
+            "duration_stats": {
+                "average": 0.07584444444444444,
+                "min": 0.0149,
+                "max": 0.1669,
+                "std_dev": 0.06247008370431955
+            },
+            "smoothness_stats": {
+                "average": 6.935144444444444,
+                "min": 2.0848,
+                "max": 9.7346,
+                "std_dev": 2.6349497870447003
+            },
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 33.1632,
+                    "duration": 0.0149,
+                    "start_point": [
+                        -0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 2.0848
+                },
+                {
+                    "id": 1,
+                    "length": 45.2259,
+                    "duration": 0.1424,
+                    "start_point": [
+                        0.259,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 9.7346
+                },
+                {
+                    "id": 2,
+                    "length": 43.8098,
+                    "duration": 0.0307,
+                    "start_point": [
+                        -0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.195,
+                        -0.23,
+                        -0.44
+                    ],
+                    "curvature": 9.7071
+                },
+                {
+                    "id": 3,
+                    "length": 41.3575,
+                    "duration": 0.1669,
+                    "start_point": [
+                        0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 6.9111
+                },
+                {
+                    "id": 4,
+                    "length": 34.1959,
+                    "duration": 0.1611,
+                    "start_point": [
+                        0.0,
+                        0.304,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.0,
+                        -0.304,
+                        -0.44
+                    ],
+                    "curvature": 9.2945
+                },
+                {
+                    "id": 5,
+                    "length": 37.3948,
+                    "duration": 0.0193,
+                    "start_point": [
+                        -0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 4.7866
+                },
+                {
+                    "id": 6,
+                    "length": 38.627,
+                    "duration": 0.028,
+                    "start_point": [
+                        0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.198,
+                        -0.233,
+                        -0.44
+                    ],
+                    "curvature": 9.4515
+                },
+                {
+                    "id": 7,
+                    "length": 39.0716,
+                    "duration": 0.0186,
+                    "start_point": [
+                        -0.267,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 4.4943
+                },
+                {
+                    "id": 8,
+                    "length": 33.9928,
+                    "duration": 0.1007,
+                    "start_point": [
+                        0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 5.9518
+                }
+            ]
+        },
+        "LazyLBTRRT": {
+            "status": "Successful",
+            "num_paths_found": 9,
+            "total_paths": 9,
+            "success_rate": 100.0,
+            "length_stats": {
+                "average": 36.77786666666666,
+                "min": 33.2138,
+                "max": 39.9966,
+                "std_dev": 2.1563353521915634
+            },
+            "duration_stats": {
+                "average": 5.052566666666667,
+                "min": 5.0337,
+                "max": 5.0822,
+                "std_dev": 0.016143454125778497
+            },
+            "smoothness_stats": {
+                "average": 9.128544444444444,
+                "min": 2.5765,
+                "max": 21.3202,
+                "std_dev": 5.0783030044190305
+            },
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 38.1371,
+                    "duration": 5.0338,
+                    "start_point": [
+                        -0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 10.0463
+                },
+                {
+                    "id": 1,
+                    "length": 36.6237,
+                    "duration": 5.0542,
+                    "start_point": [
+                        0.259,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 5.7236
+                },
+                {
+                    "id": 2,
+                    "length": 34.5875,
+                    "duration": 5.0386,
+                    "start_point": [
+                        -0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.195,
+                        -0.23,
+                        -0.44
+                    ],
+                    "curvature": 6.9554
+                },
+                {
+                    "id": 3,
+                    "length": 34.7867,
+                    "duration": 5.0754,
+                    "start_point": [
+                        0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 21.3202
+                },
+                {
+                    "id": 4,
+                    "length": 39.9966,
+                    "duration": 5.0472,
+                    "start_point": [
+                        0.0,
+                        0.304,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.0,
+                        -0.304,
+                        -0.44
+                    ],
+                    "curvature": 5.571
+                },
+                {
+                    "id": 5,
+                    "length": 36.8686,
+                    "duration": 5.0822,
+                    "start_point": [
+                        -0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 8.3636
+                },
+                {
+                    "id": 6,
+                    "length": 37.1844,
+                    "duration": 5.0521,
+                    "start_point": [
+                        0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.198,
+                        -0.233,
+                        -0.44
+                    ],
+                    "curvature": 12.3082
+                },
+                {
+                    "id": 7,
+                    "length": 39.6024,
+                    "duration": 5.0559,
+                    "start_point": [
+                        -0.267,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 9.2921
+                },
+                {
+                    "id": 8,
+                    "length": 33.2138,
+                    "duration": 5.0337,
+                    "start_point": [
+                        0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 2.5765
+                }
+            ]
+        },
+        "LBTRRT": {
+            "status": "Successful",
+            "num_paths_found": 9,
+            "total_paths": 9,
+            "success_rate": 100.0,
+            "length_stats": {
+                "average": 35.52055555555555,
+                "min": 31.9771,
+                "max": 39.6511,
+                "std_dev": 2.233560165650401
+            },
+            "duration_stats": {
+                "average": 5.047844444444444,
+                "min": 5.0216,
+                "max": 5.0707,
+                "std_dev": 0.015364975403032772
+            },
+            "smoothness_stats": {
+                "average": 8.005088888888888,
+                "min": 0.4435,
+                "max": 14.1144,
+                "std_dev": 4.020534753941859
+            },
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 35.8804,
+                    "duration": 5.0216,
+                    "start_point": [
+                        -0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 3.5846
+                },
+                {
+                    "id": 1,
+                    "length": 39.6511,
+                    "duration": 5.0376,
+                    "start_point": [
+                        0.259,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 8.9132
+                },
+                {
+                    "id": 2,
+                    "length": 35.4041,
+                    "duration": 5.0356,
+                    "start_point": [
+                        -0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.195,
+                        -0.23,
+                        -0.44
+                    ],
+                    "curvature": 9.1375
+                },
+                {
+                    "id": 3,
+                    "length": 36.4637,
+                    "duration": 5.0582,
+                    "start_point": [
+                        0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 14.1144
+                },
+                {
+                    "id": 4,
+                    "length": 33.8902,
+                    "duration": 5.0587,
+                    "start_point": [
+                        0.0,
+                        0.304,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.0,
+                        -0.304,
+                        -0.44
+                    ],
+                    "curvature": 5.7766
+                },
+                {
+                    "id": 5,
+                    "length": 35.6505,
+                    "duration": 5.0492,
+                    "start_point": [
+                        -0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 10.1295
+                },
+                {
+                    "id": 6,
+                    "length": 32.9822,
+                    "duration": 5.0349,
+                    "start_point": [
+                        0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.198,
+                        -0.233,
+                        -0.44
+                    ],
+                    "curvature": 12.4336
+                },
+                {
+                    "id": 7,
+                    "length": 37.7857,
+                    "duration": 5.0641,
+                    "start_point": [
+                        -0.267,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 7.5129
+                },
+                {
+                    "id": 8,
+                    "length": 31.9771,
+                    "duration": 5.0707,
+                    "start_point": [
+                        0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 0.4435
+                }
+            ]
+        },
+        "BITstar": {
+            "status": "Successful",
+            "num_paths_found": 9,
+            "total_paths": 9,
+            "success_rate": 100.0,
+            "length_stats": {
+                "average": 32.40661111111112,
+                "min": 31.7867,
+                "max": 32.9762,
+                "std_dev": 0.34851448063154644
+            },
+            "duration_stats": {
+                "average": 5.132777777777778,
+                "min": 5.0148,
+                "max": 5.921,
+                "std_dev": 0.2791157934851404
+            },
+            "smoothness_stats": {
+                "average": 16.912966666666666,
+                "min": 0.2988,
+                "max": 69.5284,
+                "std_dev": 22.327282467719474
+            },
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 32.7166,
+                    "duration": 5.0148,
+                    "start_point": [
+                        -0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 2.5116
+                },
+                {
+                    "id": 1,
+                    "length": 31.7867,
+                    "duration": 5.0201,
+                    "start_point": [
+                        0.259,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 8.4198
+                },
+                {
+                    "id": 2,
+                    "length": 32.4417,
+                    "duration": 5.921,
+                    "start_point": [
+                        -0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.195,
+                        -0.23,
+                        -0.44
+                    ],
+                    "curvature": 43.9295
+                },
+                {
+                    "id": 3,
+                    "length": 32.6041,
+                    "duration": 5.0514,
+                    "start_point": [
+                        0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 6.7969
+                },
+                {
+                    "id": 4,
+                    "length": 32.4819,
+                    "duration": 5.0604,
+                    "start_point": [
+                        0.0,
+                        0.304,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.0,
+                        -0.304,
+                        -0.44
+                    ],
+                    "curvature": 11.093
+                },
+                {
+                    "id": 5,
+                    "length": 32.192,
+                    "duration": 5.0241,
+                    "start_point": [
+                        -0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 3.4035
+                },
+                {
+                    "id": 6,
+                    "length": 32.4891,
+                    "duration": 5.0505,
+                    "start_point": [
+                        0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.198,
+                        -0.233,
+                        -0.44
+                    ],
+                    "curvature": 69.5284
+                },
+                {
+                    "id": 7,
+                    "length": 32.9762,
+                    "duration": 5.0178,
+                    "start_point": [
+                        -0.267,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 6.2352
+                },
+                {
+                    "id": 8,
+                    "length": 31.9712,
+                    "duration": 5.0349,
+                    "start_point": [
+                        0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 0.2988
+                }
+            ]
+        },
+        "BKPIECE1": {
+            "status": "Successful",
+            "num_paths_found": 9,
+            "total_paths": 9,
+            "success_rate": 100.0,
+            "length_stats": {
+                "average": 45.92622222222222,
+                "min": 38.8936,
+                "max": 59.1581,
+                "std_dev": 6.994506836205709
+            },
+            "duration_stats": {
+                "average": 0.09762222222222222,
+                "min": 0.0381,
+                "max": 0.1818,
+                "std_dev": 0.03786733502279233
+            },
+            "smoothness_stats": {
+                "average": 12.582144444444445,
+                "min": 3.0498,
+                "max": 27.7599,
+                "std_dev": 7.448687506028771
+            },
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 42.8223,
+                    "duration": 0.1818,
+                    "start_point": [
+                        -0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 3.6338
+                },
+                {
+                    "id": 1,
+                    "length": 59.1581,
+                    "duration": 0.1027,
+                    "start_point": [
+                        0.259,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 12.5341
+                },
+                {
+                    "id": 2,
+                    "length": 56.5015,
+                    "duration": 0.105,
+                    "start_point": [
+                        -0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.195,
+                        -0.23,
+                        -0.44
+                    ],
+                    "curvature": 27.7599
+                },
+                {
+                    "id": 3,
+                    "length": 47.9865,
+                    "duration": 0.0849,
+                    "start_point": [
+                        0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 17.8401
+                },
+                {
+                    "id": 4,
+                    "length": 40.4775,
+                    "duration": 0.1001,
+                    "start_point": [
+                        0.0,
+                        0.304,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.0,
+                        -0.304,
+                        -0.44
+                    ],
+                    "curvature": 7.6678
+                },
+                {
+                    "id": 5,
+                    "length": 40.7666,
+                    "duration": 0.0921,
+                    "start_point": [
+                        -0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 3.0498
+                },
+                {
+                    "id": 6,
+                    "length": 40.1539,
+                    "duration": 0.0572,
+                    "start_point": [
+                        0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.198,
+                        -0.233,
+                        -0.44
+                    ],
+                    "curvature": 8.224
+                },
+                {
+                    "id": 7,
+                    "length": 46.576,
+                    "duration": 0.0381,
+                    "start_point": [
+                        -0.267,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 16.0141
+                },
+                {
+                    "id": 8,
+                    "length": 38.8936,
+                    "duration": 0.1167,
+                    "start_point": [
+                        0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 16.5157
+                }
+            ]
+        },
+        "KPIECE1": {
+            "status": "Successful",
+            "num_paths_found": 9,
+            "total_paths": 9,
+            "success_rate": 100.0,
+            "length_stats": {
+                "average": 46.076344444444445,
+                "min": 34.7033,
+                "max": 73.7275,
+                "std_dev": 10.779390054390433
+            },
+            "duration_stats": {
+                "average": 0.08013333333333333,
+                "min": 0.029,
+                "max": 0.2889,
+                "std_dev": 0.07775881514872338
+            },
+            "smoothness_stats": {
+                "average": 46.50366666666666,
+                "min": 4.3878,
+                "max": 263.8343,
+                "std_dev": 78.24193622037565
+            },
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 46.8244,
+                    "duration": 0.0505,
+                    "start_point": [
+                        -0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 19.6663
+                },
+                {
+                    "id": 1,
+                    "length": 49.644,
+                    "duration": 0.2889,
+                    "start_point": [
+                        0.259,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 4.3878
+                },
+                {
+                    "id": 2,
+                    "length": 39.9765,
+                    "duration": 0.0558,
+                    "start_point": [
+                        -0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.195,
+                        -0.23,
+                        -0.44
+                    ],
+                    "curvature": 8.3176
+                },
+                {
+                    "id": 3,
+                    "length": 43.3441,
+                    "duration": 0.1165,
+                    "start_point": [
+                        0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 50.2947
+                },
+                {
+                    "id": 4,
+                    "length": 73.7275,
+                    "duration": 0.0611,
+                    "start_point": [
+                        0.0,
+                        0.304,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.0,
+                        -0.304,
+                        -0.44
+                    ],
+                    "curvature": 9.3838
+                },
+                {
+                    "id": 5,
+                    "length": 45.8888,
+                    "duration": 0.0508,
+                    "start_point": [
+                        -0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 39.9409
+                },
+                {
+                    "id": 6,
+                    "length": 43.9531,
+                    "duration": 0.029,
+                    "start_point": [
+                        0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.198,
+                        -0.233,
+                        -0.44
+                    ],
+                    "curvature": 9.7597
+                },
+                {
+                    "id": 7,
+                    "length": 36.6254,
+                    "duration": 0.0355,
+                    "start_point": [
+                        -0.267,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 12.9479
+                },
+                {
+                    "id": 8,
+                    "length": 34.7033,
+                    "duration": 0.0331,
+                    "start_point": [
+                        0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 263.8343
+                }
+            ]
+        },
+        "PDST": {
+            "status": "Successful",
+            "num_paths_found": 9,
+            "total_paths": 9,
+            "success_rate": 100.0,
+            "length_stats": {
+                "average": 39.100988888888885,
+                "min": 31.9653,
+                "max": 46.0029,
+                "std_dev": 4.089944284446493
+            },
+            "duration_stats": {
+                "average": 0.2543222222222222,
+                "min": 0.0187,
+                "max": 1.3335,
+                "std_dev": 0.4134586900707999
+            },
+            "smoothness_stats": {
+                "average": 19.784977777777776,
+                "min": 0.2742,
+                "max": 71.1699,
+                "std_dev": 21.2767458772758
+            },
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 41.1765,
+                    "duration": 0.0323,
+                    "start_point": [
+                        -0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 5.6275
+                },
+                {
+                    "id": 1,
+                    "length": 36.2467,
+                    "duration": 1.3335,
+                    "start_point": [
+                        0.259,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 35.9753
+                },
+                {
+                    "id": 2,
+                    "length": 39.4313,
+                    "duration": 0.059,
+                    "start_point": [
+                        -0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.195,
+                        -0.23,
+                        -0.44
+                    ],
+                    "curvature": 9.3754
+                },
+                {
+                    "id": 3,
+                    "length": 44.2645,
+                    "duration": 0.556,
+                    "start_point": [
+                        0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 19.8074
+                },
+                {
+                    "id": 4,
+                    "length": 39.3941,
+                    "duration": 0.1146,
+                    "start_point": [
+                        0.0,
+                        0.304,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.0,
+                        -0.304,
+                        -0.44
+                    ],
+                    "curvature": 25.4913
+                },
+                {
+                    "id": 5,
+                    "length": 37.5155,
+                    "duration": 0.0365,
+                    "start_point": [
+                        -0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 1.8065
+                },
+                {
+                    "id": 6,
+                    "length": 46.0029,
+                    "duration": 0.0187,
+                    "start_point": [
+                        0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.198,
+                        -0.233,
+                        -0.44
+                    ],
+                    "curvature": 71.1699
+                },
+                {
+                    "id": 7,
+                    "length": 35.9121,
+                    "duration": 0.0223,
+                    "start_point": [
+                        -0.267,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 8.5373
+                },
+                {
+                    "id": 8,
+                    "length": 31.9653,
+                    "duration": 0.116,
+                    "start_point": [
+                        0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 0.2742
+                }
+            ]
+        },
+        "EST": {
+            "status": "Successful",
+            "num_paths_found": 9,
+            "total_paths": 9,
+            "success_rate": 100.0,
+            "length_stats": {
+                "average": 41.27267777777777,
+                "min": 32.3892,
+                "max": 50.1287,
+                "std_dev": 6.144891053509914
+            },
+            "duration_stats": {
+                "average": 0.1398111111111111,
+                "min": 0.0369,
+                "max": 0.2752,
+                "std_dev": 0.08609958632555732
+            },
+            "smoothness_stats": {
+                "average": 6.548444444444445,
+                "min": 3.8877,
+                "max": 13.1366,
+                "std_dev": 2.7782284251783786
+            },
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 50.1287,
+                    "duration": 0.1124,
+                    "start_point": [
+                        -0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 8.9068
+                },
+                {
+                    "id": 1,
+                    "length": 46.8698,
+                    "duration": 0.2752,
+                    "start_point": [
+                        0.259,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 6.4128
+                },
+                {
+                    "id": 2,
+                    "length": 47.8677,
+                    "duration": 0.0672,
+                    "start_point": [
+                        -0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.195,
+                        -0.23,
+                        -0.44
+                    ],
+                    "curvature": 5.0078
+                },
+                {
+                    "id": 3,
+                    "length": 43.2001,
+                    "duration": 0.2251,
+                    "start_point": [
+                        0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 4.0791
+                },
+                {
+                    "id": 4,
+                    "length": 42.9704,
+                    "duration": 0.2685,
+                    "start_point": [
+                        0.0,
+                        0.304,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.0,
+                        -0.304,
+                        -0.44
+                    ],
+                    "curvature": 6.549
+                },
+                {
+                    "id": 5,
+                    "length": 33.0318,
+                    "duration": 0.1133,
+                    "start_point": [
+                        -0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 3.8877
+                },
+                {
+                    "id": 6,
+                    "length": 35.9706,
+                    "duration": 0.0751,
+                    "start_point": [
+                        0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.198,
+                        -0.233,
+                        -0.44
+                    ],
+                    "curvature": 13.1366
+                },
+                {
+                    "id": 7,
+                    "length": 39.0258,
+                    "duration": 0.0846,
+                    "start_point": [
+                        -0.267,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 6.6272
+                },
+                {
+                    "id": 8,
+                    "length": 32.3892,
+                    "duration": 0.0369,
+                    "start_point": [
+                        0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 4.329
+                }
+            ]
+        },
+        "BiEST": {
+            "status": "Successful",
+            "num_paths_found": 9,
+            "total_paths": 9,
+            "success_rate": 100.0,
+            "length_stats": {
+                "average": 41.249833333333335,
+                "min": 35.6695,
+                "max": 54.8907,
+                "std_dev": 5.436331019886279
+            },
+            "duration_stats": {
+                "average": 0.08208888888888889,
+                "min": 0.0601,
+                "max": 0.1293,
+                "std_dev": 0.026031154174456443
+            },
+            "smoothness_stats": {
+                "average": 13.30251111111111,
+                "min": 5.0217,
+                "max": 38.6404,
+                "std_dev": 9.46155374431405
+            },
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 40.6513,
+                    "duration": 0.1283,
+                    "start_point": [
+                        -0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 12.4378
+                },
+                {
+                    "id": 1,
+                    "length": 45.1051,
+                    "duration": 0.0724,
+                    "start_point": [
+                        0.259,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 5.0217
+                },
+                {
+                    "id": 2,
+                    "length": 35.6695,
+                    "duration": 0.0608,
+                    "start_point": [
+                        -0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.195,
+                        -0.23,
+                        -0.44
+                    ],
+                    "curvature": 11.2609
+                },
+                {
+                    "id": 3,
+                    "length": 38.0545,
+                    "duration": 0.0783,
+                    "start_point": [
+                        0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 38.6404
+                },
+                {
+                    "id": 4,
+                    "length": 39.5358,
+                    "duration": 0.1293,
+                    "start_point": [
+                        0.0,
+                        0.304,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.0,
+                        -0.304,
+                        -0.44
+                    ],
+                    "curvature": 6.3387
+                },
+                {
+                    "id": 5,
+                    "length": 40.2738,
+                    "duration": 0.0601,
+                    "start_point": [
+                        -0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 9.0489
+                },
+                {
+                    "id": 6,
+                    "length": 54.8907,
+                    "duration": 0.0823,
+                    "start_point": [
+                        0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.198,
+                        -0.233,
+                        -0.44
+                    ],
+                    "curvature": 11.4186
+                },
+                {
+                    "id": 7,
+                    "length": 40.0661,
+                    "duration": 0.0615,
+                    "start_point": [
+                        -0.267,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 9.6549
+                },
+                {
+                    "id": 8,
+                    "length": 37.0017,
+                    "duration": 0.0658,
+                    "start_point": [
+                        0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 15.9007
+                }
+            ]
+        },
+        "RRTstar": {
+            "status": "Successful",
+            "num_paths_found": 9,
+            "total_paths": 9,
+            "success_rate": 100.0,
+            "length_stats": {
+                "average": 32.385244444444446,
+                "min": 31.9283,
+                "max": 32.9705,
+                "std_dev": 0.315028224876972
+            },
+            "duration_stats": {
+                "average": 5.038777777777778,
+                "min": 5.0153,
+                "max": 5.0637,
+                "std_dev": 0.018883842463143993
+            },
+            "smoothness_stats": {
+                "average": 12.085944444444445,
+                "min": 0.4616,
+                "max": 66.7311,
+                "std_dev": 19.732766099398745
+            },
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 32.6881,
+                    "duration": 5.035,
+                    "start_point": [
+                        -0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 4.5505
+                },
+                {
+                    "id": 1,
+                    "length": 31.9788,
+                    "duration": 5.0634,
+                    "start_point": [
+                        0.259,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 66.7311
+                },
+                {
+                    "id": 2,
+                    "length": 32.4866,
+                    "duration": 5.0192,
+                    "start_point": [
+                        -0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.195,
+                        -0.23,
+                        -0.44
+                    ],
+                    "curvature": 15.356
+                },
+                {
+                    "id": 3,
+                    "length": 32.4152,
+                    "duration": 5.0153,
+                    "start_point": [
+                        0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 3.7703
+                },
+                {
+                    "id": 4,
+                    "length": 32.4673,
+                    "duration": 5.0437,
+                    "start_point": [
+                        0.0,
+                        0.304,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.0,
+                        -0.304,
+                        -0.44
+                    ],
+                    "curvature": 3.9099
+                },
+                {
+                    "id": 5,
+                    "length": 32.1271,
+                    "duration": 5.0276,
+                    "start_point": [
+                        -0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 4.9229
+                },
+                {
+                    "id": 6,
+                    "length": 32.4053,
+                    "duration": 5.0196,
+                    "start_point": [
+                        0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.198,
+                        -0.233,
+                        -0.44
+                    ],
+                    "curvature": 1.8503
+                },
+                {
+                    "id": 7,
+                    "length": 32.9705,
+                    "duration": 5.0615,
+                    "start_point": [
+                        -0.267,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 7.2209
+                },
+                {
+                    "id": 8,
+                    "length": 31.9283,
+                    "duration": 5.0637,
+                    "start_point": [
+                        0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 0.4616
+                }
+            ]
+        },
+        "RRTConnect": {
+            "status": "Successful",
+            "num_paths_found": 9,
+            "total_paths": 9,
+            "success_rate": 100.0,
+            "length_stats": {
+                "average": 37.71281111111111,
+                "min": 32.0361,
+                "max": 47.5914,
+                "std_dev": 5.220837406956526
+            },
+            "duration_stats": {
+                "average": 0.0327,
+                "min": 0.009,
+                "max": 0.0934,
+                "std_dev": 0.025235424836262746
+            },
+            "smoothness_stats": {
+                "average": 8.2377,
+                "min": 1.235,
+                "max": 33.4519,
+                "std_dev": 9.312730012789544
+            },
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 33.6503,
+                    "duration": 0.0179,
+                    "start_point": [
+                        -0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 3.1642
+                },
+                {
+                    "id": 1,
+                    "length": 36.255,
+                    "duration": 0.0934,
+                    "start_point": [
+                        0.259,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 8.162
+                },
+                {
+                    "id": 2,
+                    "length": 42.1972,
+                    "duration": 0.0577,
+                    "start_point": [
+                        -0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.195,
+                        -0.23,
+                        -0.44
+                    ],
+                    "curvature": 33.4519
+                },
+                {
+                    "id": 3,
+                    "length": 47.5914,
+                    "duration": 0.0278,
+                    "start_point": [
+                        0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 6.0762
+                },
+                {
+                    "id": 4,
+                    "length": 38.0102,
+                    "duration": 0.0259,
+                    "start_point": [
+                        0.0,
+                        0.304,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.0,
+                        -0.304,
+                        -0.44
+                    ],
+                    "curvature": 8.5895
+                },
+                {
+                    "id": 5,
+                    "length": 32.7589,
+                    "duration": 0.0147,
+                    "start_point": [
+                        -0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 1.2572
+                },
+                {
+                    "id": 6,
+                    "length": 33.4072,
+                    "duration": 0.009,
+                    "start_point": [
+                        0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.198,
+                        -0.233,
+                        -0.44
+                    ],
+                    "curvature": 4.1841
+                },
+                {
+                    "id": 7,
+                    "length": 43.509,
+                    "duration": 0.0308,
+                    "start_point": [
+                        -0.267,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 8.0192
+                },
+                {
+                    "id": 8,
+                    "length": 32.0361,
+                    "duration": 0.0171,
+                    "start_point": [
+                        0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 1.235
+                }
+            ]
+        },
+        "LazyRRT": {
+            "status": "Successful",
+            "num_paths_found": 8,
+            "total_paths": 9,
+            "success_rate": 88.88888888888889,
+            "length_stats": {
+                "average": 40.6280125,
+                "min": 33.9231,
+                "max": 50.2159,
+                "std_dev": 4.924824779481373
+            },
+            "duration_stats": {
+                "average": 1.1167375000000002,
+                "min": 0.4306,
+                "max": 1.711,
+                "std_dev": 0.4412870520916629
+            },
+            "smoothness_stats": {
+                "average": 8.0903125,
+                "min": 5.1825,
+                "max": 11.5711,
+                "std_dev": 2.426920601007324
+            },
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 44.5421,
+                    "duration": 1.711,
+                    "start_point": [
+                        -0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 11.5711
+                },
+                {
+                    "id": 1,
+                    "length": 50.2159,
+                    "duration": 1.3742,
+                    "start_point": [
+                        -0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.195,
+                        -0.23,
+                        -0.44
+                    ],
+                    "curvature": 5.7227
+                },
+                {
+                    "id": 2,
+                    "length": 33.9231,
+                    "duration": 0.8465,
+                    "start_point": [
+                        0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 5.1825
+                },
+                {
+                    "id": 3,
+                    "length": 36.9548,
+                    "duration": 1.5574,
+                    "start_point": [
+                        0.0,
+                        0.304,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.0,
+                        -0.304,
+                        -0.44
+                    ],
+                    "curvature": 6.558
+                },
+                {
+                    "id": 4,
+                    "length": 35.6639,
+                    "duration": 0.514,
+                    "start_point": [
+                        -0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 11.5427
+                },
+                {
+                    "id": 5,
+                    "length": 40.6925,
+                    "duration": 1.2782,
+                    "start_point": [
+                        0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.198,
+                        -0.233,
+                        -0.44
+                    ],
+                    "curvature": 6.0534
+                },
+                {
+                    "id": 6,
+                    "length": 42.5435,
+                    "duration": 1.222,
+                    "start_point": [
+                        -0.267,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 9.6376
+                },
+                {
+                    "id": 7,
+                    "length": 40.4883,
+                    "duration": 0.4306,
+                    "start_point": [
+                        0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 8.4545
+                }
+            ]
+        },
+        "ProjEST": {
+            "status": "Successful",
+            "num_paths_found": 9,
+            "total_paths": 9,
+            "success_rate": 100.0,
+            "length_stats": {
+                "average": 44.27203333333333,
+                "min": 33.1755,
+                "max": 50.6858,
+                "std_dev": 5.54618047548641
+            },
+            "duration_stats": {
+                "average": 0.43370000000000003,
+                "min": 0.0691,
+                "max": 1.6597,
+                "std_dev": 0.5311020575704406
+            },
+            "smoothness_stats": {
+                "average": 10.572088888888889,
+                "min": 3.0666,
+                "max": 32.293,
+                "std_dev": 8.729037090900746
+            },
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 49.98,
+                    "duration": 0.337,
+                    "start_point": [
+                        -0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 32.293
+                },
+                {
+                    "id": 1,
+                    "length": 50.6858,
+                    "duration": 1.6597,
+                    "start_point": [
+                        0.259,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 8.3206
+                },
+                {
+                    "id": 2,
+                    "length": 40.6955,
+                    "duration": 0.267,
+                    "start_point": [
+                        -0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.195,
+                        -0.23,
+                        -0.44
+                    ],
+                    "curvature": 3.0666
+                },
+                {
+                    "id": 3,
+                    "length": 49.084,
+                    "duration": 1.1089,
+                    "start_point": [
+                        0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 7.6137
+                },
+                {
+                    "id": 4,
+                    "length": 41.4719,
+                    "duration": 0.0724,
+                    "start_point": [
+                        0.0,
+                        0.304,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.0,
+                        -0.304,
+                        -0.44
+                    ],
+                    "curvature": 12.6439
+                },
+                {
+                    "id": 5,
+                    "length": 43.3903,
+                    "duration": 0.095,
+                    "start_point": [
+                        -0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 3.8094
+                },
+                {
+                    "id": 6,
+                    "length": 33.1755,
+                    "duration": 0.0691,
+                    "start_point": [
+                        0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.198,
+                        -0.233,
+                        -0.44
+                    ],
+                    "curvature": 5.0269
+                },
+                {
+                    "id": 7,
+                    "length": 49.1309,
+                    "duration": 0.1423,
+                    "start_point": [
+                        -0.267,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 5.607
+                },
+                {
+                    "id": 8,
+                    "length": 40.8344,
+                    "duration": 0.1519,
+                    "start_point": [
+                        0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 16.7677
+                }
+            ]
+        },
+        "LazyPRM": {
+            "status": "Successful",
+            "num_paths_found": 9,
+            "total_paths": 9,
+            "success_rate": 100.0,
+            "length_stats": {
+                "average": 39.541811111111116,
+                "min": 33.3339,
+                "max": 46.7539,
+                "std_dev": 4.385114410123931
+            },
+            "duration_stats": {
+                "average": 0.29715555555555556,
+                "min": 0.0756,
+                "max": 1.4453,
+                "std_dev": 0.4134914082436998
+            },
+            "smoothness_stats": {
+                "average": 10.582433333333334,
+                "min": 4.9056,
+                "max": 25.262,
+                "std_dev": 6.721145572660132
+            },
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 43.0609,
+                    "duration": 1.4453,
+                    "start_point": [
+                        -0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 7.2425
+                },
+                {
+                    "id": 1,
+                    "length": 46.7539,
+                    "duration": 0.3543,
+                    "start_point": [
+                        0.259,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 6.7084
+                },
+                {
+                    "id": 2,
+                    "length": 45.2412,
+                    "duration": 0.1176,
+                    "start_point": [
+                        -0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.195,
+                        -0.23,
+                        -0.44
+                    ],
+                    "curvature": 8.3036
+                },
+                {
+                    "id": 3,
+                    "length": 40.1885,
+                    "duration": 0.0756,
+                    "start_point": [
+                        0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 5.043
+                },
+                {
+                    "id": 4,
+                    "length": 33.3339,
+                    "duration": 0.1023,
+                    "start_point": [
+                        0.0,
+                        0.304,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.0,
+                        -0.304,
+                        -0.44
+                    ],
+                    "curvature": 4.9056
+                },
+                {
+                    "id": 5,
+                    "length": 38.6812,
+                    "duration": 0.1235,
+                    "start_point": [
+                        -0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 5.6224
+                },
+                {
+                    "id": 6,
+                    "length": 35.1217,
+                    "duration": 0.1306,
+                    "start_point": [
+                        0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.198,
+                        -0.233,
+                        -0.44
+                    ],
+                    "curvature": 25.262
+                },
+                {
+                    "id": 7,
+                    "length": 35.9317,
+                    "duration": 0.1186,
+                    "start_point": [
+                        -0.267,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 13.6462
+                },
+                {
+                    "id": 8,
+                    "length": 37.5633,
+                    "duration": 0.2066,
+                    "start_point": [
+                        0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 18.5082
+                }
+            ]
+        },
+        "PRM": {
+            "status": "Successful",
+            "num_paths_found": 9,
+            "total_paths": 9,
+            "success_rate": 100.0,
+            "length_stats": {
+                "average": 37.121422222222215,
+                "min": 33.8746,
+                "max": 43.5057,
+                "std_dev": 2.6541748241749157
+            },
+            "duration_stats": {
+                "average": 0.11730000000000002,
+                "min": 0.1083,
+                "max": 0.1663,
+                "std_dev": 0.017428329428452592
+            },
+            "smoothness_stats": {
+                "average": 7.730288888888889,
+                "min": 2.9897,
+                "max": 13.5973,
+                "std_dev": 4.181324693986729
+            },
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 34.8158,
+                    "duration": 0.1131,
+                    "start_point": [
+                        -0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 5.16
+                },
+                {
+                    "id": 1,
+                    "length": 43.5057,
+                    "duration": 0.111,
+                    "start_point": [
+                        0.259,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 2.9897
+                },
+                {
+                    "id": 2,
+                    "length": 36.6962,
+                    "duration": 0.1083,
+                    "start_point": [
+                        -0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.195,
+                        -0.23,
+                        -0.44
+                    ],
+                    "curvature": 12.0849
+                },
+                {
+                    "id": 3,
+                    "length": 35.8639,
+                    "duration": 0.1663,
+                    "start_point": [
+                        0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 13.5973
+                },
+                {
+                    "id": 4,
+                    "length": 36.3386,
+                    "duration": 0.1087,
+                    "start_point": [
+                        0.0,
+                        0.304,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.0,
+                        -0.304,
+                        -0.44
+                    ],
+                    "curvature": 3.0498
+                },
+                {
+                    "id": 5,
+                    "length": 36.143,
+                    "duration": 0.1102,
+                    "start_point": [
+                        -0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 9.7155
+                },
+                {
+                    "id": 6,
+                    "length": 38.5708,
+                    "duration": 0.1125,
+                    "start_point": [
+                        0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.198,
+                        -0.233,
+                        -0.44
+                    ],
+                    "curvature": 3.6548
+                },
+                {
+                    "id": 7,
+                    "length": 38.2842,
+                    "duration": 0.111,
+                    "start_point": [
+                        -0.267,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 13.1944
+                },
+                {
+                    "id": 8,
+                    "length": 33.8746,
+                    "duration": 0.1146,
+                    "start_point": [
+                        0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 6.1262
+                }
+            ]
+        },
+        "RRTXstatic": {
+            "status": "Successful",
+            "num_paths_found": 9,
+            "total_paths": 9,
+            "success_rate": 100.0,
+            "length_stats": {
+                "average": 32.430455555555554,
+                "min": 31.7905,
+                "max": 33.0894,
+                "std_dev": 0.3878392167183342
+            },
+            "duration_stats": {
+                "average": 5.043966666666666,
+                "min": 5.0144,
+                "max": 5.0593,
+                "std_dev": 0.014701322691815503
+            },
+            "smoothness_stats": {
+                "average": 7.3383,
+                "min": 0.0854,
+                "max": 29.9168,
+                "std_dev": 8.845644135203871
+            },
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 32.7428,
+                    "duration": 5.0499,
+                    "start_point": [
+                        -0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 1.712
+                },
+                {
+                    "id": 1,
+                    "length": 31.7905,
+                    "duration": 5.0316,
+                    "start_point": [
+                        0.259,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 1.7615
+                },
+                {
+                    "id": 2,
+                    "length": 32.6698,
+                    "duration": 5.0391,
+                    "start_point": [
+                        -0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.195,
+                        -0.23,
+                        -0.44
+                    ],
+                    "curvature": 10.8971
+                },
+                {
+                    "id": 3,
+                    "length": 32.6389,
+                    "duration": 5.0144,
+                    "start_point": [
+                        0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 6.492
+                },
+                {
+                    "id": 4,
+                    "length": 32.4473,
+                    "duration": 5.0567,
+                    "start_point": [
+                        0.0,
+                        0.304,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.0,
+                        -0.304,
+                        -0.44
+                    ],
+                    "curvature": 0.7526
+                },
+                {
+                    "id": 5,
+                    "length": 32.2336,
+                    "duration": 5.0593,
+                    "start_point": [
+                        -0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 10.551
+                },
+                {
+                    "id": 6,
+                    "length": 32.3468,
+                    "duration": 5.0554,
+                    "start_point": [
+                        0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.198,
+                        -0.233,
+                        -0.44
+                    ],
+                    "curvature": 3.8763
+                },
+                {
+                    "id": 7,
+                    "length": 33.0894,
+                    "duration": 5.0575,
+                    "start_point": [
+                        -0.267,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 29.9168
+                },
+                {
+                    "id": 8,
+                    "length": 31.915,
+                    "duration": 5.0318,
+                    "start_point": [
+                        0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 0.0854
+                }
+            ]
+        },
+        "SBL": {
+            "status": "Successful",
+            "num_paths_found": 9,
+            "total_paths": 9,
+            "success_rate": 100.0,
+            "length_stats": {
+                "average": 43.849,
+                "min": 35.9312,
+                "max": 51.4023,
+                "std_dev": 5.205528984540274
+            },
+            "duration_stats": {
+                "average": 0.1587888888888889,
+                "min": 0.0768,
+                "max": 0.2439,
+                "std_dev": 0.05217895370622665
+            },
+            "smoothness_stats": {
+                "average": 11.223011111111113,
+                "min": 3.1995,
+                "max": 31.0032,
+                "std_dev": 9.186740912187211
+            },
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 35.9312,
+                    "duration": 0.1032,
+                    "start_point": [
+                        -0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 13.2868
+                },
+                {
+                    "id": 1,
+                    "length": 45.0408,
+                    "duration": 0.1591,
+                    "start_point": [
+                        0.259,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 3.5225
+                },
+                {
+                    "id": 2,
+                    "length": 40.9296,
+                    "duration": 0.2439,
+                    "start_point": [
+                        -0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.195,
+                        -0.23,
+                        -0.44
+                    ],
+                    "curvature": 3.1995
+                },
+                {
+                    "id": 3,
+                    "length": 42.4354,
+                    "duration": 0.119,
+                    "start_point": [
+                        0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 8.821
+                },
+                {
+                    "id": 4,
+                    "length": 41.5945,
+                    "duration": 0.1297,
+                    "start_point": [
+                        0.0,
+                        0.304,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.0,
+                        -0.304,
+                        -0.44
+                    ],
+                    "curvature": 3.6748
+                },
+                {
+                    "id": 5,
+                    "length": 51.3903,
+                    "duration": 0.0768,
+                    "start_point": [
+                        -0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 23.0933
+                },
+                {
+                    "id": 6,
+                    "length": 47.8906,
+                    "duration": 0.2086,
+                    "start_point": [
+                        0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.198,
+                        -0.233,
+                        -0.44
+                    ],
+                    "curvature": 5.7187
+                },
+                {
+                    "id": 7,
+                    "length": 51.4023,
+                    "duration": 0.195,
+                    "start_point": [
+                        -0.267,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 8.6873
+                },
+                {
+                    "id": 8,
+                    "length": 38.0263,
+                    "duration": 0.1938,
+                    "start_point": [
+                        0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 31.0032
+                }
+            ]
+        },
+        "STRIDE": {
+            "status": "Successful",
+            "num_paths_found": 9,
+            "total_paths": 9,
+            "success_rate": 100.0,
+            "length_stats": {
+                "average": 45.53167777777777,
+                "min": 35.8884,
+                "max": 58.4988,
+                "std_dev": 7.30299894210557
+            },
+            "duration_stats": {
+                "average": 0.12051111111111111,
+                "min": 0.0247,
+                "max": 0.274,
+                "std_dev": 0.0798039047282559
+            },
+            "smoothness_stats": {
+                "average": 17.31291111111111,
+                "min": 6.2207,
+                "max": 30.3834,
+                "std_dev": 8.26999750966568
+            },
+            "paths": [
+                {
+                    "id": 0,
+                    "length": 47.5617,
+                    "duration": 0.0247,
+                    "start_point": [
+                        -0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 30.3834
+                },
+                {
+                    "id": 1,
+                    "length": 49.4473,
+                    "duration": 0.2051,
+                    "start_point": [
+                        0.259,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 8.0057
+                },
+                {
+                    "id": 2,
+                    "length": 41.289,
+                    "duration": 0.0793,
+                    "start_point": [
+                        -0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.195,
+                        -0.23,
+                        -0.44
+                    ],
+                    "curvature": 6.2207
+                },
+                {
+                    "id": 3,
+                    "length": 54.4534,
+                    "duration": 0.274,
+                    "start_point": [
+                        0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 25.1772
+                },
+                {
+                    "id": 4,
+                    "length": 43.0198,
+                    "duration": 0.0763,
+                    "start_point": [
+                        0.0,
+                        0.304,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.0,
+                        -0.304,
+                        -0.44
+                    ],
+                    "curvature": 7.4538
+                },
+                {
+                    "id": 5,
+                    "length": 43.6932,
+                    "duration": 0.1565,
+                    "start_point": [
+                        -0.103,
+                        -0.283,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.106,
+                        0.286,
+                        -0.44
+                    ],
+                    "curvature": 16.8098
+                },
+                {
+                    "id": 6,
+                    "length": 58.4988,
+                    "duration": 0.0465,
+                    "start_point": [
+                        0.198,
+                        0.233,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.198,
+                        -0.233,
+                        -0.44
+                    ],
+                    "curvature": 17.9445
+                },
+                {
+                    "id": 7,
+                    "length": 35.8884,
+                    "duration": 0.0527,
+                    "start_point": [
+                        -0.267,
+                        -0.152,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        0.267,
+                        0.152,
+                        -0.44
+                    ],
+                    "curvature": 25.9762
+                },
+                {
+                    "id": 8,
+                    "length": 35.9335,
+                    "duration": 0.1695,
+                    "start_point": [
+                        0.304,
+                        0.053,
+                        -0.44
+                    ],
+                    "goal_point": [
+                        -0.304,
+                        -0.053,
+                        -0.44
+                    ],
+                    "curvature": 17.8449
+                }
+            ]
+        }
+    }
+}

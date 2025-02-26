@@ -95,7 +95,7 @@ def __calculate_rotation(from_point: np.array, to_point: np.array) -> np.array:
 
     return [qw, qx, qy, qz]
 
-def __transform_to_nerfstudio_format(path: np.array, fps: int=30, distance: float=0.05) -> Dict:  #TODO: fix this
+def __transform_to_nerfstudio_format(path: np.array, fps: int=30, distance: float=0.05) -> Dict:
     """
     Transform a single path to Nerfstudio format with more keyframes.
     """

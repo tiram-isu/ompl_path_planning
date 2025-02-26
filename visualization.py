@@ -11,7 +11,7 @@ class Visualizer:
 
     def __init__(self, mesh_path: str, enable_interactive_visualization: bool, save_screenshot: bool) -> None:
         self.mesh = o3d.io.read_triangle_mesh(mesh_path)
-        self.path_diameter = 0.005 # TODO: make parameter
+        self.path_diameter = 0.005
         self.enable_interactive_visualization = enable_interactive_visualization
         self.save_screenshot = save_screenshot
 
@@ -22,7 +22,7 @@ class Visualizer:
         vis = o3d.visualization.Visualizer()
 
         start_color = [0, 0, 1]
-        middle_color = [.7, .7, .7] # TODO: parameter?
+        middle_color = [.7, .7, .7]
         end_color = [1.0, 0.3, 0.3]
 
         if self.enable_interactive_visualization:

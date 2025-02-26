@@ -7,18 +7,18 @@ from gaussians_to_voxels import get_output_paths, convert_to_voxel_grid
 
 if __name__ == "__main__":
     # Settings for path planning
-    model_name = "stonehenge_colmap_aligned" # .ply or Nerfstudio .ckpt file to be used for path planning
-    output_name = "stonehenge2" # Output folder name
+    model_name = "stonehenge_colmap_aligned.ply" # .ply or Nerfstudio .ckpt file to be used for path planning
+    output_name = "stonehenge" # Output folder name
     custom_visualization_mesh_path = None # Mesh to be used for visualization - voxel grid if None
 
     voxel_grid_config = {
         "opacity_threshold": 0.9, # Gaussians below this threshold will be ignored
         "scale_threshold": 0, # Gaussians smaller than this will be ignored
         "manual_voxel_resolution": None, # Set voxel resolution for biggest dimension
-        "voxel_resolution_factor": 1.5, # Voxel size = average size of gaussians * voxel_resolution_factor
+        "voxel_resolution_factor": 1.5, # Voxel size = average size of gaussians / voxel_resolution_factor
         "scale_factor": 0.001, # 0.001 for Nerfstudio, 0.01 for vanilla/hierarchical 3DGS files
-        "padding": 1, # Padding around the model = minimum distance from path to obstacles
-        "min_distance_to_ground": 3, # Minimum distance from model to ground
+        "padding": 1, # Padding around the model -> minimum distance from path to obstacles
+        "min_distance_to_ground": 2, # Minimum distance from model to ground
         "max_distance_to_ground": 5, # Number of voxels above ground acceptible for path
         "enable_logging": True # Log voxel grid creation
     }
@@ -27,22 +27,21 @@ if __name__ == "__main__":
     planners = ['RRT', 'LazyRRT', 'RRTConnect', 'TRRT', 'PDST', 'SBL', 'STRIDE',
     'EST', 'BiEST', 'ProjEST', 'KPIECE1', 'BKPIECE1', 'LBKPIECE1', 'PRM', 'LazyPRM',
     'RRTstar', 'RRTXstatic', 'LBTRRT', 'LazyLBTRRT', 'BITstar']
-    planners = ['PRM']
     # available planners: ['RRT', 'LazyRRT', 'RRTConnect', 'TRRT', 'PDST', 'SBL', 'STRIDE',
     # 'EST', 'BiEST', 'ProjEST', 'KPIECE1', 'BKPIECE1', 'LBKPIECE1', 'PRM', 'LazyPRM',
     # 'RRTstar', 'RRTXstatic', 'LBTRRT', 'LazyLBTRRT', 'BITstar']
 
     # Start and end points for path planning
     start_end_pairs = [
-        (np.array([-0.304, 0.053, -0.45]), np.array([0.304, -0.053, -0.45])),
-        # (np.array([0.259, -0.15, -0.45]), np.array([-0.267, 0.152, -0.45])),
-        # (np.array([-0.198, 0.233, -0.45]), np.array([0.198, -0.233, -0.45])),
-        # (np.array([0.106, -0.286, -0.45]), np.array([-0.106, 0.286, -0.45])),
-        # (np.array([0, 0.304, -0.45]), np.array([0, -0.304, -0.45])),
-        # (np.array([-0.106, -0.286, -0.45]), np.array([0.106, 0.286, -0.45])),
-        # (np.array([0.198, 0.233, -0.45]), np.array([-0.198, -0.233, -0.45])),
-        # (np.array([-0.267, -0.152, -0.45]), np.array([0.267, 0.152, -0.45])),
-        # (np.array([0.304, 0.053, -0.45]), np.array([-0.304, -0.053, -0.45])),
+        (np.array([-0.304, 0.053, -0.44]), np.array([0.304, -0.053, -0.44])),
+        (np.array([0.259, -0.152, -0.44]), np.array([-0.267, 0.152, -0.44])),
+        (np.array([-0.198, 0.233, -0.44]), np.array([0.195, -0.230, -0.44])),
+        (np.array([0.103, -0.283, -0.44]), np.array([-0.106, 0.286, -0.44])),
+        (np.array([0, 0.304, -0.44]), np.array([0, -0.304, -0.44])),
+        (np.array([-0.103, -0.283, -0.44]), np.array([0.106, 0.286, -0.44])),
+        (np.array([0.198, 0.233, -0.44]), np.array([-0.198, -0.233, -0.44])),
+        (np.array([-0.267, -0.152, -0.44]), np.array([0.267, 0.152, -0.44])),
+        (np.array([0.304, 0.053, -0.44]), np.array([-0.304, -0.053, -0.44])),
     ]
 
     planner_settings = {
@@ -59,12 +58,13 @@ if __name__ == "__main__":
     }
 
     debugging_settings = {
-        "enable_interactive_visualization": False, # Open interactive visualization showing generated paths after planning
+        "enable_interactive_visualization": True, # Open interactive visualization showing generated paths after planning
         "save_screenshot": True, # Save screenshot of the visualization
         "enable_logging": True, # Log path planning
-        "render_nerfstudio_video": True, # Send generated paths to Nerfstudio for rendering - requires running Flask server and Nerfstudio
+        "render_nerfstudio_video": False, # Send generated paths to Nerfstudio for rendering - requires running Flask server and Nerfstudio
     }
 
+    # These need to be adjusted depending on the local setup
     nerfstudio_paths = {
         "nerfstudio_base_dir": "D:/Thesis/Stonehenge_new/stonehenge/", # Path to Nerfstudio base directory
         "checkpoint_path": "nerfstudio_output/trained_model/colmap_data/splatfacto/2024-12-01_175414/config.yml", # Relative path to Nerfstudio config file
@@ -74,7 +74,7 @@ if __name__ == "__main__":
 
     # Get voxel grid from model
     root_dir = os.path.dirname(os.path.realpath(__file__))
-    model_path = f"{root_dir}/models/{model_name}.ply"
+    model_path = f"{root_dir}/models/{model_name}"
 
     output_paths = get_output_paths(root_dir, output_name, voxel_grid_config)
 

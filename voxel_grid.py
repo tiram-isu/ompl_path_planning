@@ -91,8 +91,8 @@ class VoxelGrid:
         new_grid = VoxelGrid(self.scene_dimensions, self.voxel_size, self.bounding_box_min)
         for (x, y, z) in self.grid.keys():
             if self.grid[(x, y, z)]:
-                indices = self.get_voxels_in_cuboid((x - padding, y - padding, z - padding),
-                                                    (x + padding, y + padding, z + padding))
+                indices = self.get_voxels_in_cuboid((x - padding, y - padding, z),
+                                                    (x + padding, y + padding, z))
                 for index in indices:
                     new_grid.grid[index] = True
         return new_grid
